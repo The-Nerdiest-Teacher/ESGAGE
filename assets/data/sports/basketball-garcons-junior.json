@@ -1,7 +1,8 @@
 {
-  "updated": "En attente de la première mise à jour automatique...",
-  "standings": [],
-  "scores": [],
   "label": "Basketball — Garçons Junior",
-  "leagueid": 1
+  "leagueid": 1,
+  "schoolid": 12,
+  "updated": "2026-02-20 21:33 UTC",
+  "standings": [],
+  "scores": []
 }
