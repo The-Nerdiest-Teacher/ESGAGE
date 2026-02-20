@@ -1,7 +1,5 @@
 """
-HSSAA Data Scraper — Playwright edition
-Uses a real headless Chromium browser to bypass 403 blocks.
-Runs nightly via GitHub Actions.
+HSSAA Data Scraper — Playwright edition with debug output
 """
 
 import json
@@ -30,42 +28,67 @@ LEAGUES = {
 }
 
 
-def parse_standings(html):
+def parse_standings(html, debug=False):
     soup = BeautifulSoup(html, "html.parser")
+
+    if debug:
+        # Print all text content to see what the page actually contains
+        print("  --- PAGE TEXT (first 2000 chars) ---")
+        print(soup.get_text()[:2000])
+        print("  --- ALL TABLES found:", len(soup.find_all("table")))
+        for i, t in enumerate(soup.find_all("table")):
+            print(f"  Table {i}: {str(t)[:300]}")
+        print("  --- END DEBUG ---")
+
     standings = []
     tables = soup.find_all("table")
     for table in tables:
         tier = None
-        prev = table.find_previous_sibling()
-        while prev:
-            text = prev.get_text(strip=True)
-            if text:
-                tier = text
-                break
-            prev = prev.find_previous_sibling()
+        # Search more broadly for a heading — check h1/h2/h3/h4/b/strong tags too
+        for tag in ["h1","h2","h3","h4","h5","b","strong","p"]:
+            prev = table.find_previous(tag)
+            if prev:
+                text = prev.get_text(strip=True)
+                if text:
+                    tier = text
+                    break
+
         rows = table.find_all("tr")
         if len(rows) < 2:
             continue
+
         headers = [th.get_text(strip=True) for th in rows[0].find_all(["th", "td"])]
-        if "School" not in " ".join(headers) and "GP" not in " ".join(headers):
-            continue
+        if debug:
+            print(f"  Table headers: {headers}")
+
         tier_data = {"tier": tier or "Classement", "rows": []}
         for row in rows[1:]:
             cells = [td.get_text(strip=True) for td in row.find_all("td")]
-            if cells and len(cells) >= 3:
+            if cells and len(cells) >= 2:
                 tier_data["rows"].append(cells)
+
         if tier_data["rows"]:
             standings.append(tier_data)
+
     return standings
 
 
-def parse_scores(html):
+def parse_scores(html, debug=False):
     soup = BeautifulSoup(html, "html.parser")
+
+    if debug:
+        print("  --- SCORES PAGE TEXT (first 2000 chars) ---")
+        print(soup.get_text()[:2000])
+        print("  --- ALL TABLES found:", len(soup.find_all("table")))
+        for i, t in enumerate(soup.find_all("table")):
+            print(f"  Table {i}: {str(t)[:300]}")
+        print("  --- END DEBUG ---")
+
     games = []
     rows = soup.find_all("tr")
     for row in rows:
         cells = [td.get_text(strip=True) for td in row.find_all("td")]
-        if cells and len(cells) >= 3:
+        if cells and len(cells) >= 2:
             games.append(cells)
     return games
 
@@ -73,8 +96,8 @@ def parse_scores(html):
 async def fetch_page(browser, url):
     page = await browser.new_page()
     try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-        await page.wait_for_timeout(1500)
+        await page.goto(url, wait_until="networkidle", timeout=30000)
+        await page.wait_for_timeout(2000)
         content = await page.content()
         return content
     except Exception as e:
@@ -91,6 +114,8 @@ async def scrape_all():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
 
+        # Debug on first league only to see what we're getting
+        first = True
         for key, config in LEAGUES.items():
             leagueid = config["leagueid"]
             schoolid = config["schoolid"]
@@ -100,8 +125,9 @@ async def scrape_all():
             standings_html = await fetch_page(browser, f"{BASE_URL}/displayStandings.php?leagueid={leagueid}")
             scores_html    = await fetch_page(browser, f"{BASE_URL}/viewScores.php?leagueid={leagueid}&schoolid={schoolid}")
 
-            standings = parse_standings(standings_html) if standings_html else []
-            scores    = parse_scores(scores_html)       if scores_html    else []
+            standings = parse_standings(standings_html, debug=first) if standings_html else []
+            scores    = parse_scores(scores_html, debug=first)       if scores_html    else []
+            first = False
 
             data = {
                 "label":     label,
