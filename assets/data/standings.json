@@ -1,0 +1,23 @@
+{
+  "ligue": "Exemple — à remplacer",
+  "equipes": [
+    {
+      "nom": "GAGE Griffons",
+      "v": 3,
+      "d": 1,
+      "p": 9
+    },
+    {
+      "nom": "Équipe B",
+      "v": 2,
+      "d": 2,
+      "p": 6
+    },
+    {
+      "nom": "Équipe C",
+      "v": 1,
+      "d": 3,
+      "p": 3
+    }
+  ]
+}

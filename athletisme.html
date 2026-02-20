@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sports | École secondaire Gaétan‑Gervais</title>
+<link href="assets/img/favicon.png" rel="icon"/>
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700&family=Raleway:ital,wght@0,400;0,600;0,700;0,800&display=swap" rel="stylesheet"/>
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+<link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<style>
+  .sport-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 24px 20px 18px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+    background: var(--surface-color);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    user-select: none;
+    min-width: 130px;
+    flex: 1 1 130px;
+    max-width: 160px;
+  }
+  .sport-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .sport-card.active {
+    border-color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 93%);
+  }
+  .sport-icon { font-size: 40px; margin-bottom: 10px; line-height: 1; }
+  .sport-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .sport-name {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--heading-color);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Age group panel */
+  .age-group-panel { display: none; }
+  .age-group-panel.visible {
+    display: block;
+    animation: fadeSlideIn 0.25s ease;
+  }
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .age-group-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--heading-color);
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  /* Gender columns */
+  .gender-col-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .gender-col-title.girls { color: var(--accent-color); }
+  .gender-col-title.boys  { color: var(--accent-color); }
+
+  .age-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    justify-content: center;
+  }
+  .age-btn:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(31,107,58,0.25);
+    text-decoration: none;
+  }
+  .gender-divider {
+    width: 1px;
+    background: color-mix(in srgb, var(--default-color), transparent 75%);
+    align-self: stretch;
+  }
+
+  html.dark-mode .sport-card { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  html.dark-mode .age-group-title { color: #ffffff; }
+  html.dark-mode .gender-col-title { color: #ffffff !important; }
+  html.dark-mode .age-btn { color: #ffffff; border-color: #ffffff; }
+  html.dark-mode .age-btn:hover { background: #ffffff; color: var(--heading-color); }
+
+  @media (max-width: 767px) {
+    .sports-grid { flex-direction: column !important; align-items: center; }
+    .sport-card  { width: 100%; max-width: 320px; flex: none; }
+    .gender-divider { display: none; }
+  }
+</style>
+</head>
+<body class="starter-page-page">
+<div id="header-placeholder"></div>
+<script src="assets/js/include-header.js"></script>
+<main class="main">
+
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Sports</h1>
+            <p class="mb-0">Équipes, calendriers, résultats et informations pour les essais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li class="current">Sports</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+
+  <section class="section" id="sports-section">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title text-center mb-5">
+        <p>Sélectionnez un sport pour voir les équipes disponibles.</p>
+      </div>
+
+      <!-- ══ Sport Icon Row ══ -->
+      <div class="d-flex justify-content-center gap-3 flex-wrap sports-grid mb-5">
+
+        <div class="sport-card" id="card-volleyball"     onclick="toggleSport('volleyball')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/volleyball.png" alt="Volleyball"/></span>
+          <p class="sport-name">Volleyball</p>
+        </div>
+
+        <div class="sport-card" id="card-basketball"     onclick="toggleSport('basketball')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/basketball.png" alt="Basketball"/></span>
+          <p class="sport-name">Basketball</p>
+        </div>
+
+        <div class="sport-card" id="card-crosscountry"   onclick="toggleSport('crosscountry')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/crosscountry.png" alt="Cross Country"/></span>
+          <p class="sport-name">Cross Country</p>
+        </div>
+
+        <div class="sport-card" id="card-soccer"         onclick="toggleSport('soccer')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/soccer.png" alt="Soccer"/></span>
+          <p class="sport-name">Soccer</p>
+        </div>
+
+        <div class="sport-card" id="card-natation"       onclick="toggleSport('natation')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/swimming.png" alt="Natation"/></span>
+          <p class="sport-name">Natation</p>
+        </div>
+
+        <div class="sport-card" id="card-hockey"         onclick="toggleSport('hockey')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/hockey.png" alt="Hockey"/></span>
+          <p class="sport-name">Hockey</p>
+        </div>
+
+        <div class="sport-card" id="card-athletisme"     onclick="toggleSport('athletisme')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/trackandfield.png" alt="Athlétisme"/></span>
+          <p class="sport-name">Athlétisme</p>
+        </div>
+
+        <div class="sport-card" id="card-badminton"      onclick="toggleSport('badminton')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/badminton.png" alt="Badminton"/></span>
+          <p class="sport-name">Badminton</p>
+        </div>
+
+        <div class="sport-card" id="card-flagfootball"   onclick="toggleSport('flagfootball')">
+          <span class="sport-icon"><img src="assets/img/sportslogos/flagfootball.png" alt="Football Drapeau"/></span>
+          <p class="sport-name">Football Drapeau</p>
+        </div>
+
+      </div>
+      <!-- ══ End Sport Icon Row ══ -->
+
+      <!-- ══ Age/Gender Panels ══ -->
+      <!-- Each panel shows two columns: Filles | Garçons, each with 7/8 · Junior · Senior -->
+
+      <div class="age-group-panel" id="panel-volleyball">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/volleyball.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Volleyball — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-volleyball-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-volleyball-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-volleyball-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-volleyball-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-volleyball-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="/equipes/volleyball-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-basketball">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/basketball.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Basketball — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-basketball-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-basketball-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-basketball-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-basketball-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-basketball-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-basketball-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-crosscountry">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/crosscountry.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Cross Country — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-crosscountry-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-crosscountry-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-crosscountry-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-crosscountry-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-crosscountry-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-crosscountry-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-soccer">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/soccer.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Soccer — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-soccer-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-soccer-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-soccer-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-soccer-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-soccer-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-soccer-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-natation">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/swimming.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Natation — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-natation-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-natation-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-natation-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-natation-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-natation-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-natation-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-hockey">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/hockey.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Hockey — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-hockey-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-hockey-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-hockey-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-hockey-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-hockey-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-hockey-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-athletisme">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/trackandfield.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Athlétisme — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-athletisme-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-athletisme-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-athletisme-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-athletisme-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-athletisme-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-athletisme-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-badminton">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/badminton.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Badminton — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls">Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-badminton-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-badminton-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-badminton-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys">Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-badminton-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-badminton-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-badminton-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age-group-panel" id="panel-flagfootball">
+        <div class="text-center mb-4">
+          <p class="age-group-title"><img src="assets/img/sportslogos/flagfootball.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Football Drapeau — Choisissez votre équipe</p>
+        </div>
+        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
+          <!-- Filles -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title girls"> Filles</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-flagfootball-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-flagfootball-filles-junior.html">Junior</a>
+              <a class="age-btn" href="sport-flagfootball-filles-senior.html">Senior</a>
+            </div>
+          </div>
+          <div class="gender-divider"></div>
+          <!-- Garçons -->
+          <div style="min-width:200px;">
+            <p class="gender-col-title boys"> Garçons</p>
+            <div class="d-flex flex-column gap-2">
+              <a class="age-btn" href="sport-flagfootball-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="sport-flagfootball-garcons-junior.html">Junior</a>
+              <a class="age-btn" href="sport-flagfootball-garcons-senior.html">Senior</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ End Age/Gender Panels ══ -->
+
+    </div>
+  </section>
+
+</main>
+<div id="footer-placeholder"></div>
+<script src="assets/js/include-footer.js"></script>
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  function toggleSport(sport) {
+    const allCards  = document.querySelectorAll('.sport-card');
+    const allPanels = document.querySelectorAll('.age-group-panel');
+    const clickedCard  = document.getElementById('card-' + sport);
+    const clickedPanel = document.getElementById('panel-' + sport);
+    const isAlreadyOpen = clickedPanel.classList.contains('visible');
+
+    allCards.forEach(c => c.classList.remove('active'));
+    allPanels.forEach(p => p.classList.remove('visible'));
+
+    if (!isAlreadyOpen) {
+      clickedCard.classList.add('active');
+      clickedPanel.classList.add('visible');
+      if (window.innerWidth < 768) {
+        setTimeout(() => clickedPanel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      }
+    }
+  }
+</script>
+</body>
+</html>

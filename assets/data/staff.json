@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Walter White",
+    "role": "Teacher",
+    "department": "Business",
+    "email": "walter.white@example.com",
+    "photo": "assets/img/team/team-1.jpg"
+  },
+  {
+    "name": "Diana Rivero-Ednet",
+    "role": "Direction Ajointe",
+    "department": "Administration",
+    "email": "riveroednetd@csviamonde.ca",
+    "photo": "assets/img/team/d_riveroednet.jpg"
+  },
+  {
+    "name": "William Anderson",
+    "role": "Teacher",
+    "department": "Math",
+    "email": "william.anderson@example.com",
+    "photo": "assets/img/team/team-3.jpg"
+  },
+  {
+    "name": "Amanda Jepson",
+    "role": "Teacher",
+    "department": "French",
+    "email": "amanda.jepson@example.com",
+    "photo": "assets/img/team/team-4.jpg"
+  },
+  {
+    "name": "Brian Doe",
+    "role": "Support Staff",
+    "department": "Student Services",
+    "email": "brian.doe@example.com",
+    "photo": "assets/img/team/team-5.jpg"
+  },
+  {
+    "name": "Jane Doe",
+    "role": "Administration",
+    "department": "Office",
+    "email": "jane.doe@example.com",
+    "photo": "assets/img/team/team-6.jpg"
+  }
+]

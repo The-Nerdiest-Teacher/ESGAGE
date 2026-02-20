@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-02-17",
+    "categorie": "Vie scolaire",
+    "titre": "Bienvenue sur le nouveau site (bêta)",
+    "resume": "Ce site est une base que l’équipe peut mettre à jour facilement (Nouvelles, Calendrier, Athlétisme).",
+    "url": "#",
+    "image": "assets/img/about.jpg"
+  },
+  {
+    "date": "2026-03-01",
+    "categorie": "Athlétisme",
+    "titre": "Essais des équipes — printemps",
+    "resume": "Consultez la page Athlétisme pour les dates, niveaux et informations d’inscription.",
+    "url": "athletisme.html",
+    "image": "assets/img/events-item-1.jpg"
+  },
+  {
+    "date": "2026-03-15",
+    "categorie": "Académique",
+    "titre": "Portes ouvertes",
+    "resume": "Une soirée pour découvrir nos programmes et rencontrer le personnel.",
+    "url": "calendrier.html",
+    "image": "assets/img/events-item-2.jpg"
+  }
+]
