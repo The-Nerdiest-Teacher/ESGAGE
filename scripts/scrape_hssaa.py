@@ -1,5 +1,5 @@
 """
-HSSAA Data Scraper — Playwright edition with debug output
+HSSAA Data Scraper — Playwright with anti-detection
 """
 
 import json
@@ -32,34 +32,29 @@ def parse_standings(html, debug=False):
     soup = BeautifulSoup(html, "html.parser")
 
     if debug:
-        # Print all text content to see what the page actually contains
-        print("  --- PAGE TEXT (first 2000 chars) ---")
-        print(soup.get_text()[:2000])
-        print("  --- ALL TABLES found:", len(soup.find_all("table")))
-        for i, t in enumerate(soup.find_all("table")):
-            print(f"  Table {i}: {str(t)[:300]}")
-        print("  --- END DEBUG ---")
+        text = soup.get_text()
+        print("  --- PAGE TEXT (first 3000 chars) ---")
+        print(text[:3000])
+        tables = soup.find_all("table")
+        print(f"  --- {len(tables)} TABLE(s) found ---")
+        for i, t in enumerate(tables):
+            print(f"  Table {i}: {str(t)[:400]}")
 
     standings = []
     tables = soup.find_all("table")
     for table in tables:
         tier = None
-        # Search more broadly for a heading — check h1/h2/h3/h4/b/strong tags too
-        for tag in ["h1","h2","h3","h4","h5","b","strong","p"]:
+        for tag in ["h1","h2","h3","h4","h5","b","strong","p","td","div"]:
             prev = table.find_previous(tag)
             if prev:
                 text = prev.get_text(strip=True)
-                if text:
+                if text and len(text) < 100:
                     tier = text
                     break
 
         rows = table.find_all("tr")
         if len(rows) < 2:
             continue
-
-        headers = [th.get_text(strip=True) for th in rows[0].find_all(["th", "td"])]
-        if debug:
-            print(f"  Table headers: {headers}")
 
         tier_data = {"tier": tier or "Classement", "rows": []}
         for row in rows[1:]:
@@ -77,12 +72,9 @@ def parse_scores(html, debug=False):
     soup = BeautifulSoup(html, "html.parser")
 
     if debug:
-        print("  --- SCORES PAGE TEXT (first 2000 chars) ---")
-        print(soup.get_text()[:2000])
-        print("  --- ALL TABLES found:", len(soup.find_all("table")))
-        for i, t in enumerate(soup.find_all("table")):
-            print(f"  Table {i}: {str(t)[:300]}")
-        print("  --- END DEBUG ---")
+        text = soup.get_text()
+        print("  --- SCORES PAGE TEXT (first 3000 chars) ---")
+        print(text[:3000])
 
     games = []
     rows = soup.find_all("tr")
@@ -93,15 +85,25 @@ def parse_scores(html, debug=False):
     return games
 
 
-async def fetch_page(browser, url):
-    page = await browser.new_page()
+async def fetch_page(context, url):
+    page = await context.new_page()
     try:
-        await page.goto(url, wait_until="networkidle", timeout=30000)
+        # Mask automation signals
+        await page.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+            Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3] });
+            Object.defineProperty(navigator, 'languages', { get: () => ['fr-CA', 'fr', 'en'] });
+            window.chrome = { runtime: {} };
+        """)
+        print(f"  Fetching: {url}")
+        response = await page.goto(url, wait_until="domcontentloaded", timeout=25000)
+        print(f"  Status: {response.status if response else 'no response'}")
         await page.wait_for_timeout(2000)
         content = await page.content()
+        print(f"  Content length: {len(content)} chars")
         return content
     except Exception as e:
-        print(f"  Failed to fetch {url}: {e}")
+        print(f"  Failed: {e}")
         return None
     finally:
         await page.close()
@@ -112,18 +114,47 @@ async def scrape_all():
     print(f"HSSAA scraper starting — {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}\n")
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(
+            headless=True,
+            args=[
+                "--no-sandbox",
+                "--disable-blink-features=AutomationControlled",
+                "--disable-dev-shm-usage",
+            ]
+        )
 
-        # Debug on first league only to see what we're getting
+        context = await browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1280, "height": 800},
+            locale="fr-CA",
+            timezone_id="America/Toronto",
+        )
+
+        # Visit homepage first to establish a session cookie
+        print("Visiting HSSAA homepage first...")
+        home_page = await context.new_page()
+        try:
+            await home_page.goto(BASE_URL, wait_until="domcontentloaded", timeout=25000)
+            print(f"  Homepage status OK, waiting...")
+            await home_page.wait_for_timeout(2000)
+        except Exception as e:
+            print(f"  Homepage visit failed: {e}")
+        finally:
+            await home_page.close()
+
         first = True
         for key, config in LEAGUES.items():
             leagueid = config["leagueid"]
             schoolid = config["schoolid"]
             label    = config["label"]
-            print(f"Scraping: {label} (leagueid={leagueid})")
+            print(f"\nScraping: {label} (leagueid={leagueid})")
 
-            standings_html = await fetch_page(browser, f"{BASE_URL}/displayStandings.php?leagueid={leagueid}")
-            scores_html    = await fetch_page(browser, f"{BASE_URL}/viewScores.php?leagueid={leagueid}&schoolid={schoolid}")
+            standings_html = await fetch_page(context, f"{BASE_URL}/displayStandings.php?leagueid={leagueid}")
+            scores_html    = await fetch_page(context, f"{BASE_URL}/viewScores.php?leagueid={leagueid}&schoolid={schoolid}")
 
             standings = parse_standings(standings_html, debug=first) if standings_html else []
             scores    = parse_scores(scores_html, debug=first)       if scores_html    else []
@@ -142,8 +173,12 @@ async def scrape_all():
             with open(out_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"  ✓ {len(standings)} standing table(s), {len(scores)} score row(s) → {out_path}")
+            print(f"  ✓ {len(standings)} standing table(s), {len(scores)} score row(s)")
 
+            # Small delay between requests to be polite
+            await asyncio.sleep(1)
+
+        await context.close()
         await browser.close()
 
     print("\nAll done.")
