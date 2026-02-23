@@ -296,7 +296,12 @@
       </div>
 
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier &amp; Résultats</p>
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
+        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
         <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
 
@@ -452,7 +457,8 @@ function renderScores(scores) {
   const MY_SCHOOL_KEYS = ["gaetan gervais","gaétan gervais","gage"];
   function isUs(t) { return MY_SCHOOL_KEYS.some(k => t.toLowerCase().includes(k)); }
 
-  const games = [];
+  const upcoming = [];
+  const played   = [];
   for (let i = 0; i < scores.length; i++) {
     const row = scores[i];
     // Skip header rows
@@ -500,7 +506,39 @@ function renderScores(scores) {
     return;
   }
 
-  const rows = games.map(g => {
+  // Split into upcoming and completed
+  const upcoming  = games.filter(g => g.result === "À venir");
+  const completed = games.filter(g => g.result !== "À venir");
+
+  // ── Render upcoming ──
+  const upcomingEl = document.getElementById("upcoming-container");
+  if (!upcoming.length) {
+    upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
+  } else {
+    const upRows = upcoming.map(g => {
+      const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
+      const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
+      const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
+      const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
+      const hBold = isUs(g.home)    ? "font-weight:700;" : "";
+      return `<tr>
+        <td style="${vBold}">${vName}</td>
+        <td class="text-center">${g.vScore}</td>
+        <td style="${hBold}">${hName}</td>
+        <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+      </tr>`;
+    }).join("");
+    upcomingEl.innerHTML = `
+      <div class="table-responsive">
+        <table class="table table-bordered schedule-table">
+          <thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Notes</th></tr></thead>
+          <tbody>${upRows}</tbody>
+        </table>
+      </div>`;
+  }
+
+  // ── Render completed ──
+  const rows = completed.map(g => {
     const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
     const hBold = isUs(g.home)    ? "font-weight:700;" : "";
     const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
