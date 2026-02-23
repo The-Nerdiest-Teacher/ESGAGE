@@ -410,7 +410,7 @@ function renderStandings(standings, updated) {
       // Strip bracket suffix from school name for display
       const displayName = school.replace(/\s*\([A-Z]+\)$/, "");
       const nameCell = mine
-        ? `<img src="/ESGAGE/assets/img/favicon.png" alt="GAGE" style="width:18px;height:18px;object-fit:contain;margin-right:6px;vertical-align:middle;">${displayName}`
+        ? `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">${displayName}`
         : displayName;
       return `<tr class="${mine ? "my-school" : ""}">
         <td>${nameCell}</td>
@@ -503,7 +503,7 @@ function renderScores(scores) {
   const rows = games.map(g => {
     const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
     const hBold = isUs(g.home)    ? "font-weight:700;" : "";
-    const LOGO = `<img src="/ESGAGE/assets/img/favicon.png" alt="GAGE" style="width:18px;height:18px;object-fit:contain;margin-right:6px;vertical-align:middle;">`;
+    const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
     const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
     const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
     return `<tr>
