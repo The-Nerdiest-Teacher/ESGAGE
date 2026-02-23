@@ -457,56 +457,53 @@ function renderStandings(standings, updated) {
 }
 
 // ── Scores ────────────────────────────────────────────────────────────────
-// Structure: repeating groups of:
-//   ["Visitor","Score","Score","Home"]  ← header (skip)
-//   ["VisitorName", "V-score", "H-score", "HomeName"]  ← game row
-//   ["Location: ...", "Notes: ..."]  ← metadata row
 function renderScores(scores, replays = []) {
-  const el = document.getElementById("scores-container");
-  if (!scores || !scores.length) {
-    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
-    return;
-  }
-
-  const MY_SCHOOL_KEYS = ["gaetan gervais","gaétan gervais","gage"];
+  const MY_SCHOOL_KEYS = ["gaetan gervais", "gaétan gervais", "gage"];
   function isUs(t) { return MY_SCHOOL_KEYS.some(k => t.toLowerCase().includes(k)); }
+
+  const LOGO = '<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
+  function nameCell(n) { return isUs(n) ? LOGO + n : n; }
+  function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
+  function replayBtn(url) {
+    if (!url) return "";
+    return `<a href="${url}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>`;
+  }
 
   const upcoming = [];
   const played   = [];
+  let gameIndex  = 0;
+
   for (let i = 0; i < scores.length; i++) {
     const row = scores[i];
-    // Skip header rows
-    if (row[0] === "Visitor" && (row[3] === "Home" || row[2] === "Home")) continue;
-    // Skip location/notes rows (only 2 cells or starts with "Location:")
-    if (row.length <= 2 || (row[0] && row[0].startsWith("Location:"))) continue;
 
-    // Upcoming game: 3 cells — visitor, time, home (no second score)
-    if (row.length === 3 && !row[0].startsWith("Location:")) {
-      const visitor = row[0];
-      const time    = row[1];
-      const home    = row[2];
+    // Skip header rows: ["Visitor","Score","Score","Home"] or ["Visitor","Score","Home"]
+    if (row[0] === "Visitor") continue;
 
-      let notes = "";
-      const next = scores[i+1];
-      if (next && next.length <= 2) { notes = (next[1] || "").replace("Notes: ", ""); i++; }
+    // Skip location/notes rows
+    if (!row[0] || row[0].startsWith("Location:") || row[0].startsWith("Notes:")) continue;
+    if (row.length <= 2) continue;
 
-      const gameIndex = games.length + 1;
-      const replayEntry = replays.find(r => r.index === gameIndex);
-      const replay = replayEntry ? replayEntry.replay : '';
-      upcoming.push({ visitor, vScore: time, hScore: "—", home, notes, replay });
+    // Peek ahead for notes row
+    let notes = "";
+    const next = scores[i + 1];
+    if (next && (next.length <= 2 || (next[0] && next[0].startsWith("Location:")))) {
+      notes = (next[1] || "").replace("Notes: ", "");
+      i++;
     }
-    // Completed game: 4 cells
-    else if (row.length >= 4) {
-      const visitor = row[0];
-      const vScore  = row[1];
-      const hScore  = row[2];
-      const home    = row[3];
 
-      let result = "À venir";
-      let badgeClass = "badge-upcoming";
+    gameIndex++;
+    const replayEntry = replays.find(r => r.index === gameIndex);
+    const replay = replayEntry ? (replayEntry.replay || "") : "";
 
-      const vPts = parseInt(vScore);
-      const hPts = parseInt(hScore);
+    // Upcoming: 3 cells (visitor, time, home)
+    if (row.length === 3) {
+      upcoming.push({ visitor: row[0], time: row[1], home: row[2], notes, replay });
+
+    // Completed: 4+ cells (visitor, vScore, hScore, home)
+    } else if (row.length >= 4) {
+      const visitor = row[0], vScore = row[1], hScore = row[2], home = row[3];
+      const vPts = parseInt(vScore), hPts = parseInt(hScore);
+      let result = "", badgeClass = "";
 
       if (!isNaN(vPts) && !isNaN(hPts)) {
         if (isUs(visitor)) {
@@ -515,65 +512,59 @@ function renderScores(scores, replays = []) {
         } else if (isUs(home)) {
           result = hPts > vPts ? "Victoire" : "Défaite";
           badgeClass = hPts > vPts ? "badge-win" : "badge-loss";
+        } else {
+          result = `${vPts} – ${hPts}`;
+          badgeClass = "badge-upcoming";
         }
       }
-
-      let notes = "";
-      const next = scores[i+1];
-      if (next && next.length <= 2) { notes = (next[1] || "").replace("Notes: ", ""); i++; }
-
-      const gameIndex = games.length + 1;
-      const replayEntry = replays.find(r => r.index === gameIndex);
-      const replay = replayEntry ? replayEntry.replay : '';
       played.push({ visitor, vScore, hScore, home, result, badgeClass, notes, replay });
     }
   }
 
-  const LOGO = '<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
-  function nameCell(n) { return isUs(n) ? LOGO + n : n; }
-  function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
-  function replayBtn(url) {
-    if (!url) return "";
-    return '<a href="' + url + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>';
-  }
-
-  // ── Upcoming games ──
+  // ── Render upcoming ──
   const upcomingEl = document.getElementById("upcoming-container");
-  if (!upcoming.length) {
-    upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
-  } else {
-    const rows = upcoming.map(g => `<tr>
-      <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
-      <td class="text-center" colspan="2">${g.vScore}</td>
-      <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
-      <td class="text-muted" style="font-size:11px;">${g.notes}</td>
-    </tr>`).join("");
-    upcomingEl.innerHTML = `<div class="table-responsive">
-      <table class="table table-bordered schedule-table">
-        <thead><tr><th>Visiteur</th><th colspan="2">Heure</th><th>Domicile</th><th>Notes</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>`;
+  if (upcomingEl) {
+    if (!upcoming.length) {
+      upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
+    } else {
+      const rows = upcoming.map(g => `<tr>
+        <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
+        <td class="text-center">${g.time}</td>
+        <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
+        <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+      </tr>`).join("");
+      upcomingEl.innerHTML = `<div class="table-responsive">
+        <table class="table table-bordered schedule-table">
+          <thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Notes</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>`;
+    }
   }
 
-  // ── Played games ──
+  // ── Render results ──
   const playedEl = document.getElementById("scores-container");
-  if (!played.length) {
-    playedEl.innerHTML = `<p class="data-loading">Aucun résultat pour l'instant.</p>`;
-  } else {
-    const rows = played.map(g => `<tr>
-      <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
-      <td class="text-center">${g.vScore}</td>
-      <td class="text-center">${g.hScore}</td>
-      <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
-      <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
-      <td class="text-muted" style="font-size:11px;">${g.notes}</td>
-      <td class="text-center">${replayBtn(g.replay)}</td>
-    </tr>`).join("");
-    playedEl.innerHTML = `<div class="table-responsive">
-      <table class="table table-bordered schedule-table">
-        <thead><tr><th>Visiteur</th><th>Score V</th><th>Score D</th><th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>`;
+  if (playedEl) {
+    if (!played.length) {
+      playedEl.innerHTML = `<p class="data-loading">Aucun résultat pour l'instant.</p>`;
+    } else {
+      const rows = played.map(g => `<tr>
+        <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
+        <td class="text-center">${g.vScore}</td>
+        <td class="text-center">${g.hScore}</td>
+        <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
+        <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
+        <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+        <td class="text-center">${replayBtn(g.replay)}</td>
+      </tr>`).join("");
+      playedEl.innerHTML = `<div class="table-responsive">
+        <table class="table table-bordered schedule-table">
+          <thead><tr>
+            <th>Visiteur</th><th>Score V</th><th>Score D</th>
+            <th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>`;
+    }
   }
 }
 
