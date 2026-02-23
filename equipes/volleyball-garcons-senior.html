@@ -270,7 +270,7 @@
               <img src="/ESGAGE/assets/img/sportslogos/volleyball.png" alt="Volleyball" style="width:64px;height:64px;object-fit:contain;"/>
             </div>
             <h1>Volleyball — Garçons Senior</h1>
-            <p class="mb-0">Effectif, calendrier et classement HSSAA.</p>
+            <p class="mb-0">Notre équipe, calendrier et classement HSSAA.</p>
           </div>
         </div>
       </div>
@@ -291,7 +291,7 @@
       <a class="back-link" href="/ESGAGE/athletisme.html"><i class="bi bi-arrow-left"></i> Retour aux sports</a>
 
       <div class="mb-5 mt-2">
-        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Effectif</p>
+        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Notre équipe</p>
         <div class="roster-grid" id="roster-container"></div>
       </div>
 
@@ -449,6 +449,10 @@ function renderScores(scores, replays = []) {
   const LOGO = '<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
   function nameCell(n) { return isUs(n) ? LOGO + n : n; }
   function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
+  function replayBtn(url) {
+    if (!url) return "";
+    return `<a href="${url}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>`;
+  }
 
   const upcoming = [];
   const played   = [];
@@ -535,12 +539,13 @@ function renderScores(scores, replays = []) {
         <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
         <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
         <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+        <td class="text-center">${replayBtn(g.replay)}</td>
       </tr>`).join("");
       playedEl.innerHTML = `<div class="table-responsive">
         <table class="table table-bordered schedule-table">
           <thead><tr>
             <th>Visiteur</th><th>Score V</th><th>Score D</th>
-            <th>Domicile</th><th>Résultat</th><th>Notes</th>
+            <th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th>
           </tr></thead>
           <tbody>${rows}</tbody>
         </table></div>`;
@@ -556,11 +561,18 @@ function setError(msg) {
   });
 }
 
+const REPLAYS_FILE_VB = "/ESGAGE/assets/data/sports/volleyball-garcons-senior-replays.json";
+
 fetch(DATA_FILE)
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
   .then(d => {
-    renderScores(d.scores, []);
-    renderStandings(d.standings, d.updated);
+    fetch(REPLAYS_FILE_VB)
+      .then(r => r.ok ? r.json() : { games: [] })
+      .catch(() => ({ games: [] }))
+      .then(replays => {
+        renderScores(d.scores, replays.games || []);
+        renderStandings(d.standings, d.updated);
+      });
   })
   .catch(err => {
     console.error("Failed to load data:", err);

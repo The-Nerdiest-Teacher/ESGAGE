@@ -1,0 +1,70 @@
+{
+  "_info": "Ajoutez les liens de rediffusion ici. Laissez 'replay' vide si pas de vidéo.",
+  "games": [
+    {
+      "index": 1,
+      "label": "MacLachlan College @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 2,
+      "label": "E.S. Gaetan Gervais @ Acton D.H.S.",
+      "replay": ""
+    },
+    {
+      "index": 3,
+      "label": "E.S. Sainte-Trinite @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 4,
+      "label": "E.S. Gaetan Gervais @ Aldershot H.S.",
+      "replay": ""
+    },
+    {
+      "index": 5,
+      "label": "King's Christian Collegiate @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 6,
+      "label": "MacLachlan College @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 7,
+      "label": "Acton D.H.S. @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 8,
+      "label": "E.S. Gaetan Gervais @ E.S. Sainte-Trinite",
+      "replay": ""
+    },
+    {
+      "index": 9,
+      "label": "E.S. Gaetan Gervais @ Elsie MacGill S.S.",
+      "replay": ""
+    },
+    {
+      "index": 10,
+      "label": "E.S. Gaetan Gervais @ Burlington Central H.S.",
+      "replay": ""
+    },
+    {
+      "index": 11,
+      "label": "Burlington Central H.S. @ E.S. Gaetan Gervais (QF)",
+      "replay": ""
+    },
+    {
+      "index": 12,
+      "label": "Acton D.H.S. @ E.S. Gaetan Gervais (GHAC A Challenge)",
+      "replay": ""
+    },
+    {
+      "index": 13,
+      "label": "E.S. Gaetan Gervais @ Acad. Cath. Mère-Teresa (GHAC A Semi)",
+      "replay": ""
+    }
+  ]
+}
