@@ -1,386 +1,716 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
+<meta charset="utf-8"/>
+<script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Accueil | École secondaire Gaétan‑Gervais</title>
-<meta content="" name="description"/>
-<meta content="" name="keywords"/>
-<!-- Favicons -->
 <link href="assets/img/favicon.png" rel="icon"/>
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
-<!-- Vendor CSS Files -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet"/>
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
 <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
 <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
 <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
-<!-- Main CSS File -->
 <link href="assets/css/main.css" rel="stylesheet"/>
-<!-- =======================================================
-  * Template Name: Mentor
-  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+<style>
+/* ══ VIDEO HERO ═══════════════════════════════════════════════════════════ */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #000;
+}
+
+#hero-video-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#hero-video-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh; /* 16:9 ratio */
+  height: 100vh;
+  min-width: 100%;
+  min-height: 56.25vw; /* 16:9 ratio */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: none;
+}
+
+/* Dark gradient overlay */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.60) 100%
+  );
+  z-index: 1;
+}
+
+#hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 0;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 40px;
+  padding: 6px 18px;
+  margin-bottom: 24px;
+}
+.hero-eyebrow img {
+  height: 22px;
+  width: auto;
+}
+.hero-eyebrow span {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+#hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+#hero h1 span {
+  color: var(--accent-color);
+}
+
+#hero .hero-tagline {
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(15px, 2vw, 19px);
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-color);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+  color: #fff;
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.5);
+  font-size: 11px;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+.hero-scroll i { font-size: 20px; }
+@keyframes scrollBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ══ HIGHLIGHTS STRIP ═════════════════════════════════════════════════════ */
+.highlights-strip {
+  background: var(--accent-color);
+  padding: 0;
+  overflow: hidden;
+}
+.highlights-strip .strip-inner {
+  display: flex;
+  align-items: stretch;
+}
+.highlight-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.highlight-item:last-child { border-right: none; }
+.highlight-item:hover { background: rgba(0,0,0,0.1); }
+.highlight-item i {
+  font-size: 28px;
+  color: rgba(255,255,255,0.85);
+  flex-shrink: 0;
+}
+.highlight-item .hi-text strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+}
+.highlight-item .hi-text span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+@media (max-width: 768px) {
+  .highlights-strip .strip-inner { flex-direction: column; }
+  .highlight-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .highlight-item:last-child { border-bottom: none; }
+}
+
+/* ══ PILIERS SECTION ══════════════════════════════════════════════════════ */
+.pilier-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  padding: 36px 28px;
+  height: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+}
+.pilier-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+}
+.pilier-icon {
+  width: 60px; height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.pilier-card h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--heading-color);
+}
+.pilier-card p {
+  font-size: 14px;
+  color: var(--default-color);
+  opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ══ STATS ════════════════════════════════════════════════════════════════ */
+.stat-card {
+  text-align: center;
+  padding: 32px 20px;
+}
+.stat-card .stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--accent-color);
+  margin-bottom: 6px;
+}
+.stat-card .stat-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--default-color);
+  opacity: 0.7;
+}
+
+/* ══ QUICK LINKS ══════════════════════════════════════════════════════════ */
+.quick-link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 20px 22px;
+  text-decoration: none;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  height: 100%;
+}
+.quick-link-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--accent-color);
+}
+.quick-link-card i {
+  font-size: 26px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+.quick-link-card strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--heading-color);
+  margin-bottom: 2px;
+}
+.quick-link-card span {
+  font-size: 12px;
+  color: var(--default-color);
+  opacity: 0.65;
+}
+.quick-link-card .arrow {
+  margin-left: auto;
+  color: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.quick-link-card:hover .arrow { opacity: 1; transform: translateX(4px); }
+
+/* ══ SECTION TITLES ═══════════════════════════════════════════════════════ */
+.gage-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: var(--heading-color);
+  margin-bottom: 6px;
+}
+.gage-section-sub {
+  font-size: 15px;
+  color: var(--default-color);
+  opacity: 0.65;
+  margin-bottom: 40px;
+}
+
+/* ══ RANKING CARDS ════════════════════════════════════════════════════════ */
+.ranking-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 20px;
+  padding: 32px 36px;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.ranking-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  border-radius: 20px;
+}
+.ranking-gold {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+  border-color: #f9a825;
+  box-shadow: 0 8px 32px rgba(249,168,37,0.15);
+}
+.ranking-gold::before {
+  background: #f9a825;
+}
+.ranking-silver {
+  background: linear-gradient(135deg, #f5f5f5, #fafafa);
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.ranking-silver::before {
+  background: var(--accent-color);
+}
+html.dark-mode .ranking-gold {
+  background: linear-gradient(135deg, rgba(249,168,37,0.12), rgba(249,168,37,0.06));
+}
+html.dark-mode .ranking-silver {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+}
+.ranking-medal {
+  font-size: 52px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.ranking-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--heading-color);
+}
+.ranking-gold .ranking-number { color: #f57f17; }
+.ranking-silver .ranking-number { color: var(--accent-color); }
+.ranking-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--default-color);
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+@media (max-width: 480px) {
+  .ranking-card { padding: 24px 20px; gap: 16px; }
+  .ranking-number { font-size: 48px; }
+  .ranking-medal { font-size: 40px; }
+}
+</style>
 </head>
 <body class="index-page">
 <div id="header-placeholder"></div>
 <script src="assets/js/include-header.js"></script>
 <main class="main">
-<!-- Hero Section -->
-<section class="hero section dark-background" id="hero">
-<img alt="" data-aos="fade-in" src="assets/img/hero-bg.jpg"/>
-<div class="container">
-<h2 data-aos="fade-up" data-aos-delay="100">Bienvenue à l'École secondaire<br/>Gaétan‑Gervais</h2>
-<p data-aos="fade-up" data-aos-delay="200">École francophone à Oakville — apprentissage, engagement et fierté des GAGE Griffons.</p>
-<div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-<a class="btn-get-started" href="nouvelles.html">Voir les nouvelles</a>
+
+<!-- ══ HERO ════════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div id="hero-video-container">
+    <!--
+      ═══════════════════════════════════════════════════════════
+      REMPLACEZ -G2jRtJ1eeg par l'ID de votre vidéo YouTube
+      Ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ → dQw4w9WgXcQ
+      ═══════════════════════════════════════════════════════════
+    -->
+    <iframe
+      id="yt-bg"
+      src="https://www.youtube.com/embed/-G2jRtJ1eeg?autoplay=1&mute=1&loop=1&playlist=-G2jRtJ1eeg&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="container hero-content">
+    <div data-aos="fade-down" data-aos-delay="50">
+      <div class="hero-eyebrow">
+        <img src="assets/img/gage-logo-small.png" alt="GAGE"/>
+        <span>Oakville, Ontario</span>
+      </div>
+    </div>
+
+    <h1 data-aos="fade-up" data-aos-delay="100">
+      École secondaire<br/><span>Gaétan‑Gervais</span>
+    </h1>
+
+    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">
+      École francophone à Oakville — apprentissage, engagement et fierté des GAGE Griffons.
+    </p>
+
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+      <a class="hero-btn-primary" href="nouvelles.html">
+        <i class="bi bi-newspaper"></i> Voir les nouvelles
+      </a>
+      <a class="hero-btn-secondary" href="athletisme.html">
+        <i class="bi bi-trophy"></i> Sports
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <i class="bi bi-chevron-double-down"></i>
+  </div>
+</section>
+
+<!-- ══ HIGHLIGHTS STRIP ════════════════════════════════════════════════════ -->
+<div class="highlights-strip">
+  <div class="container-fluid px-0">
+    <div class="strip-inner">
+      <a class="highlight-item" href="athletisme.html">
+        <i class="bi bi-trophy-fill"></i>
+        <div class="hi-text">
+          <strong>Sports GAGE</strong>
+          <span>9 sports, 54 équipes</span>
+        </div>
+      </a>
+      <a class="highlight-item" href="calendrier.html">
+        <i class="bi bi-calendar-event-fill"></i>
+        <div class="hi-text">
+          <strong>Calendrier</strong>
+          <span>Événements et activités</span>
+        </div>
+      </a>
+      <a class="highlight-item" href="nouvelles.html">
+        <i class="bi bi-megaphone-fill"></i>
+        <div class="hi-text">
+          <strong>Nouvelles</strong>
+          <span>Actualités de l'école</span>
+        </div>
+      </a>
+      <a class="highlight-item" href="personnel.html">
+        <i class="bi bi-people-fill"></i>
+        <div class="hi-text">
+          <strong>Personnel</strong>
+          <span>Notre équipe enseignante</span>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
-</div>
-</section><!-- /Hero Section -->
-<!-- About Section -->
-<section class="about section" id="about">
-<div class="container">
-<div class="row gy-4">
-<div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-<img alt="" class="img-fluid" src="assets/img/about.jpg"/>
-</div>
-<div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-<h3>Un site simple à mettre à jour</h3>
-<p class="fst-italic">
-              Les sections Nouvelles, Calendrier et Athlétisme peuvent être mises à jour en modifiant de petits fichiers (JSON) dans le dossier <code>assets/data</code>.
-            </p>
-<ul>
-<li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-<li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-<li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-</ul>
-<a class="read-more" href="#"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-</div>
-</div>
-</div>
-</section><!-- /About Section -->
-<!-- Counts Section -->
-<section class="section counts light-background" id="counts">
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-<div class="row gy-4">
-<div class="col-lg-3 col-md-6">
-<div class="stats-item text-center w-100 h-100">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="1232" data-purecounter-start="0"></span>
-<p>Students</p>
-</div>
-</div><!-- End Stats Item -->
-<div class="col-lg-3 col-md-6">
-<div class="stats-item text-center w-100 h-100">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="64" data-purecounter-start="0"></span>
-<p>Courses</p>
-</div>
-</div><!-- End Stats Item -->
-<div class="col-lg-3 col-md-6">
-<div class="stats-item text-center w-100 h-100">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="42" data-purecounter-start="0"></span>
-<p>Events</p>
-</div>
-</div><!-- End Stats Item -->
-<div class="col-lg-3 col-md-6">
-<div class="stats-item text-center w-100 h-100">
-<span class="purecounter" data-purecounter-duration="1" data-purecounter-end="24" data-purecounter-start="0"></span>
-<p>Trainers</p>
-</div>
-</div><!-- End Stats Item -->
-</div>
-</div>
-</section><!-- /Counts Section -->
-<!-- Why Us Section -->
-<section class="section why-us" id="why-us">
-<div class="container">
-<div class="row gy-4">
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-<div class="why-box">
-<h3>Why Choose Our Products?</h3>
-<p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-<div class="text-center">
-<a class="more-btn" href="#"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
-</div>
-</div>
-</div><!-- End Why Box -->
-<div class="col-lg-8 d-flex align-items-stretch">
-<div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-<div class="col-xl-4">
-<div class="icon-box d-flex flex-column justify-content-center align-items-center">
-<i class="bi bi-clipboard-data"></i>
-<h4>Corporis voluptates officia eiusmod</h4>
-<p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-</div>
-</div><!-- End Icon Box -->
-<div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
-<div class="icon-box d-flex flex-column justify-content-center align-items-center">
-<i class="bi bi-gem"></i>
-<h4>Ullamco laboris ladore pan</h4>
-<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-</div>
-</div><!-- End Icon Box -->
-<div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-<div class="icon-box d-flex flex-column justify-content-center align-items-center">
-<i class="bi bi-inboxes"></i>
-<h4>Labore consequatur incidid dolore</h4>
-<p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-</div>
-</div><!-- End Icon Box -->
-</div>
-</div>
-</div>
-</div>
-</section><!-- /Why Us Section -->
-<!-- Features Section -->
-<section class="features section" id="features">
-<div class="container">
-<div class="row gy-4">
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-<div class="features-item">
-<i class="bi bi-eye" style="color: #ffbb2c;"></i>
-<h3><a class="stretched-link" href="">Lorem Ipsum</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-<div class="features-item">
-<i class="bi bi-infinity" style="color: #5578ff;"></i>
-<h3><a class="stretched-link" href="">Dolor Sitema</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-<div class="features-item">
-<i class="bi bi-mortarboard" style="color: #e80368;"></i>
-<h3><a class="stretched-link" href="">Sed perspiciatis</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-<div class="features-item">
-<i class="bi bi-nut" style="color: #e361ff;"></i>
-<h3><a class="stretched-link" href="">Magni Dolores</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-<div class="features-item">
-<i class="bi bi-shuffle" style="color: #47aeff;"></i>
-<h3><a class="stretched-link" href="">Nemo Enim</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-<div class="features-item">
-<i class="bi bi-star" style="color: #ffa76e;"></i>
-<h3><a class="stretched-link" href="">Eiusmod Tempor</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-<div class="features-item">
-<i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-<h3><a class="stretched-link" href="">Midela Teren</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-<div class="features-item">
-<i class="bi bi-camera-video" style="color: #4233ff;"></i>
-<h3><a class="stretched-link" href="">Pira Neve</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
-<div class="features-item">
-<i class="bi bi-command" style="color: #b2904f;"></i>
-<h3><a class="stretched-link" href="">Dirada Pack</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
-<div class="features-item">
-<i class="bi bi-dribbble" style="color: #b20969;"></i>
-<h3><a class="stretched-link" href="">Moton Ideal</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
-<div class="features-item">
-<i class="bi bi-activity" style="color: #ff5828;"></i>
-<h3><a class="stretched-link" href="">Verdo Park</a></h3>
-</div>
-</div><!-- End Feature Item -->
-<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
-<div class="features-item">
-<i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-<h3><a class="stretched-link" href="">Flavor Nivelanda</a></h3>
-</div>
-</div><!-- End Feature Item -->
-</div>
-</div>
-</section><!-- /Features Section -->
-<!-- Courses Section -->
-<section class="courses section" id="courses">
-<!-- Section Title -->
-<div class="container section-title" data-aos="fade-up">
-<h2>Courses</h2>
-<p>Popular Courses</p>
-</div><!-- End Section Title -->
-<div class="container">
-<div class="row">
-<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-<div class="course-item">
-<img alt="..." class="img-fluid" src="assets/img/course-1.jpg"/>
-<div class="course-content">
-<div class="d-flex justify-content-between align-items-center mb-3">
-<p class="category">Web Development</p>
-<p class="price">$169</p>
-</div>
-<h3><a href="course-details.html">Website Design</a></h3>
-<p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-<div class="trainer d-flex justify-content-between align-items-center">
-<div class="trainer-profile d-flex align-items-center">
-<img alt="" class="img-fluid" src="assets/img/trainers/trainer-1-2.jpg"/>
-<a class="trainer-link" href="">Antonio</a>
-</div>
-<div class="trainer-rank d-flex align-items-center">
-<i class="bi bi-person user-icon"></i> 50
-                      
-                    <i class="bi bi-heart heart-icon"></i> 65
-                  </div>
-</div>
-</div>
-</div>
-</div> <!-- End Course Item-->
-<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-<div class="course-item">
-<img alt="..." class="img-fluid" src="assets/img/course-2.jpg"/>
-<div class="course-content">
-<div class="d-flex justify-content-between align-items-center mb-3">
-<p class="category">Marketing</p>
-<p class="price">$250</p>
-</div>
-<h3><a href="course-details.html">Search Engine Optimization</a></h3>
-<p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-<div class="trainer d-flex justify-content-between align-items-center">
-<div class="trainer-profile d-flex align-items-center">
-<img alt="" class="img-fluid" src="assets/img/trainers/trainer-2-2.jpg"/>
-<a class="trainer-link" href="">Lana</a>
-</div>
-<div class="trainer-rank d-flex align-items-center">
-<i class="bi bi-person user-icon"></i> 35
-                      
-                    <i class="bi bi-heart heart-icon"></i> 42
-                  </div>
-</div>
-</div>
-</div>
-</div> <!-- End Course Item-->
-<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-<div class="course-item">
-<img alt="..." class="img-fluid" src="assets/img/course-3.jpg"/>
-<div class="course-content">
-<div class="d-flex justify-content-between align-items-center mb-3">
-<p class="category">Content</p>
-<p class="price">$180</p>
-</div>
-<h3><a href="course-details.html">Copywriting</a></h3>
-<p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-<div class="trainer d-flex justify-content-between align-items-center">
-<div class="trainer-profile d-flex align-items-center">
-<img alt="" class="img-fluid" src="assets/img/trainers/trainer-3-2.jpg"/>
-<a class="trainer-link" href="">Brandon</a>
-</div>
-<div class="trainer-rank d-flex align-items-center">
-<i class="bi bi-person user-icon"></i> 20
-                      
-                    <i class="bi bi-heart heart-icon"></i> 85
-                  </div>
-</div>
-</div>
-</div>
-</div> <!-- End Course Item-->
-</div>
-</div>
-</section><!-- /Courses Section -->
-<!-- Trainers Index Section -->
-<section class="section trainers-index" id="trainers-index">
-<div class="container">
-<div class="row">
-<div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-<div class="member">
-<img alt="" class="img-fluid" src="assets/img/trainers/trainer-1.jpg"/>
-<div class="member-content">
-<h4>Walter White</h4>
-<span>Web Development</span>
-<p>
-                  Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-                </p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""><i class="bi bi-linkedin"></i></a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member -->
-<div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-<div class="member">
-<img alt="" class="img-fluid" src="assets/img/trainers/trainer-2.jpg"/>
-<div class="member-content">
-<h4>Sarah Jhinson</h4>
-<span>Marketing</span>
-<p>
-                  Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                </p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""><i class="bi bi-linkedin"></i></a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member -->
-<div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-<div class="member">
-<img alt="" class="img-fluid" src="assets/img/trainers/trainer-3.jpg"/>
-<div class="member-content">
-<h4>William Anderson</h4>
-<span>Content</span>
-<p>
-                  Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                </p>
-<div class="social">
-<a href=""><i class="bi bi-twitter-x"></i></a>
-<a href=""><i class="bi bi-facebook"></i></a>
-<a href=""><i class="bi bi-instagram"></i></a>
-<a href=""><i class="bi bi-linkedin"></i></a>
-</div>
-</div>
-</div>
-</div><!-- End Team Member -->
-</div>
-</div>
-</section><!-- /Trainers Index Section -->
+
+<!-- ══ RANKINGS BANNER ════════════════════════════════════════════════════ -->
+<section class="section rankings-banner light-background" id="rankings">
+  <div class="container">
+    <div class="row gy-4 align-items-center justify-content-center" data-aos="fade-up">
+      <div class="col-12 text-center mb-2">
+        <p class="gage-section-title">Reconnus parmi les meilleurs</p>
+        <p class="gage-section-sub">Fraser Institute — Classement des écoles secondaires de l'Ontario</p>
+      </div>
+      <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="ranking-card ranking-gold">
+          <div class="ranking-medal">🥇</div>
+          <div class="ranking-text">
+            <div class="ranking-number">#1</div>
+            <div class="ranking-label">Meilleure école secondaire<br/>francophone en Ontario</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="ranking-card ranking-silver">
+          <div class="ranking-medal">🏅</div>
+          <div class="ranking-text">
+            <div class="ranking-number">#8</div>
+            <div class="ranking-label">Meilleure école secondaire<br/>toutes catégories en Ontario</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PILIERS ══════════════════════════════════════════════════════════════ -->
+<section class="section" id="piliers">
+  <div class="container">
+    <div class="text-center mb-2" data-aos="fade-up">
+      <p class="gage-section-title">Notre Mission</p>
+      <p class="gage-section-sub">Les valeurs qui guident notre communauté scolaire</p>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="pilier-card">
+          <div class="pilier-icon" style="background:color-mix(in srgb, #4caf50, transparent 85%);">
+            <i class="bi bi-book-fill" style="color:#4caf50;"></i>
+          </div>
+          <h4>Excellence académique</h4>
+          <p>Un curriculum rigoureux en français qui prépare nos élèves pour l'université et au-delà.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="pilier-card">
+          <div class="pilier-icon" style="background:color-mix(in srgb, var(--accent-color), transparent 85%);">
+            <i class="bi bi-trophy-fill" style="color:var(--accent-color);"></i>
+          </div>
+          <h4>Esprit sportif</h4>
+          <p>Nos Griffons compétitionnent avec fierté dans 9 sports à travers la région de Halton.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="pilier-card">
+          <div class="pilier-icon" style="background:color-mix(in srgb, #9c27b0, transparent 85%);">
+            <i class="bi bi-music-note-beamed" style="color:#9c27b0;"></i>
+          </div>
+          <h4>Arts et culture</h4>
+          <p>Un milieu francophone vivant qui célèbre la langue, les arts et l'identité culturelle.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="pilier-card">
+          <div class="pilier-icon" style="background:color-mix(in srgb, #ff9800, transparent 85%);">
+            <i class="bi bi-heart-fill" style="color:#ff9800;"></i>
+          </div>
+          <h4>Communauté</h4>
+          <p>Un environnement inclusif et bienveillant où chaque élève peut s'épanouir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ════════════════════════════════════════════════════════════════ -->
+<section class="section light-background" id="stats">
+  <div class="container">
+    <div class="row gy-2" data-aos="fade-up">
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="355" data-purecounter-duration="1"></span>+
+          </div>
+          <div class="stat-label">Élèves (7e à 12e)</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="1"></span>
+          </div>
+          <div class="stat-label">Sports</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="54" data-purecounter-duration="1"></span>
+          </div>
+          <div class="stat-label">Équipes</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card">
+          <div class="stat-number">
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1"></span>e
+          </div>
+          <div class="stat-label">École en Ontario</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUICK LINKS ══════════════════════════════════════════════════════════ -->
+<section class="section" id="quick-links">
+  <div class="container">
+    <div class="text-center mb-2" data-aos="fade-up">
+      <p class="gage-section-title">Accès Rapide</p>
+      <p class="gage-section-sub">Tout ce dont vous avez besoin en un clic</p>
+    </div>
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <a class="quick-link-card" href="athletisme.html">
+          <i class="bi bi-trophy-fill"></i>
+          <div>
+            <strong>Sports</strong>
+            <span>Équipes, résultats et classements</span>
+          </div>
+          <i class="bi bi-arrow-right arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+        <a class="quick-link-card" href="calendrier.html">
+          <i class="bi bi-calendar3"></i>
+          <div>
+            <strong>Calendrier scolaire</strong>
+            <span>Dates importantes et événements</span>
+          </div>
+          <i class="bi bi-arrow-right arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <a class="quick-link-card" href="nouvelles.html">
+          <i class="bi bi-newspaper"></i>
+          <div>
+            <strong>Nouvelles</strong>
+            <span>Dernières actualités de l'école</span>
+          </div>
+          <i class="bi bi-arrow-right arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+        <a class="quick-link-card" href="personnel.html">
+          <i class="bi bi-people-fill"></i>
+          <div>
+            <strong>Personnel</strong>
+            <span>Enseignants et administration</span>
+          </div>
+          <i class="bi bi-arrow-right arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <a class="quick-link-card" href="https://www.embroidme-oakville.com/sr/4032133" target="_blank">
+          <i class="bi bi-bag-fill"></i>
+          <div>
+            <strong>Boutique GAGE</strong>
+            <span>Vêtements et articles scolaires</span>
+          </div>
+          <i class="bi bi-arrow-right arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+        <a class="quick-link-card" href="contact.html">
+          <i class="bi bi-envelope-fill"></i>
+          <div>
+            <strong>Nous joindre</strong>
+            <span>Coordonnées et formulaire</span>
+          </div>
+          <i class="bi bi-arrow-right arrow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 <div id="footer-placeholder"></div>
 <script src="assets/js/include-footer.js"></script>
-<!-- Scroll Top -->
 <a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
-<!-- Preloader -->
 <div id="preloader"></div>
-<!-- Vendor JS Files -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<!-- Main JS File -->
 <script src="assets/js/main.js"></script>
 </body>
 </html>
