@@ -17,7 +17,6 @@
 <link href="/ESGAGE/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 <link href="/ESGAGE/assets/css/main.css" rel="stylesheet"/>
 <style>
-  /* ── Section titles ── */
   .section-tab-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
@@ -42,7 +41,7 @@
   /* ══ TRADING CARDS ══════════════════════════════════════════════════════ */
   .roster-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
     gap: 24px;
   }
 
@@ -55,26 +54,22 @@
     transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     background: #111;
+    animation: cardIn 0.5s ease both;
   }
-
   .player-card:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 16px 40px rgba(0,0,0,0.4);
   }
 
-  /* Holographic shimmer overlay */
+  /* Holographic shimmer */
   .player-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      135deg,
-      transparent 0%,
-      rgba(255,255,255,0.04) 30%,
-      rgba(255,255,255,0.12) 50%,
-      rgba(255,255,255,0.04) 70%,
-      transparent 100%
-    );
+    background: linear-gradient(135deg,
+      transparent 0%, rgba(255,255,255,0.04) 30%,
+      rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.04) 70%,
+      transparent 100%);
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 3;
@@ -82,14 +77,25 @@
   }
   .player-card:hover::before { opacity: 1; }
 
-  /* Accent corner stripe */
+  /* Top accent stripe — gold for captain, accent for regular */
   .player-card::after {
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 6px;
+    width: 100%; height: 5px;
     background: linear-gradient(90deg, var(--accent-color), #f9a825);
     z-index: 4;
+  }
+  .player-card.captain::after {
+    height: 6px;
+    background: linear-gradient(90deg, #f9a825, #fff176, #f9a825);
+    background-size: 200% 100%;
+    animation: goldShimmer 2s linear infinite;
+  }
+
+  @keyframes goldShimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
 
   .player-card .card-photo {
@@ -103,23 +109,22 @@
   }
   .player-card:hover .card-photo { transform: scale(1.05); }
 
-  /* Dark gradient at bottom */
   .player-card .card-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 55%;
-    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
     z-index: 2;
   }
 
   .player-card .card-info {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    padding: 14px 14px 16px;
+    padding: 12px 14px 16px;
     z-index: 3;
   }
 
-  .player-card .card-sport-badge {
+  .player-card .card-position {
     display: inline-block;
     background: var(--accent-color);
     color: #fff;
@@ -132,6 +137,10 @@
     margin-bottom: 6px;
     text-transform: uppercase;
   }
+  .player-card.captain .card-position {
+    background: linear-gradient(90deg, #f9a825, #f57f17);
+    color: #fff;
+  }
 
   .player-card .card-name {
     font-family: 'Bebas Neue', sans-serif;
@@ -139,20 +148,20 @@
     letter-spacing: 1px;
     color: #fff;
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.8);
   }
 
   .player-card .card-meta {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.55);
     text-transform: uppercase;
   }
 
-  /* Diagonal school tag top-right */
+  /* GAGE ribbon top-right */
   .player-card .card-school {
     position: absolute;
     top: 14px; right: -28px;
@@ -168,13 +177,30 @@
     text-transform: uppercase;
   }
 
-  /* Card shimmer animation on load */
+  /* ── Captain crown badge ── */
+  .captain-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    z-index: 5;
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #f9a825, #f57f17);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(249,168,37,0.7);
+    animation: captainPulse 2.5s ease-in-out infinite;
+    font-size: 15px;
+    line-height: 1;
+  }
+  @keyframes captainPulse {
+    0%,100% { box-shadow: 0 2px 12px rgba(249,168,37,0.7); }
+    50%      { box-shadow: 0 2px 24px rgba(249,168,37,1); }
+  }
+
   @keyframes cardIn {
     from { opacity: 0; transform: translateY(20px) scale(0.95); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
-  }
-  .player-card {
-    animation: cardIn 0.5s ease both;
   }
 
   /* ── Standings ── */
@@ -193,7 +219,6 @@
     text-align: center;
     vertical-align: middle;
     padding: 10px 12px;
-    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
   }
   .standings-table td:first-child { text-align: left; font-weight: 700; }
@@ -202,10 +227,7 @@
     background: color-mix(in srgb, var(--accent-color), transparent 85%);
     font-weight: 700;
   }
-  .standings-table .my-school td:first-child::after {
-    content: ' ★';
-    color: var(--accent-color);
-  }
+  .standings-table .my-school td:first-child::after { content: ' ★'; color: var(--accent-color); }
   .tier-badge {
     display: inline-block;
     background: var(--accent-color);
@@ -225,22 +247,15 @@
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
     font-size: 13px;
-    letter-spacing: 0.5px;
     padding: 10px 14px;
   }
-  .schedule-table td {
-    vertical-align: middle;
-    padding: 10px 14px;
-    font-size: 13px;
-  }
-  .badge-win      { background:#198754; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; font-family:'Rajdhani',sans-serif; letter-spacing:1px; }
-  .badge-loss     { background:#dc3545; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; font-family:'Rajdhani',sans-serif; letter-spacing:1px; }
-  .badge-upcoming { background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; font-family:'Rajdhani',sans-serif; letter-spacing:1px; }
+  .schedule-table td { vertical-align: middle; padding: 10px 14px; font-size: 13px; }
+  .badge-win      { background:#198754; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+  .badge-loss     { background:#dc3545; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+  .badge-upcoming { background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
 
-  /* ── States ── */
   .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
   .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
-
   html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(--accent-color), transparent 78%); }
 </style>
 </head>
@@ -276,31 +291,22 @@
 
   <section class="section">
     <div class="container" data-aos="fade-up">
-
       <a class="back-link" href="/ESGAGE/athletisme.html"><i class="bi bi-arrow-left"></i> Retour aux sports</a>
 
-      <!-- ══ EFFECTIF ══════════════════════════════════════════════════════ -->
       <div class="mb-5 mt-2">
         <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Effectif</p>
         <div class="roster-grid" id="roster-container"></div>
       </div>
 
-      <!-- ══ CALENDRIER ════════════════════════════════════════════════════ -->
       <div class="mb-5">
         <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier &amp; Résultats</p>
-        <div id="scores-container">
-          <p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p>
-        </div>
+        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
 
-      <!-- ══ CLASSEMENT ════════════════════════════════════════════════════ -->
       <div class="mb-5">
         <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Classement HSSAA</p>
-        <div id="standings-container">
-          <p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p>
-        </div>
+        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
-
     </div>
   </section>
 </main>
@@ -318,35 +324,34 @@
 <script src="/ESGAGE/assets/js/main.js"></script>
 
 <script>
-// ── Roster ───────────────────────────────────────────────────────────────
 const PLAYERS = [
-  { name: "Adrian",   img: "Adrian.png"   },
-  { name: "Alex",     img: "Alex.png"     },
-  { name: "Issa",     img: "Issa.png"     },
-  { name: "Karim",    img: "Karim.png"    },
-  { name: "Mateo",    img: "Mateo.png"    },
-  { name: "Matthew",  img: "Matthew.png"  },
-  { name: "Robin",    img: "Robin.png"    },
-  { name: "Samuel",   img: "Samuel.png"   },
-  { name: "Steve",    img: "Steve.png"    },
-  { name: "Tamim",    img: "Tamim.png"    },
-  { name: "Viroshan", img: "Viroshan.png" },
-  { name: "William",  img: "William.png"  },
+  { name: "Adrian",    img: "Adrian-Defensive Specialist.png", position: "Defensive Specialist", captain: false },
+  { name: "B. Jacob",  img: "BJacob-Middle.png",               position: "Middle",               captain: false },
+  { name: "Cameron",   img: "Cameron-Setter.png",              position: "Setter",               captain: false },
+  { name: "M. Jacob",  img: "MJacob-Outside.png",              position: "Outside",              captain: false },
+  { name: "Malek",     img: "Malek-Setter-C.png",              position: "Setter",               captain: true  },
+  { name: "Mateo",     img: "Mateo-Middle.png",                position: "Middle",               captain: false },
+  { name: "Mattias",   img: "Mattias-Middle.png",              position: "Middle",               captain: false },
+  { name: "Michael",   img: "Michael-Outside.png",             position: "Outside",              captain: false },
+  { name: "Robin",     img: "Robin-Opposite.png",              position: "Opposite",             captain: false },
+  { name: "Samuel",    img: "Samuel-Opposite.png",             position: "Opposite",             captain: false },
+  { name: "Sébastien", img: "Sebastien-Outside.png",           position: "Outside",              captain: false },
 ];
 
-const IMG_BASE = "/ESGAGE/assets/img/sportsplayers/BBSB/";
+const IMG_BASE = "/ESGAGE/assets/img/sportsplayers/VBSB/";
 
 const roster = document.getElementById("roster-container");
 PLAYERS.forEach((p, i) => {
   const card = document.createElement("div");
-  card.className = "player-card";
+  card.className = "player-card" + (p.captain ? " captain" : "");
   card.style.animationDelay = `${i * 60}ms`;
   card.innerHTML = `
     <img class="card-photo" src="${IMG_BASE}${p.img}" alt="${p.name}" loading="lazy"/>
     <div class="card-overlay"></div>
     <div class="card-school">GAGE</div>
+    ${p.captain ? `<div class="captain-badge" title="Capitaine">👑</div>` : ""}
     <div class="card-info">
-      <div class="card-sport-badge">Volleyball</div>
+      <div class="card-position">${p.position}</div>
       <div class="card-name">${p.name}</div>
       <div class="card-meta">Garçons Senior</div>
     </div>`;
@@ -356,49 +361,36 @@ PLAYERS.forEach((p, i) => {
 // ── Data ─────────────────────────────────────────────────────────────────
 const DATA_FILE = "/ESGAGE/assets/data/sports/volleyball-garcons-senior.json";
 const MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
-
 function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k)); }
 
 function renderScores(scores) {
   const el = document.getElementById("scores-container");
-  if (!scores || !scores.length) {
-    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
-    return;
-  }
+  if (!scores || !scores.length) { el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`; return; }
   const rows = scores.map(cells => {
-    const result = cells[cells.length - 1] || "";
+    const result = cells[cells.length-1] || "";
     let badge = `<span class="badge-upcoming">À venir</span>`;
-    if (/win|victoire|\bw\b/i.test(result))  badge = `<span class="badge-win">Victoire</span>`;
-    if (/loss|défaite|\bl\b/i.test(result))  badge = `<span class="badge-loss">Défaite</span>`;
-    const tds = cells.slice(0,-1).map(c=>`<td>${c}</td>`).join("");
-    return `<tr>${tds}<td>${badge}</td></tr>`;
+    if (/win|victoire|\bw\b/i.test(result)) badge = `<span class="badge-win">Victoire</span>`;
+    if (/loss|défaite|\bl\b/i.test(result)) badge = `<span class="badge-loss">Défaite</span>`;
+    return `<tr>${cells.slice(0,-1).map(c=>`<td>${c}</td>`).join("")}<td>${badge}</td></tr>`;
   }).join("");
-  el.innerHTML = `<div class="table-responsive">
-    <table class="table table-bordered schedule-table">
-      <thead><tr><th>Date</th><th>Domicile</th><th>Score</th><th>Visiteur</th><th>Résultat</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table></div>`;
+  el.innerHTML = `<div class="table-responsive"><table class="table table-bordered schedule-table">
+    <thead><tr><th>Date</th><th>Domicile</th><th>Score</th><th>Visiteur</th><th>Résultat</th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
 }
 
 function renderStandings(standings, updated) {
   const el = document.getElementById("standings-container");
-  if (!standings || !standings.length) {
-    el.innerHTML = `<p class="data-loading">Aucun classement disponible pour l'instant.</p>`;
-    return;
-  }
+  if (!standings || !standings.length) { el.innerHTML = `<p class="data-loading">Aucun classement disponible pour l'instant.</p>`; return; }
   let html = "";
   standings.forEach(tier => {
     const rows = tier.rows.map(cells => {
       const mine = isMySchool(cells[0]||"");
-      const tds = cells.map(c=>`<td>${c}</td>`).join("");
-      return `<tr class="${mine?"my-school":""}">${tds}</tr>`;
+      return `<tr class="${mine?"my-school":""}">${cells.map(c=>`<td>${c}</td>`).join("")}</tr>`;
     }).join("");
     html += `<span class="tier-badge">${tier.tier}</span>
-    <div class="table-responsive mb-4">
-      <table class="table table-bordered standings-table">
-        <thead><tr><th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th><th>PTS</th><th>WIN%</th><th>PF</th><th>PA</th><th>Série</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>`;
+    <div class="table-responsive mb-4"><table class="table table-bordered standings-table">
+      <thead><tr><th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th><th>PTS</th><th>WIN%</th><th>PF</th><th>PA</th><th>Série</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
   });
   if (updated) html += `<p class="updated-tag">Source : <a href="https://www.hssaa.ca/displayStandings.php?leagueid=26" target="_blank">HSSAA</a> — Mise à jour : ${updated}</p>`;
   el.innerHTML = html;
