@@ -315,7 +315,12 @@
       </div>
 
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier &amp; Résultats</p>
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
+        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
         <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
 
@@ -418,7 +423,8 @@ function renderStandings(standings, updated) {
 
   let html = "";
   tiers.forEach(t => {
-    const thCells = t.colHeaders.map(h => `<th>${h}</th>`).join("");
+    // Skip "School" from scraped headers since we hardcode "École"
+    const thCells = t.colHeaders.filter(h => h !== "School").map(h => `<th>${h}</th>`).join("");
 
     const rows = t.rows.map(cells => {
       const school      = cells[1] || "";
@@ -465,7 +471,8 @@ function renderScores(scores, replays = []) {
   const MY_SCHOOL_KEYS = ["gaetan gervais","gaétan gervais","gage"];
   function isUs(t) { return MY_SCHOOL_KEYS.some(k => t.toLowerCase().includes(k)); }
 
-  const games = [];
+  const upcoming = [];
+  const played   = [];
   for (let i = 0; i < scores.length; i++) {
     const row = scores[i];
     // Skip header rows
@@ -486,7 +493,7 @@ function renderScores(scores, replays = []) {
       const gameIndex = games.length + 1;
       const replayEntry = replays.find(r => r.index === gameIndex);
       const replay = replayEntry ? replayEntry.replay : '';
-      games.push({ visitor, vScore: time, hScore: "—", home, result: "À venir", badgeClass: "badge-upcoming", notes, replay });
+      upcoming.push({ visitor, vScore: time, hScore: "—", home, notes, replay });
     }
     // Completed game: 4 cells
     else if (row.length >= 4) {
@@ -518,42 +525,52 @@ function renderScores(scores, replays = []) {
       const gameIndex = games.length + 1;
       const replayEntry = replays.find(r => r.index === gameIndex);
       const replay = replayEntry ? replayEntry.replay : '';
-      games.push({ visitor, vScore, hScore, home, result, badgeClass, notes, replay });
+      played.push({ visitor, vScore, hScore, home, result, badgeClass, notes, replay });
     }
   }
 
-  if (!games.length) {
-    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
-    return;
+  const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
+  function nameCell(n) { return isUs(n) ? LOGO + n : n; }
+  function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
+
+  // ── Upcoming games ──
+  const upcomingEl = document.getElementById("upcoming-container");
+  if (!upcoming.length) {
+    upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
+  } else {
+    const rows = upcoming.map(g => `<tr>
+      <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
+      <td class="text-center" colspan="2">${g.vScore}</td>
+      <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
+      <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+    </tr>`).join("");
+    upcomingEl.innerHTML = `<div class="table-responsive">
+      <table class="table table-bordered schedule-table">
+        <thead><tr><th>Visiteur</th><th colspan="2">Heure</th><th>Domicile</th><th>Notes</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>`;
   }
 
-  const rows = games.map(g => {
-    const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
-    const hBold = isUs(g.home)    ? "font-weight:700;" : "";
-    const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
-    const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
-    const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
-    return `<tr>
-      <td style="${vBold}">${vName}</td>
+  // ── Played games ──
+  const playedEl = document.getElementById("scores-container");
+  if (!played.length) {
+    playedEl.innerHTML = `<p class="data-loading">Aucun résultat pour l'instant.</p>`;
+  } else {
+    const rows = played.map(g => `<tr>
+      <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
       <td class="text-center">${g.vScore}</td>
       <td class="text-center">${g.hScore}</td>
-      <td style="${hBold}">${hName}</td>
+      <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
       <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
       <td class="text-muted" style="font-size:11px;">${g.notes}</td>
       <td class="text-center">${g.replay ? `<a href="${g.replay}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>` : ""}</td>
-    </tr>`;
-  }).join("");
-
-  el.innerHTML = `
-    <div class="table-responsive">
+    </tr>`).join("");
+    playedEl.innerHTML = `<div class="table-responsive">
       <table class="table table-bordered schedule-table">
-        <thead><tr>
-          <th>Visiteur</th><th>Score V</th><th>Score D</th>
-          <th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th>
-        </tr></thead>
+        <thead><tr><th>Visiteur</th><th>Score V</th><th>Score D</th><th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th></tr></thead>
         <tbody>${rows}</tbody>
-      </table>
-    </div>`;
+      </table></div>`;
+  }
 }
 
 const REPLAYS_FILE = "/ESGAGE/assets/data/sports/basketball-garcons-senior-replays.json";
