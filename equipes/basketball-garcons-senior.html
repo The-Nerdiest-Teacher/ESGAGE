@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Basketball — Garçons Senior | École secondaire Gaétan‑Gervais</title>
+<link href="/ESGAGE/assets/img/favicon.png" rel="icon"/>
+<link href="/ESGAGE/assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="/ESGAGE/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/ESGAGE/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+<link href="/ESGAGE/assets/vendor/aos/aos.css" rel="stylesheet"/>
+<link href="/ESGAGE/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+<link href="/ESGAGE/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+<link href="/ESGAGE/assets/css/main.css" rel="stylesheet"/>
+<style>
+  .section-tab-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--heading-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 14px;
+    margin-bottom: 28px;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  /* ══ TRADING CARDS ══════════════════════════════════════════════════════ */
+  .roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    gap: 24px;
+  }
+
+  .player-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 2/3;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    background: #111;
+    animation: cardIn 0.5s ease both;
+  }
+  .player-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+
+  /* Holographic shimmer */
+  .player-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      transparent 0%, rgba(255,255,255,0.04) 30%,
+      rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.04) 70%,
+      transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .player-card:hover::before { opacity: 1; }
+
+  /* Top accent stripe — gold for captain, accent for regular */
+  .player-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), #f9a825);
+    z-index: 4;
+  }
+  .player-card.captain::after {
+    height: 6px;
+    background: linear-gradient(90deg, #f9a825, #fff176, #f9a825);
+    background-size: 200% 100%;
+    animation: goldShimmer 2s linear infinite;
+  }
+
+  @keyframes goldShimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .player-card .card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+  }
+  .player-card:hover .card-photo { transform: scale(1.05); }
+
+  .player-card .card-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 55%;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
+    z-index: 2;
+  }
+
+  .player-card .card-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 14px 16px;
+    z-index: 3;
+  }
+
+  .player-card .card-position {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .player-card.captain .card-position {
+    background: linear-gradient(90deg, #f9a825, #f57f17);
+    color: #fff;
+  }
+
+  .player-card .card-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+
+  .player-card .card-meta {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+  }
+
+  /* GAGE ribbon top-right */
+  .player-card .card-school {
+    position: absolute;
+    top: 14px; right: -28px;
+    background: linear-gradient(90deg, var(--accent-color), #f9a825);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 36px;
+    transform: rotate(45deg);
+    z-index: 4;
+    text-transform: uppercase;
+  }
+
+  /* ── Captain C badge ── */
+  .captain-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    z-index: 5;
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, #f9a825, #f57f17);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(249,168,37,0.6);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1;
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── Standings ── */
+  .standings-table th {
+    background: var(--accent-color);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 10px 12px;
+  }
+  .standings-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .standings-table td:first-child { text-align: left; font-weight: 700; }
+  .standings-table tbody tr:hover { background: color-mix(in srgb, var(--accent-color), transparent 92%); }
+  .standings-table .my-school {
+    background: color-mix(in srgb, var(--accent-color), transparent 85%);
+    font-weight: 700;
+  }
+  .standings-table .my-school td:first-child::after { content: ' ★'; color: var(--accent-color); }
+  .tier-badge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 4px 16px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Schedule ── */
+  .schedule-table th {
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+  .schedule-table td { vertical-align: middle; padding: 10px 14px; font-size: 13px; }
+  .badge-win      { background:#198754; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+  .badge-loss     { background:#dc3545; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+  .badge-upcoming { background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+
+
+  /* ── Replay button ── */
+  .replay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #dc3545;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .replay-btn:hover { background: #b02a37; color: #fff; }
+
+  .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
+  .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
+  html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(--accent-color), transparent 78%); }
+</style>
+</head>
+<body class="starter-page-page">
+<div id="header-placeholder"></div>
+<script src="/ESGAGE/assets/js/include-header.js"></script>
+<main class="main">
+
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <div style="margin-bottom:12px;">
+              <img src="/ESGAGE/assets/img/sportslogos/basketball.png" alt="Basketball" style="width:64px;height:64px;object-fit:contain;"/>
+            </div>
+            <h1>Basketball — Garçons Senior</h1>
+            <p class="mb-0">Effectif, calendrier et classement HSSAA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/ESGAGE/index.html">Accueil</a></li>
+          <li><a href="/ESGAGE/athletisme.html">Sports</a></li>
+          <li class="current">Basketball Garçons Senior</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <a class="back-link" href="/ESGAGE/athletisme.html"><i class="bi bi-arrow-left"></i> Retour aux sports</a>
+
+      <div class="mb-5 mt-2">
+        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Effectif</p>
+        <div class="roster-grid" id="roster-container"></div>
+      </div>
+
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier &amp; Résultats</p>
+        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Classement HSSAA</p>
+        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="/ESGAGE/assets/js/include-footer.js"></script>
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+<script src="/ESGAGE/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/ESGAGE/assets/vendor/php-email-form/validate.js"></script>
+<script src="/ESGAGE/assets/vendor/aos/aos.js"></script>
+<script src="/ESGAGE/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/ESGAGE/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="/ESGAGE/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/ESGAGE/assets/js/main.js"></script>
+
+<script>
+const PLAYERS = [
+  { name: "Adrian",   img: "Adrian-Point Guard.png",        position: "Point Guard",    captain: false },
+  { name: "Alex",     img: "Alex-Shooting Guard-C.png",     position: "Shooting Guard", captain: true  },
+  { name: "Issa",     img: "Issa-Guard.png",                position: "Guard",          captain: false },
+  { name: "Karim",    img: "Karim-Shooting Guard.png",      position: "Shooting Guard", captain: false },
+  { name: "Mateo",    img: "Mateo-Center-C.png",            position: "Center",         captain: true  },
+  { name: "Matthew",  img: "Matthew-Power Forward.png",     position: "Power Forward",  captain: false },
+  { name: "Robin",    img: "Robin-Guard.png",               position: "Guard",          captain: false },
+  { name: "Samuel",   img: "Samuel-Power Forward.png",      position: "Power Forward",  captain: false },
+  { name: "Steve",    img: "Steve-Guard.png",               position: "Guard",          captain: false },
+  { name: "Tamim",    img: "Tamim-Forward.png",             position: "Forward",        captain: false },
+  { name: "Viroshan", img: "Viroshan-Power Forward.png",    position: "Power Forward",  captain: false },
+  { name: "William",  img: "William-Guard.png",             position: "Guard",          captain: false },
+];
+
+const IMG_BASE = "/ESGAGE/assets/img/sportsplayers/BBSB/";
+
+const roster = document.getElementById("roster-container");
+PLAYERS.forEach((p, i) => {
+  const card = document.createElement("div");
+  card.className = "player-card" + (p.captain ? " captain" : "");
+  card.style.animationDelay = `${i * 60}ms`;
+  card.innerHTML = `
+    <img class="card-photo" src="${IMG_BASE}${p.img}" alt="${p.name}" loading="lazy"/>
+    <div class="card-overlay"></div>
+    <div class="card-school">GAGE</div>
+    ${p.captain ? `<div class="captain-badge" title="Capitaine">C</div>` : ""}
+    <div class="card-info">
+      <div class="card-position">${p.position}</div>
+      <div class="card-name">${p.name}</div>
+      <div class="card-meta">Garçons Senior</div>
+    </div>`;
+  roster.appendChild(card);
+});
+
+// ── Data ─────────────────────────────────────────────────────────────────
+const DATA_FILE = "/ESGAGE/assets/data/sports/basketball-garcons-senior.json";
+const MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
+function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k)); }
+
+// ── Standings ─────────────────────────────────────────────────────────────
+// The data has one big rows array where header rows ("School","MP",...) signal
+// the start of a new tier. The tier name is in headers[0].
+function renderStandings(standings, updated) {
+  const el = document.getElementById("standings-container");
+  if (!standings || !standings.length) {
+    el.innerHTML = `<p class="data-loading">Aucun classement disponible pour l'instant.</p>`;
+    return;
+  }
+
+  // Only process the first standings object (second is the legend)
+  const raw = standings[0];
+  if (!raw) return;
+
+  const HEADER_COLS = ["School","MP","W","L","T","PTS","SW","SL","PW","PL","STREAK"];
+
+  // Split rows into tiers wherever we hit a header row
+  const tiers = [];
+  let current = null;
+  const tierName = raw.headers[0] || "Classement"; // e.g. "A Tier 2"
+
+  // Extract tier letter from header name for labelling sub-tiers
+  raw.rows.forEach(cells => {
+    const isHeader = cells.includes("School") && cells.includes("MP");
+    if (isHeader) {
+      if (current && current.rows.length) tiers.push(current);
+      // Try to infer tier from first school in upcoming rows — label after
+      current = { tier: null, rows: [] };
+    } else if (cells.length >= 3 && cells[1] && cells[1] !== "") {
+      if (current) current.rows.push(cells);
+    }
+  });
+  if (current && current.rows.length) tiers.push(current);
+
+  // Label tiers from the bracket letter in school names e.g. "(A)", "(AA)", "(AAA)"
+  tiers.forEach(t => {
+    const match = t.rows[0] && t.rows[0][1] && t.rows[0][1].match(/\(([A-Z]+)\)/);
+    t.tier = match ? match[1] + " — " + tierName : tierName;
+  });
+
+  let html = "";
+  tiers.forEach(t => {
+    const rows = t.rows.map(cells => {
+      // cells[0] is empty, cells[1] is school name, cells[2..] are stats
+      const school = cells[1] || "";
+      const stats  = cells.slice(2);
+      const mine   = isMySchool(school);
+      // Strip bracket suffix from school name for display
+      const displayName = school.replace(/\s*\([A-Z]+\)$/, "");
+      return `<tr class="${mine ? "my-school" : ""}">
+        <td>${displayName}</td>
+        ${stats.map(c => `<td>${c}</td>`).join("")}
+      </tr>`;
+    }).join("");
+
+    html += `
+      <span class="tier-badge">${t.tier}</span>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered standings-table">
+          <thead><tr>
+            <th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th>
+            <th>PTS</th><th>SW</th><th>SL</th><th>PG</th><th>PL</th><th>Série</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  });
+
+  if (updated) {
+    html += `<p class="updated-tag">Source : <a href="https://www.hssaa.ca/displayStandings.php?leagueid=2" target="_blank">HSSAA</a> — Mise à jour : ${updated}</p>`;
+  }
+  el.innerHTML = html;
+}
+
+// ── Scores ────────────────────────────────────────────────────────────────
+// Structure: repeating groups of:
+//   ["Visitor","Score","Score","Home"]  ← header (skip)
+//   ["VisitorName", "V-score", "H-score", "HomeName"]  ← game row
+//   ["Location: ...", "Notes: ..."]  ← metadata row
+function renderScores(scores, replays = []) {
+  const el = document.getElementById("scores-container");
+  if (!scores || !scores.length) {
+    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
+    return;
+  }
+
+  const MY_SCHOOL_KEYS = ["gaetan gervais","gaétan gervais","gage"];
+  function isUs(t) { return MY_SCHOOL_KEYS.some(k => t.toLowerCase().includes(k)); }
+
+  const games = [];
+  for (let i = 0; i < scores.length; i++) {
+    const row = scores[i];
+    // Skip header rows
+    if (row[0] === "Visitor" && row[3] === "Home") continue;
+    // Skip location/notes rows (only 2 cells or starts with "Location:")
+    if (row.length <= 2 || (row[0] && row[0].startsWith("Location:"))) continue;
+
+    if (row.length >= 4) {
+      const visitor   = row[0];
+      const vScore    = row[1];
+      const hScore    = row[2];
+      const home      = row[3];
+
+      // Determine result from our school's perspective
+      let result = "À venir";
+      let badgeClass = "badge-upcoming";
+
+      const vSets = parseInt(vScore);
+      const hSets = parseInt(hScore);
+
+      if (!isNaN(vSets) && !isNaN(hSets)) {
+        if (isUs(visitor)) {
+          result = vSets > hSets ? "Victoire" : "Défaite";
+          badgeClass = vSets > hSets ? "badge-win" : "badge-loss";
+        } else if (isUs(home)) {
+          result = hSets > vSets ? "Victoire" : "Défaite";
+          badgeClass = hSets > vSets ? "badge-win" : "badge-loss";
+        }
+      }
+
+      // Peek at next row for notes
+      let notes = "";
+      const next = scores[i+1];
+      if (next && next.length <= 2) {
+        notes = (next[1] || "").replace("Notes: ", "");
+        i++; // skip notes row
+      }
+
+      const gameIndex = games.length + 1;
+      const replayEntry = replays.find(r => r.index === gameIndex);
+      const replay = replayEntry ? replayEntry.replay : '';
+      games.push({ visitor, vScore, hScore, home, result, badgeClass, notes, replay });
+    }
+  }
+
+  if (!games.length) {
+    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
+    return;
+  }
+
+  const rows = games.map(g => {
+    const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
+    const hBold = isUs(g.home)    ? "font-weight:700;" : "";
+    return `<tr>
+      <td style="${vBold}">${g.visitor}</td>
+      <td class="text-center">${g.vScore}</td>
+      <td class="text-center">${g.hScore}</td>
+      <td style="${hBold}">${g.home}</td>
+      <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
+      <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+      <td class="text-center">${g.replay ? `<a href="${g.replay}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>` : ""}</td>
+    </tr>`;
+  }).join("");
+
+  el.innerHTML = `
+    <div class="table-responsive">
+      <table class="table table-bordered schedule-table">
+        <thead><tr>
+          <th>Visiteur</th><th>Score V</th><th>Score D</th>
+          <th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+const REPLAYS_FILE = "/ESGAGE/assets/data/sports/basketball-garcons-senior-replays.json";
+
+Promise.all([
+  fetch(DATA_FILE).then(r => r.json()).catch(() => null),
+  fetch(REPLAYS_FILE).then(r => r.json()).catch(() => ({ games: [] }))
+]).then(([d, replays]) => {
+  if (!d) {
+    document.getElementById("scores-container").innerHTML = `<p class="data-loading">Données indisponibles.</p>`;
+    document.getElementById("standings-container").innerHTML = `<p class="data-loading">Données indisponibles.</p>`;
+    return;
+  }
+  renderScores(d.scores, replays.games || []);
+  renderStandings(d.standings, d.updated);
+});
+</script>
+</body>
+</html>
