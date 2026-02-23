@@ -442,42 +442,49 @@ function renderStandings(standings, updated) {
   el.innerHTML = html;
 }
 
-// ── Scores ────────────────────────────────────────────────────────────────
-// Structure: repeating groups of:
-//   ["Visitor","Score","Score","Home"]  ← header (skip)
-//   ["VisitorName", "V-score", "H-score", "HomeName"]  ← game row
-//   ["Location: ...", "Notes: ..."]  ← metadata row
-function renderScores(scores) {
-  const el = document.getElementById("scores-container");
-  if (!scores || !scores.length) {
-    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
-    return;
-  }
-
-  const MY_SCHOOL_KEYS = ["gaetan gervais","gaétan gervais","gage"];
+function renderScores(scores, replays = []) {
+  const MY_SCHOOL_KEYS = ["gaetan gervais", "gaétan gervais", "gage"];
   function isUs(t) { return MY_SCHOOL_KEYS.some(k => t.toLowerCase().includes(k)); }
+
+  const LOGO = '<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
+  function nameCell(n) { return isUs(n) ? LOGO + n : n; }
+  function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
 
   const upcoming = [];
   const played   = [];
+  let gameIndex  = 0;
+
   for (let i = 0; i < scores.length; i++) {
     const row = scores[i];
-    // Skip header rows
-    if (row[0] === "Visitor" && row[3] === "Home") continue;
-    // Skip location/notes rows (only 2 cells or starts with "Location:")
-    if (row.length <= 2 || (row[0] && row[0].startsWith("Location:"))) continue;
 
-    if (row.length >= 4) {
-      const visitor   = row[0];
-      const vScore    = row[1];
-      const hScore    = row[2];
-      const home      = row[3];
+    // Skip header rows and location/notes rows
+    if (!row[0] || row[0] === "Visitor") continue;
+    if (row[0].startsWith("Location:") || row[0].startsWith("Notes:")) continue;
+    if (row.length <= 2) continue;
 
-      // Determine result from our school's perspective
-      let result = "À venir";
-      let badgeClass = "badge-upcoming";
+    // Peek ahead for notes row
+    let notes = "";
+    const next = scores[i + 1];
+    if (next && (next.length <= 2 || (next[0] && next[0].startsWith("Location:")))) {
+      notes = (next[1] || "").replace("Notes: ", "");
+      i++;
+    }
 
-      const vSets = parseInt(vScore);
-      const hSets = parseInt(hScore);
+    gameIndex++;
+    const replayEntry = replays.find(r => r.index === gameIndex);
+    const replay = replayEntry ? (replayEntry.replay || "") : "";
+
+    // Upcoming: 3 cells (visitor, time, home)
+    if (row.length === 3) {
+      upcoming.push({ visitor: row[0], time: row[1], home: row[2], notes, replay });
+
+    // Completed: 4+ cells (visitor, vScore, hScore, home)
+    } else if (row.length >= 4) {
+      const visitor = row[0], vScore = row[1], hScore = row[2], home = row[3];
+
+      // Volleyball: scores look like "2 (25, 25)" — parse sets from first number
+      const vSets = parseInt(vScore), hSets = parseInt(hScore);
+      let result = "", badgeClass = "";
 
       if (!isNaN(vSets) && !isNaN(hSets)) {
         if (isUs(visitor)) {
@@ -486,92 +493,78 @@ function renderScores(scores) {
         } else if (isUs(home)) {
           result = hSets > vSets ? "Victoire" : "Défaite";
           badgeClass = hSets > vSets ? "badge-win" : "badge-loss";
+        } else {
+          result = `${vSets} – ${hSets}`;
+          badgeClass = "badge-upcoming";
         }
       }
-
-      // Peek at next row for notes
-      let notes = "";
-      const next = scores[i+1];
-      if (next && next.length <= 2) {
-        notes = (next[1] || "").replace("Notes: ", "");
-        i++; // skip notes row
-      }
-
-      games.push({ visitor, vScore, hScore, home, result, badgeClass, notes });
+      played.push({ visitor, vScore, hScore, home, result, badgeClass, notes, replay });
     }
   }
 
-  if (!games.length) {
-    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
-    return;
-  }
-
-  // Split into upcoming and completed
-  const upcoming  = games.filter(g => g.result === "À venir");
-  const completed = games.filter(g => g.result !== "À venir");
-
   // ── Render upcoming ──
   const upcomingEl = document.getElementById("upcoming-container");
-  if (!upcoming.length) {
-    upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
-  } else {
-    const upRows = upcoming.map(g => {
-      const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
-      const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
-      const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
-      const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
-      const hBold = isUs(g.home)    ? "font-weight:700;" : "";
-      return `<tr>
-        <td style="${vBold}">${vName}</td>
-        <td class="text-center">${g.vScore}</td>
-        <td style="${hBold}">${hName}</td>
+  if (upcomingEl) {
+    if (!upcoming.length) {
+      upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
+    } else {
+      const rows = upcoming.map(g => `<tr>
+        <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
+        <td class="text-center">${g.time}</td>
+        <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
         <td class="text-muted" style="font-size:11px;">${g.notes}</td>
-      </tr>`;
-    }).join("");
-    upcomingEl.innerHTML = `
-      <div class="table-responsive">
+      </tr>`).join("");
+      upcomingEl.innerHTML = `<div class="table-responsive">
         <table class="table table-bordered schedule-table">
           <thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Notes</th></tr></thead>
-          <tbody>${upRows}</tbody>
-        </table>
-      </div>`;
+          <tbody>${rows}</tbody>
+        </table></div>`;
+    }
   }
 
-  // ── Render completed ──
-  const rows = completed.map(g => {
-    const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
-    const hBold = isUs(g.home)    ? "font-weight:700;" : "";
-    const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
-    const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
-    const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
-    return `<tr>
-      <td style="${vBold}">${vName}</td>
-      <td class="text-center">${g.vScore}</td>
-      <td class="text-center">${g.hScore}</td>
-      <td style="${hBold}">${hName}</td>
-      <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
-      <td class="text-muted" style="font-size:11px;">${g.notes}</td>
-    </tr>`;
-  }).join("");
+  // ── Render results ──
+  const playedEl = document.getElementById("scores-container");
+  if (playedEl) {
+    if (!played.length) {
+      playedEl.innerHTML = `<p class="data-loading">Aucun résultat pour l'instant.</p>`;
+    } else {
+      const rows = played.map(g => `<tr>
+        <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
+        <td class="text-center">${g.vScore}</td>
+        <td class="text-center">${g.hScore}</td>
+        <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
+        <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
+        <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+      </tr>`).join("");
+      playedEl.innerHTML = `<div class="table-responsive">
+        <table class="table table-bordered schedule-table">
+          <thead><tr>
+            <th>Visiteur</th><th>Score V</th><th>Score D</th>
+            <th>Domicile</th><th>Résultat</th><th>Notes</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>`;
+    }
+  }
+}
 
-  el.innerHTML = `
-    <div class="table-responsive">
-      <table class="table table-bordered schedule-table">
-        <thead><tr>
-          <th>Visiteur</th><th>Score V</th><th>Score D</th>
-          <th>Domicile</th><th>Résultat</th><th>Notes</th>
-        </tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </div>`;
+
+function setError(msg) {
+  ["upcoming-container","scores-container","standings-container"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = `<p class="data-loading">${msg}</p>`;
+  });
 }
 
 fetch(DATA_FILE)
-  .then(r => r.json())
-  .then(d => { renderScores(d.scores); renderStandings(d.standings, d.updated); })
-  .catch(() => {
-    document.getElementById("scores-container").innerHTML = `<p class="data-loading">Données indisponibles.</p>`;
-    document.getElementById("standings-container").innerHTML = `<p class="data-loading">Données indisponibles.</p>`;
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(d => {
+    renderScores(d.scores, []);
+    renderStandings(d.standings, d.updated);
+  })
+  .catch(err => {
+    console.error("Failed to load data:", err);
+    setError("Données indisponibles. (" + err.message + ")");
   });
 </script>
 </body>
