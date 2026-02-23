@@ -360,37 +360,166 @@ const DATA_FILE = "/ESGAGE/assets/data/sports/volleyball-garcons-senior.json";
 const MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
 function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k)); }
 
-function renderScores(scores) {
-  const el = document.getElementById("scores-container");
-  if (!scores || !scores.length) { el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`; return; }
-  const rows = scores.map(cells => {
-    const result = cells[cells.length-1] || "";
-    let badge = `<span class="badge-upcoming">À venir</span>`;
-    if (/win|victoire|\bw\b/i.test(result)) badge = `<span class="badge-win">Victoire</span>`;
-    if (/loss|défaite|\bl\b/i.test(result)) badge = `<span class="badge-loss">Défaite</span>`;
-    return `<tr>${cells.slice(0,-1).map(c=>`<td>${c}</td>`).join("")}<td>${badge}</td></tr>`;
-  }).join("");
-  el.innerHTML = `<div class="table-responsive"><table class="table table-bordered schedule-table">
-    <thead><tr><th>Date</th><th>Domicile</th><th>Score</th><th>Visiteur</th><th>Résultat</th></tr></thead>
-    <tbody>${rows}</tbody></table></div>`;
-}
-
+// ── Standings ─────────────────────────────────────────────────────────────
+// The data has one big rows array where header rows ("School","MP",...) signal
+// the start of a new tier. The tier name is in headers[0].
 function renderStandings(standings, updated) {
   const el = document.getElementById("standings-container");
-  if (!standings || !standings.length) { el.innerHTML = `<p class="data-loading">Aucun classement disponible pour l'instant.</p>`; return; }
-  let html = "";
-  standings.forEach(tier => {
-    const rows = tier.rows.map(cells => {
-      const mine = isMySchool(cells[0]||"");
-      return `<tr class="${mine?"my-school":""}">${cells.map(c=>`<td>${c}</td>`).join("")}</tr>`;
-    }).join("");
-    html += `<span class="tier-badge">${tier.tier}</span>
-    <div class="table-responsive mb-4"><table class="table table-bordered standings-table">
-      <thead><tr><th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th><th>PTS</th><th>WIN%</th><th>PF</th><th>PA</th><th>Série</th></tr></thead>
-      <tbody>${rows}</tbody></table></div>`;
+  if (!standings || !standings.length) {
+    el.innerHTML = `<p class="data-loading">Aucun classement disponible pour l'instant.</p>`;
+    return;
+  }
+
+  // Only process the first standings object (second is the legend)
+  const raw = standings[0];
+  if (!raw) return;
+
+  const HEADER_COLS = ["School","MP","W","L","T","PTS","SW","SL","PW","PL","STREAK"];
+
+  // Split rows into tiers wherever we hit a header row
+  const tiers = [];
+  let current = null;
+  const tierName = raw.headers[0] || "Classement"; // e.g. "A Tier 2"
+
+  // Extract tier letter from header name for labelling sub-tiers
+  raw.rows.forEach(cells => {
+    const isHeader = cells.includes("School") && cells.includes("MP");
+    if (isHeader) {
+      if (current && current.rows.length) tiers.push(current);
+      // Try to infer tier from first school in upcoming rows — label after
+      current = { tier: null, rows: [] };
+    } else if (cells.length >= 3 && cells[1] && cells[1] !== "") {
+      if (current) current.rows.push(cells);
+    }
   });
-  if (updated) html += `<p class="updated-tag">Source : <a href="https://www.hssaa.ca/displayStandings.php?leagueid=26" target="_blank">HSSAA</a> — Mise à jour : ${updated}</p>`;
+  if (current && current.rows.length) tiers.push(current);
+
+  // Label tiers from the bracket letter in school names e.g. "(A)", "(AA)", "(AAA)"
+  tiers.forEach(t => {
+    const match = t.rows[0] && t.rows[0][1] && t.rows[0][1].match(/\(([A-Z]+)\)/);
+    t.tier = match ? match[1] + " — " + tierName : tierName;
+  });
+
+  let html = "";
+  tiers.forEach(t => {
+    const rows = t.rows.map(cells => {
+      // cells[0] is empty, cells[1] is school name, cells[2..] are stats
+      const school = cells[1] || "";
+      const stats  = cells.slice(2);
+      const mine   = isMySchool(school);
+      // Strip bracket suffix from school name for display
+      const displayName = school.replace(/\s*\([A-Z]+\)$/, "");
+      return `<tr class="${mine ? "my-school" : ""}">
+        <td>${displayName}</td>
+        ${stats.map(c => `<td>${c}</td>`).join("")}
+      </tr>`;
+    }).join("");
+
+    html += `
+      <span class="tier-badge">${t.tier}</span>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered standings-table">
+          <thead><tr>
+            <th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th>
+            <th>PTS</th><th>SW</th><th>SL</th><th>PG</th><th>PL</th><th>Série</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  });
+
+  if (updated) {
+    html += `<p class="updated-tag">Source : <a href="https://www.hssaa.ca/displayStandings.php?leagueid=26" target="_blank">HSSAA</a> — Mise à jour : ${updated}</p>`;
+  }
   el.innerHTML = html;
+}
+
+// ── Scores ────────────────────────────────────────────────────────────────
+// Structure: repeating groups of:
+//   ["Visitor","Score","Score","Home"]  ← header (skip)
+//   ["VisitorName", "V-score", "H-score", "HomeName"]  ← game row
+//   ["Location: ...", "Notes: ..."]  ← metadata row
+function renderScores(scores) {
+  const el = document.getElementById("scores-container");
+  if (!scores || !scores.length) {
+    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
+    return;
+  }
+
+  const MY_SCHOOL_KEYS = ["gaetan gervais","gaétan gervais","gage"];
+  function isUs(t) { return MY_SCHOOL_KEYS.some(k => t.toLowerCase().includes(k)); }
+
+  const games = [];
+  for (let i = 0; i < scores.length; i++) {
+    const row = scores[i];
+    // Skip header rows
+    if (row[0] === "Visitor" && row[3] === "Home") continue;
+    // Skip location/notes rows (only 2 cells or starts with "Location:")
+    if (row.length <= 2 || (row[0] && row[0].startsWith("Location:"))) continue;
+
+    if (row.length >= 4) {
+      const visitor   = row[0];
+      const vScore    = row[1];
+      const hScore    = row[2];
+      const home      = row[3];
+
+      // Determine result from our school's perspective
+      let result = "À venir";
+      let badgeClass = "badge-upcoming";
+
+      const vSets = parseInt(vScore);
+      const hSets = parseInt(hScore);
+
+      if (!isNaN(vSets) && !isNaN(hSets)) {
+        if (isUs(visitor)) {
+          result = vSets > hSets ? "Victoire" : "Défaite";
+          badgeClass = vSets > hSets ? "badge-win" : "badge-loss";
+        } else if (isUs(home)) {
+          result = hSets > vSets ? "Victoire" : "Défaite";
+          badgeClass = hSets > vSets ? "badge-win" : "badge-loss";
+        }
+      }
+
+      // Peek at next row for notes
+      let notes = "";
+      const next = scores[i+1];
+      if (next && next.length <= 2) {
+        notes = (next[1] || "").replace("Notes: ", "");
+        i++; // skip notes row
+      }
+
+      games.push({ visitor, vScore, hScore, home, result, badgeClass, notes });
+    }
+  }
+
+  if (!games.length) {
+    el.innerHTML = `<p class="data-loading">Aucun match enregistré pour l'instant.</p>`;
+    return;
+  }
+
+  const rows = games.map(g => {
+    const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
+    const hBold = isUs(g.home)    ? "font-weight:700;" : "";
+    return `<tr>
+      <td style="${vBold}">${g.visitor}</td>
+      <td class="text-center">${g.vScore}</td>
+      <td class="text-center">${g.hScore}</td>
+      <td style="${hBold}">${g.home}</td>
+      <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
+      <td class="text-muted" style="font-size:11px;">${g.notes}</td>
+    </tr>`;
+  }).join("");
+
+  el.innerHTML = `
+    <div class="table-responsive">
+      <table class="table table-bordered schedule-table">
+        <thead><tr>
+          <th>Visiteur</th><th>Score V</th><th>Score D</th>
+          <th>Domicile</th><th>Résultat</th><th>Notes</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
 }
 
 fetch(DATA_FILE)
