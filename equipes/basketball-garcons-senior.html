@@ -429,8 +429,11 @@ function renderStandings(standings, updated) {
       const mine   = isMySchool(school);
       // Strip bracket suffix from school name for display
       const displayName = school.replace(/\s*\([A-Z]+\)$/, "");
+      const nameCell = mine
+        ? `<img src="/ESGAGE/assets/img/favicon.png" alt="GAGE" style="width:18px;height:18px;object-fit:contain;margin-right:6px;vertical-align:middle;">${displayName}`
+        : displayName;
       return `<tr class="${mine ? "my-school" : ""}">
-        <td>${displayName}</td>
+        <td>${nameCell}</td>
         ${stats.map(c => `<td>${c}</td>`).join("")}
       </tr>`;
     }).join("");
@@ -439,10 +442,7 @@ function renderStandings(standings, updated) {
       <span class="tier-badge">${t.tier}</span>
       <div class="table-responsive mb-4">
         <table class="table table-bordered standings-table">
-          <thead><tr>
-            <th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th>
-            <th>PTS</th><th>SW</th><th>SL</th><th>PG</th><th>PL</th><th>Série</th>
-          </tr></thead>
+          <thead><tr id="standings-header-${tierIdx}"></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;
@@ -477,36 +477,47 @@ function renderScores(scores, replays = []) {
     // Skip location/notes rows (only 2 cells or starts with "Location:")
     if (row.length <= 2 || (row[0] && row[0].startsWith("Location:"))) continue;
 
-    if (row.length >= 4) {
-      const visitor   = row[0];
-      const vScore    = row[1];
-      const hScore    = row[2];
-      const home      = row[3];
+    // Upcoming game: 3 cells — visitor, time, home (no second score)
+    if (row.length === 3 && !row[0].startsWith("Location:")) {
+      const visitor = row[0];
+      const time    = row[1];
+      const home    = row[2];
 
-      // Determine result from our school's perspective
+      let notes = "";
+      const next = scores[i+1];
+      if (next && next.length <= 2) { notes = (next[1] || "").replace("Notes: ", ""); i++; }
+
+      const gameIndex = games.length + 1;
+      const replayEntry = replays.find(r => r.index === gameIndex);
+      const replay = replayEntry ? replayEntry.replay : '';
+      games.push({ visitor, vScore: time, hScore: "—", home, result: "À venir", badgeClass: "badge-upcoming", notes, replay });
+    }
+    // Completed game: 4 cells
+    else if (row.length >= 4) {
+      const visitor = row[0];
+      const vScore  = row[1];
+      const hScore  = row[2];
+      const home    = row[3];
+
       let result = "À venir";
       let badgeClass = "badge-upcoming";
 
-      const vSets = parseInt(vScore);
-      const hSets = parseInt(hScore);
+      const vPts = parseInt(vScore);
+      const hPts = parseInt(hScore);
 
-      if (!isNaN(vSets) && !isNaN(hSets)) {
+      if (!isNaN(vPts) && !isNaN(hPts)) {
         if (isUs(visitor)) {
-          result = vSets > hSets ? "Victoire" : "Défaite";
-          badgeClass = vSets > hSets ? "badge-win" : "badge-loss";
+          result = vPts > hPts ? "Victoire" : "Défaite";
+          badgeClass = vPts > hPts ? "badge-win" : "badge-loss";
         } else if (isUs(home)) {
-          result = hSets > vSets ? "Victoire" : "Défaite";
-          badgeClass = hSets > vSets ? "badge-win" : "badge-loss";
+          result = hPts > vPts ? "Victoire" : "Défaite";
+          badgeClass = hPts > vPts ? "badge-win" : "badge-loss";
         }
       }
 
-      // Peek at next row for notes
       let notes = "";
       const next = scores[i+1];
-      if (next && next.length <= 2) {
-        notes = (next[1] || "").replace("Notes: ", "");
-        i++; // skip notes row
-      }
+      if (next && next.length <= 2) { notes = (next[1] || "").replace("Notes: ", ""); i++; }
 
       const gameIndex = games.length + 1;
       const replayEntry = replays.find(r => r.index === gameIndex);
@@ -523,11 +534,14 @@ function renderScores(scores, replays = []) {
   const rows = games.map(g => {
     const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
     const hBold = isUs(g.home)    ? "font-weight:700;" : "";
+    const LOGO = `<img src="/ESGAGE/assets/img/favicon.png" alt="GAGE" style="width:18px;height:18px;object-fit:contain;margin-right:6px;vertical-align:middle;">`;
+    const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
+    const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
     return `<tr>
-      <td style="${vBold}">${g.visitor}</td>
+      <td style="${vBold}">${vName}</td>
       <td class="text-center">${g.vScore}</td>
       <td class="text-center">${g.hScore}</td>
-      <td style="${hBold}">${g.home}</td>
+      <td style="${hBold}">${hName}</td>
       <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
       <td class="text-muted" style="font-size:11px;">${g.notes}</td>
       <td class="text-center">${g.replay ? `<a href="${g.replay}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>` : ""}</td>

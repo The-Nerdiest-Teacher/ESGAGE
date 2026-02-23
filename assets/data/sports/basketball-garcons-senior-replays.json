@@ -1,19 +1,69 @@
 {
-  "_info": "Ajoutez les liens de rediffusion ici. Le champ 'replay' peut être une URL YouTube, Google Drive, etc. Laissez vide si pas de vidéo.",
+  "_info": "Ajoutez les liens de rediffusion ici. 'replay' peut être YouTube, Google Drive, etc. Laissez vide si pas de vidéo.",
   "games": [
     {
       "index": 1,
-      "label": "Match 1",
+      "label": "E.S. Gaetan Gervais @ E.S. Sainte-Trinite",
       "replay": ""
     },
     {
       "index": 2,
-      "label": "Match 2",
+      "label": "White Oaks H.S. @ E.S. Gaetan Gervais",
       "replay": ""
     },
     {
       "index": 3,
-      "label": "Match 3",
+      "label": "E.S. Gaetan Gervais @ Elsie MacGill S.S.",
+      "replay": ""
+    },
+    {
+      "index": 4,
+      "label": "E.S. Gaetan Gervais @ Burlington Central H.S.",
+      "replay": ""
+    },
+    {
+      "index": 5,
+      "label": "E.S. Gaetan Gervais @ Aldershot H.S.",
+      "replay": ""
+    },
+    {
+      "index": 6,
+      "label": "E.S. Sainte-Trinite @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 7,
+      "label": "Elsie MacGill S.S. @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 8,
+      "label": "E.S. Gaetan Gervais @ White Oaks H.S.",
+      "replay": ""
+    },
+    {
+      "index": 9,
+      "label": "Burlington Central H.S. @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 10,
+      "label": "Aldershot H.S. @ E.S. Gaetan Gervais",
+      "replay": ""
+    },
+    {
+      "index": 11,
+      "label": "Elsie MacGill S.S. @ E.S. Gaetan Gervais (Semi)",
+      "replay": ""
+    },
+    {
+      "index": 12,
+      "label": "Aldershot H.S. @ E.S. Gaetan Gervais (Final)",
+      "replay": ""
+    },
+    {
+      "index": 13,
+      "label": "Acad. Cath. Mère-Teresa @ E.S. Gaetan Gervais (GHAC Championship)",
       "replay": ""
     }
   ]

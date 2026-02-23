@@ -409,8 +409,11 @@ function renderStandings(standings, updated) {
       const mine   = isMySchool(school);
       // Strip bracket suffix from school name for display
       const displayName = school.replace(/\s*\([A-Z]+\)$/, "");
+      const nameCell = mine
+        ? `<img src="/ESGAGE/assets/img/favicon.png" alt="GAGE" style="width:18px;height:18px;object-fit:contain;margin-right:6px;vertical-align:middle;">${displayName}`
+        : displayName;
       return `<tr class="${mine ? "my-school" : ""}">
-        <td>${displayName}</td>
+        <td>${nameCell}</td>
         ${stats.map(c => `<td>${c}</td>`).join("")}
       </tr>`;
     }).join("");
@@ -500,11 +503,14 @@ function renderScores(scores) {
   const rows = games.map(g => {
     const vBold = isUs(g.visitor) ? "font-weight:700;" : "";
     const hBold = isUs(g.home)    ? "font-weight:700;" : "";
+    const LOGO = `<img src="/ESGAGE/assets/img/favicon.png" alt="GAGE" style="width:18px;height:18px;object-fit:contain;margin-right:6px;vertical-align:middle;">`;
+    const vName = isUs(g.visitor) ? LOGO + g.visitor : g.visitor;
+    const hName = isUs(g.home)    ? LOGO + g.home    : g.home;
     return `<tr>
-      <td style="${vBold}">${g.visitor}</td>
+      <td style="${vBold}">${vName}</td>
       <td class="text-center">${g.vScore}</td>
       <td class="text-center">${g.hScore}</td>
-      <td style="${hBold}">${g.home}</td>
+      <td style="${hBold}">${hName}</td>
       <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
       <td class="text-muted" style="font-size:11px;">${g.notes}</td>
     </tr>`;
