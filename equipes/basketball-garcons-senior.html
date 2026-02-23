@@ -381,8 +381,6 @@ const MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
 function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k)); }
 
 // ── Standings ─────────────────────────────────────────────────────────────
-// The data has one big rows array where header rows ("School","MP",...) signal
-// the start of a new tier. The tier name is in headers[0].
 function renderStandings(standings, updated) {
   const el = document.getElementById("standings-container");
   if (!standings || !standings.length) {
@@ -390,46 +388,44 @@ function renderStandings(standings, updated) {
     return;
   }
 
-  // Only process the first standings object (second is the legend)
   const raw = standings[0];
   if (!raw) return;
 
-  const HEADER_COLS = ["School","MP","W","L","T","PTS","SW","SL","PW","PL","STREAK"];
+  const tierName = raw.headers[0] || "Classement";
 
-  // Split rows into tiers wherever we hit a header row
+  // Split rows into tiers at each header row (contains "School")
   const tiers = [];
   let current = null;
-  const tierName = raw.headers[0] || "Classement"; // e.g. "A Tier 2"
 
-  // Extract tier letter from header name for labelling sub-tiers
   raw.rows.forEach(cells => {
-    const isHeader = cells.includes("School") && cells.includes("MP");
+    // Header row: contains "School" and at least 5 cells
+    const isHeader = cells.includes("School") && cells.length >= 5;
     if (isHeader) {
       if (current && current.rows.length) tiers.push(current);
-      // Try to infer tier from first school in upcoming rows — label after
-      current = { tier: null, rows: [] };
-    } else if (cells.length >= 3 && cells[1] && cells[1] !== "") {
+      // Store column headers (skip first empty cell)
+      current = { colHeaders: cells.slice(1), rows: [] };
+    } else if (cells.length >= 3 && cells[1] && cells[1].trim() !== "") {
       if (current) current.rows.push(cells);
     }
   });
   if (current && current.rows.length) tiers.push(current);
 
-  // Label tiers from the bracket letter in school names e.g. "(A)", "(AA)", "(AAA)"
+  // Label each tier from bracket suffix of first school e.g. "(A)" -> "A — Tier 1"
   tiers.forEach(t => {
     const match = t.rows[0] && t.rows[0][1] && t.rows[0][1].match(/\(([A-Z]+)\)/);
-    t.tier = match ? match[1] + " — " + tierName : tierName;
+    t.tierLabel = match ? match[1] + " — " + tierName : tierName;
   });
 
   let html = "";
   tiers.forEach(t => {
+    const thCells = t.colHeaders.map(h => `<th>${h}</th>`).join("");
+
     const rows = t.rows.map(cells => {
-      // cells[0] is empty, cells[1] is school name, cells[2..] are stats
-      const school = cells[1] || "";
-      const stats  = cells.slice(2);
-      const mine   = isMySchool(school);
-      // Strip bracket suffix from school name for display
+      const school      = cells[1] || "";
+      const stats       = cells.slice(2);
+      const mine        = isMySchool(school);
       const displayName = school.replace(/\s*\([A-Z]+\)$/, "");
-      const nameCell = mine
+      const nameCell    = mine
         ? `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">${displayName}`
         : displayName;
       return `<tr class="${mine ? "my-school" : ""}">
@@ -439,10 +435,10 @@ function renderStandings(standings, updated) {
     }).join("");
 
     html += `
-      <span class="tier-badge">${t.tier}</span>
+      <span class="tier-badge">${t.tierLabel}</span>
       <div class="table-responsive mb-4">
         <table class="table table-bordered standings-table">
-          <thead><tr id="standings-header-${tierIdx}"></tr></thead>
+          <thead><tr><th>École</th>${thCells}</tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;
@@ -473,7 +469,7 @@ function renderScores(scores, replays = []) {
   for (let i = 0; i < scores.length; i++) {
     const row = scores[i];
     // Skip header rows
-    if (row[0] === "Visitor" && row[3] === "Home") continue;
+    if (row[0] === "Visitor" && (row[3] === "Home" || row[2] === "Home")) continue;
     // Skip location/notes rows (only 2 cells or starts with "Location:")
     if (row.length <= 2 || (row[0] && row[0].startsWith("Location:"))) continue;
 
