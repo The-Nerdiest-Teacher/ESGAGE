@@ -579,18 +579,33 @@ function renderScores(scores, replays = []) {
 
 const REPLAYS_FILE = "/ESGAGE/assets/data/sports/basketball-garcons-senior-replays.json";
 
-Promise.all([
-  fetch(DATA_FILE).then(r => r.json()).catch(() => null),
-  fetch(REPLAYS_FILE).then(r => r.json()).catch(() => ({ games: [] }))
-]).then(([d, replays]) => {
-  if (!d) {
-    document.getElementById("scores-container").innerHTML = `<p class="data-loading">Données indisponibles.</p>`;
-    document.getElementById("standings-container").innerHTML = `<p class="data-loading">Données indisponibles.</p>`;
-    return;
-  }
-  renderScores(d.scores, replays.games || []);
-  renderStandings(d.standings, d.updated);
-});
+function setError(msg) {
+  ["upcoming-container","scores-container","standings-container"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = `<p class="data-loading">${msg}</p>`;
+  });
+}
+
+// Load main data first, replays are optional
+fetch(DATA_FILE)
+  .then(r => {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  })
+  .then(d => {
+    // Try to load replays, fall back to empty if missing
+    fetch(REPLAYS_FILE)
+      .then(r => r.ok ? r.json() : { games: [] })
+      .catch(() => ({ games: [] }))
+      .then(replays => {
+        renderScores(d.scores, replays.games || []);
+        renderStandings(d.standings, d.updated);
+      });
+  })
+  .catch(err => {
+    console.error("Failed to load data:", err);
+    setError("Données indisponibles. (" + err.message + ")");
+  });
 </script>
 </body>
 </html>
