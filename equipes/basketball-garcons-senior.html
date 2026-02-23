@@ -529,9 +529,13 @@ function renderScores(scores, replays = []) {
     }
   }
 
-  const LOGO = `<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">`;
+  const LOGO = '<img src="/ESGAGE/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
   function nameCell(n) { return isUs(n) ? LOGO + n : n; }
   function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
+  function replayBtn(url) {
+    if (!url) return "";
+    return '<a href="' + url + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>';
+  }
 
   // ── Upcoming games ──
   const upcomingEl = document.getElementById("upcoming-container");
@@ -563,7 +567,7 @@ function renderScores(scores, replays = []) {
       <td style="${boldStyle(g.home)}">${nameCell(g.home)}</td>
       <td class="text-center"><span class="${g.badgeClass}">${g.result}</span></td>
       <td class="text-muted" style="font-size:11px;">${g.notes}</td>
-      <td class="text-center">${g.replay ? `<a href="${g.replay}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>` : ""}</td>
+      <td class="text-center">${replayBtn(g.replay)}</td>
     </tr>`).join("");
     playedEl.innerHTML = `<div class="table-responsive">
       <table class="table table-bordered schedule-table">
