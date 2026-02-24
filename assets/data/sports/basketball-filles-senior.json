@@ -2,7 +2,457 @@
   "label": "Basketball — Filles Senior",
   "leagueid": 22,
   "schoolid": 12,
-  "updated": "2026-02-24 06:01 UTC",
-  "standings": [],
-  "scores": []
+  "updated": "Tue, 24 Feb 2026 13:56:27 GMT",
+  "standings": [
+    {
+      "tier": "Classement",
+      "headers": [
+        "Tier 1"
+      ],
+      "rows": [
+        [
+          "",
+          "School",
+          "GP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "WIN %",
+          "PF",
+          "PA",
+          "STREAK"
+        ],
+        [
+          "",
+          "King's Christian Collegiate (AA)",
+          "10",
+          "10",
+          "0",
+          "0",
+          "20",
+          "1.000",
+          "563",
+          "291",
+          "W 10"
+        ],
+        [
+          "",
+          "Garth Webb S.S. (AAA)",
+          "10",
+          "7",
+          "3",
+          "0",
+          "14",
+          "0.700",
+          "469",
+          "323",
+          "W 3"
+        ],
+        [
+          "",
+          "Frank Hayden S.S. (AAA)",
+          "10",
+          "6",
+          "4",
+          "0",
+          "12",
+          "0.600",
+          "438",
+          "405",
+          "L 1"
+        ],
+        [
+          "",
+          "Nelson High School (AAA)",
+          "10",
+          "4",
+          "6",
+          "0",
+          "8",
+          "0.400",
+          "289",
+          "412",
+          "L 1"
+        ],
+        [
+          "",
+          "T.A. Blakelock H.S. (AAA)",
+          "10",
+          "2",
+          "8",
+          "0",
+          "4",
+          "0.200",
+          "297",
+          "450",
+          "W 1"
+        ],
+        [
+          "",
+          "Iroquois Ridge H.S. (AAA)",
+          "10",
+          "1",
+          "9",
+          "0",
+          "2",
+          "0.100",
+          "323",
+          "498",
+          "L 5"
+        ],
+        [
+          "",
+          "School",
+          "GP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "WIN %",
+          "PF",
+          "PA",
+          "STREAK"
+        ],
+        [
+          "",
+          "Abbey Park H.S. (AAA)",
+          "10",
+          "9",
+          "1",
+          "0",
+          "18",
+          "0.900",
+          "529",
+          "242",
+          "W 8"
+        ],
+        [
+          "",
+          "Elsie MacGill S.S. (AAA)",
+          "10",
+          "9",
+          "1",
+          "0",
+          "18",
+          "0.900",
+          "473",
+          "283",
+          "W 1"
+        ],
+        [
+          "",
+          "E.S. Sainte-Trinite (A)",
+          "10",
+          "9",
+          "1",
+          "0",
+          "18",
+          "0.900",
+          "461",
+          "322",
+          "W 5"
+        ],
+        [
+          "",
+          "Craig Kielburger High School (AAA)",
+          "10",
+          "7",
+          "3",
+          "0",
+          "14",
+          "0.700",
+          "390",
+          "375",
+          "W 2"
+        ],
+        [
+          "",
+          "E.S. Gaetan Gervais (A)",
+          "10",
+          "6",
+          "4",
+          "0",
+          "12",
+          "0.600",
+          "422",
+          "379",
+          "W 1"
+        ],
+        [
+          "",
+          "M.M. Robinson H.S. (AAA)",
+          "10",
+          "5",
+          "5",
+          "0",
+          "10",
+          "0.500",
+          "361",
+          "378",
+          "L 1"
+        ],
+        [
+          "",
+          "White Oaks High School (AAA)",
+          "10",
+          "3",
+          "7",
+          "0",
+          "6",
+          "0.300",
+          "344",
+          "364",
+          "L 2"
+        ],
+        [
+          "",
+          "Oakville Trafalgar H.S. (AAA)",
+          "10",
+          "3",
+          "7",
+          "0",
+          "6",
+          "0.300",
+          "303",
+          "455",
+          "L 2"
+        ],
+        [
+          "",
+          "Milton D.H.S. (AAA)",
+          "10",
+          "2",
+          "8",
+          "0",
+          "4",
+          "0.200",
+          "301",
+          "381",
+          "L 1"
+        ],
+        [
+          "",
+          "Georgetown D.H.S. (AAA)",
+          "10",
+          "2",
+          "8",
+          "0",
+          "4",
+          "0.200",
+          "264",
+          "417",
+          "L 5"
+        ],
+        [
+          "",
+          "Aldershot High School (AA)",
+          "10",
+          "0",
+          "10",
+          "0",
+          "0",
+          "0.000",
+          "181",
+          "433",
+          "L 10"
+        ]
+      ]
+    },
+    {
+      "tier": "Classement",
+      "headers": [
+        "GP = Games Played",
+        "W = Wins (2 points)"
+      ],
+      "rows": [
+        [
+          "L = Losses (0 points)",
+          "T = Ties (1 points)"
+        ],
+        [
+          "PF = Points For",
+          "PA = Points Against"
+        ]
+      ]
+    }
+  ],
+  "scores": [
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "49",
+      "33",
+      "Oakville Trafalgar H.S."
+    ],
+    [
+      "Location: Oakville Trafalgar H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "M.M. Robinson H.S.",
+      "35",
+      "39",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "45",
+      "34",
+      "White Oaks High School"
+    ],
+    [
+      "Location: White Oaks High School",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Abbey Park H.S.",
+      "63",
+      "27",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "30",
+      "50",
+      "Elsie MacGill S.S."
+    ],
+    [
+      "Location: Elsie MacGill S.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Milton D.H.S.",
+      "28",
+      "36",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "42",
+      "43",
+      "E.S. Sainte-Trinite"
+    ],
+    [
+      "Location: E.S. Sainte-Trinite",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Aldershot High School",
+      "19",
+      "48",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "50",
+      "52",
+      "Craig Kielburger High School"
+    ],
+    [
+      "Location: Craig Kielburger High School",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Georgetown D.H.S.",
+      "22",
+      "56",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "31",
+      "48",
+      "Craig Kielburger High School"
+    ],
+    [
+      "Location: Craig Kielburger High School",
+      "Notes: Quarter Final."
+    ]
+  ]
 }
