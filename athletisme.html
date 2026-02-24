@@ -180,8 +180,8 @@
         </div>
 
         <div class="sport-card" id="card-crosscountry"   onclick="toggleSport('crosscountry')">
-          <span class="sport-icon"><img src="assets/img/sportslogos/crosscountry.png" alt="Cross Country"/></span>
-          <p class="sport-name">Cross Country</p>
+          <span class="sport-icon"><img src="assets/img/sportslogos/crosscountry.png" alt="Course de fond"/></span>
+          <p class="sport-name">Course de fond</p>
         </div>
 
         <div class="sport-card" id="card-soccer"         onclick="toggleSport('soccer')">
@@ -194,7 +194,7 @@
           <p class="sport-name">Natation</p>
         </div>
 
-        <div class="sport-card" id="card-hockey"         onclick="toggleSport('hockey')">
+        <div class="sport-card" id="card-hockey" onclick="window.location='/ESGAGE/equipes/hockey.html'">
           <span class="sport-icon"><img src="assets/img/sportslogos/hockey.png" alt="Hockey"/></span>
           <p class="sport-name">Hockey</p>
         </div>
@@ -276,7 +276,7 @@
 
       <div class="age-group-panel" id="panel-crosscountry">
         <div class="text-center mb-4">
-          <p class="age-group-title"><img src="assets/img/sportslogos/crosscountry.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Cross Country — Choisissez votre équipe</p>
+          <p class="age-group-title"><img src="assets/img/sportslogos/crosscountry.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Course de fond — Choisissez votre équipe</p>
         </div>
         <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
           <!-- Filles -->
@@ -284,7 +284,7 @@
             <p class="gender-col-title girls">Filles</p>
             <div class="d-flex flex-column gap-2">
               <a class="age-btn" href="/ESGAGE/equipes/crosscountry-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
-              <!--<a class="age-btn" href="/ESGAGE/equipes/crosscountry-filles-junior.html">Junior</a>-->
+              <a class="age-btn" href="/ESGAGE/equipes/crosscountry-filles-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/crosscountry-filles-senior.html">Senior</a>
             </div>
           </div>
@@ -294,7 +294,7 @@
             <p class="gender-col-title boys">Garçons</p>
             <div class="d-flex flex-column gap-2">
               <a class="age-btn" href="/ESGAGE/equipes/crosscountry-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
-              <!--<a class="age-btn" href="/ESGAGE/equipes/crosscountry-garcons-junior.html">Junior</a>-->
+              <a class="age-btn" href="/ESGAGE/equipes/crosscountry-garcons-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/crosscountry-garcons-senior.html">Senior</a>
             </div>
           </div>
@@ -302,29 +302,34 @@
       </div>
 
       <div class="age-group-panel" id="panel-soccer">
-        <div class="text-center mb-4">
-          <p class="age-group-title"><img src="assets/img/sportslogos/soccer.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Soccer — Choisissez votre équipe</p>
-        </div>
-        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
-          <!-- Filles -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title girls">Filles</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/soccer-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+        <div class="container">
+          <p class="age-group-title"><img src="assets/img/sportslogos/soccer.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Soccer</p>
+          <div class="row gy-3">
+            <div class="col-12">
+              <p style="color:var(--default-color);opacity:0.6;font-style:italic;margin:0;">
+                <i class="bi bi-clock me-2"></i>Pas de saison en cours pour ce sport.
+              </p>
+            </div>
+          </div>
+          <!--
+          ACTIVER POUR LA PROCHAINE SAISON:
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-female"></i> Filles</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/soccer-filles-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/soccer-filles-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/soccer-filles-senior.html">Senior</a>
             </div>
           </div>
-          <div class="gender-divider"></div>
-          <!-- Garçons -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title boys">Garçons</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/soccer-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-male"></i> Garçons</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/soccer-garcons-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/soccer-garcons-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/soccer-garcons-senior.html">Senior</a>
             </div>
           </div>
+          -->
         </div>
       </div>
 
@@ -383,83 +388,98 @@
       </div>
 
       <div class="age-group-panel" id="panel-athletisme">
-        <div class="text-center mb-4">
-          <p class="age-group-title"><img src="assets/img/sportslogos/trackandfield.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Athlétisme — Choisissez votre équipe</p>
-        </div>
-        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
-          <!-- Filles -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title girls">Filles</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/athletisme-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+        <div class="container">
+          <p class="age-group-title"><img src="assets/img/sportslogos/trackandfield.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Athlétisme</p>
+          <div class="row gy-3">
+            <div class="col-12">
+              <p style="color:var(--default-color);opacity:0.6;font-style:italic;margin:0;">
+                <i class="bi bi-clock me-2"></i>Pas de saison en cours pour ce sport.
+              </p>
+            </div>
+          </div>
+          <!--
+          ACTIVER POUR LA PROCHAINE SAISON:
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-female"></i> Filles</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/athletisme-filles-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/athletisme-filles-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/athletisme-filles-senior.html">Senior</a>
             </div>
           </div>
-          <div class="gender-divider"></div>
-          <!-- Garçons -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title boys">Garçons</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/athletisme-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-male"></i> Garçons</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/athletisme-garcons-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/athletisme-garcons-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/athletisme-garcons-senior.html">Senior</a>
             </div>
           </div>
+          -->
         </div>
       </div>
 
       <div class="age-group-panel" id="panel-badminton">
-        <div class="text-center mb-4">
-          <p class="age-group-title"><img src="assets/img/sportslogos/badminton.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Badminton — Choisissez votre équipe</p>
-        </div>
-        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
-          <!-- Filles -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title girls">Filles</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/badminton-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+        <div class="container">
+          <p class="age-group-title"><img src="assets/img/sportslogos/badminton.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Badminton</p>
+          <div class="row gy-3">
+            <div class="col-12">
+              <p style="color:var(--default-color);opacity:0.6;font-style:italic;margin:0;">
+                <i class="bi bi-clock me-2"></i>Pas de saison en cours pour ce sport.
+              </p>
+            </div>
+          </div>
+          <!--
+          ACTIVER POUR LA PROCHAINE SAISON:
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-female"></i> Filles</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/badminton-filles-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/badminton-filles-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/badminton-filles-senior.html">Senior</a>
             </div>
           </div>
-          <div class="gender-divider"></div>
-          <!-- Garçons -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title boys">Garçons</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/badminton-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-male"></i> Garçons</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/badminton-garcons-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/badminton-garcons-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/badminton-garcons-senior.html">Senior</a>
             </div>
           </div>
+          -->
         </div>
       </div>
 
       <div class="age-group-panel" id="panel-flagfootball">
-        <div class="text-center mb-4">
-          <p class="age-group-title"><img src="assets/img/sportslogos/flagfootball.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Football Drapeau — Choisissez votre équipe</p>
-        </div>
-        <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
-          <!-- Filles -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title girls"> Filles</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/flagfootball-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+        <div class="container">
+          <p class="age-group-title"><img src="assets/img/sportslogos/flagfootball.png" alt="" style="width:24px;height:24px;object-fit:contain;vertical-align:middle;margin-right:8px;"> Football Drapeau</p>
+          <div class="row gy-3">
+            <div class="col-12">
+              <p style="color:var(--default-color);opacity:0.6;font-style:italic;margin:0;">
+                <i class="bi bi-clock me-2"></i>Pas de saison en cours pour ce sport.
+              </p>
+            </div>
+          </div>
+          <!--
+          ACTIVER POUR LA PROCHAINE SAISON:
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-female"></i> Filles</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/flagfootball-filles-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/flagfootball-filles-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/flagfootball-filles-senior.html">Senior</a>
             </div>
           </div>
-          <div class="gender-divider"></div>
-          <!-- Garçons -->
-          <div style="min-width:200px;">
-            <p class="gender-col-title boys"> Garçons</p>
-            <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/ESGAGE/equipes/flagfootball-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+          <div class="col-md-6">
+            <p class="gender-label"><i class="bi bi-gender-male"></i> Garçons</p>
+            <div class="age-buttons">
+              <a class="age-btn" href="/ESGAGE/equipes/flagfootball-garcons-78.html">7e/8e</a>
               <a class="age-btn" href="/ESGAGE/equipes/flagfootball-garcons-junior.html">Junior</a>
               <a class="age-btn" href="/ESGAGE/equipes/flagfootball-garcons-senior.html">Senior</a>
             </div>
           </div>
+          -->
         </div>
       </div>
 
