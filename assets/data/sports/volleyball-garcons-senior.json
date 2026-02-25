@@ -2,7 +2,568 @@
   "label": "Volleyball — Garçons Senior",
   "leagueid": 26,
   "schoolid": 12,
-  "updated": "2026-02-25 06:04 UTC",
-  "standings": [],
-  "scores": []
+  "updated": "Wed, 25 Feb 2026 12:57:10 GMT",
+  "standings": [
+    {
+      "tier": "Classement",
+      "headers": [
+        "A Tier 2"
+      ],
+      "rows": [
+        [
+          "",
+          "School",
+          "MP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "SW",
+          "SL",
+          "PW",
+          "PL",
+          "STREAK"
+        ],
+        [
+          "",
+          "E.S. Sainte-Trinite (A)",
+          "10",
+          "7",
+          "3",
+          "0",
+          "14",
+          "15",
+          "8",
+          "496",
+          "441",
+          "W 1"
+        ],
+        [
+          "",
+          "E.S. Gaetan Gervais (A)",
+          "10",
+          "6",
+          "4",
+          "0",
+          "12",
+          "13",
+          "10",
+          "477",
+          "447",
+          "W 1"
+        ],
+        [
+          "",
+          "Acton D.H.S. (A)",
+          "10",
+          "2",
+          "8",
+          "0",
+          "4",
+          "6",
+          "16",
+          "396",
+          "481",
+          "L 2"
+        ],
+        [
+          "",
+          "MacLachlan College (A)",
+          "10",
+          "0",
+          "10",
+          "0",
+          "0",
+          "0",
+          "20",
+          "267",
+          "500",
+          "L 10"
+        ],
+        [
+          "",
+          "School",
+          "MP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "SW",
+          "SL",
+          "PW",
+          "PL",
+          "STREAK"
+        ],
+        [
+          "",
+          "King's Christian Collegiate (AA)",
+          "10",
+          "8",
+          "2",
+          "0",
+          "16",
+          "16",
+          "6",
+          "503",
+          "418",
+          "W 7"
+        ],
+        [
+          "",
+          "Burlington Central H.S. (AA)",
+          "10",
+          "6",
+          "4",
+          "0",
+          "12",
+          "15",
+          "9",
+          "539",
+          "441",
+          "L 1"
+        ],
+        [
+          "",
+          "Aldershot High School (AA)",
+          "10",
+          "6",
+          "4",
+          "0",
+          "12",
+          "14",
+          "11",
+          "520",
+          "491",
+          "L 1"
+        ],
+        [
+          "",
+          "Elsie MacGill S.S. (AAA)",
+          "10",
+          "5",
+          "5",
+          "0",
+          "10",
+          "12",
+          "11",
+          "483",
+          "462",
+          "W 3"
+        ],
+        [
+          "",
+          "School",
+          "MP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "SW",
+          "SL",
+          "PW",
+          "PL",
+          "STREAK"
+        ],
+        [
+          "",
+          "White Oaks High School (AAA)",
+          "11",
+          "10",
+          "1",
+          "0",
+          "20",
+          "20",
+          "3",
+          "550",
+          "453",
+          "W 6"
+        ],
+        [
+          "",
+          "Abbey Park H.S. (AAA)",
+          "11",
+          "9",
+          "2",
+          "0",
+          "18",
+          "20",
+          "9",
+          "641",
+          "583",
+          "W 1"
+        ],
+        [
+          "",
+          "Iroquois Ridge H.S. (AAA)",
+          "11",
+          "8",
+          "3",
+          "0",
+          "16",
+          "18",
+          "8",
+          "597",
+          "526",
+          "W 3"
+        ],
+        [
+          "",
+          "Oakville Trafalgar H.S. (AAA)",
+          "11",
+          "8",
+          "3",
+          "0",
+          "16",
+          "18",
+          "9",
+          "612",
+          "492",
+          "W 2"
+        ],
+        [
+          "",
+          "Garth Webb S.S. (AAA)",
+          "11",
+          "7",
+          "4",
+          "0",
+          "14",
+          "16",
+          "11",
+          "605",
+          "575",
+          "W 4"
+        ],
+        [
+          "",
+          "Craig Kielburger High School (AAA)",
+          "11",
+          "7",
+          "4",
+          "0",
+          "14",
+          "14",
+          "12",
+          "566",
+          "552",
+          "W 1"
+        ],
+        [
+          "",
+          "Nelson High School (AAA)",
+          "11",
+          "6",
+          "5",
+          "0",
+          "12",
+          "15",
+          "14",
+          "606",
+          "577",
+          "L 1"
+        ],
+        [
+          "",
+          "Frank Hayden S.S. (AAA)",
+          "11",
+          "4",
+          "7",
+          "0",
+          "8",
+          "9",
+          "16",
+          "514",
+          "578",
+          "L 2"
+        ],
+        [
+          "",
+          "Georgetown D.H.S. (AAA)",
+          "11",
+          "3",
+          "8",
+          "0",
+          "6",
+          "7",
+          "17",
+          "468",
+          "555",
+          "L 1"
+        ],
+        [
+          "",
+          "M.M. Robinson H.S. (AAA)",
+          "11",
+          "2",
+          "9",
+          "0",
+          "4",
+          "8",
+          "19",
+          "544",
+          "606",
+          "L 2"
+        ],
+        [
+          "",
+          "T.A. Blakelock H.S. (AAA)",
+          "11",
+          "1",
+          "10",
+          "0",
+          "2",
+          "9",
+          "20",
+          "558",
+          "626",
+          "L 6"
+        ],
+        [
+          "",
+          "Milton D.H.S. (AAA)",
+          "11",
+          "1",
+          "10",
+          "0",
+          "2",
+          "5",
+          "21",
+          "460",
+          "598",
+          "L 10"
+        ]
+      ]
+    },
+    {
+      "tier": "Classement",
+      "headers": [
+        "MP = Matches Played",
+        "W = Wins (2 points)"
+      ],
+      "rows": [
+        [
+          "L = Losses (0 points)",
+          "T = Ties (1 points)"
+        ],
+        [
+          "SW = Sets Won",
+          "SL = Sets Lost"
+        ],
+        [
+          "PW = Total Points Won",
+          "PL = Total Points Lost"
+        ]
+      ]
+    }
+  ],
+  "scores": [
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "MacLachlan College",
+      "0 (11, 17)",
+      "2 (25, 25)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "2 (25, 25)",
+      "0 (15, 12)",
+      "Acton D.H.S."
+    ],
+    [
+      "Location: Acton D.H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Sainte-Trinite",
+      "2 (25, 24, 15)",
+      "1 (15, 26, 9)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "0 (12, 20)",
+      "2 (25, 25)",
+      "Aldershot High School"
+    ],
+    [
+      "Location: Aldershot High School",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "King's Christian Collegiate",
+      "2 (25, 25)",
+      "0 (20, 17)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "MacLachlan College",
+      "0 (16, 14)",
+      "2 (25, 25)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Acton D.H.S.",
+      "0 (24, 14)",
+      "2 (26, 25)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "2 (25, 20, 15)",
+      "1 (16, 25, 9)",
+      "E.S. Sainte-Trinite"
+    ],
+    [
+      "Location: E.S. Sainte-Trinite",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "0 (14, 21)",
+      "2 (25, 25)",
+      "Elsie MacGill S.S."
+    ],
+    [
+      "Location: Elsie MacGill S.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "2 (25, 17, 20)",
+      "1 (17, 25, 18)",
+      "Burlington Central H.S."
+    ],
+    [
+      "Location: Burlington Central H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Burlington Central H.S.",
+      "2 (25, 25)",
+      "0 (23, 13)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Quarter Final."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Acton D.H.S.",
+      "2 (16, 16, 25, 25, 7)",
+      "3 (25, 25, 23, 23, 15)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: GHAC.  A Challenge Game"
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "0 (15, 17, 21)",
+      "3 (25, 25, 25)",
+      "Académie Catholique Mère-Teresa"
+    ],
+    [
+      "Location: École Secondaire Académie Catholique Mère-Teresa",
+      "Notes: GHAC.  A Semi Final"
+    ]
+  ]
 }
