@@ -630,8 +630,8 @@ function showSubject(id, btn) {
   const panel = document.getElementById('panel-' + id);
   panel.classList.add('active');
   panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
-  // Redraw arrows for the newly visible panel
-  requestAnimationFrame(() => drawAllArrows(id));
+  // Double rAF ensures layout is fully settled before measuring pill positions
+  requestAnimationFrame(() => requestAnimationFrame(() => drawAllArrows(id)));
 }
 
 // ── SVG arrow drawing ─────────────────────────────────────────────────────
@@ -665,8 +665,8 @@ const ARROW_DEFS = {
     // MCR3U fans to MCV4U, MHF4U, MDM4U
     ['MCR3U', ['MCV4U','MHF4U','MDM4U'], '#1976d2'],
     ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M','MCT4C','#388e3c'],
-    // MCT4C can lead to MHF4U (cross-pathway)
-    ['MCT4C','MHF4U','#388e3c'],
+    // MCT4C can lead to MHF4U — connect bottom of MCT4C to bottom of MHF4U
+    ['MCT4C','MHF4U','#388e3c','btb'],
     // MDM4U also reachable from MCF3M
     ['MCF3M','MDM4U','#388e3c'],
   ],
@@ -773,7 +773,7 @@ function drawArrows(subjectId) {
   });
   svg.appendChild(svgDefs);
 
-  defs.forEach(([fromId, toIds, color]) => {
+  defs.forEach(([fromId, toIds, color, flag]) => {
     const from = getPillRect(fromId, wrapEl);
     if (!from) return;
 
@@ -781,6 +781,16 @@ function drawArrows(subjectId) {
     if (typeof toIds === 'string') {
       const to = getPillRect(toIds, wrapEl);
       if (!to) return;
+
+      // btb = bottom-to-bottom: exit from bottom of source, enter bottom of target
+      if (flag === 'btb') {
+        const x1 = from.right, y1 = from.bottom;
+        const x2 = to.right,   y2 = to.bottom;
+        const cy = Math.max(y1, y2) + 20; // curve drops below both pills
+        makePath(svg, `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`, color);
+        return;
+      }
+
       const x1 = from.right, y1 = from.midY;
       const x2 = to.left,    y2 = to.midY;
       const mx = x1 + (x2 - x1) * 0.5;
