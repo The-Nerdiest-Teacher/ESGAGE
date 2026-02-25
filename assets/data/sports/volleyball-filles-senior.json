@@ -2,7 +2,7 @@
   "label": "Volleyball — Filles Senior",
   "leagueid": 4,
   "schoolid": 12,
-  "updated": "Tue, 24 Feb 2026 13:57:30 GMT",
+  "updated": "Wed, 25 Feb 2026 12:57:00 GMT",
   "standings": [
     {
       "tier": "Classement",
@@ -351,12 +351,188 @@
     ],
     [
       "E.S. Gaetan Gervais",
-      "03:15 PM",
+      "0 (10, 11)",
+      "2 (25, 25)",
+      "King's Christian Collegiate"
+    ],
+    [
+      "Location: King's Christian Collegiate",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "2 (25, 19, 15)",
+      "1 (22, 25, 12)",
+      "Elsie MacGill S.S."
+    ],
+    [
+      "Location: Elsie MacGill S.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Aldershot High School",
+      "1 (25, 25, 14)",
+      "2 (27, 15, 16)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "2 (25, 25)",
+      "0 (21, 20)",
+      "E.S. Sainte-Trinite"
+    ],
+    [
+      "Location: E.S. Sainte-Trinite",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "0 (22, 19)",
+      "2 (25, 25)",
+      "Acton D.H.S."
+    ],
+    [
+      "Location: E.S. Sainte-Trinite",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "2 (25, 11, 17)",
+      "1 (20, 25, 15)",
+      "Abbey Park H.S."
+    ],
+    [
+      "Location: Abbey Park H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "1 (25, 14, 7)",
+      "2 (23, 25, 15)",
+      "Acton D.H.S."
+    ],
+    [
+      "Location: Acton D.H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Burlington Central H.S.",
+      "2 (25, 25)",
+      "0 (17, 23)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Sainte-Trinite",
+      "0 (23, 19)",
+      "2 (25, 25)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Elsie MacGill S.S.",
+      "2 (25, 25)",
+      "0 (18, 19)",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Quarter Final.  Game 1"
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "0 (10, 23, 22)",
+      "3 (25, 25, 25)",
       "Académie Catholique Mère-Teresa"
     ],
     [
       "Location: École Secondaire Académie Catholique Mère-Teresa",
       "Notes: GHAC."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "Abbey Park H.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
     ]
   ]
 }
