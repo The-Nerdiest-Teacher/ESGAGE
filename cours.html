@@ -190,8 +190,7 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
 
   <div class="subject-nav" data-aos="fade-up" data-aos-delay="50">
     <button class="subject-tab active" onclick="showSubject('sciences',this)"><i class="bi bi-flask-fill"></i> Sciences</button>
-    <button class="subject-tab" onclick="showSubject('francais',this)"><i class="bi bi-chat-quote-fill"></i> Français</button>
-    <button class="subject-tab" onclick="showSubject('anglais',this)"><i class="bi bi-translate"></i> Anglais</button>
+    <button class="subject-tab" onclick="showSubject('langues',this)"><i class="bi bi-chat-quote-fill"></i> Langues</button>
     <button class="subject-tab" onclick="showSubject('maths',this)"><i class="bi bi-calculator-fill"></i> Mathématiques</button>
     <button class="subject-tab" onclick="showSubject('eps',this)"><i class="bi bi-heart-pulse-fill"></i> Éd. Physique &amp; Santé</button>
     <button class="subject-tab" onclick="showSubject('info',this)"><i class="bi bi-cpu-fill"></i> Informatique</button>
@@ -271,16 +270,19 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
   </div>
 
   <!-- ════ FRANÇAIS ════ -->
-  <div class="subject-panel" id="panel-francais">
-        <div class="grade-header-row">
+  <!-- ════ LANGUES ════ -->
+  <div class="subject-panel" id="panel-langues">
+    <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">11<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">12<sup>e</sup></span></div>
     </div>
+    <div class="pathway-wrap" id="wrap-langues">
+      <svg class="pathway-svg" id="svg-langues"></svg>
 
-    <div class="pathway-wrap" id="wrap-francais">
-      <svg class="pathway-svg" id="svg-francais"></svg>
+      <!-- ── FRANÇAIS ── -->
+      <div class="pathway-row"><div class="pathway-label-row"><span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--heading-color);opacity:.5;">FRANÇAIS</span></div></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
       <div class="pathway-row no-border">
         <div class="cell cu"><div class="pill" data-pid="FRL1W_u"><span class="pcode">FRL1W</span><span class="pname">Français</span></div></div>
@@ -296,20 +298,10 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
         <div class="cell cc"><div class="pill" data-pid="FRA3C"><span class="pcode">FRA3C</span><span class="pname">Français</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="FRA4C"><span class="pcode">FRA4C</span><span class="pname">Français</span></div></div>
       </div>
-    </div>
-  </div>
 
-  <!-- ════ ANGLAIS ════ -->
-  <div class="subject-panel" id="panel-anglais">
-        <div class="grade-header-row">
-      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
-      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
-      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span></div>
-      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span></div>
-    </div>
-
-    <div class="pathway-wrap" id="wrap-anglais">
-      <svg class="pathway-svg" id="svg-anglais"></svg>
+      <!-- ── ANGLAIS ── -->
+      <div class="path-spacer" style="height:20px;"></div>
+      <div class="pathway-row"><div class="pathway-label-row"><span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--heading-color);opacity:.5;">ANGLAIS</span></div></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
       <div class="pathway-row no-border">
         <div class="cell cu"><div class="pill" data-pid="EAE1W"><span class="pcode">EAE1W</span><span class="pname">English</span></div></div>
@@ -389,35 +381,47 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
 
     <div class="pathway-wrap" id="wrap-eps">
       <svg class="pathway-svg" id="svg-eps"></svg>
-      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Activités en groupes (PAL)</span></div></div>
+
+      <!-- ── Éducation physique ── -->
+      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Éducation physique</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell co"><div class="pill" data-pid="PAL1O"><span class="pcode">PAL1O</span><span class="pname">Activités en groupes</span></div></div>
-        <div class="cell co"><div class="pill" data-pid="PAL2O"><span class="pcode">PAL2O</span><span class="pname">Activités en groupes</span></div></div>
-        <div class="cell co"><div class="pill" data-pid="PAL3O"><span class="pcode">PAL3O</span><span class="pname">Activités en groupes</span></div></div>
-        <div class="cell co"><div class="pill" data-pid="PAL4O"><span class="pcode">PAL4O</span><span class="pname">Activités en groupes</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAL1O"><span class="pcode">PAL1O</span><span class="pname">Basketball / Soccer</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAL2O"><span class="pcode">PAL2O</span><span class="pname">Basketball / Soccer</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAL3O"><span class="pcode">PAL3O</span><span class="pname">Basketball / Soccer</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAL4O"><span class="pcode">PAL4O</span><span class="pname">Basketball / Soccer</span></div></div>
       </div>
-      <div class="path-spacer"></div>
-      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Vie active &amp; Santé (PPL)</span></div></div>
-      <div class="pathway-row no-border">
+      <div class="pathway-row no-border tight">
+        <div class="cell co"><div class="pill" data-pid="PAR1O"><span class="pcode">PAR1O</span><span class="pname">Volleyball</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAR2O"><span class="pcode">PAR2O</span><span class="pname">Volleyball</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAR3O"><span class="pcode">PAR3O</span><span class="pname">Volleyball</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="PAR4O"><span class="pcode">PAR4O</span><span class="pname">Volleyball</span></div></div>
+      </div>
+      <div class="pathway-row no-border tight">
         <div class="cell co"><div class="pill" data-pid="PPL1O"><span class="pcode">PPL1O</span><span class="pname">Vie active &amp; Santé</span></div></div>
-        <div class="cell-empty"></div>
+        <div class="cell co"><div class="pill" data-pid="PPL2O"><span class="pcode">PPL2O</span><span class="pname">Vie active &amp; Santé</span></div></div>
         <div class="cell co"><div class="pill" data-pid="PPL3O"><span class="pcode">PPL3O</span><span class="pname">Vie active &amp; Santé</span></div></div>
         <div class="cell co"><div class="pill" data-pid="PPL4O"><span class="pcode">PPL4O</span><span class="pname">Vie active &amp; Santé</span></div></div>
       </div>
-      <div class="path-spacer"></div>
-      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Conditionnement (PAF)</span></div></div>
-      <div class="pathway-row no-border">
+      <div class="pathway-row no-border tight">
         <div class="cell co"><div class="pill" data-pid="PAF1O"><span class="pcode">PAF1O</span><span class="pname">Conditionnement</span></div></div>
         <div class="cell co"><div class="pill" data-pid="PAF2O"><span class="pcode">PAF2O</span><span class="pname">Conditionnement</span></div></div>
         <div class="cell co"><div class="pill" data-pid="PAF3O"><span class="pcode">PAF3O</span><span class="pname">Conditionnement</span></div></div>
         <div class="cell co"><div class="pill" data-pid="PAF4O"><span class="pcode">PAF4O</span><span class="pname">Conditionnement</span></div></div>
       </div>
+
+      <!-- ── Soins de santé & Kinésiologie ── -->
       <div class="path-spacer"></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Soins de santé &amp; Kinésiologie</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell-empty"></div>
+        <div class="cell cc"><div class="pill" data-pid="TPJ1O"><span class="pcode">TPJ1O</span><span class="pname">Soins de santé</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="TPJ2O"><span class="pcode">TPJ2O</span><span class="pname">Soins de santé</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="TPJ3M"><span class="pcode">TPJ3M</span><span class="pname">Soins de santé</span></div></div>
+        <div class="cell-empty"></div>
+      </div>
+      <div class="pathway-row no-border tight">
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
         <div class="cell cu"><div class="pill" data-pid="PSK4U"><span class="pcode">PSK4U</span><span class="pname">Kinésiologie</span></div></div>
       </div>
     </div>
@@ -670,11 +674,9 @@ const ARROW_DEFS = {
     // SNC2P fans to SBI3C, SCH4C, SPH4C — trunk stops before SBI3C column to avoid overlap
     ['SNC2P', ['SBI3C','SCH4C','SPH4C'], '#388e3c'],
   ],
-  francais: [
+  langues: [
     ['FRL1W_u','FRA2D','#1976d2'],['FRA2D','FRA3U','#1976d2'],['FRA3U','FRA4U','#1976d2'],
     ['FRL1W_c','FRA2P','#388e3c'],['FRA2P','FRA3C','#388e3c'],['FRA3C','FRA4C','#388e3c'],
-  ],
-  anglais: [
     ['EAE1W','EAE2D','#1976d2'],['EAE2D','EAE3U','#1976d2'],['EAE3U','EAE4U','#1976d2'],
     ['EAE3U','EAC4U','#1976d2'],
     ['EAE1W_c','EAE2P','#388e3c'],['EAE2P','EAE3C','#388e3c'],['EAE3C','EAE4C','#388e3c'],
@@ -689,12 +691,7 @@ const ARROW_DEFS = {
     // MCT4C → MHF4U: sticks out right past column then curves back up
     ['MCT4C','MHF4U','#388e3c','stick'],
   ],
-  eps: [
-    ['PAL1O','PAL2O','#e65100'],['PAL2O','PAL3O','#e65100'],['PAL3O','PAL4O','#e65100'],
-    ['PPL1O','PPL3O','#e65100'],['PPL3O','PPL4O','#e65100'],
-    ['PAF1O','PAF2O','#e65100'],['PAF2O','PAF3O','#e65100'],['PAF3O','PAF4O','#e65100'],
-    ['TPJ2O','TPJ3M','#388e3c'],['TPJ3M','PSK4U','#1976d2'],
-  ],
+  eps: [],
   info: [
     ['MHS_u','ICD2O','#1976d2'],['ICD2O','ICS3','#1976d2'],['ICS3','ICS4','#1976d2'],
     ['MHS_c','TEJ12','#388e3c'],['TEJ12','TEJ3M','#388e3c'],['TEJ3M','TEJ4M','#388e3c'],
