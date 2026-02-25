@@ -4,229 +4,152 @@
 <meta charset="utf-8"/>
 <script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nos Cours | École secondaire Gaétan‑Gervais</title>
+<title>Nos Cours | École secondaire Gaétan-Gervais</title>
 <link href="assets/img/favicon.png" rel="icon"/>
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
 <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
-<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 <link href="assets/css/main.css" rel="stylesheet"/>
 <style>
+.cours-section { padding: 40px 20px 60px; }
 
-/* ── Code legend ── */
-.legend-table {
-  background: var(--surface-color);
-  border-radius: 14px;
-  padding: 24px 28px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-}
-.legend-table h5 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  color: var(--heading-color);
-}
-.legend-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: color-mix(in srgb, var(--default-color), transparent 93%);
-  border-radius: 8px;
-  padding: 6px 12px;
-}
-.legend-code {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  color: var(--accent-color);
-  width: 18px;
-  text-align: center;
-  line-height: 1;
-}
-.legend-desc {
-  font-family: 'Raleway', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--default-color);
-}
-.legend-example {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border-radius: 10px;
-  padding: 14px 20px;
-  margin-top: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.legend-example .code-demo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
-  color: var(--accent-color);
-}
-.legend-example .code-parts {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.code-part {
-  text-align: center;
-}
-.code-part .label {
-  font-size: 10px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--default-color);
-  opacity: 0.6;
-  display: block;
-  margin-bottom: 2px;
-}
-.code-part .value {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  color: var(--accent-color);
-  letter-spacing: 2px;
-}
-
-/* ── Subject nav tabs ── */
-.subject-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 40px;
-}
+/* TABS */
+.subject-nav { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:36px; justify-content:center; }
 .subject-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 18px;
-  border-radius: 30px;
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  background: transparent;
-  color: var(--default-color);
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
+  display:inline-flex; align-items:center; gap:7px; padding:9px 18px;
+  border-radius:30px; border:2px solid color-mix(in srgb,var(--default-color),transparent 78%);
+  background:transparent; color:var(--default-color);
+  font-family:'Raleway',sans-serif; font-weight:700; font-size:13px;
+  cursor:pointer; transition:all 0.2s; white-space:nowrap;
 }
-.subject-tab:hover { border-color: var(--accent-color); color: var(--accent-color); }
-.subject-tab.active { background: var(--accent-color); border-color: var(--accent-color); color: #fff; }
+.subject-tab:hover { border-color:var(--accent-color); color:var(--accent-color); }
+.subject-tab.active { background:var(--accent-color); border-color:var(--accent-color); color:#fff; }
 
-/* ── Subject panel ── */
-.subject-panel { display: none; }
-.subject-panel.active { display: block; }
+/* PANELS */
+.subject-panel { display:none; }
+.subject-panel.active { display:block; }
 
-/* ── Section title ── */
-.gage-section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  letter-spacing: 2px;
-  color: var(--heading-color);
-  margin-bottom: 4px;
+/* GRADE HEADER ROW */
+.grade-header-row {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-bottom:2px solid color-mix(in srgb,var(--default-color),transparent 85%);
+  margin-bottom:0;
 }
-.gage-section-sub {
-  font-size: 14px;
-  color: var(--default-color);
-  opacity: 0.6;
-  margin-bottom: 32px;
+.grade-header {
+  text-align:center; padding:14px 8px 16px; position:relative;
 }
-
-/* ── Pathway ── */
-.pathway-label {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 30px;
-  display: inline-block;
-  margin-bottom: 16px;
+.grade-header::after {
+  content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+  width:36px; height:3px; background:var(--accent-color); border-radius:2px;
 }
-.pathway-univ  { background: color-mix(in srgb, #2196f3, transparent 85%); color: #1565c0; }
-.pathway-col   { background: color-mix(in srgb, #4caf50, transparent 85%); color: #2e7d32; }
-.pathway-open  { background: color-mix(in srgb, #ff9800, transparent 85%); color: #e65100; }
-.pathway-ess   { background: color-mix(in srgb, #9c27b0, transparent 85%); color: #6a1b9a; }
-.pathway-bi    { background: color-mix(in srgb, #f44336, transparent 85%); color: #b71c1c; }
-
-html.dark-mode .pathway-univ  { color: #90caf9; }
-html.dark-mode .pathway-col   { color: #a5d6a7; }
-html.dark-mode .pathway-open  { color: #ffcc80; }
-html.dark-mode .pathway-ess   { color: #ce93d8; }
-html.dark-mode .pathway-bi    { color: #ef9a9a; }
-
-/* ── Course cards ── */
-.course-sequence {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  align-items: center;
-  margin-bottom: 8px;
+.grade-label {
+  font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px;
+  color:var(--accent-color); display:block;
 }
-.course-pill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--surface-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  border-radius: 10px;
-  padding: 10px 16px;
-  min-width: 120px;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.course-pill:hover {
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
-}
-.course-pill .code {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  letter-spacing: 1px;
-  color: var(--accent-color);
-  line-height: 1;
-}
-.course-pill .name {
-  font-family: 'Raleway', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--default-color);
-  opacity: 0.65;
-  text-align: center;
-  margin-top: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.course-arrow {
-  font-size: 18px;
-  color: var(--default-color);
-  opacity: 0.3;
-  padding: 0 6px;
-  flex-shrink: 0;
-}
-.pathway-block {
-  margin-bottom: 28px;
+.grade-sub {
+  font-family:'Raleway',sans-serif; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:1px;
+  color:var(--default-color); opacity:0.4;
 }
 
-/* Start pill (7e/8e or 9e) */
-.course-pill.start-pill {
-  background: color-mix(in srgb, var(--accent-color), transparent 88%);
-  border-color: var(--accent-color);
+/* PATHWAY ROWS */
+.pathway-row {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid color-mix(in srgb,var(--default-color),transparent 90%);
+  align-items:start; padding:8px 0;
 }
-.course-pill.start-pill .code { color: var(--accent-color); }
+.pathway-row.no-border { border-bottom:none; padding-top:0; }
+.pathway-row.tight { padding:2px 0; }
+
+/* Full-width pathway badge row */
+.pathway-label-row {
+  grid-column:1/-1;
+  padding:8px 8px 4px;
+}
+.pbadge {
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:'Raleway',sans-serif; font-weight:700;
+  font-size:11px; letter-spacing:1.2px; text-transform:uppercase;
+  padding:4px 12px; border-radius:20px;
+}
+.pb-u { background:#e3f2fd; color:#1565c0; }
+.pb-c { background:#e8f5e9; color:#2e7d32; }
+.pb-o { background:#fff3e0; color:#e65100; }
+.pb-e { background:#f3e5f5; color:#6a1b9a; }
+html.dark-mode .pb-u { background:rgba(25,118,210,.18); color:#90caf9; }
+html.dark-mode .pb-c { background:rgba(56,142,60,.18);  color:#a5d6a7; }
+html.dark-mode .pb-o { background:rgba(230,81,0,.18);   color:#ffcc80; }
+html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
+
+/* CELLS */
+.cell {
+  padding:6px 10px; display:flex; align-items:center;
+  position:relative; min-height:68px;
+}
+.cell-empty { padding:6px 10px; min-height:68px; }
+
+/* Arrow: pseudo-element on left of receiving cell */
+.cell.arr::before {
+  content:''; position:absolute; top:50%; left:0;
+  transform:translateY(-50%);
+  width:10px; height:2px;
+  background:color-mix(in srgb,var(--default-color),transparent 50%);
+}
+.cell.arr::after {
+  content:''; position:absolute; top:50%; left:8px;
+  transform:translateY(-50%);
+  border-top:5px solid transparent; border-bottom:5px solid transparent;
+  border-left:7px solid color-mix(in srgb,var(--default-color),transparent 50%);
+}
+
+/* PILLS */
+.pill {
+  background:var(--surface-color);
+  border:2px solid color-mix(in srgb,var(--default-color),transparent 82%);
+  border-radius:10px; padding:9px 13px;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+  width:100%;
+}
+.pill:hover {
+  border-color:var(--pc,var(--accent-color));
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,.1);
+}
+.pcode {
+  font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:1px;
+  color:var(--pc,var(--accent-color)); line-height:1; display:block;
+}
+.pname {
+  font-family:'Raleway',sans-serif; font-size:11px; font-weight:600;
+  color:var(--default-color); opacity:.6;
+  text-transform:uppercase; letter-spacing:.3px;
+  margin-top:3px; display:block;
+}
+
+/* Colour themes */
+.cu { --pc:#1976d2; }
+.cc { --pc:#388e3c; }
+.co { --pc:#e65100; }
+.ce { --pc:#7b1fa2; }
+
+/* Section divider between pathway groups */
+.path-spacer { height:6px; }
+
+/* Legend */
+.lbox { background:var(--surface-color); border-radius:14px; padding:24px 28px; border:1px solid color-mix(in srgb,var(--default-color),transparent 88%); }
+.lgrid { display:flex; flex-wrap:wrap; gap:10px; }
+.litem { display:flex; align-items:center; gap:8px; background:color-mix(in srgb,var(--default-color),transparent 93%); border-radius:8px; padding:6px 12px; }
+.lcode { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--accent-color); width:18px; text-align:center; line-height:1; }
+.ldesc { font-family:'Raleway',sans-serif; font-size:13px; font-weight:600; color:var(--default-color); }
+
+@media(max-width:768px){
+  .grade-header-row,.pathway-row { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:480px){
+  .grade-header-row,.pathway-row { grid-template-columns:1fr; }
+  .cell.arr::before,.cell.arr::after { display:none; }
+}
 </style>
 </head>
 <body class="starter-page-page">
@@ -234,619 +157,472 @@ html.dark-mode .pathway-bi    { color: #ef9a9a; }
 <script src="assets/js/include-header.js"></script>
 <main class="main">
 
-  <!-- Page Title -->
-  <div class="page-title" data-aos="fade">
-    <div class="heading">
-      <div class="container">
-        <div class="row d-flex justify-content-center text-center">
-          <div class="col-lg-8">
-            <div style="margin-bottom:12px;">
-              <i class="bi bi-book-fill" style="font-size:52px;color:var(--accent-color);"></i>
+<div class="page-title" data-aos="fade">
+  <div class="heading"><div class="container">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-lg-8">
+        <div style="margin-bottom:12px;"><i class="bi bi-book-fill" style="font-size:52px;color:var(--accent-color);"></i></div>
+        <h1>Nos Cours</h1>
+        <p class="mb-0">Explorez les cours offerts de la 7<sup>e</sup> à la 12<sup>e</sup> année.</p>
+      </div>
+    </div>
+  </div></div>
+  <nav class="breadcrumbs"><div class="container"><ol>
+    <li><a href="/ESGAGE/index.html">Accueil</a></li>
+    <li><a href="/ESGAGE/academique.html">Académique</a></li>
+    <li class="current">Cours</li>
+  </ol></div></nav>
+</div>
+
+<!-- LEGEND -->
+<section class="section light-background">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        <div class="lbox">
+          <h5 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;margin-bottom:16px;color:var(--heading-color);">Comment lire un code de cours</h5>
+          <div style="background:color-mix(in srgb,var(--accent-color),transparent 90%);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:5px;color:var(--accent-color);">FRA 2 D</span>
+            <div style="display:flex;gap:20px;">
+              <div style="text-align:center;"><span style="font-size:10px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Matière</span><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent-color);">FRA</span></div>
+              <div style="text-align:center;"><span style="font-size:10px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Année</span><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent-color);">2</span></div>
+              <div style="text-align:center;"><span style="font-size:10px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Type</span><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent-color);">D</span></div>
             </div>
-            <h1>Nos Cours</h1>
-            <p class="mb-0">Explorez les cours offerts à l'École secondaire Gaétan‑Gervais — de la 7e à la 12e année.</p>
+          </div>
+          <div class="lgrid">
+            <div class="litem"><span class="lcode">P</span><span class="ldesc">Appliquée</span></div>
+            <div class="litem"><span class="lcode">D</span><span class="ldesc">Théorique</span></div>
+            <div class="litem"><span class="lcode">O</span><span class="ldesc">Ouvert</span></div>
+            <div class="litem"><span class="lcode">U</span><span class="ldesc">Pré-Universitaire</span></div>
+            <div class="litem"><span class="lcode">C</span><span class="ldesc">Pré-Collégiale</span></div>
+            <div class="litem"><span class="lcode">M</span><span class="ldesc">Mixte</span></div>
+            <div class="litem"><span class="lcode">W</span><span class="ldesc">Cours de départ</span></div>
+            <div class="litem"><span class="lcode">L</span><span class="ldesc">Niveau essentiel</span></div>
+            <div class="litem"><span class="lcode">E</span><span class="ldesc">Essentiel</span></div>
+            <div class="litem"><span class="lcode">A</span><span class="ldesc">BI</span></div>
           </div>
         </div>
       </div>
-    </div>
-    <nav class="breadcrumbs">
-      <div class="container">
-        <ol>
-          <li><a href="/ESGAGE/index.html">Accueil</a></li>
-          <li><a href="/ESGAGE/academique.html">Académique</a></li>
-          <li class="current">Cours</li>
-        </ol>
+      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:2px;color:var(--heading-color);margin-bottom:8px;">120+ cours offerts</p>
+        <p style="font-size:15px;color:var(--default-color);opacity:.75;line-height:1.8;">Chaque département offre plusieurs filières adaptées — universitaire, collégial, essentiel ou ouvert.</p>
+        <p style="font-size:13px;color:var(--default-color);opacity:.5;margin-top:12px;"><i class="bi bi-arrow-right me-1"></i> Flèche = cours préalable requis &nbsp;&nbsp; Pas de flèche = aucun préalable</p>
       </div>
-    </nav>
+    </div>
+  </div>
+</section>
+
+<!-- BROWSER -->
+<section class="cours-section">
+  <div style="text-align:center;margin-bottom:28px;" data-aos="fade-up">
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:2px;color:var(--heading-color);margin-bottom:4px;">Parcours par matière</p>
+    <p style="font-size:14px;color:var(--default-color);opacity:.6;">Sélectionnez une matière pour voir les cours disponibles</p>
   </div>
 
-  <!-- ── Code legend ─────────────────────────────────────────────────────── -->
-  <section class="section light-background">
-    <div class="container">
-      <div class="row gy-4 align-items-center">
-        <div class="col-lg-7" data-aos="fade-up">
-          <div class="legend-table">
-            <h5>Comment lire un code de cours</h5>
-            <div class="legend-example">
-              <div class="code-demo">FRA&nbsp;2&nbsp;D</div>
-              <div class="code-parts">
-                <div class="code-part">
-                  <span class="label">Matière</span>
-                  <span class="value">FRA</span>
-                </div>
-                <div class="code-part">
-                  <span class="label">Année</span>
-                  <span class="value">2</span>
-                </div>
-                <div class="code-part">
-                  <span class="label">Type</span>
-                  <span class="value">D</span>
-                </div>
-              </div>
-            </div>
-            <div class="legend-grid mt-3">
-              <div class="legend-item"><span class="legend-code">P</span><span class="legend-desc">Appliquée</span></div>
-              <div class="legend-item"><span class="legend-code">D</span><span class="legend-desc">Théorique</span></div>
-              <div class="legend-item"><span class="legend-code">O</span><span class="legend-desc">Ouvert</span></div>
-              <div class="legend-item"><span class="legend-code">A</span><span class="legend-desc">BI</span></div>
-              <div class="legend-item"><span class="legend-code">U</span><span class="legend-desc">Pré-Universitaire</span></div>
-              <div class="legend-item"><span class="legend-code">C</span><span class="legend-desc">Pré-Collégiale</span></div>
-              <div class="legend-item"><span class="legend-code">M</span><span class="legend-desc">Mixte</span></div>
-              <div class="legend-item"><span class="legend-code">W</span><span class="legend-desc">Cours de départ</span></div>
-              <div class="legend-item"><span class="legend-code">L</span><span class="legend-desc">Niveau essentiel</span></div>
-              <div class="legend-item"><span class="legend-code">E</span><span class="legend-desc">Essentiel</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
-          <p class="gage-section-title">120+ cours<br/>offerts</p>
-          <p style="font-size:15px;color:var(--default-color);opacity:0.75;line-height:1.8;">
-            Chaque département offre plusieurs filières adaptées aux objectifs de chaque élève — universitaire, collégial, essentiel ou ouvert.
-          </p>
-          <p style="font-size:13px;color:var(--default-color);opacity:0.55;">
-            Pour plus d'information sur un cours spécifique, consultez ton conseiller pédagogique.
-          </p>
-        </div>
-      </div>
+  <div class="subject-nav" data-aos="fade-up" data-aos-delay="50">
+    <button class="subject-tab active" onclick="showSubject('sciences',this)"><i class="bi bi-flask-fill"></i> Sciences</button>
+    <button class="subject-tab" onclick="showSubject('francais',this)"><i class="bi bi-chat-quote-fill"></i> Français</button>
+    <button class="subject-tab" onclick="showSubject('anglais',this)"><i class="bi bi-translate"></i> Anglais</button>
+    <button class="subject-tab" onclick="showSubject('maths',this)"><i class="bi bi-calculator-fill"></i> Mathématiques</button>
+    <button class="subject-tab" onclick="showSubject('eps',this)"><i class="bi bi-heart-pulse-fill"></i> Éd. Physique &amp; Santé</button>
+    <button class="subject-tab" onclick="showSubject('info',this)"><i class="bi bi-cpu-fill"></i> Informatique</button>
+    <button class="subject-tab" onclick="showSubject('affaires',this)"><i class="bi bi-briefcase-fill"></i> Affaires</button>
+    <button class="subject-tab" onclick="showSubject('sociales',this)"><i class="bi bi-people-fill"></i> Sciences humaines</button>
+    <button class="subject-tab" onclick="showSubject('mondiales',this)"><i class="bi bi-globe2"></i> Études canadiennes</button>
+    <button class="subject-tab" onclick="showSubject('arts',this)"><i class="bi bi-palette-fill"></i> Arts</button>
+  </div>
+
+  <!-- ════ SCIENCES ════ -->
+  <div class="subject-panel active" id="panel-sciences">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup>/10<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub">Intermédiaire</span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub">Intermédiaire</span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
     </div>
-  </section>
-
-  <!-- ── Course browser ──────────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center mb-2" data-aos="fade-up">
-        <p class="gage-section-title">Parcours par matière</p>
-        <p class="gage-section-sub">Sélectionnez une matière pour voir les cours disponibles</p>
-      </div>
-
-      <!-- Subject tabs -->
-      <div class="subject-nav justify-content-center" data-aos="fade-up" data-aos-delay="50">
-        <button class="subject-tab active" onclick="showSubject('sciences', this)">
-          <i class="bi bi-flask-fill"></i> Sciences
-        </button>
-        <button class="subject-tab" onclick="showSubject('langues-fr', this)">
-          <i class="bi bi-chat-quote-fill"></i> Français
-        </button>
-        <button class="subject-tab" onclick="showSubject('langues-en', this)">
-          <i class="bi bi-translate"></i> Anglais
-        </button>
-        <button class="subject-tab" onclick="showSubject('maths', this)">
-          <i class="bi bi-calculator-fill"></i> Mathématiques
-        </button>
-        <button class="subject-tab" onclick="showSubject('eps', this)">
-          <i class="bi bi-heart-pulse-fill"></i> Éd. Physique &amp; Santé
-        </button>
-        <button class="subject-tab" onclick="showSubject('info', this)">
-          <i class="bi bi-cpu-fill"></i> Informatique
-        </button>
-        <button class="subject-tab" onclick="showSubject('affaires', this)">
-          <i class="bi bi-briefcase-fill"></i> Affaires
-        </button>
-        <button class="subject-tab" onclick="showSubject('sociales', this)">
-          <i class="bi bi-globe2"></i> Sciences humaines
-        </button>
-        <button class="subject-tab" onclick="showSubject('mondiales', this)">
-          <i class="bi bi-map-fill"></i> Études canadiennes
-        </button>
-        <button class="subject-tab" onclick="showSubject('arts', this)">
-          <i class="bi bi-palette-fill"></i> Arts
-        </button>
-      </div>
-
-      <!-- ── SCIENCES ── -->
-      <div class="subject-panel active" id="panel-sciences">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Filière Pré-Universitaire</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">SNC2D</span><span class="name">Sciences</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">SBI3U</span><span class="name">Biologie</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">SBI4U</span><span class="name">Biologie</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill"><span class="code">SCH3U</span><span class="name">Chimie</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">SCH4U</span><span class="name">Chimie</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill"><span class="code">SPH3U</span><span class="name">Physique</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">SPH4U</span><span class="name">Physique</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-            <span class="pathway-label pathway-col">Filière Pré-Collégiale</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">SNC2P</span><span class="name">Sciences</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">SBI3C</span><span class="name">Biologie</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill"><span class="code">SCH4C</span><span class="name">Chimie</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill"><span class="code">SPH4C</span><span class="name">Physique</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── FRANÇAIS ── -->
-      <div class="subject-panel" id="panel-langues-fr">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Filière Pré-Universitaire</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">FRL1W</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA2D</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA3U</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA4U</span><span class="name">Français</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-            <span class="pathway-label pathway-col">Filière Pré-Collégiale</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">FRL1W</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA2P</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA3C</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA4C</span><span class="name">Français</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="150">
-            <span class="pathway-label pathway-ess">Filière Essentielle</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">FRL1W</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA3E</span><span class="name">Français</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">FRA4E</span><span class="name">Français</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="200">
-            <span class="pathway-label pathway-open">Cours Optionnel</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">LWSBD</span><span class="name">Espagnol</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── ANGLAIS ── -->
-      <div class="subject-panel" id="panel-langues-en">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Filière Pré-Universitaire</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">EAE1D</span><span class="name">English</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAE2D</span><span class="name">English</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAE3U</span><span class="name">English</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAE4U</span><span class="name">English</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAC4U</span><span class="name">Writers Craft</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-            <span class="pathway-label pathway-col">Filière Pré-Collégiale</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">EAE1D</span><span class="name">English</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAE2P</span><span class="name">English</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAE3C</span><span class="name">English</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EAE4C</span><span class="name">English</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="150">
-            <span class="pathway-label pathway-open">Cours Ouverts</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">EANAO</span><span class="name">Anglais</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">EANBO</span><span class="name">Anglais débutant</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── MATHÉMATIQUES ── -->
-      <div class="subject-panel" id="panel-maths">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Filière Pré-Universitaire</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">MTH1W</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MDM2D</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MCR3U</span><span class="name">Fonctions</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MCV4U</span><span class="name">Vecteurs</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MHF4U</span><span class="name">Fonctions avancées</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill" style="visibility:hidden;min-width:120px;"></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MDM4U</span><span class="name">Gestion des données</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-            <span class="pathway-label pathway-col">Filière Pré-Collégiale</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">MTH1W</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MPM2P</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MCF3M</span><span class="name">Fonctions</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MAP4C</span><span class="name">Méthodes</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="150">
-            <span class="pathway-label pathway-ess">Filière Essentielle</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">MAT1L</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MAT2L</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MEL3E</span><span class="name">Mathématiques</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">MEL4E</span><span class="name">Mathématiques</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── ÉD. PHYSIQUE ── -->
-      <div class="subject-panel" id="panel-eps">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-open">Activités en groupes</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">PAL1O</span><span class="name">Activités groupes</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PAL2O</span><span class="name">Activités groupes</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PAL3O</span><span class="name">Activités groupes</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PAL4O</span><span class="name">Activités groupes</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="80">
-            <span class="pathway-label pathway-open">Vie active &amp; Santé</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">PPL1O</span><span class="name">Vie active & Santé</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PPL3O</span><span class="name">Vie active & Santé</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PPL4O</span><span class="name">Vie active & Santé</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="120">
-            <span class="pathway-label pathway-open">Conditionnement</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">PAF1O</span><span class="name">Conditionnement</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PAF2O</span><span class="name">Conditionnement</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PAF3O</span><span class="name">Conditionnement</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PAF4O</span><span class="name">Conditionnement</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="160">
-            <span class="pathway-label pathway-col">Soins de santé &amp; Kinésiologie</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">TPJ2O</span><span class="name">Soins de santé</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TPJ3M</span><span class="name">Soins de santé</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">PSK4U</span><span class="name">Kinésiologie</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── INFORMATIQUE ── -->
-      <div class="subject-panel" id="panel-info">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Ingénierie informatique</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">MHS</span><span class="name">Ingénierie info.</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">ICD2O</span><span class="name">Informatique</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">ICS3C/U</span><span class="name">Programmation</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">ICS4C/U</span><span class="name">Programmation</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-            <span class="pathway-label pathway-col">Systèmes informatiques</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">MHS</span><span class="name">Info. appliquée</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TEJ1O</span><span class="name">Systèmes info.</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TEJ2O</span><span class="name">Systèmes info.</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TEJ3M</span><span class="name">Systèmes info.</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TEJ4M</span><span class="name">Systèmes info.</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── AFFAIRES ── -->
-      <div class="subject-panel" id="panel-affaires">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Comptabilité &amp; Gestion</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">BEM1O / BEP2O</span><span class="name">Exploration</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">BAF3M</span><span class="name">Comptabilité</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">BAT4M</span><span class="name">Comptabilité</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:140px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill"><span class="code">BMI3C</span><span class="name">Marketing</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill" style="visibility:hidden;min-width:140px;"></div>
-                <span class="course-arrow" style="visibility:hidden;padding:0 6px;"></span>
-                <div class="course-pill"><span class="code">BTA3O</span><span class="name">TIC en affaires</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">BOH4M</span><span class="name">Gestion</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── SCIENCES HUMAINES ── -->
-      <div class="subject-panel" id="panel-sociales">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Psychologie &amp; Philosophie</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">HSP3U</span><span class="name">Psychologie</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">HZT4U</span><span class="name">Philosophie</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="80">
-            <span class="pathway-label pathway-open">Alimentation &amp; Nutrition</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">HFN1O</span><span class="name">Alimentation</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">HFN2O</span><span class="name">Alimentation</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">HFC3M</span><span class="name">Alimentation</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">HFA4C/4U</span><span class="name">Nutrition</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="120">
-            <span class="pathway-label pathway-col">Hôtellerie</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">TFJ2O</span><span class="name">Hôtellerie</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TFJ3C</span><span class="name">Hôtellerie</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">TFJ4C</span><span class="name">Hôtellerie</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="160">
-            <span class="pathway-label pathway-open">Leadership</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">PLF4M</span><span class="name">Leadership récréatif</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── ÉTUDES CANADIENNES ── -->
-      <div class="subject-panel" id="panel-mondiales">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-univ">Histoire</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">CHC2D</span><span class="name">Histoire du Canada</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">CHT3O</span><span class="name">Histoire depuis 1900</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">CHY4U</span><span class="name">Histoire du monde</span></div>
-              </div>
-              <div class="course-sequence mt-2">
-                <div class="course-pill start-pill"><span class="code">CHC2P</span><span class="name">Histoire du Canada</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="80">
-            <span class="pathway-label pathway-univ">Droit</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">CLU3M</span><span class="name">Droit</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">CLN4U</span><span class="name">Droit canadien & mondial</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="120">
-            <span class="pathway-label pathway-open">Géographie &amp; Environnement</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill start-pill"><span class="code">GCG1W</span><span class="name">Géographie</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">GCG3O</span><span class="name">Voyages & Tourisme</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">CGU4M</span><span class="name">Environnement urbain</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="160">
-            <span class="pathway-label pathway-open">Civisme &amp; Politique</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">CHV2O</span><span class="name">Citoyenneté</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">CPC3O</span><span class="name">Politique en action</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="200">
-            <span class="pathway-label pathway-open">Carrière</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">GLC2O</span><span class="name">Carrière</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── ARTS ── -->
-      <div class="subject-panel" id="panel-arts">
-        <div class="row gy-4">
-          <div class="col-12" data-aos="fade-up">
-            <span class="pathway-label pathway-open">Arts visuels</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">AVI1O</span><span class="name">Arts visuels</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">AVI2O</span><span class="name">Arts visuels</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">AVI3M</span><span class="name">Arts visuels</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">AVI4M</span><span class="name">Arts visuels</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-            <span class="pathway-label pathway-open">Arts intégrés &amp; Médiatiques</span>
-            <div class="pathway-block">
-              <div class="course-sequence">
-                <div class="course-pill"><span class="code">ASM1O</span><span class="name">Arts intégrés</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">ASM2O</span><span class="name">Arts intégrés</span></div>
-                <span class="course-arrow"><i class="bi bi-arrow-right"></i></span>
-                <div class="course-pill"><span class="code">ASM3M</span><span class="name">Arts médiatiques</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cu"><div class="pill"><span class="pcode">SNC2D</span><span class="pname">Sciences</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">SBI3U</span><span class="pname">Biologie</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">SCH3U</span><span class="pname">Chimie</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">SBI4U</span><span class="pname">Biologie</span></div></div>
     </div>
-  </section>
+    <div class="pathway-row no-border tight">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">SPH3U</span><span class="pname">Physique</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">SCH4U</span><span class="pname">Chimie</span></div></div>
+    </div>
+    <div class="pathway-row tight">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">SPH4U</span><span class="pname">Physique</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégiale</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cc"><div class="pill"><span class="pcode">SNC2P</span><span class="pname">Sciences</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">SBI3C</span><span class="pname">Biologie</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">SCH4C</span><span class="pname">Chimie</span></div></div>
+    </div>
+    <div class="pathway-row tight">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">SPH4C</span><span class="pname">Physique</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ FRANÇAIS ════ -->
+  <div class="subject-panel" id="panel-francais">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">7<sup>e</sup>–9<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cu"><div class="pill"><span class="pcode">FRL1W</span><span class="pname">Français</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">FRA2D</span><span class="pname">Français</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">FRA3U</span><span class="pname">Français</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">FRA4U</span><span class="pname">Français</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégiale</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cc"><div class="pill"><span class="pcode">FRL1W</span><span class="pname">Français</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">FRA2P</span><span class="pname">Français</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">FRA3C</span><span class="pname">Français</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">FRA4C</span><span class="pname">Français</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-e"><i class="bi bi-stars me-1"></i>Essentiel</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell ce"><div class="pill"><span class="pcode">FRL1W</span><span class="pname">Français</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell ce arr"><div class="pill"><span class="pcode">FRA3E</span><span class="pname">Français</span></div></div>
+      <div class="cell ce arr"><div class="pill"><span class="pcode">FRA4E</span><span class="pname">Français</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o"><i class="bi bi-globe me-1"></i>Optionnel</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell co"><div class="pill"><span class="pcode">LWSBD</span><span class="pname">Espagnol</span></div></div>
+      <div class="cell-empty"></div>
+    </div>
+  </div>
+
+  <!-- ════ ANGLAIS ════ -->
+  <div class="subject-panel" id="panel-anglais">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cu"><div class="pill"><span class="pcode">EAE1D</span><span class="pname">English</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">EAE2D</span><span class="pname">English</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">EAE3U</span><span class="pname">English</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">EAE4U</span><span class="pname">English</span></div></div>
+    </div>
+    <div class="pathway-row no-border tight">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu"><div class="pill"><span class="pcode">EAC4U</span><span class="pname">Writers Craft</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégiale</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cc"><div class="pill"><span class="pcode">EAE1D</span><span class="pname">English</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">EAE2P</span><span class="pname">English</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">EAE3C</span><span class="pname">English</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">EAE4C</span><span class="pname">English</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o"><i class="bi bi-globe me-1"></i>Ouvert</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">EANAO</span><span class="pname">Anglais</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">EANBO</span><span class="pname">Anglais débutant</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+    </div>
+  </div>
+
+  <!-- ════ MATHÉMATIQUES ════ -->
+  <div class="subject-panel" id="panel-maths">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cu"><div class="pill"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">MDM2D</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">MCR3U</span><span class="pname">Fonctions</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">MCV4U</span><span class="pname">Vecteurs</span></div></div>
+    </div>
+    <div class="pathway-row no-border tight">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">MHF4U</span><span class="pname">Fonctions avancées</span></div></div>
+    </div>
+    <div class="pathway-row tight">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">MDM4U</span><span class="pname">Gestion des données</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégiale</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cc"><div class="pill"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">MPM2P</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">MCF3M</span><span class="pname">Fonctions</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">MAP4C</span><span class="pname">Méthodes</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-e"><i class="bi bi-stars me-1"></i>Essentiel</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell ce"><div class="pill"><span class="pcode">MAT1L</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell ce arr"><div class="pill"><span class="pcode">MAT2L</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell ce arr"><div class="pill"><span class="pcode">MEL3E</span><span class="pname">Mathématiques</span></div></div>
+      <div class="cell ce arr"><div class="pill"><span class="pcode">MEL4E</span><span class="pname">Mathématiques</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ ÉD. PHYSIQUE ════ -->
+  <div class="subject-panel" id="panel-eps">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span><span class="grade-sub">Année 1</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub">Année 2</span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub">Année 3</span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Année 4</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Activités en groupes (PAL)</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">PAL1O</span><span class="pname">Activités en groupes</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PAL2O</span><span class="pname">Activités en groupes</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PAL3O</span><span class="pname">Activités en groupes</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PAL4O</span><span class="pname">Activités en groupes</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Vie active &amp; Santé (PPL)</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">PPL1O</span><span class="pname">Vie active &amp; Santé</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PPL3O</span><span class="pname">Vie active &amp; Santé</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PPL4O</span><span class="pname">Vie active &amp; Santé</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Conditionnement (PAF)</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">PAF1O</span><span class="pname">Conditionnement</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PAF2O</span><span class="pname">Conditionnement</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PAF3O</span><span class="pname">Conditionnement</span></div></div>
+      <div class="cell co"><div class="pill"><span class="pcode">PAF4O</span><span class="pname">Conditionnement</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Soins de santé &amp; Kinésiologie</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell cc"><div class="pill"><span class="pcode">TPJ2O</span><span class="pname">Soins de santé</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">TPJ3M</span><span class="pname">Soins de santé</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">PSK4U</span><span class="pname">Kinésiologie</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ INFORMATIQUE ════ -->
+  <div class="subject-panel" id="panel-info">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">7<sup>e</sup>/8<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Ingénierie informatique</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cu"><div class="pill"><span class="pcode">MHS</span><span class="pname">Ingénierie info.</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">ICD2O</span><span class="pname">Informatique</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">ICS3C/U</span><span class="pname">Programmation</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">ICS4C/U</span><span class="pname">Programmation</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Systèmes informatiques</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cc"><div class="pill"><span class="pcode">MHS</span><span class="pname">Info. appliquée</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">TEJ1O / TEJ2O</span><span class="pname">Systèmes info.</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">TEJ3M</span><span class="pname">Systèmes info.</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">TEJ4M</span><span class="pname">Systèmes info.</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ AFFAIRES ════ -->
+  <div class="subject-panel" id="panel-affaires">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup>/10<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Comptabilité &amp; Gestion</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cu"><div class="pill"><span class="pcode">BEM1O / BEP2O</span><span class="pname">Exploration affaires</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">BAF3M</span><span class="pname">Comptabilité</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">BAT4M</span><span class="pname">Comptabilité</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Marketing</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell cc"><div class="pill"><span class="pcode">BEM1O / BEP2O</span><span class="pname">Exploration affaires</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">BMI3C</span><span class="pname">Marketing</span></div></div>
+      <div class="cell-empty"></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">TIC en affaires &amp; Gestion</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell co"><div class="pill"><span class="pcode">BTA3O</span><span class="pname">TIC en affaires</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">BOH4M</span><span class="pname">Principe de gestion</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ SCIENCES HUMAINES ════ -->
+  <div class="subject-panel" id="panel-sociales">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Psychologie &amp; Philosophie</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu"><div class="pill"><span class="pcode">HSP3U</span><span class="pname">Psychologie</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">HZT4U</span><span class="pname">Philosophie</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Alimentation &amp; Nutrition</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">HFN1O</span><span class="pname">Alimentation</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">HFN2O</span><span class="pname">Alimentation</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">HFC3M</span><span class="pname">Alimentation</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">HFA4C/4U</span><span class="pname">Nutrition</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Hôtellerie</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell cc"><div class="pill"><span class="pcode">TFJ2O</span><span class="pname">Hôtellerie</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">TFJ3C</span><span class="pname">Hôtellerie</span></div></div>
+      <div class="cell cc arr"><div class="pill"><span class="pcode">TFJ4C</span><span class="pname">Hôtellerie</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Leadership</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu"><div class="pill"><span class="pcode">PLF4M</span><span class="pname">Leadership récréatif</span></div></div>
+    </div>
+  </div>
+
+  <!-- ════ ÉTUDES CANADIENNES ════ -->
+  <div class="subject-panel" id="panel-mondiales">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Géographie &amp; Environnement</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">GCG1W</span><span class="pname">Géographie</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">GCG3O</span><span class="pname">Voyages &amp; Tourisme</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">CGU4M</span><span class="pname">Environnement urbain</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Histoire — Filière D</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell cu"><div class="pill"><span class="pcode">CHC2D</span><span class="pname">Histoire du Canada</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">CHT3O</span><span class="pname">Histoire depuis 1900</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">CHY4U</span><span class="pname">Histoire du monde</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Histoire — Filière P</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell cc"><div class="pill"><span class="pcode">CHC2P</span><span class="pname">Histoire du Canada</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Droit</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+      <div class="cell cu"><div class="pill"><span class="pcode">CLU3M</span><span class="pname">Droit</span></div></div>
+      <div class="cell cu arr"><div class="pill"><span class="pcode">CLN4U</span><span class="pname">Droit canadien &amp; mondial</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Civisme &amp; Politique</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell co"><div class="pill"><span class="pcode">CHV2O</span><span class="pname">Citoyenneté</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">CPC3O</span><span class="pname">Politique en action</span></div></div>
+      <div class="cell-empty"></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Carrière</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell-empty"></div>
+      <div class="cell co"><div class="pill"><span class="pcode">GLC2O</span><span class="pname">Carrière</span></div></div>
+      <div class="cell-empty"></div>
+      <div class="cell-empty"></div>
+    </div>
+  </div>
+
+  <!-- ════ ARTS ════ -->
+  <div class="subject-panel" id="panel-arts">
+    <div class="grade-header-row">
+      <div class="grade-header"><span class="grade-label">9<sup>e</sup></span><span class="grade-sub">Début</span></div>
+      <div class="grade-header"><span class="grade-label">10<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">11<sup>e</sup></span><span class="grade-sub"></span></div>
+      <div class="grade-header"><span class="grade-label">12<sup>e</sup></span><span class="grade-sub">Avancé</span></div>
+    </div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Arts visuels</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">AVI1O</span><span class="pname">Arts visuels</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">AVI2O</span><span class="pname">Arts visuels</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">AVI3M</span><span class="pname">Arts visuels</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">AVI4M</span><span class="pname">Arts visuels</span></div></div>
+    </div>
+    <div class="path-spacer"></div>
+    <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Arts intégrés &amp; Médiatiques</span></div></div>
+    <div class="pathway-row no-border">
+      <div class="cell co"><div class="pill"><span class="pcode">ASM1O</span><span class="pname">Arts intégrés</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">ASM2O</span><span class="pname">Arts intégrés</span></div></div>
+      <div class="cell co arr"><div class="pill"><span class="pcode">ASM3M</span><span class="pname">Arts médiatiques</span></div></div>
+      <div class="cell-empty"></div>
+    </div>
+  </div>
+
+</section>
 
 </main>
 <div id="footer-placeholder"></div>
@@ -854,11 +630,7 @@ html.dark-mode .pathway-bi    { color: #ef9a9a; }
 <a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
 function showSubject(id, btn) {
@@ -866,8 +638,7 @@ function showSubject(id, btn) {
   document.querySelectorAll('.subject-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('panel-' + id).classList.add('active');
-  // Scroll to panel smoothly
-  document.getElementById('panel-' + id).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  document.getElementById('panel-' + id).scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
 </script>
 </body>
