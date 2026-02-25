@@ -106,7 +106,9 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
 .lgrid { display:flex; flex-wrap:wrap; gap:10px; }
 .litem { display:flex; align-items:center; gap:8px; background:color-mix(in srgb,var(--default-color),transparent 93%); border-radius:8px; padding:6px 12px; }
 .lcode { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--accent-color); width:18px; text-align:center; line-height:1; }
-.ldesc { font-family:'Raleway',sans-serif; font-size:13px; font-weight:600; color:var(--default-color); }
+.ldesc { font-family:'Raleway',sans-serif; font-size:13px; font-weight:600; color:var(--default-color); opacity:0.85; }
+html.dark-mode .litem { background:rgba(255,255,255,0.08); }
+html.dark-mode .ldesc { color:#e0e0e0; opacity:1; }
 
 @media(max-width:768px){
   .grade-header-row,.pathway-row { grid-template-columns:repeat(2,1fr); }
@@ -150,12 +152,12 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
       <div class="col-lg-7" data-aos="fade-up">
         <div class="lbox">
           <h5 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;margin-bottom:16px;color:var(--heading-color);">Comment lire un code de cours</h5>
-          <div style="background:color-mix(in srgb,var(--accent-color),transparent 90%);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;">
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:5px;color:var(--accent-color);">FRA 2 D</span>
-            <div style="display:flex;gap:20px;">
-              <div style="text-align:center;"><span style="font-size:10px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Matière</span><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent-color);">FRA</span></div>
-              <div style="text-align:center;"><span style="font-size:10px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Année</span><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent-color);">2</span></div>
-              <div style="text-align:center;"><span style="font-size:10px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Type</span><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent-color);">D</span></div>
+          <div style="background:color-mix(in srgb,var(--accent-color),transparent 90%);border-radius:10px;padding:18px 24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:16px;text-align:center;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:6px;color:var(--accent-color);">FRA 2 D</span>
+            <div style="display:flex;gap:28px;justify-content:center;">
+              <div style="text-align:center;"><span style="font-size:11px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Matière</span><span style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent-color);">FRA</span></div>
+              <div style="text-align:center;"><span style="font-size:11px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Année</span><span style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent-color);">2</span></div>
+              <div style="text-align:center;"><span style="font-size:11px;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--default-color);opacity:.55;display:block;">Type</span><span style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent-color);">D</span></div>
             </div>
           </div>
           <div class="lgrid">
@@ -189,7 +191,7 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
   </div>
 
   <div class="subject-nav" data-aos="fade-up" data-aos-delay="50">
-    <button class="subject-tab active" onclick="showSubject('sciences',this)"><i class="bi bi-flask-fill"></i> Sciences</button>
+    <button class="subject-tab active" onclick="showSubject('sciences',this)"><i class="bi bi-eyedropper"></i> Sciences</button>
     <button class="subject-tab" onclick="showSubject('langues',this)"><i class="bi bi-chat-quote-fill"></i> Langues</button>
     <button class="subject-tab" onclick="showSubject('maths',this)"><i class="bi bi-calculator-fill"></i> Mathématiques</button>
     <button class="subject-tab" onclick="showSubject('eps',this)"><i class="bi bi-heart-pulse-fill"></i> Éd. Physique &amp; Santé</button>
@@ -440,7 +442,7 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
       <svg class="pathway-svg" id="svg-info"></svg>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Ingénierie informatique</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell cu"><div class="pill" data-pid="MHS_u"><span class="pcode">MHS</span><span class="pname">Ingénierie info.</span></div></div>
+        <div class="cell-empty"></div>
         <div class="cell cu"><div class="pill" data-pid="ICD2O"><span class="pcode">ICD2O</span><span class="pname">Informatique</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="ICS3"><span class="pcode">ICS3C/U</span><span class="pname">Programmation</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="ICS4"><span class="pcode">ICS4C/U</span><span class="pname">Programmation</span></div></div>
@@ -448,10 +450,18 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
       <div class="path-spacer"></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Systèmes informatiques</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell cc"><div class="pill" data-pid="MHS_c"><span class="pcode">MHS</span><span class="pname">Info. appliquée</span></div></div>
-        <div class="cell cc"><div class="pill" data-pid="TEJ12"><span class="pcode">TEJ1O / TEJ2O</span><span class="pname">Systèmes info.</span></div></div>
+        <div class="cell cc"><div class="pill" data-pid="TEJ1O"><span class="pcode">TEJ1O</span><span class="pname">Systèmes info.</span></div></div>
+        <div class="cell cc"><div class="pill" data-pid="TEJ2O"><span class="pcode">TEJ2O</span><span class="pname">Systèmes info.</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="TEJ3M"><span class="pcode">TEJ3M</span><span class="pname">Systèmes info.</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="TEJ4M"><span class="pcode">TEJ4M</span><span class="pname">Systèmes info.</span></div></div>
+      </div>
+      <div class="path-spacer"></div>
+      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Robotique</span></div></div>
+      <div class="pathway-row no-border">
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell co"><div class="pill" data-pid="TER3M"><span class="pcode">TER3M</span><span class="pname">Robotique</span></div></div>
+        <div class="cell co"><div class="pill" data-pid="TER4M"><span class="pcode">TER4M</span><span class="pname">Robotique</span></div></div>
       </div>
     </div>
   </div>
@@ -467,27 +477,39 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
 
     <div class="pathway-wrap" id="wrap-affaires">
       <svg class="pathway-svg" id="svg-affaires"></svg>
-      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Comptabilité &amp; Gestion</span></div></div>
+
+      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Comptabilité</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell cu"><div class="pill" data-pid="BEM_u"><span class="pcode">BEM1O / BEP2O</span><span class="pname">Exploration affaires</span></div></div>
-        <div class="cell-empty"></div>
+        <div class="cell cu"><div class="pill" data-pid="BEM1O"><span class="pcode">BEM1O</span><span class="pname">Exploration affaires</span></div></div>
+        <div class="cell cu"><div class="pill" data-pid="BEP2O"><span class="pcode">BEP2O</span><span class="pname">Exploration affaires</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="BAF3M"><span class="pcode">BAF3M</span><span class="pname">Comptabilité</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="BAT4M"><span class="pcode">BAT4M</span><span class="pname">Comptabilité</span></div></div>
       </div>
+
       <div class="path-spacer"></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c">Marketing</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell cc"><div class="pill" data-pid="BEM_c"><span class="pcode">BEM1O / BEP2O</span><span class="pname">Exploration affaires</span></div></div>
-        <div class="cell-empty"></div>
+        <div class="cell cc"><div class="pill" data-pid="BEM1O_c"><span class="pcode">BEM1O</span><span class="pname">Exploration affaires</span></div></div>
+        <div class="cell cc"><div class="pill" data-pid="BEP2O_c"><span class="pcode">BEP2O</span><span class="pname">Exploration affaires</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="BMI3C"><span class="pcode">BMI3C</span><span class="pname">Marketing</span></div></div>
         <div class="cell-empty"></div>
       </div>
+
       <div class="path-spacer"></div>
-      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">TIC en affaires &amp; Gestion</span></div></div>
+      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">TIC en affaires</span></div></div>
       <div class="pathway-row no-border">
         <div class="cell-empty"></div>
         <div class="cell-empty"></div>
         <div class="cell co"><div class="pill" data-pid="BTA3O"><span class="pcode">BTA3O</span><span class="pname">TIC en affaires</span></div></div>
+        <div class="cell-empty"></div>
+      </div>
+
+      <div class="path-spacer"></div>
+      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u">Gestion</span></div></div>
+      <div class="pathway-row no-border">
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
         <div class="cell cu"><div class="pill" data-pid="BOH4M"><span class="pcode">BOH4M</span><span class="pname">Principe de gestion</span></div></div>
       </div>
     </div>
@@ -618,10 +640,10 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
         <div class="cell co"><div class="pill" data-pid="AVI4M"><span class="pcode">AVI4M</span><span class="pname">Arts visuels</span></div></div>
       </div>
       <div class="path-spacer"></div>
-      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Arts intégrés &amp; Médiatiques</span></div></div>
+      <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-o">Arts médiatiques</span></div></div>
       <div class="pathway-row no-border">
-        <div class="cell co"><div class="pill" data-pid="ASM1O"><span class="pcode">ASM1O</span><span class="pname">Arts intégrés</span></div></div>
-        <div class="cell co"><div class="pill" data-pid="ASM2O"><span class="pcode">ASM2O</span><span class="pname">Arts intégrés</span></div></div>
+        <div class="cell-empty"></div>
+        <div class="cell co"><div class="pill" data-pid="ASM2O"><span class="pcode">ASM2O</span><span class="pname">Arts médiatiques</span></div></div>
         <div class="cell co"><div class="pill" data-pid="ASM3M"><span class="pcode">ASM3M</span><span class="pname">Arts médiatiques</span></div></div>
         <div class="cell-empty"></div>
       </div>
@@ -693,28 +715,20 @@ const ARROW_DEFS = {
   ],
   eps: [],
   info: [
-    ['MHS_u','ICD2O','#1976d2'],['ICD2O','ICS3','#1976d2'],['ICS3','ICS4','#1976d2'],
-    ['MHS_c','TEJ12','#388e3c'],['TEJ12','TEJ3M','#388e3c'],['TEJ3M','TEJ4M','#388e3c'],
+    ['ICD2O','ICS3','#1976d2'],['ICS3','ICS4','#1976d2'],
+    ['TEJ1O','TEJ2O','#388e3c'],['TEJ2O','TEJ3M','#388e3c'],['TEJ3M','TEJ4M','#388e3c'],
+    ['TER3M','TER4M','#e65100'],
   ],
   affaires: [
-    ['BEM_u','BAF3M','#1976d2'],['BAF3M','BAT4M','#1976d2'],
-    ['BEM_c','BMI3C','#388e3c'],
-    ['BTA3O','BOH4M','#1976d2'],
+    ['BAF3M','BAT4M','#1976d2'],
   ],
-  sociales: [
-    ['HSP3U','HZT4U','#1976d2'],
-    ['HFN1O','HFN2O','#e65100'],['HFN2O','HFC3M','#e65100'],['HFC3M','HFA4','#e65100'],
-    ['TFJ2O','TFJ3C','#388e3c'],['TFJ3C','TFJ4C','#388e3c'],
-  ],
+  sociales: [],
   mondiales: [
-    ['GCG1W','GCG3O','#e65100'],['GCG3O','CGU4M','#1976d2'],
-    ['CHC2D','CHT3O','#1976d2'],['CHT3O','CHY4U','#1976d2'],
-    ['CLU3M','CLN4U','#1976d2'],
-    ['CHV2O','CPC3O','#e65100'],
+    ['GCG1W','GCG3O','#e65100'],
   ],
   arts: [
     ['AVI1O','AVI2O','#e65100'],['AVI2O','AVI3M','#e65100'],['AVI3M','AVI4M','#e65100'],
-    ['ASM1O','ASM2O','#e65100'],['ASM2O','ASM3M','#e65100'],
+    ['ASM2O','ASM3M','#e65100'],
   ],
 };
 
