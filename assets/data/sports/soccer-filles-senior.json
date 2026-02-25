@@ -2,7 +2,25 @@
   "label": "Soccer — Filles Senior",
   "leagueid": 28,
   "schoolid": 12,
-  "updated": "2026-02-25 06:04 UTC",
-  "standings": [],
+  "updated": "Wed, 25 Feb 2026 12:57:20 GMT",
+  "standings": [
+    {
+      "tier": "Classement",
+      "headers": [
+        "GP = Games Played",
+        "W = Wins (3 points)"
+      ],
+      "rows": [
+        [
+          "L = Losses (0 points)",
+          "T = Ties (1 points)"
+        ],
+        [
+          "GF = Goals For",
+          "GA = Goals Against"
+        ]
+      ]
+    }
+  ],
   "scores": []
 }
