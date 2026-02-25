@@ -140,6 +140,32 @@
   color: var(--default-color);
 }
 
+/* Dark mode fixes */
+html.dark-mode .prog-card {
+  background: color-mix(in srgb, var(--surface-color, #1a1a2e), transparent 0%);
+  border-color: rgba(255,255,255,0.1);
+}
+html.dark-mode .prog-card-body p,
+html.dark-mode .prog-features li {
+  color: #d0d0d0;
+  opacity: 1;
+}
+html.dark-mode .prog-tag {
+  background: rgba(255,255,255,0.1);
+  color: #e0e0e0;
+}
+html.dark-mode .prog-divider {
+  border-color: rgba(255,255,255,0.12);
+}
+html.dark-mode .prog-header-text p {
+  color: #b0b0b0;
+  opacity: 1;
+}
+html.dark-mode .prog-intro p {
+  color: #c0c0c0;
+  opacity: 1;
+}
+
 /* Colour themes */
 .theme-bi  { --pc: #1565c0; --pc-light: rgba(21,101,192,.12); }
 .theme-mhs-sport { --pc: #2e7d32; --pc-light: rgba(46,125,50,.12); }
