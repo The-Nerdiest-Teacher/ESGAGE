@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programmes spécialisés | École secondaire Gaétan-Gervais</title>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="assets/img/favicon.png" rel="icon"/>
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+<link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<style>
+/* ── Programme cards ─────────────────────────────────── */
+.prog-section { padding: 60px 0; }
+.prog-section + .prog-section { padding-top: 0; }
+
+.prog-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+.prog-header-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+.prog-header-text h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--heading-color);
+  margin: 0 0 4px;
+}
+.prog-header-text p {
+  font-size: 14px;
+  color: var(--default-color);
+  opacity: .65;
+  margin: 0;
+}
+
+/* Card */
+.prog-card {
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  background: var(--surface-color, #fff);
+  overflow: hidden;
+  height: 100%;
+  transition: box-shadow .25s, transform .25s;
+}
+.prog-card:hover {
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--accent-color), transparent 82%);
+  transform: translateY(-4px);
+}
+.prog-card-accent {
+  height: 5px;
+}
+.prog-card-body {
+  padding: 28px 28px 24px;
+}
+.prog-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.prog-card-body h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--heading-color);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+.prog-card-body p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--default-color);
+  opacity: .8;
+  margin: 0 0 20px;
+}
+.prog-features {
+  list-style: none;
+  padding: 0; margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prog-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--default-color);
+  line-height: 1.5;
+}
+.prog-features li i {
+  margin-top: 2px;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.prog-divider {
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  margin: 0 0 16px;
+}
+.prog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.prog-tag {
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--default-color), transparent 92%);
+  color: var(--default-color);
+}
+
+/* Colour themes */
+.theme-bi  { --pc: #1565c0; --pc-light: rgba(21,101,192,.12); }
+.theme-mhs-sport { --pc: #2e7d32; --pc-light: rgba(46,125,50,.12); }
+.theme-mhs-tic   { --pc: #6a1b9a; --pc-light: rgba(106,27,154,.12); }
+
+.prog-card-accent.theme-bi   { background: var(--pc); }
+.prog-card-accent.theme-mhs-sport { background: var(--pc); }
+.prog-card-accent.theme-mhs-tic   { background: var(--pc); }
+
+.prog-badge.theme-bi   { background: var(--pc-light); color: var(--pc); }
+.prog-badge.theme-mhs-sport { background: var(--pc-light); color: var(--pc); }
+.prog-badge.theme-mhs-tic   { background: var(--pc-light); color: var(--pc); }
+
+.prog-features li i.theme-bi   { color: var(--pc); }
+.prog-features li i.theme-mhs-sport { color: var(--pc); }
+.prog-features li i.theme-mhs-tic   { color: var(--pc); }
+
+/* Intro banner */
+.prog-intro {
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+  border-radius: 16px;
+  padding: 32px 36px;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.prog-intro i {
+  font-size: 36px;
+  color: var(--accent-color);
+}
+.prog-intro h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--heading-color);
+  margin: 0 0 4px;
+}
+.prog-intro p {
+  font-size: 14px;
+  color: var(--default-color);
+  opacity: .7;
+  margin: 0;
+  max-width: 640px;
+}
+</style>
+</head>
+<body class="starter-page-page">
+<div id="header-placeholder"></div>
+<script src="assets/js/include-header.js"></script>
+<main class="main">
+
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+<div class="heading">
+<div class="container">
+<div class="row d-flex justify-content-center text-center">
+<div class="col-lg-8">
+<h1>Programmes spécialisés</h1>
+<p class="mb-0">Des parcours d'excellence pour les élèves qui souhaitent aller plus loin.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="breadcrumbs">
+<div class="container">
+<ol>
+<li><a href="/ESGAGE/index.html">Accueil</a></li>
+<li><a href="/ESGAGE/academique.html">Académique</a></li>
+<li class="current">Programmes spécialisés</li>
+</ol>
+</div>
+</nav>
+</div>
+
+<!-- ── BACCALAURÉAT INTERNATIONAL ─────────────────────── -->
+<section class="prog-section section">
+<div class="container">
+
+  <div class="prog-intro" data-aos="fade-up">
+    <i class="bi bi-globe2"></i>
+    <div>
+      <h2>À propos des programmes spécialisés</h2>
+      <p>Gaétan-Gervais offre trois programmes enrichis permettant aux élèves de se démarquer, d'approfondir leurs passions et de préparer leur avenir — que ce soit sur la scène internationale, dans le sport d'élite ou dans le domaine technologique.</p>
+    </div>
+  </div>
+
+  <div class="prog-header" data-aos="fade-up">
+    <div class="prog-header-icon"><i class="bi bi-globe2"></i></div>
+    <div class="prog-header-text">
+      <h2>Baccalauréat international</h2>
+      <p>Programme reconnu mondialement, axé sur la rigueur académique et la citoyenneté mondiale</p>
+    </div>
+  </div>
+
+  <div class="row gy-4">
+    <div class="col-lg-8 col-md-10 mx-auto" data-aos="fade-up">
+      <div class="prog-card theme-bi">
+        <div class="prog-card-accent theme-bi"></div>
+        <div class="prog-card-body">
+          <span class="prog-badge theme-bi"><i class="bi bi-award-fill"></i> Programme international</span>
+          <h3>Baccalauréat international (BI)</h3>
+          <p>Le programme du Baccalauréat international est reconnu dans plus de 160 pays. Il prépare les élèves à réussir leurs études postsecondaires grâce à une formation rigoureuse, interculturelle et axée sur la pensée critique.</p>
+          <ul class="prog-features">
+            <li><i class="bi bi-check-circle-fill theme-bi"></i> Cursus disponible de la 9<sup>e</sup> à la 12<sup>e</sup> année</li>
+            <li><i class="bi bi-check-circle-fill theme-bi"></i> Cours offerts dans toutes les matières du tronc commun BI</li>
+            <li><i class="bi bi-check-circle-fill theme-bi"></i> Théorie de la connaissance (TdC) et mémoire étendu</li>
+            <li><i class="bi bi-check-circle-fill theme-bi"></i> Activités CAS — Créativité, Activité, Service</li>
+            <li><i class="bi bi-check-circle-fill theme-bi"></i> Diplôme reconnu par les universités canadiennes et étrangères</li>
+          </ul>
+          <hr class="prog-divider"/>
+          <div class="prog-meta">
+            <span class="prog-tag"><i class="bi bi-calendar3 me-1"></i> 9e – 12e année</span>
+            <span class="prog-tag"><i class="bi bi-translate me-1"></i> Français</span>
+            <span class="prog-tag"><i class="bi bi-mortarboard me-1"></i> Diplôme BI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── MAJEUR EN HAUTE SPÉCIALISATION ─────────────────── -->
+<section class="prog-section section light-background">
+<div class="container">
+
+  <div class="prog-header" data-aos="fade-up">
+    <div class="prog-header-icon"><i class="bi bi-trophy-fill"></i></div>
+    <div class="prog-header-text">
+      <h2>Majeur en haute spécialisation</h2>
+      <p>Programme qui permet aux élèves de développer une expertise approfondie dans un domaine ciblé</p>
+    </div>
+  </div>
+
+  <div class="row gy-4">
+
+    <!-- MHS Sports -->
+    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="prog-card theme-mhs-sport">
+        <div class="prog-card-accent theme-mhs-sport"></div>
+        <div class="prog-card-body">
+          <span class="prog-badge theme-mhs-sport"><i class="bi bi-trophy-fill"></i> MHS Sports</span>
+          <h3>Majeur haute spécialisation — Sports</h3>
+          <p>Le MHS Sports permet aux élèves-athlètes de concilier excellence sportive et réussite académique. Le programme offre un encadrement adapté pour les athlètes qui s'entraînent à haut niveau tout en poursuivant leurs études.</p>
+          <ul class="prog-features">
+            <li><i class="bi bi-check-circle-fill theme-mhs-sport"></i> Horaire aménagé pour les entraînements et compétitions</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-sport"></i> Développement des compétences sportives et athlétiques</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-sport"></i> Cours d'éducation physique spécialisés</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-sport"></i> Accompagnement en nutrition et préparation mentale</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-sport"></i> Possibilités de recrutement universitaire sportif</li>
+          </ul>
+          <hr class="prog-divider"/>
+          <div class="prog-meta">
+            <span class="prog-tag"><i class="bi bi-calendar3 me-1"></i> 9e – 12e année</span>
+            <span class="prog-tag"><i class="bi bi-heart-pulse me-1"></i> Sport d'élite</span>
+            <span class="prog-tag"><i class="bi bi-award me-1"></i> Certificat MHS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MHS TIC -->
+    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="prog-card theme-mhs-tic">
+        <div class="prog-card-accent theme-mhs-tic"></div>
+        <div class="prog-card-body">
+          <span class="prog-badge theme-mhs-tic"><i class="bi bi-cpu-fill"></i> MHS TIC</span>
+          <h3>Majeur haute spécialisation — TIC</h3>
+          <p>Le MHS Technologies de l'information et des communications forme la prochaine génération de professionnels du numérique. Les élèves développent des compétences techniques avancées en programmation, robotique et systèmes informatiques.</p>
+          <ul class="prog-features">
+            <li><i class="bi bi-check-circle-fill theme-mhs-tic"></i> Programmation, développement web et applications</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-tic"></i> Robotique et systèmes embarqués (TER)</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-tic"></i> Réseaux informatiques et cybersécurité</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-tic"></i> Projets pratiques en collaboration avec l'industrie</li>
+            <li><i class="bi bi-check-circle-fill theme-mhs-tic"></i> Préparation aux programmes techniques et universitaires en TI</li>
+          </ul>
+          <hr class="prog-divider"/>
+          <div class="prog-meta">
+            <span class="prog-tag"><i class="bi bi-calendar3 me-1"></i> 9e – 12e année</span>
+            <span class="prog-tag"><i class="bi bi-code-slash me-1"></i> Technologie</span>
+            <span class="prog-tag"><i class="bi bi-award me-1"></i> Certificat MHS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+</main>
+<div id="footer-placeholder"></div>
+<script src="assets/js/include-footer.js"></script>
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
