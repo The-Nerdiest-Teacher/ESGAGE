@@ -641,16 +641,20 @@ function showSubject(id, btn) {
 
 // ── SVG arrow drawing ─────────────────────────────────────────────────────
 // Each entry: { svg: 'svgId', wrap: 'wrapId', arrows: [[fromPid, toPid, color], ...] }
+// Arrow definitions.
+// Simple pair:  ['from', 'to', 'color']
+// Fan (1→many): ['from', ['to1','to2','to3'], 'color']  — draws a clean Y-trunk then branches
 const ARROW_DEFS = {
   sciences: [
     ['SNC1W','SNC2D','#1976d2'],
-    ['SNC2D','SBI3U','#1976d2'], ['SBI3U','SBI4U','#1976d2'],
-    ['SNC2D','SCH3U','#1976d2'], ['SCH3U','SCH4U','#1976d2'],
-    ['SNC2D','SPH3U','#1976d2'], ['SPH3U','SPH4U','#1976d2'],
+    // SNC2D fans out to three 11e courses — drawn as one trunk + three branches
+    ['SNC2D', ['SBI3U','SCH3U','SPH3U'], '#1976d2'],
+    ['SBI3U','SBI4U','#1976d2'],
+    ['SCH3U','SCH4U','#1976d2'],
+    ['SPH3U','SPH4U','#1976d2'],
     ['SNC1W_c','SNC2P','#388e3c'],
-    ['SNC2P','SBI3C','#388e3c'],
-    ['SNC2P','SCH4C','#388e3c'],
-    ['SNC2P','SPH4C','#388e3c'],
+    // SNC2P fans to SBI3C, SCH4C, SPH4C — trunk stops before SBI3C column to avoid overlap
+    ['SNC2P', ['SBI3C','SCH4C','SPH4C'], '#388e3c'],
   ],
   francais: [
     ['FRL1W_u','FRA2D','#1976d2'],['FRA2D','FRA3U','#1976d2'],['FRA3U','FRA4U','#1976d2'],
@@ -716,68 +720,122 @@ function getPillRect(pid, wrapEl) {
   };
 }
 
+function makePath(svg, d, color) {
+  const safeId = color.replace('#','c');
+  const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d', d);
+  p.setAttribute('stroke', color);
+  p.setAttribute('stroke-width', '2');
+  p.setAttribute('fill', 'none');
+  p.setAttribute('stroke-opacity', '0.75');
+  p.setAttribute('marker-end', `url(#arrow-${safeId})`);
+  svg.appendChild(p);
+}
+
+function makeLine(svg, d, color) {
+  // Line without arrowhead (trunk of a fan)
+  const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d', d);
+  p.setAttribute('stroke', color);
+  p.setAttribute('stroke-width', '2');
+  p.setAttribute('fill', 'none');
+  p.setAttribute('stroke-opacity', '0.75');
+  svg.appendChild(p);
+}
+
 function drawArrows(subjectId) {
   const defs = ARROW_DEFS[subjectId];
   if (!defs) return;
   const wrapEl = document.getElementById('wrap-' + subjectId);
-  const svg = document.getElementById('svg-' + subjectId);
+  const svg    = document.getElementById('svg-' + subjectId);
   if (!wrapEl || !svg) return;
 
-  // Size SVG to match wrap
   const wRect = wrapEl.getBoundingClientRect();
   svg.setAttribute('viewBox', `0 0 ${wRect.width} ${wRect.height}`);
-  svg.setAttribute('width', wRect.width);
+  svg.setAttribute('width',  wRect.width);
   svg.setAttribute('height', wRect.height);
   svg.innerHTML = '';
 
-  // Arrow marker definition
-  const defs_el = document.createElementNS('http://www.w3.org/2000/svg','defs');
-
+  // Build arrowhead markers for every unique colour
+  const svgDefs = document.createElementNS('http://www.w3.org/2000/svg','defs');
   const colors = [...new Set(defs.map(d => d[2]))];
   colors.forEach(color => {
     const safeId = color.replace('#','c');
     const marker = document.createElementNS('http://www.w3.org/2000/svg','marker');
-    marker.setAttribute('id', 'arrow-' + safeId);
-    marker.setAttribute('viewBox', '0 0 8 8');
-    marker.setAttribute('refX', '7');
-    marker.setAttribute('refY', '4');
+    marker.setAttribute('id',          'arrow-' + safeId);
+    marker.setAttribute('viewBox',     '0 0 8 8');
+    marker.setAttribute('refX',        '7');
+    marker.setAttribute('refY',        '4');
     marker.setAttribute('markerWidth', '6');
-    marker.setAttribute('markerHeight', '6');
-    marker.setAttribute('orient', 'auto');
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d','M0,0 L8,4 L0,8 Z');
-    path.setAttribute('fill', color);
-    marker.appendChild(path);
-    defs_el.appendChild(marker);
+    marker.setAttribute('markerHeight','6');
+    marker.setAttribute('orient',      'auto');
+    const head = document.createElementNS('http://www.w3.org/2000/svg','path');
+    head.setAttribute('d',    'M0,0 L8,4 L0,8 Z');
+    head.setAttribute('fill', color);
+    marker.appendChild(head);
+    svgDefs.appendChild(marker);
   });
-  svg.appendChild(defs_el);
+  svg.appendChild(svgDefs);
 
-  defs.forEach(([fromId, toId, color]) => {
+  defs.forEach(([fromId, toIds, color]) => {
     const from = getPillRect(fromId, wrapEl);
-    const to   = getPillRect(toId,   wrapEl);
-    if (!from || !to) return;
+    if (!from) return;
 
-    const x1 = from.right;
-    const y1 = from.midY;
-    const x2 = to.left;
-    const y2 = to.midY;
+    // ── Simple pair: toIds is a string ───────────────────────────────────
+    if (typeof toIds === 'string') {
+      const to = getPillRect(toIds, wrapEl);
+      if (!to) return;
+      const x1 = from.right, y1 = from.midY;
+      const x2 = to.left,    y2 = to.midY;
+      const mx = x1 + (x2 - x1) * 0.5;
+      makePath(svg, `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, color);
+      return;
+    }
 
-    const safeId = color.replace('#','c');
+    // ── Fan: toIds is an array ────────────────────────────────────────────
+    const targets = toIds.map(id => getPillRect(id, wrapEl)).filter(Boolean);
+    if (!targets.length) return;
 
-    // Use a cubic bezier for smooth curves (especially cross-row)
-    const cx1 = x1 + (x2 - x1) * 0.5;
-    const cy1 = y1;
-    const cx2 = x1 + (x2 - x1) * 0.5;
-    const cy2 = y2;
+    // Find the leftmost target edge (where the trunk should reach)
+    const trunkX = Math.min(...targets.map(t => t.left));
 
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d', `M${x1},${y1} C${cx1},${cy1} ${cx2},${cy2} ${x2},${y2}`);
-    path.setAttribute('stroke', color);
-    path.setAttribute('stroke-width', '2');
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke-opacity', '0.7');
-    path.setAttribute('marker-end', `url(#arrow-${safeId})`);
-    svg.appendChild(path);
+    // Trunk goes from source right-edge to a vertical bar at trunkX - gap
+    const gap    = 16;                         // gap between trunk and pill left edge
+    const barX   = trunkX - gap;
+    const srcX   = from.right;
+    const srcY   = from.midY;
+
+    // Midpoint for the horizontal trunk curve
+    const midX   = srcX + (barX - srcX) * 0.5;
+
+    // Vertical span of all targets
+    const topY    = Math.min(...targets.map(t => t.midY));
+    const botY    = Math.max(...targets.map(t => t.midY));
+    const centerY = (topY + botY) / 2;
+
+    // Draw trunk: source → vertical bar (centered on targets)
+    makeLine(svg,
+      `M${srcX},${srcY} C${midX},${srcY} ${midX},${centerY} ${barX},${centerY}`,
+      color
+    );
+
+    // Draw vertical spine connecting all branches
+    if (targets.length > 1) {
+      makeLine(svg, `M${barX},${topY} L${barX},${botY}`, color);
+    }
+
+    // Draw branch from bar to each target
+    targets.forEach(to => {
+      const bx = barX;
+      const by = to.midY;
+      const tx = to.left;
+      const ty = to.midY;
+      // Short horizontal branch with tight bezier
+      makePath(svg,
+        `M${bx},${by} C${bx + gap},${by} ${tx - gap},${ty} ${tx},${ty}`,
+        color
+      );
+    });
   });
 }
 
