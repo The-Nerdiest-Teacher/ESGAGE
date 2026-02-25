@@ -335,20 +335,21 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
     <div class="pathway-wrap" id="wrap-maths">
       <svg class="pathway-svg" id="svg-maths"></svg>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
+      <!-- Row 1: MCV4U, MHF4U, MDM4U in col 4 -->
       <div class="pathway-row no-border">
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell cu"><div class="pill" data-pid="MCV4U"><span class="pcode">MCV4U</span><span class="pname">Vecteurs</span></div></div>
+      </div>
+      <!-- Row 2: MTH1W + MDM2D + MCR3U drop here -->
+      <div class="pathway-row no-border tight">
         <div class="cell cu"><div class="pill" data-pid="MTH1W"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="MDM2D"><span class="pcode">MDM2D</span><span class="pname">Mathématiques</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="MCR3U"><span class="pcode">MCR3U</span><span class="pname">Fonctions</span></div></div>
-        <div class="cell cu"><div class="pill" data-pid="MCV4U"><span class="pcode">MCV4U</span><span class="pname">Vecteurs</span></div></div>
-      </div>
-      <!-- MHF4U can come from MCR3U; MDM4U can come from MCR3U OR MDM2D -->
-      <div class="pathway-row no-border tight">
-        <div class="cell-empty"></div>
-        <div class="cell-empty"></div>
-        <div class="cell-empty"></div>
         <div class="cell cu"><div class="pill" data-pid="MHF4U"><span class="pcode">MHF4U</span><span class="pname">Fonctions avancées</span></div></div>
       </div>
-      <div class="pathway-row tight">
+      <div class="pathway-row no-border tight">
         <div class="cell-empty"></div>
         <div class="cell-empty"></div>
         <div class="cell-empty"></div>
@@ -356,11 +357,19 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
       </div>
       <div class="path-spacer"></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégial</span></div></div>
+      <!-- Row 1: MCF3M and MCT4C -->
       <div class="pathway-row no-border">
-        <div class="cell cc"><div class="pill" data-pid="MTH1W_c"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
-        <div class="cell cc"><div class="pill" data-pid="MPM2P"><span class="pcode">MPM2P</span><span class="pname">Mathématiques</span></div></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
         <div class="cell cc"><div class="pill" data-pid="MCF3M"><span class="pcode">MCF3M</span><span class="pname">Fonctions</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="MCT4C"><span class="pcode">MCT4C</span><span class="pname">Méthodes</span></div></div>
+      </div>
+      <!-- Row 2: MTH1W + MPM2P drop here -->
+      <div class="pathway-row no-border tight">
+        <div class="cell cc"><div class="pill" data-pid="MTH1W_c"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
+        <div class="cell cc"><div class="pill" data-pid="MPM2P"><span class="pcode">MPM2P</span><span class="pname">Mathématiques</span></div></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
       </div>
     </div>
   </div>
@@ -630,8 +639,11 @@ function showSubject(id, btn) {
   const panel = document.getElementById('panel-' + id);
   panel.classList.add('active');
   panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
-  // Double rAF ensures layout is fully settled before measuring pill positions
-  requestAnimationFrame(() => requestAnimationFrame(() => drawAllArrows(id)));
+  // Double rAF + setTimeout ensures layout is fully settled before measuring pill positions
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    drawAllArrows(id);
+    setTimeout(() => drawAllArrows(id), 50);
+  }));
 }
 
 // ── SVG arrow drawing ─────────────────────────────────────────────────────
@@ -664,7 +676,9 @@ const ARROW_DEFS = {
     ['MTH1W','MDM2D','#1976d2'],['MDM2D','MCR3U','#1976d2'],
     // MCR3U fans to MCV4U, MHF4U, MDM4U
     ['MCR3U', ['MCV4U','MHF4U','MDM4U'], '#1976d2'],
-    ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M','MCT4C','#388e3c'],
+    ['MTH1W_c','MPM2P','#388e3c'],
+    // MPM2P fans to MCF3M and MCT4C
+    ['MPM2P', ['MCF3M','MCT4C'], '#388e3c'],
     // MCT4C can lead to MHF4U — connect bottom of MCT4C to bottom of MHF4U
     ['MCT4C','MHF4U','#388e3c','btb'],
     // MDM4U also reachable from MCF3M
@@ -705,14 +719,16 @@ const ARROW_DEFS = {
 function getPillRect(pid, wrapEl) {
   const pill = wrapEl.querySelector(`[data-pid="${pid}"]`);
   if (!pill) return null;
+  // Use getBoundingClientRect but subtract wrap's rect for relative coords
   const pRect = pill.getBoundingClientRect();
   const wRect = wrapEl.getBoundingClientRect();
+  if (!wRect.width) return null; // wrap not visible yet
   return {
-    left:   pRect.left - wRect.left,
-    right:  pRect.right - wRect.left,
-    top:    pRect.top - wRect.top,
+    left:   pRect.left   - wRect.left,
+    right:  pRect.right  - wRect.left,
+    top:    pRect.top    - wRect.top,
     bottom: pRect.bottom - wRect.top,
-    midY:   pRect.top - wRect.top + pRect.height / 2,
+    midY:   pRect.top    - wRect.top + pRect.height / 2,
   };
 }
 
@@ -746,10 +762,12 @@ function drawArrows(subjectId) {
   const svg    = document.getElementById('svg-' + subjectId);
   if (!wrapEl || !svg) return;
 
-  const wRect = wrapEl.getBoundingClientRect();
-  svg.setAttribute('viewBox', `0 0 ${wRect.width} ${wRect.height}`);
-  svg.setAttribute('width',  wRect.width);
-  svg.setAttribute('height', wRect.height);
+  const w = wrapEl.offsetWidth;
+  const h = wrapEl.offsetHeight;
+  if (!w || !h) return; // bail if still not laid out
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.setAttribute('width',  w);
+  svg.setAttribute('height', h);
   svg.innerHTML = '';
 
   // Build arrowhead markers for every unique colour
