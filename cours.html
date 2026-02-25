@@ -357,19 +357,12 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
       </div>
       <div class="path-spacer"></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégial</span></div></div>
-      <!-- Row 1: MCF3M and MCT4C -->
+      <!-- Row 1: all four pills together -->
       <div class="pathway-row no-border">
-        <div class="cell-empty"></div>
-        <div class="cell-empty"></div>
-        <div class="cell cc"><div class="pill" data-pid="MCF3M"><span class="pcode">MCF3M</span><span class="pname">Fonctions</span></div></div>
-        <div class="cell cc"><div class="pill" data-pid="MCT4C"><span class="pcode">MCT4C</span><span class="pname">Méthodes</span></div></div>
-      </div>
-      <!-- Row 2: MTH1W + MPM2P drop here -->
-      <div class="pathway-row no-border tight">
         <div class="cell cc"><div class="pill" data-pid="MTH1W_c"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="MPM2P"><span class="pcode">MPM2P</span><span class="pname">Mathématiques</span></div></div>
-        <div class="cell-empty"></div>
-        <div class="cell-empty"></div>
+        <div class="cell cc"><div class="pill" data-pid="MCF3M"><span class="pcode">MCF3M</span><span class="pname">Fonctions</span></div></div>
+        <div class="cell cc"><div class="pill" data-pid="MCT4C"><span class="pcode">MCT4C</span><span class="pname">Méthodes</span></div></div>
       </div>
     </div>
   </div>
@@ -676,13 +669,10 @@ const ARROW_DEFS = {
     ['MTH1W','MDM2D','#1976d2'],['MDM2D','MCR3U','#1976d2'],
     // MCR3U fans to MCV4U, MHF4U, MDM4U
     ['MCR3U', ['MCV4U','MHF4U','MDM4U'], '#1976d2'],
-    ['MTH1W_c','MPM2P','#388e3c'],
-    // MPM2P fans to MCF3M and MCT4C
-    ['MPM2P', ['MCF3M','MCT4C'], '#388e3c'],
-    // MCT4C can lead to MHF4U — connect bottom of MCT4C to bottom of MHF4U
-    ['MCT4C','MHF4U','#388e3c','btb'],
-    // MDM4U also reachable from MCF3M
-    ['MCF3M','MDM4U','#388e3c'],
+    // Pré-collégial: simple chain left to right
+    ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M','MCT4C','#388e3c'],
+    // MCT4C → MHF4U: route from top of MCT4C up to top of MHF4U
+    ['MCT4C','MHF4U','#388e3c','ttt'],
   ],
   eps: [
     ['PAL1O','PAL2O','#e65100'],['PAL2O','PAL3O','#e65100'],['PAL3O','PAL4O','#e65100'],
@@ -804,7 +794,15 @@ function drawArrows(subjectId) {
       if (flag === 'btb') {
         const x1 = from.right, y1 = from.bottom;
         const x2 = to.right,   y2 = to.bottom;
-        const cy = Math.max(y1, y2) + 20; // curve drops below both pills
+        const cy = Math.max(y1, y2) + 20;
+        makePath(svg, `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`, color);
+        return;
+      }
+      // ttt = top-to-top: exit from top-right of source, curve up to top of target
+      if (flag === 'ttt') {
+        const x1 = from.right,  y1 = from.top;
+        const x2 = to.right,    y2 = to.top;
+        const cy = Math.min(y1, y2) - 20; // curve rises above both pills
         makePath(svg, `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`, color);
         return;
       }
