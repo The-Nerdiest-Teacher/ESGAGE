@@ -203,18 +203,21 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
 
       <!-- Pré-Universitaire -->
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-u"><i class="bi bi-mortarboard-fill me-1"></i>Pré-Universitaire</span></div></div>
+      <!-- Row 1: empty — 11e/12e courses start here -->
       <div class="pathway-row no-border">
-        <div class="cell cu"><div class="pill" data-pid="SNC1W"><span class="pcode">SNC1W</span><span class="pname">Sciences</span></div></div>
-        <div class="cell cu"><div class="pill" data-pid="SNC2D"><span class="pcode">SNC2D</span><span class="pname">Sciences</span></div></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
         <div class="cell cu"><div class="pill" data-pid="SBI3U"><span class="pcode">SBI3U</span><span class="pname">Biologie</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="SBI4U"><span class="pcode">SBI4U</span><span class="pname">Biologie</span></div></div>
       </div>
+      <!-- Row 2: SNC1W + SNC2D drop down here -->
       <div class="pathway-row no-border tight">
-        <div class="cell-empty"></div>
-        <div class="cell-empty"></div>
+        <div class="cell cu"><div class="pill" data-pid="SNC1W"><span class="pcode">SNC1W</span><span class="pname">Sciences</span></div></div>
+        <div class="cell cu"><div class="pill" data-pid="SNC2D"><span class="pcode">SNC2D</span><span class="pname">Sciences</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="SCH3U"><span class="pcode">SCH3U</span><span class="pname">Chimie</span></div></div>
         <div class="cell cu"><div class="pill" data-pid="SCH4U"><span class="pcode">SCH4U</span><span class="pname">Chimie</span></div></div>
       </div>
+      <!-- Row 3: SPH3U/SPH4U -->
       <div class="pathway-row no-border tight">
         <div class="cell-empty"></div>
         <div class="cell-empty"></div>
@@ -231,10 +234,25 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
       <!-- Pré-Collégiale -->
       <div class="path-spacer"></div>
       <div class="pathway-row"><div class="pathway-label-row"><span class="pbadge pb-c"><i class="bi bi-building me-1"></i>Pré-Collégiale</span></div></div>
+      <!-- Row 1: SBI3C only -->
       <div class="pathway-row no-border">
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell cc"><div class="pill" data-pid="SBI3C"><span class="pcode">SBI3C</span><span class="pname">Biologie</span></div></div>
+        <div class="cell-empty"></div>
+      </div>
+      <!-- Row 2: empty -->
+      <div class="pathway-row no-border tight">
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+        <div class="cell-empty"></div>
+      </div>
+      <!-- Row 3: SNC1W + SNC2P drop down here, SCH4C in col4 -->
+      <div class="pathway-row no-border tight">
         <div class="cell cc"><div class="pill" data-pid="SNC1W_c"><span class="pcode">SNC1W</span><span class="pname">Sciences</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="SNC2P"><span class="pcode">SNC2P</span><span class="pname">Sciences</span></div></div>
-        <div class="cell cc"><div class="pill" data-pid="SBI3C"><span class="pcode">SBI3C</span><span class="pname">Biologie</span></div></div>
+        <div class="cell-empty"></div>
         <div class="cell cc"><div class="pill" data-pid="SCH4C"><span class="pcode">SCH4C</span><span class="pname">Chimie</span></div></div>
       </div>
       <div class="pathway-row no-border tight">
