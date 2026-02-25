@@ -360,7 +360,7 @@ html.dark-mode .pb-e { background:rgba(123,31,162,.18); color:#ce93d8; }
         <div class="cell cc"><div class="pill" data-pid="MTH1W_c"><span class="pcode">MTH1W</span><span class="pname">Mathématiques</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="MPM2P"><span class="pcode">MPM2P</span><span class="pname">Mathématiques</span></div></div>
         <div class="cell cc"><div class="pill" data-pid="MCF3M"><span class="pcode">MCF3M</span><span class="pname">Fonctions</span></div></div>
-        <div class="cell cc"><div class="pill" data-pid="MAP4C"><span class="pcode">MAP4C</span><span class="pname">Méthodes</span></div></div>
+        <div class="cell cc"><div class="pill" data-pid="MCT4C"><span class="pcode">MCT4C</span><span class="pname">Méthodes</span></div></div>
       </div>
     </div>
   </div>
@@ -661,11 +661,14 @@ const ARROW_DEFS = {
     ['EAE1W_c','EAE2P','#388e3c'],['EAE2P','EAE3C','#388e3c'],['EAE3C','EAE4C','#388e3c'],
   ],
   maths: [
-    ['MTH1W','MDM2D','#1976d2'],['MDM2D','MCR3U','#1976d2'],['MCR3U','MCV4U','#1976d2'],
-    ['MCR3U','MHF4U','#1976d2'],
-    // MDM4U has TWO prereqs: MCR3U and MDM2D
-    ['MCR3U','MDM4U','#1976d2'],['MDM2D','MDM4U','#1976d2'],
-    ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M','MAP4C','#388e3c'],
+    ['MTH1W','MDM2D','#1976d2'],['MDM2D','MCR3U','#1976d2'],
+    // MCR3U fans to MCV4U, MHF4U, MDM4U
+    ['MCR3U', ['MCV4U','MHF4U','MDM4U'], '#1976d2'],
+    ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M','MCT4C','#388e3c'],
+    // MCT4C can lead to MHF4U (cross-pathway)
+    ['MCT4C','MHF4U','#388e3c'],
+    // MDM4U also reachable from MCF3M
+    ['MCF3M','MDM4U','#388e3c'],
   ],
   eps: [
     ['PAL1O','PAL2O','#e65100'],['PAL2O','PAL3O','#e65100'],['PAL3O','PAL4O','#e65100'],
