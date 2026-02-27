@@ -2,25 +2,7 @@
   "label": "Soccer — Garçons Junior",
   "leagueid": 29,
   "schoolid": 12,
-  "updated": "Thu, 26 Feb 2026 13:04:31 GMT",
-  "standings": [
-    {
-      "tier": "Classement",
-      "headers": [
-        "GP = Games Played",
-        "W = Wins (3 points)"
-      ],
-      "rows": [
-        [
-          "L = Losses (0 points)",
-          "T = Ties (1 points)"
-        ],
-        [
-          "GF = Goals For",
-          "GA = Goals Against"
-        ]
-      ]
-    }
-  ],
+  "updated": "2026-02-27 05:55 UTC",
+  "standings": [],
   "scores": []
 }
