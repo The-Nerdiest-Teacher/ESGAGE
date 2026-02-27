@@ -1,0 +1,115 @@
+.sport-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 24px 20px 18px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  background: var(--surface-color);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  user-select: none;
+  min-width: 130px;
+  flex: 1 1 130px;
+  max-width: 160px;
+}
+.sport-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.sport-card.active {
+  border-color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+}
+.sport-icon { font-size: 40px; margin-bottom: 10px; line-height: 1; }
+.sport-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+}
+
+.sport-name {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--heading-color);
+  text-align: center;
+  margin: 0;
+}
+
+/* Age group panel */
+.age-group-panel { display: none; }
+.age-group-panel.visible {
+  display: block;
+  animation: fadeSlideIn 0.25s ease;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.age-group-title {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  color: var(--heading-color);
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+/* Gender columns */
+.gender-col-title {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.gender-col-title.girls { color: var(--accent-color); }
+.gender-col-title.boys  { color: var(--accent-color); }
+
+.age-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  justify-content: center;
+}
+.age-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31,107,58,0.25);
+  text-decoration: none;
+}
+.gender-divider {
+  width: 1px;
+  background: color-mix(in srgb, var(--default-color), transparent 75%);
+  align-self: stretch;
+}
+
+html.dark-mode .sport-card { box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+html.dark-mode .age-group-title { color: #ffffff; }
+html.dark-mode .gender-col-title { color: #ffffff !important; }
+html.dark-mode .age-btn { color: #ffffff; border-color: #ffffff; }
+html.dark-mode .age-btn:hover { background: #ffffff; color: var(--heading-color); }
+
+@media (max-width: 767px) {
+  .sports-grid { flex-direction: column !important; align-items: center; }
+  .sport-card  { width: 100%; max-width: 320px; flex: none; }
+  .gender-divider { display: none; }
+}
