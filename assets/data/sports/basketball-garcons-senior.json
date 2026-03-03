@@ -2,8 +2,7 @@
   "label": "Basketball — Garçons Senior",
   "leagueid": 2,
   "schoolid": 12,
-  "updated": "Mon, 02 Mar 2026 12:59:14 GMT",
+  "updated": "2026-03-03 05:53 UTC",
   "standings": [],
-  "scores": [],
-  "error": "Timeout loading https://www.hssaa.ca/displayStandings.php?leagueid=2"
+  "scores": []
 }
