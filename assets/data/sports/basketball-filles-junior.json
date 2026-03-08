@@ -2,7 +2,8 @@
   "label": "Basketball — Filles Junior",
   "leagueid": 21,
   "schoolid": 12,
-  "updated": "2026-03-08 05:46 UTC",
+  "updated": "Sun, 08 Mar 2026 19:30:58 GMT",
   "standings": [],
-  "scores": []
+  "scores": [],
+  "error": "Timeout loading https://www.hssaa.ca/displayStandings.php?leagueid=21"
 }
