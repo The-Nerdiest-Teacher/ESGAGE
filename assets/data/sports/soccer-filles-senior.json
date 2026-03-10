@@ -2,7 +2,8 @@
   "label": "Soccer — Filles Senior",
   "leagueid": 28,
   "schoolid": 12,
-  "updated": "2026-03-10 05:50 UTC",
+  "updated": "Tue, 10 Mar 2026 14:49:19 GMT",
   "standings": [],
-  "scores": []
+  "scores": [],
+  "error": "Timeout loading https://www.hssaa.ca/displayStandings.php?leagueid=28"
 }
