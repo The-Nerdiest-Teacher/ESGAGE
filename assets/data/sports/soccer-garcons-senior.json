@@ -2,7 +2,25 @@
   "label": "Soccer — Garçons Senior",
   "leagueid": 30,
   "schoolid": 12,
-  "updated": "2026-03-20 05:56 UTC",
-  "standings": [],
+  "updated": "Fri, 20 Mar 2026 12:06:13 GMT",
+  "standings": [
+    {
+      "tier": "Classement",
+      "headers": [
+        "GP = Games Played",
+        "W = Wins (3 points)"
+      ],
+      "rows": [
+        [
+          "L = Losses (0 points)",
+          "T = Ties (1 points)"
+        ],
+        [
+          "GF = Goals For",
+          "GA = Goals Against"
+        ]
+      ]
+    }
+  ],
   "scores": []
 }
