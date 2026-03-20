@@ -2,7 +2,8 @@
   "label": "Volleyball — Filles Junior",
   "leagueid": 3,
   "schoolid": 12,
-  "updated": "2026-03-20 05:55 UTC",
+  "updated": "Fri, 20 Mar 2026 12:05:36 GMT",
   "standings": [],
-  "scores": []
+  "scores": [],
+  "error": "Timeout loading https://www.hssaa.ca/displayStandings.php?leagueid=3"
 }
