@@ -2,7 +2,8 @@
   "label": "Volleyball — Garçons Senior",
   "leagueid": 26,
   "schoolid": 12,
-  "updated": "2026-04-29 07:27 UTC",
+  "updated": "Wed, 29 Apr 2026 11:37:27 GMT",
   "standings": [],
-  "scores": []
+  "scores": [],
+  "error": "Timeout loading https://www.hssaa.ca/displayStandings.php?leagueid=26"
 }
