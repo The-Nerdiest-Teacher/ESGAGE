@@ -2,7 +2,7 @@
   "label": "Soccer — Garçons Senior",
   "leagueid": 30,
   "schoolid": 12,
-  "updated": "Tue, 05 May 2026 11:28:20 GMT",
+  "updated": "Tue, 05 May 2026 12:46:54 GMT",
   "standings": [
     {
       "tier": "Classement",
@@ -168,18 +168,6 @@
         ],
         [
           "",
-          "White Oaks High School (AAA)",
-          "4",
-          "2",
-          "2",
-          "0",
-          "6",
-          "5",
-          "7",
-          "L 1"
-        ],
-        [
-          "",
           "Iroquois Ridge H.S. (AAA)",
           "5",
           "2",
@@ -189,6 +177,18 @@
           "13",
           "11",
           "W 1"
+        ],
+        [
+          "",
+          "White Oaks High School (AAA)",
+          "5",
+          "2",
+          "3",
+          "0",
+          "6",
+          "6",
+          "10",
+          "L 2"
         ],
         [
           "",
@@ -205,14 +205,14 @@
         [
           "",
           "Abbey Park H.S. (AAA)",
+          "5",
+          "1",
           "4",
           "0",
-          "4",
-          "0",
-          "0",
-          "10",
-          "23",
-          "L 4"
+          "3",
+          "13",
+          "24",
+          "W 1"
         ],
         [
           "",
