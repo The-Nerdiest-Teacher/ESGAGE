@@ -608,8 +608,8 @@ const ARROW_DEFS = {
     ['MTH1W','MDM2D','#1976d2'],['MDM2D','MCR3U','#1976d2'],
     // MCR3U fans to MHF4U and MDM4U only
     ['MCR3U', ['MHF4U','MDM4U'], '#1976d2'],
-    // MCV4U only reachable via MHF4U
-    ['MHF4U','MCV4U','#1976d2'],
+    // MCV4U only reachable via MHF4U — top of MHF4U to bottom of MCV4U
+    ['MHF4U','MCV4U','#1976d2','ttb'],
     // Pré-collégial: simple chain left to right
     ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M',['MCT4C','MDM4U'],'#388e3c'],
 
@@ -720,7 +720,17 @@ function drawArrows(subjectId) {
         makePath(svg, `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`, color);
         return;
       }
-      // rtu = right-then-up: exits right edge of source, curves up and left to left edge of target
+      // ttb = top-to-bottom: exit top of source, curve up, enter bottom of target
+      if (flag === 'ttb') {
+        const x1 = from.right,  y1 = from.top;
+        const x2 = to.right,    y2 = to.bottom;
+        const cy = Math.min(y1, y2) - 24;
+        makePath(svg,
+          `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`,
+          color
+        );
+        return;
+      }
       if (flag === 'rtu') {
         const x1 = from.right, y1 = from.midY;
         const x2 = to.left,    y2 = to.midY;
