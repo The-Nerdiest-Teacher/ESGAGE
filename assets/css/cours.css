@@ -92,32 +92,26 @@ html.dark-mode .ldesc { color:#e0e0e0; opacity:1; }
 
 @media(max-width:768px){
 
-  /* Hide SVG arrows — don't make sense in vertical layout */
+  /* Hide SVG arrows */
   .pathway-svg { display:none; }
 
-  /* Hide grade header row — grade shown on each pill instead */
+  /* Hide grade header row */
   .grade-header-row { display:none; }
 
-  /* Each row becomes a vertical stack */
+  /* Hide original pathway rows — replaced by mobile-pathway-list */
   .pathway-row,
   .pathway-row.no-border,
-  .pathway-row.tight {
-    display:flex;
-    flex-direction:column;
-    border-bottom:none;
-    padding:0;
-    gap:0;
-  }
-
-  /* Hide empty cells entirely */
+  .pathway-row.tight,
+  .path-spacer,
   .cell-empty { display:none; }
 
-  /* Cells become full width */
-  .cell {
-    padding:4px 0;
-    min-height:unset;
-    width:100%;
-  }
+  /* Mobile sorted list */
+  .mobile-pathway-list { display:flex; flex-direction:column; gap:0; padding:4px 0; }
+  .mobile-pill-row { padding:4px 0; }
+
+  /* Pathway badge label rows inside mobile list */
+  .mobile-pathway-list .pathway-row { display:flex; }
+  .mobile-pathway-list .pathway-label-row { grid-column:unset; padding:10px 0 4px; display:block; }
 
   /* Pills full width with grade badge */
   .pill {
@@ -125,7 +119,7 @@ html.dark-mode .ldesc { color:#e0e0e0; opacity:1; }
     align-items:center;
     gap:12px;
     padding:10px 14px;
-    position:relative;
+    width:100%;
   }
   .pill-grade-tag {
     font-family:'Bebas Neue',sans-serif;
@@ -137,15 +131,11 @@ html.dark-mode .ldesc { color:#e0e0e0; opacity:1; }
     padding:2px 7px;
     white-space:nowrap;
     flex-shrink:0;
+    min-width:28px;
+    text-align:center;
   }
   .pcode { font-size:15px; }
   .pname { margin-top:1px; }
-
-  /* Pathway badge label rows — keep full width */
-  .pathway-label-row { grid-column:unset; padding:10px 0 4px; }
-
-  /* Spacer tighter on mobile */
-  .path-spacer { height:4px; }
 
   /* Tab buttons smaller */
   .subject-tab { padding:7px 12px; font-size:12px; gap:5px; }

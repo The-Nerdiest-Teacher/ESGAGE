@@ -576,7 +576,7 @@ function showSubject(id, btn) {
   // Double rAF + setTimeout ensures layout is fully settled before measuring pill positions
   requestAnimationFrame(() => requestAnimationFrame(() => {
     drawAllArrows(id);
-    setTimeout(() => drawAllArrows(id), 50);
+    setTimeout(() => { drawAllArrows(id); setupMobileView(); }, 50);
   }));
 }
 
@@ -819,19 +819,20 @@ function drawAllArrows(subjectId) {
 }
 
 // Initial draw + redraw on resize
-// ── Mobile grade tags ─────────────────────────────────────────────────────
-// Adds a small grade badge to each pill so the grade is visible in mobile
-// vertical layout (where the column headers are hidden)
+// ── Mobile grade tags + reorder ───────────────────────────────────────────
 function injectGradeTags() {
   const gradeLabels = ['9e', '10e', '11e', '12e'];
   document.querySelectorAll('.pathway-wrap').forEach(wrap => {
     wrap.querySelectorAll('.pathway-row').forEach(row => {
-      // Skip label rows
       if (row.querySelector('.pathway-label-row')) return;
-      const cells = Array.from(row.children).filter(c => c.classList.contains('cell') || c.classList.contains('cell-empty'));
+      const cells = Array.from(row.children).filter(c =>
+        c.classList.contains('cell') || c.classList.contains('cell-empty')
+      );
       cells.forEach((cell, i) => {
         const pill = cell.querySelector('.pill');
         if (!pill || pill.querySelector('.pill-grade-tag')) return;
+        // Store grade index for sorting
+        cell.dataset.gradeIndex = i;
         const tag = document.createElement('span');
         tag.className = 'pill-grade-tag';
         tag.textContent = gradeLabels[i] || '';
@@ -840,7 +841,81 @@ function injectGradeTags() {
     });
   });
 }
-window.addEventListener('load', () => { drawAllArrows(); injectGradeTags(); });
+
+function reorderForMobile(wrap) {
+  // Collect all pathway sections (between label rows)
+  // Each section = one pbadge label + its rows
+  // We gather pills per section, sort by grade index, re-render as a flat list
+  const gradeLabels = ['9e', '10e', '11e', '12e'];
+
+  // Build a mobile-friendly container per pathway-wrap
+  const sections = [];
+  let currentSection = null;
+
+  Array.from(wrap.children).forEach(el => {
+    if (el.classList.contains('pathway-svg')) return;
+    if (el.classList.contains('path-spacer')) {
+      if (currentSection) sections.push(currentSection);
+      currentSection = null;
+      return;
+    }
+    const labelRow = el.querySelector('.pathway-label-row');
+    if (labelRow) {
+      if (currentSection) sections.push(currentSection);
+      currentSection = { label: el.cloneNode(true), pills: [] };
+      return;
+    }
+    if (!currentSection) currentSection = { label: null, pills: [] };
+    // Collect pills from this row with their grade index
+    const cells = Array.from(el.children).filter(c =>
+      c.classList.contains('cell') || c.classList.contains('cell-empty')
+    );
+    cells.forEach((cell, i) => {
+      const pill = cell.querySelector('.pill');
+      if (pill) currentSection.pills.push({ gradeIndex: i, pill: pill.cloneNode(true) });
+    });
+  });
+  if (currentSection) sections.push(currentSection);
+
+  // Build mobile list
+  const mobileDiv = document.createElement('div');
+  mobileDiv.className = 'mobile-pathway-list';
+
+  sections.forEach(sec => {
+    if (sec.label) mobileDiv.appendChild(sec.label);
+    // Sort pills by grade index
+    sec.pills.sort((a, b) => a.gradeIndex - b.gradeIndex);
+    sec.pills.forEach(({ gradeIndex, pill }) => {
+      // Ensure grade tag exists
+      if (!pill.querySelector('.pill-grade-tag')) {
+        const tag = document.createElement('span');
+        tag.className = 'pill-grade-tag';
+        tag.textContent = gradeLabels[gradeIndex] || '';
+        pill.insertBefore(tag, pill.firstChild);
+      }
+      const wrapper = document.createElement('div');
+      wrapper.className = 'mobile-pill-row';
+      wrapper.appendChild(pill);
+      mobileDiv.appendChild(wrapper);
+    });
+  });
+
+  wrap.dataset.mobileInjected = '1';
+  wrap.appendChild(mobileDiv);
+}
+
+function setupMobileView() {
+  if (window.innerWidth > 768) return;
+  document.querySelectorAll('.pathway-wrap').forEach(wrap => {
+    if (!wrap.dataset.mobileInjected) reorderForMobile(wrap);
+  });
+}
+
+window.addEventListener('load', () => {
+  drawAllArrows();
+  injectGradeTags();
+  setupMobileView();
+});
 window.addEventListener('resize', () => drawAllArrows());
 </script>
 </body>
