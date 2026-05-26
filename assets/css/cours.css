@@ -91,8 +91,65 @@ html.dark-mode .litem { background:rgba(255,255,255,0.08); }
 html.dark-mode .ldesc { color:#e0e0e0; opacity:1; }
 
 @media(max-width:768px){
-  .grade-header-row,.pathway-row { grid-template-columns:repeat(2,1fr); }
-}
-@media(max-width:480px){
-  .grade-header-row,.pathway-row { grid-template-columns:1fr; }
+
+  /* Hide SVG arrows — don't make sense in vertical layout */
+  .pathway-svg { display:none; }
+
+  /* Hide grade header row — grade shown on each pill instead */
+  .grade-header-row { display:none; }
+
+  /* Each row becomes a vertical stack */
+  .pathway-row,
+  .pathway-row.no-border,
+  .pathway-row.tight {
+    display:flex;
+    flex-direction:column;
+    border-bottom:none;
+    padding:0;
+    gap:0;
+  }
+
+  /* Hide empty cells entirely */
+  .cell-empty { display:none; }
+
+  /* Cells become full width */
+  .cell {
+    padding:4px 0;
+    min-height:unset;
+    width:100%;
+  }
+
+  /* Pills full width with grade badge */
+  .pill {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 14px;
+    position:relative;
+  }
+  .pill-grade-tag {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--pc,var(--accent-color));
+    background:color-mix(in srgb,var(--pc,var(--accent-color)),transparent 88%);
+    border-radius:6px;
+    padding:2px 7px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .pcode { font-size:15px; }
+  .pname { margin-top:1px; }
+
+  /* Pathway badge label rows — keep full width */
+  .pathway-label-row { grid-column:unset; padding:10px 0 4px; }
+
+  /* Spacer tighter on mobile */
+  .path-spacer { height:4px; }
+
+  /* Tab buttons smaller */
+  .subject-tab { padding:7px 12px; font-size:12px; gap:5px; }
+
+  /* Legend grid single column */
+  .lgrid { flex-direction:column; }
 }

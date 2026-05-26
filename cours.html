@@ -606,8 +606,10 @@ const ARROW_DEFS = {
   ],
   maths: [
     ['MTH1W','MDM2D','#1976d2'],['MDM2D','MCR3U','#1976d2'],
-    // MCR3U fans to MCV4U, MHF4U, MDM4U
-    ['MCR3U', ['MCV4U','MHF4U','MDM4U'], '#1976d2'],
+    // MCR3U fans to MHF4U and MDM4U only
+    ['MCR3U', ['MHF4U','MDM4U'], '#1976d2'],
+    // MCV4U only reachable via MHF4U
+    ['MHF4U','MCV4U','#1976d2'],
     // Pré-collégial: simple chain left to right
     ['MTH1W_c','MPM2P','#388e3c'],['MPM2P','MCF3M','#388e3c'],['MCF3M',['MCT4C','MDM4U'],'#388e3c'],
 
@@ -807,7 +809,28 @@ function drawAllArrows(subjectId) {
 }
 
 // Initial draw + redraw on resize
-window.addEventListener('load', () => drawAllArrows());
+// ── Mobile grade tags ─────────────────────────────────────────────────────
+// Adds a small grade badge to each pill so the grade is visible in mobile
+// vertical layout (where the column headers are hidden)
+function injectGradeTags() {
+  const gradeLabels = ['9e', '10e', '11e', '12e'];
+  document.querySelectorAll('.pathway-wrap').forEach(wrap => {
+    wrap.querySelectorAll('.pathway-row').forEach(row => {
+      // Skip label rows
+      if (row.querySelector('.pathway-label-row')) return;
+      const cells = Array.from(row.children).filter(c => c.classList.contains('cell') || c.classList.contains('cell-empty'));
+      cells.forEach((cell, i) => {
+        const pill = cell.querySelector('.pill');
+        if (!pill || pill.querySelector('.pill-grade-tag')) return;
+        const tag = document.createElement('span');
+        tag.className = 'pill-grade-tag';
+        tag.textContent = gradeLabels[i] || '';
+        pill.insertBefore(tag, pill.firstChild);
+      });
+    });
+  });
+}
+window.addEventListener('load', () => { drawAllArrows(); injectGradeTags(); });
 window.addEventListener('resize', () => drawAllArrows());
 </script>
 </body>
