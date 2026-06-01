@@ -721,11 +721,12 @@ function drawArrows(subjectId) {
         makePath(svg, `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`, color);
         return;
       }
-      // ttb = top-to-bottom: exit top-center of source, curve up, enter bottom-center of target
+      // ttb = top-center of source curving up to bottom-center of target (target is above source)
       if (flag === 'ttb') {
         const x1 = (from.left + from.right) / 2, y1 = from.top;
         const x2 = (to.left + to.right) / 2,     y2 = to.bottom;
-        const cy = Math.min(y1, y2) - 24;
+        // control points pull the curve upward between the two pills
+        const cy = y1 - Math.abs(y1 - y2) * 0.4;
         makePath(svg,
           `M${x1},${y1} C${x1},${cy} ${x2},${cy} ${x2},${y2}`,
           color
@@ -913,9 +914,10 @@ function setupMobileView() {
 }
 
 window.addEventListener('load', () => {
-  drawAllArrows();
   injectGradeTags();
   setupMobileView();
+  // Delay initial draw to ensure fonts and layout are fully settled
+  setTimeout(() => drawAllArrows(), 300);
 });
 window.addEventListener('resize', () => drawAllArrows());
 </script>
