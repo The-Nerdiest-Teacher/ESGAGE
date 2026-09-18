@@ -148,7 +148,7 @@ if (PLAYERS.length === 0) {
   });
 }
 
-// ── HSSAA Data ────────────────────────────────────────────────────────────
+// ── HSSAA Data — Basketball ───────────────────────────────────────────────
 var DATA_FILE = "/assets/data/sports/basketball-filles-senior.json";
 var MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
 function isMySchool(t) { return MY_SCHOOL.some(function(k) { return t.toLowerCase().indexOf(k) >= 0; }); }
@@ -156,78 +156,73 @@ var LOGO_HTML = '<img src="/assets/img/gage-logo-small.png" alt="GAGE" style="he
 function nameCell(n) { return isMySchool(n) ? LOGO_HTML + n : n; }
 function boldStyle(n) { return isMySchool(n) ? "font-weight:700;" : ""; }
 
+// ── Standings — Basketball specific ──────────────────────────────────────
+// Basketball standings columns: GP, W, L, T, PTS, WIN%, PF, PA, STREAK
+// Schools are grouped by bracket suffix (AA), (AAA) etc. within one tier
 function renderStandings(standings, updated) {
   var el = document.getElementById("standings-container");
   if (!standings || !standings.length) {
-    el.innerHTML = '<p class="data-loading">Aucun classement disponible pour l\'instant.</p>'; return;
+    el.innerHTML = '<p class="data-loading">Aucun classement disponible.</p>'; return;
   }
 
-  // Find the first standings object that has actual team rows (not the legend)
+  // Find the data standings object (not the legend one)
   var raw = null;
   for (var i = 0; i < standings.length; i++) {
-    if (standings[i].rows && standings[i].rows.length > 1) { raw = standings[i]; break; }
+    if (standings[i].rows && standings[i].rows.length > 2) { raw = standings[i]; break; }
   }
-  if (!raw) { el.innerHTML = '<p class="data-loading">Aucun classement disponible pour l\'instant.</p>'; return; }
+  if (!raw) { el.innerHTML = '<p class="data-loading">Aucun classement disponible.</p>'; return; }
 
-  // Detect column headers from the first header row in the data
-  var headerRow = null;
-  var dataRows = [];
-  raw.rows.forEach(function(cells) {
-    var isHeader = cells.indexOf("School") >= 0 || cells.indexOf("MP") >= 0 || cells.indexOf("GP") >= 0;
-    if (isHeader && !headerRow) { headerRow = cells; }
-    else if (cells.length >= 3 && cells[1] && cells[1] !== "" && cells[1] !== "School") { dataRows.push(cells); }
-  });
-
-  // Build display headers from detected header row
-  var displayHeaders = ["École"];
-  if (headerRow) {
-    // Skip first empty cell and "School" cell, map the rest
-    var colMap = { "GP":"PJ","MP":"PJ","W":"V","L":"D","T":"N","PTS":"PTS",
-                   "WIN %":"V%","PF":"PF","PA":"PA","SW":"SW","SL":"SL",
-                   "PW":"PG","PL":"PL","STREAK":"Série" };
-    headerRow.forEach(function(h, idx) {
-      if (idx < 2) return; // skip blank + School
-      displayHeaders.push(colMap[h] || h);
-    });
-  }
-
-  // Split into tiers
-  var tiers = [], current = null;
+  // Extract tier name from headers
   var tierName = (raw.headers && raw.headers[0]) ? raw.headers[0] : "Classement";
-  raw.rows.forEach(function(cells) {
-    var isHeader = cells.indexOf("School") >= 0 || (cells.indexOf("MP") >= 0 && cells.indexOf("W") >= 0) || (cells.indexOf("GP") >= 0 && cells.indexOf("W") >= 0);
-    if (isHeader) { if (current && current.rows.length) tiers.push(current); current = { tier: null, rows: [] }; }
-    else if (cells.length >= 3 && cells[1] && cells[1] !== "") { if (current) current.rows.push(cells); }
-  });
-  if (current && current.rows.length) tiers.push(current);
-  if (!tiers.length) tiers.push({ tier: tierName, rows: dataRows });
 
-  tiers.forEach(function(t) {
-    var match = t.rows[0] && t.rows[0][1] && t.rows[0][1].match(/\(([A-Z]+)\)/);
-    t.tier = match ? match[1] + " — " + tierName : tierName;
+  // Separate header row from data rows
+  var dataRows = raw.rows.filter(function(cells) {
+    return cells.length >= 3 && cells[1] && cells[1] !== "" && cells[1] !== "School";
+  });
+
+  // Group schools by bracket suffix: (AA), (AAA), (A) etc.
+  var groups = {}, groupOrder = [];
+  dataRows.forEach(function(cells) {
+    var school = cells[1] || "";
+    var match = school.match(/\(([A-Z]+)\)$/);
+    var bracket = match ? match[1] : "Autre";
+    if (!groups[bracket]) { groups[bracket] = []; groupOrder.push(bracket); }
+    groups[bracket].push(cells);
   });
 
   var html = "";
-  tiers.forEach(function(t) {
-    var rows = t.rows.map(function(cells) {
-      var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);
+  groupOrder.forEach(function(bracket) {
+    var rows = groups[bracket].map(function(cells) {
+      var school = cells[1] || "";
+      var stats = cells.slice(2);
+      var mine = isMySchool(school);
       var displayName = school.replace(/\s*\([A-Z]+\)$/, "");
       var nc = mine ? LOGO_HTML + displayName : displayName;
-      return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
-        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
+      return '<tr class="' + (mine ? "my-school" : "") + '">' +
+        '<td>' + nc + '</td>' +
+        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") +
+        '</tr>';
     }).join("");
-    var headerCells = displayHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join("");
-    html += '<span class="tier-badge">' + t.tier + '</span>' +
-      '<div class="table-responsive mb-4"><table class="table table-bordered standings-table">' +
-      '<thead><tr>' + headerCells + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+
+    html += '<span class="tier-badge">' + bracket + ' — ' + tierName + '</span>' +
+      '<div class="table-responsive mb-4">' +
+      '<table class="table table-bordered standings-table">' +
+      '<thead><tr>' +
+        '<th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th>' +
+        '<th>PTS</th><th>V%</th><th>PF</th><th>PA</th><th>Série</th>' +
+      '</tr></thead>' +
+      '<tbody>' + rows + '</tbody>' +
+      '</table></div>';
   });
 
   if (updated) html += '<p class="updated-tag">Source : HSSAA — Mise à jour : ' + updated + '</p>';
   el.innerHTML = html;
 }
 
+// ── Scores — Basketball specific ─────────────────────────────────────────
+// Scores are plain integers (no sets). Win/loss determined by higher score.
 function renderScores(scores, replays) {
-  var upcoming = [], played = [], gameIndex = 0;
+  var upcoming = [], played = [];
   replays = replays || [];
   var currentDate = "";
 
@@ -238,35 +233,98 @@ function renderScores(scores, replays) {
     if (row[0].indexOf("Location:") === 0 || row[0].indexOf("Notes:") === 0) continue;
     if (row.length <= 2) continue;
 
-    var location = "", notes = "";
     var j = i + 1;
-    while (j < scores.length && scores[j] && (scores[j][0] || "").match(/^(Location:|Notes:)/)) {
-      if ((scores[j][0] || "").indexOf("Location:") === 0) location = (scores[j][1] || scores[j][0].replace("Location: ","")).trim();
-      if ((scores[j][0] || "").indexOf("Notes:") === 0) notes = (scores[j][1] || scores[j][0].replace("Notes: ","")).trim();
-      j++;
-    }
+    while (j < scores.length && scores[j] && (scores[j][0] || "").match(/^(Location:|Notes:)/)) { j++; }
     if (j > i + 1) i = j - 1;
 
-    gameIndex++;
-    var replayEntry = replays.find(function(r) { return r.index === gameIndex; });
-    var replay = replayEntry ? (replayEntry.replay || "") : "";
     var gameDate = currentDate;
+    var replayEntry = replays.find(function(r) { return r.index === (played.length + 1); });
+    var replay = replayEntry ? (replayEntry.replay || "") : "";
 
     if (row.length === 3) {
-      upcoming.push({ date: gameDate, visitor: row[0], time: row[1], home: row[2], location: location, notes: notes, replay: replay });
+      upcoming.push({ date: gameDate, visitor: row[0], time: row[1], home: row[2] });
     } else if (row.length >= 4) {
       var visitor = row[0], vScore = row[1], hScore = row[2], home = row[3];
-      var vNum = parseInt(vScore), hNum = parseInt(hScore);
+      var vPts = parseInt(vScore), hPts = parseInt(hScore);
       var result = "", badgeClass = "";
-      if (!isNaN(vNum) && !isNaN(hNum)) {
-        if (isMySchool(visitor)) { result = vNum > hNum ? "Victoire" : "Défaite"; badgeClass = vNum > hNum ? "badge-win" : "badge-loss"; }
-        else if (isMySchool(home)) { result = hNum > vNum ? "Victoire" : "Défaite"; badgeClass = hNum > vNum ? "badge-win" : "badge-loss"; }
-        else { result = vNum + " – " + hNum; badgeClass = "badge-upcoming"; }
+      if (!isNaN(vPts) && !isNaN(hPts)) {
+        if (isMySchool(visitor)) { result = vPts > hPts ? "Victoire" : "Défaite"; badgeClass = vPts > hPts ? "badge-win" : "badge-loss"; }
+        else if (isMySchool(home)) { result = hPts > vPts ? "Victoire" : "Défaite"; badgeClass = hPts > vPts ? "badge-win" : "badge-loss"; }
+        else { result = vPts + " – " + hPts; badgeClass = "badge-upcoming"; }
       }
-      played.push({ date: gameDate, visitor: visitor, vScore: vScore, hScore: hScore, home: home, result: result, badgeClass: badgeClass, location: location, notes: notes, replay: replay });
+      played.push({ date: gameDate, visitor: visitor, vScore: vScore, hScore: hScore,
+        home: home, result: result, badgeClass: badgeClass, replay: replay });
     }
   }
 
+  // ── Group by date helper ──
+  function groupByDate(games) {
+    var groups = [], seen = {};
+    games.forEach(function(g) {
+      var d = g.date || "";
+      if (!seen[d]) { seen[d] = []; groups.push({ date: d, games: seen[d] }); }
+      seen[d].push(g);
+    });
+    return groups;
+  }
+
+  // ── Upcoming ──
+  var upEl = document.getElementById("upcoming-container");
+  if (upEl) {
+    if (!upcoming.length) {
+      upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>';
+    } else {
+      var groups = groupByDate(upcoming);
+      var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+        '<thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th></tr></thead><tbody>';
+      groups.forEach(function(group) {
+        if (group.date) {
+          html += '<tr><td colspan="3" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:''Raleway'',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
+        }
+        group.games.forEach(function(g) {
+          html += '<tr>' +
+            '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
+            '<td class="text-center">' + g.time + '</td>' +
+            '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
+            '</tr>';
+        });
+      });
+      html += '</tbody></table></div>';
+      upEl.innerHTML = html;
+    }
+  }
+
+  // ── Results ──
+  var plEl = document.getElementById("scores-container");
+  if (plEl) {
+    if (!played.length) {
+      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+    } else {
+      var groups = groupByDate(played);
+      var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+        '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Vidéo</th></tr></thead><tbody>';
+      groups.forEach(function(group) {
+        if (group.date) {
+          html += '<tr><td colspan="6" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:''Raleway'',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
+        }
+        group.games.forEach(function(g) {
+          html += '<tr>' +
+            '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
+            '<td class="text-center" style="font-weight:700;">' + g.vScore + '</td>' +
+            '<td class="text-center" style="font-weight:700;">' + g.hScore + '</td>' +
+            '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
+            '<td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td>' +
+            '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>' : '') + '</td>' +
+            '</tr>';
+        });
+      });
+      html += '</tbody></table></div>';
+      plEl.innerHTML = html;
+    }
+  }
+}
+
+  // ── Upcoming ──
   var upEl = document.getElementById("upcoming-container");
   if (upEl) {
     if (!upcoming.length) {
@@ -275,38 +333,50 @@ function renderScores(scores, replays) {
       var hasDate = upcoming.some(function(g) { return g.date; });
       upEl.innerHTML =
         '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
-        '<thead><tr>' + (hasDate ? '<th>Date</th>' : '') + '<th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Lieu</th></tr></thead><tbody>' +
+        '<thead><tr>' +
+          (hasDate ? '<th>Date</th>' : '') +
+          '<th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Lieu</th>' +
+        '</tr></thead><tbody>' +
         upcoming.map(function(g) {
-          return '<tr>' + (hasDate ? '<td style="white-space:nowrap;font-size:12px;">' + (g.date || "—") + '</td>' : '') +
+          return '<tr>' +
+            (hasDate ? '<td style="white-space:nowrap;font-size:12px;">' + (g.date || "—") + '</td>' : '') +
             '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
             '<td class="text-center">' + g.time + '</td>' +
             '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
             '<td class="text-muted" style="font-size:12px;">' + (g.location || "—") + '</td>' +
             '</tr>';
-        }).join("") + '</tbody></table></div>';
+        }).join("") +
+        '</tbody></table></div>';
     }
   }
 
+  // ── Results ──
   var plEl = document.getElementById("scores-container");
   if (plEl) {
     if (!played.length) {
-      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+      plEl.innerHTML = '<p class="data-loading">Aucun r\u00e9sultat pour l\'instant.</p>';
     } else {
       var hasDate = played.some(function(g) { return g.date; });
       plEl.innerHTML =
         '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
-        '<thead><tr>' + (hasDate ? '<th>Date</th>' : '') + '<th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Lieu</th><th>Vidéo</th></tr></thead><tbody>' +
+        '<thead><tr>' +
+          (hasDate ? '<th>Date</th>' : '') +
+          '<th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th>' +
+          '<th>R\u00e9sultat</th><th>Lieu</th><th>Vid\u00e9o</th>' +
+        '</tr></thead><tbody>' +
         played.map(function(g) {
-          return '<tr>' + (hasDate ? '<td style="white-space:nowrap;font-size:12px;">' + (g.date || "—") + '</td>' : '') +
+          return '<tr>' +
+            (hasDate ? '<td style="white-space:nowrap;font-size:12px;">' + (g.date || "—") + '</td>' : '') +
             '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
-            '<td class="text-center">' + g.vScore + '</td>' +
-            '<td class="text-center">' + g.hScore + '</td>' +
+            '<td class="text-center font-weight-bold">' + g.vScore + '</td>' +
+            '<td class="text-center font-weight-bold">' + g.hScore + '</td>' +
             '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
             '<td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td>' +
             '<td class="text-muted" style="font-size:12px;">' + (g.location || "—") + '</td>' +
-            '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>' : '') + '</td>' +
+            '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vid\u00e9o</a>' : '') + '</td>' +
             '</tr>';
-        }).join("") + '</tbody></table></div>';
+        }).join("") +
+        '</tbody></table></div>';
     }
   }
 }
@@ -318,7 +388,7 @@ fetch(DATA_FILE)
     console.error("Erreur:", err);
     ["upcoming-container","scores-container","standings-container"].forEach(function(id) {
       var el = document.getElementById(id);
-      if (el) el.innerHTML = '<p class="data-loading">Données indisponibles. Réessayez plus tard.</p>';
+      if (el) el.innerHTML = '<p class="data-loading">Donn\u00e9es indisponibles.</p>';
     });
   });
 
