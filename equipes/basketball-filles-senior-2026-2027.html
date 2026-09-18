@@ -279,7 +279,7 @@ function renderScores(scores, replays) {
         '<thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th></tr></thead><tbody>';
       groups.forEach(function(group) {
         if (group.date) {
-          html += '<tr><td colspan="3" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:''Raleway'',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
+          html += '<tr><td colspan="3" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:Raleway,sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
         }
         group.games.forEach(function(g) {
           html += '<tr>' +
@@ -305,7 +305,7 @@ function renderScores(scores, replays) {
         '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Vidéo</th></tr></thead><tbody>';
       groups.forEach(function(group) {
         if (group.date) {
-          html += '<tr><td colspan="6" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:''Raleway'',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
+          html += '<tr><td colspan="6" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:Raleway,sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
         }
         group.games.forEach(function(g) {
           html += '<tr>' +
