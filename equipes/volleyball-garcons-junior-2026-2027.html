@@ -161,29 +161,67 @@ function renderStandings(standings, updated) {
   if (!standings || !standings.length) {
     el.innerHTML = '<p class="data-loading">Aucun classement disponible pour l\'instant.</p>'; return;
   }
-  var raw = standings[0]; if (!raw) return;
+
+  // Find the first standings object that has actual team rows (not the legend)
+  var raw = null;
+  for (var i = 0; i < standings.length; i++) {
+    if (standings[i].rows && standings[i].rows.length > 1) { raw = standings[i]; break; }
+  }
+  if (!raw) { el.innerHTML = '<p class="data-loading">Aucun classement disponible pour l\'instant.</p>'; return; }
+
+  // Detect column headers from the first header row in the data
+  var headerRow = null;
+  var dataRows = [];
+  raw.rows.forEach(function(cells) {
+    var isHeader = cells.indexOf("School") >= 0 || cells.indexOf("MP") >= 0 || cells.indexOf("GP") >= 0;
+    if (isHeader && !headerRow) { headerRow = cells; }
+    else if (cells.length >= 3 && cells[1] && cells[1] !== "" && cells[1] !== "School") { dataRows.push(cells); }
+  });
+
+  // Build display headers from detected header row
+  var displayHeaders = ["École"];
+  if (headerRow) {
+    // Skip first empty cell and "School" cell, map the rest
+    var colMap = { "GP":"PJ","MP":"PJ","W":"V","L":"D","T":"N","PTS":"PTS",
+                   "WIN %":"V%","PF":"PF","PA":"PA","SW":"SW","SL":"SL",
+                   "PW":"PG","PL":"PL","STREAK":"Série" };
+    headerRow.forEach(function(h, idx) {
+      if (idx < 2) return; // skip blank + School
+      displayHeaders.push(colMap[h] || h);
+    });
+  }
+
+  // Split into tiers
   var tiers = [], current = null;
   var tierName = (raw.headers && raw.headers[0]) ? raw.headers[0] : "Classement";
   raw.rows.forEach(function(cells) {
-    var isHeader = cells.indexOf("School") >= 0 && cells.indexOf("MP") >= 0;
+    var isHeader = cells.indexOf("School") >= 0 || (cells.indexOf("MP") >= 0 && cells.indexOf("W") >= 0) || (cells.indexOf("GP") >= 0 && cells.indexOf("W") >= 0);
     if (isHeader) { if (current && current.rows.length) tiers.push(current); current = { tier: null, rows: [] }; }
     else if (cells.length >= 3 && cells[1] && cells[1] !== "") { if (current) current.rows.push(cells); }
   });
   if (current && current.rows.length) tiers.push(current);
+  if (!tiers.length) tiers.push({ tier: tierName, rows: dataRows });
+
   tiers.forEach(function(t) {
     var match = t.rows[0] && t.rows[0][1] && t.rows[0][1].match(/\(([A-Z]+)\)/);
     t.tier = match ? match[1] + " — " + tierName : tierName;
   });
+
   var html = "";
   tiers.forEach(function(t) {
     var rows = t.rows.map(function(cells) {
       var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);
       var displayName = school.replace(/\s*\([A-Z]+\)$/, "");
       var nc = mine ? LOGO_HTML + displayName : displayName;
-      return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' + stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
+      return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
+        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
     }).join("");
-    html += '<span class="tier-badge">' + t.tier + '</span><div class="table-responsive mb-4"><table class="table table-bordered standings-table"><thead><tr><th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th><th>PTS</th><th>SW</th><th>SL</th><th>PG</th><th>PL</th><th>Série</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    var headerCells = displayHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join("");
+    html += '<span class="tier-badge">' + t.tier + '</span>' +
+      '<div class="table-responsive mb-4"><table class="table table-bordered standings-table">' +
+      '<thead><tr>' + headerCells + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
   });
+
   if (updated) html += '<p class="updated-tag">Source : HSSAA — Mise à jour : ' + updated + '</p>';
   el.innerHTML = html;
 }
@@ -196,40 +234,83 @@ function renderScores(scores, replays) {
     if (!row[0] || row[0] === "Visitor") continue;
     if (row[0].indexOf("Location:") === 0 || row[0].indexOf("Notes:") === 0) continue;
     if (row.length <= 2) continue;
-    var notes = "", next = scores[i + 1];
-    if (next && (next.length <= 2 || (next[0] && next[0].indexOf("Location:") === 0))) { notes = (next[1] || "").replace("Notes: ", ""); i++; }
+
+    // Peek ahead for location/notes
+    var location = "", notes = "";
+    var j = i + 1;
+    while (j < scores.length && scores[j] && (scores[j][0] || "").match(/^(Location:|Notes:)/)) {
+      if ((scores[j][0] || "").indexOf("Location:") === 0) location = (scores[j][1] || scores[j][0].replace("Location: ","")).trim();
+      if ((scores[j][0] || "").indexOf("Notes:") === 0) notes = (scores[j][1] || scores[j][0].replace("Notes: ","")).trim();
+      j++;
+    }
+    if (j > i + 1) i = j - 1;
+
     gameIndex++;
     var replayEntry = replays.find(function(r) { return r.index === gameIndex; });
     var replay = replayEntry ? (replayEntry.replay || "") : "";
+
+    // Upcoming: 3 cells (visitor, time, home)
     if (row.length === 3) {
-      upcoming.push({ visitor: row[0], time: row[1], home: row[2], notes: notes, replay: replay });
+      upcoming.push({ visitor: row[0], time: row[1], home: row[2], location: location, notes: notes, replay: replay });
+
+    // Completed: 4+ cells (visitor, vScore, hScore, home)
     } else if (row.length >= 4) {
       var visitor = row[0], vScore = row[1], hScore = row[2], home = row[3];
-      var vSets = parseInt(vScore), hSets = parseInt(hScore);
+      // Parse sets — volleyball: "2 (25, 25)", basketball: plain number
+      var vNum = parseInt(vScore), hNum = parseInt(hScore);
       var result = "", badgeClass = "";
-      if (!isNaN(vSets) && !isNaN(hSets)) {
-        if (isMySchool(visitor)) { result = vSets > hSets ? "Victoire" : "Défaite"; badgeClass = vSets > hSets ? "badge-win" : "badge-loss"; }
-        else if (isMySchool(home)) { result = hSets > vSets ? "Victoire" : "Défaite"; badgeClass = hSets > vSets ? "badge-win" : "badge-loss"; }
-        else { result = vSets + " – " + hSets; badgeClass = "badge-upcoming"; }
+      if (!isNaN(vNum) && !isNaN(hNum)) {
+        if (isMySchool(visitor)) { result = vNum > hNum ? "Victoire" : "Défaite"; badgeClass = vNum > hNum ? "badge-win" : "badge-loss"; }
+        else if (isMySchool(home)) { result = hNum > vNum ? "Victoire" : "Défaite"; badgeClass = hNum > vNum ? "badge-win" : "badge-loss"; }
+        else { result = vNum + " – " + hNum; badgeClass = "badge-upcoming"; }
       }
-      played.push({ visitor: visitor, vScore: vScore, hScore: hScore, home: home, result: result, badgeClass: badgeClass, notes: notes, replay: replay });
+      played.push({ visitor: visitor, vScore: vScore, hScore: hScore, home: home, result: result, badgeClass: badgeClass, location: location, notes: notes, replay: replay });
     }
   }
+
+  // ── Upcoming ──
   var upEl = document.getElementById("upcoming-container");
   if (upEl) {
-    if (!upcoming.length) { upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>'; }
-    else {
-      upEl.innerHTML = '<div class="table-responsive"><table class="table table-bordered schedule-table"><thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Notes</th></tr></thead><tbody>' +
-        upcoming.map(function(g) { return '<tr><td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td><td class="text-center">' + g.time + '</td><td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td><td class="text-muted" style="font-size:11px;">' + g.notes + '</td></tr>'; }).join("") +
+    if (!upcoming.length) {
+      upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>';
+    } else {
+      // HSSAA doesn't provide dates — show time + location, add note
+      upEl.innerHTML =
+        '<p style="font-size:12px;color:var(--default-color);opacity:0.5;margin-bottom:8px;"><i class="bi bi-info-circle me-1"></i>Les dates ne sont pas disponibles via HSSAA. Vérifiez auprès de l\'entraîneur.</p>' +
+        '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+        '<thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Lieu</th></tr></thead><tbody>' +
+        upcoming.map(function(g) {
+          return '<tr>' +
+            '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
+            '<td class="text-center">' + g.time + '</td>' +
+            '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
+            '<td class="text-muted" style="font-size:12px;">' + (g.location || g.notes || "—") + '</td>' +
+            '</tr>';
+        }).join("") +
         '</tbody></table></div>';
     }
   }
+
+  // ── Results ──
   var plEl = document.getElementById("scores-container");
   if (plEl) {
-    if (!played.length) { plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>'; }
-    else {
-      plEl.innerHTML = '<div class="table-responsive"><table class="table table-bordered schedule-table"><thead><tr><th>Visiteur</th><th>Score V</th><th>Score D</th><th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th></tr></thead><tbody>' +
-        played.map(function(g) { return '<tr><td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td><td class="text-center">' + g.vScore + '</td><td class="text-center">' + g.hScore + '</td><td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td><td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td><td class="text-muted" style="font-size:11px;">' + g.notes + '</td><td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>' : '') + '</td></tr>'; }).join("") +
+    if (!played.length) {
+      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+    } else {
+      plEl.innerHTML =
+        '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+        '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Lieu</th><th>Vidéo</th></tr></thead><tbody>' +
+        played.map(function(g) {
+          return '<tr>' +
+            '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
+            '<td class="text-center">' + g.vScore + '</td>' +
+            '<td class="text-center">' + g.hScore + '</td>' +
+            '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
+            '<td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td>' +
+            '<td class="text-muted" style="font-size:12px;">' + (g.location || "—") + '</td>' +
+            '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>' : '') + '</td>' +
+            '</tr>';
+        }).join("") +
         '</tbody></table></div>';
     }
   }
