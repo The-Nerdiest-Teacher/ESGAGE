@@ -2,7 +2,7 @@
   "label": "Basketball — Filles Senior",
   "leagueid": 22,
   "schoolid": 12,
-  "updated": "Fri, 18 Sep 2026 16:41:04 GMT",
+  "updated": "Fri, 18 Sep 2026 17:03:26 GMT",
   "standings": [
     {
       "tier": "Classement",
@@ -272,6 +272,10 @@
       "Home"
     ],
     [
+      "__DATE__",
+      "Monday, September 28, 2026"
+    ],
+    [
       "Georgetown D.H.S.",
       "03:30 PM",
       "E.S. Gaetan Gervais"
@@ -285,6 +289,10 @@
       "Score",
       "Score",
       "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, October 5, 2026"
     ],
     [
       "E.S. Gaetan Gervais",
@@ -302,6 +310,10 @@
       "Home"
     ],
     [
+      "__DATE__",
+      "Wednesday, October 7, 2026"
+    ],
+    [
       "Burlington Central H.S.",
       "03:30 PM",
       "E.S. Gaetan Gervais"
@@ -315,6 +327,10 @@
       "Score",
       "Score",
       "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, October 14, 2026"
     ],
     [
       "E.S. Gaetan Gervais",
@@ -332,6 +348,10 @@
       "Home"
     ],
     [
+      "__DATE__",
+      "Monday, October 19, 2026"
+    ],
+    [
       "E.S. Gaetan Gervais",
       "04:30 PM",
       "White Oaks High School"
@@ -345,6 +365,10 @@
       "Score",
       "Score",
       "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, October 21, 2026"
     ],
     [
       "Elsie MacGill S.S.",
@@ -362,6 +386,10 @@
       "Home"
     ],
     [
+      "__DATE__",
+      "Monday, October 26, 2026"
+    ],
+    [
       "E.S. Sainte-Trinite",
       "03:30 PM",
       "E.S. Gaetan Gervais"
@@ -377,6 +405,10 @@
       "Home"
     ],
     [
+      "__DATE__",
+      "Wednesday, October 28, 2026"
+    ],
+    [
       "Oakville Trafalgar H.S.",
       "02:00 PM",
       "E.S. Gaetan Gervais"
@@ -390,6 +422,10 @@
       "Score",
       "Score",
       "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, November 2, 2026"
     ],
     [
       "E.S. Gaetan Gervais",
