@@ -381,7 +381,7 @@ PLAYERS.forEach((p, i) => {
 });
 
 // ── Data ─────────────────────────────────────────────────────────────────
-const DATA_FILE = "/assets/data/sports/basketball-garcons-senior.json";
+const DATA_FILE = "/assets/data/sports/archive/2025-2026/basketball-garcons-senior-2025-2026.json";
 const MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
 function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k)); }
 
@@ -568,7 +568,7 @@ function renderScores(scores, replays = []) {
   }
 }
 
-const REPLAYS_FILE = "/assets/data/sports/basketball-garcons-senior-2025-2026-replays.json";
+const REPLAYS_FILE = "/assets/data/sports/archive/2025-2026/basketball-garcons-senior-2025-2026-replays.json";
 
 function setError(msg) {
   ["upcoming-container","scores-container","standings-container"].forEach(id => {

@@ -67,8 +67,11 @@ assets/
       ... (12 files total)
 
 equipes/
-  volleyball-garcons-senior.html   ← Team pages go here
-  basketball-garcons-senior.html
+  volleyball-garcons-senior-2026-2027.html   ← Team pages go here, named sport-genre-niveau-SAISON.html
+  basketball-filles-senior-2026-2027.html
+  archive/
+    index.html                               ← Links to archived seasons
+    2025-2026/                                ← Past seasons' pages + frozen data snapshots
   ...
 ```
 
@@ -78,3 +81,26 @@ equipes/
 2. Create a team page in `equipes/` using an existing page as a template
 3. Update the `DATA_FILE` variable at the top of the script in the new page
 4. Push to GitHub — the scraper will pick it up at the next run
+
+## Archiving a season / starting a new one
+
+Data files in `assets/data/sports/*.json` are **not** season-stamped — the
+scraper overwrites them in place every night. So before a new season's
+scraping starts:
+
+1. `git mv` each outgoing team page into `equipes/archive/<saison>/`, and
+   add it to `equipes/archive/index.html`.
+2. Copy (don't move, if the sport continues) the current `assets/data/
+   sports/<sport>.json` into `assets/data/sports/archive/<saison>/
+   <sport>-<saison>.json`, and update the archived page's `DATA_FILE`
+   constant to point at that frozen copy instead of the live file.
+3. Move any `-replays.json` file for that page into the same archive
+   folder (the scraper never touches replay files, so this is safe).
+4. Comment out any league with no team this year in `scripts/
+   scrape_hssaa.py`'s `LEAGUES` dict — no point scraping it.
+5. Re-check every `leagueid` in `LEAGUES` against hssaa.ca: HSSAA
+   re-issues league IDs each season, so last year's IDs will silently
+   point at stale or closed leagues.
+6. Build the new season's page(s) in `equipes/` (year-stamped filename,
+   empty `PLAYERS` array until rosters are set) and update the links in
+   `athletisme.html`.

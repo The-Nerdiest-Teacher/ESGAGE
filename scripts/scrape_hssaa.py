@@ -12,11 +12,15 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://www.hssaa.ca"
 OUTPUT_DIR = "assets/data/sports"
 
+# NOTE (2026-2027 season): HSSAA re-issues leagueid values each school year,
+# so every id below is last confirmed for 2025-2026 and needs to be re-checked
+# against hssaa.ca before relying on this data.
 LEAGUES = {
     "basketball-filles-junior":  {"leagueid": 21, "label": "Basketball — Filles Junior",  "schoolid": 12},
     "basketball-filles-senior":  {"leagueid": 22, "label": "Basketball — Filles Senior",  "schoolid": 12},
     "basketball-garcons-junior": {"leagueid": 1,  "label": "Basketball — Garçons Junior", "schoolid": 12},
-    "basketball-garcons-senior": {"leagueid": 2,  "label": "Basketball — Garçons Senior", "schoolid": 12},
+    # Pas d'équipe garçons senior en 2026-2027 — retiré du scraping.
+    # "basketball-garcons-senior": {"leagueid": 2,  "label": "Basketball — Garçons Senior", "schoolid": 12},
     "volleyball-filles-junior":  {"leagueid": 3,  "label": "Volleyball — Filles Junior",  "schoolid": 12},
     "volleyball-filles-senior":  {"leagueid": 4,  "label": "Volleyball — Filles Senior",  "schoolid": 12},
     "volleyball-garcons-junior": {"leagueid": 25, "label": "Volleyball — Garçons Junior", "schoolid": 12},

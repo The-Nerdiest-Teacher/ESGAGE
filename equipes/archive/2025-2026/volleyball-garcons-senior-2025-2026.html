@@ -361,7 +361,7 @@ PLAYERS.forEach((p, i) => {
 });
 
 // ── Data ─────────────────────────────────────────────────────────────────
-const DATA_FILE = "/assets/data/sports/volleyball-garcons-senior.json";
+const DATA_FILE = "/assets/data/sports/archive/2025-2026/volleyball-garcons-senior-2025-2026.json";
 const MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
 function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k)); }
 
@@ -561,7 +561,7 @@ function setError(msg) {
   });
 }
 
-const REPLAYS_FILE_VB = "/assets/data/sports/volleyball-garcons-senior-2025-2026-replays.json";
+const REPLAYS_FILE_VB = "/assets/data/sports/archive/2025-2026/volleyball-garcons-senior-2025-2026-replays.json";
 
 fetch(DATA_FILE)
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
