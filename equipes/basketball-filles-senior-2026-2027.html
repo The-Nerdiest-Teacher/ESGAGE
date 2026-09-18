@@ -290,7 +290,7 @@ function renderScores(scores, replays) {
   var plEl = document.getElementById("scores-container");
   if (plEl) {
     if (!played.length) {
-      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l'instant.</p>';
+      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
     } else {
       var hasDate = played.some(function(g) { return g.date; });
       plEl.innerHTML =
