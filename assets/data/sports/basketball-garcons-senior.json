@@ -1,13 +1,13 @@
 {
-  "label": "Volleyball — Filles Junior",
-  "leagueid": 3,
+  "label": "Basketball — Garçons Senior",
+  "leagueid": 2,
   "schoolid": 12,
-  "updated": "Fri, 18 Sep 2026 16:14:14 GMT",
+  "updated": "Fri, 18 Sep 2026 16:14:09 GMT",
   "standings": [
     {
       "tier": "Classement",
       "headers": [
-        "MP = Matches Played",
+        "GP = Games Played",
         "W = Wins (2 points)"
       ],
       "rows": [
@@ -16,12 +16,8 @@
           "T = Ties (1 points)"
         ],
         [
-          "SW = Sets Won",
-          "SL = Sets Lost"
-        ],
-        [
-          "PW = Total Points Won",
-          "PL = Total Points Lost"
+          "PF = Points For",
+          "PA = Points Against"
         ]
       ]
     }
