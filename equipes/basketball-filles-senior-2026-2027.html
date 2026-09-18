@@ -229,13 +229,15 @@ function renderStandings(standings, updated) {
 function renderScores(scores, replays) {
   var upcoming = [], played = [], gameIndex = 0;
   replays = replays || [];
+  var currentDate = "";
+
   for (var i = 0; i < scores.length; i++) {
     var row = scores[i];
+    if (row[0] === "__DATE__") { currentDate = row[1] || ""; continue; }
     if (!row[0] || row[0] === "Visitor") continue;
     if (row[0].indexOf("Location:") === 0 || row[0].indexOf("Notes:") === 0) continue;
     if (row.length <= 2) continue;
 
-    // Peek ahead for location/notes
     var location = "", notes = "";
     var j = i + 1;
     while (j < scores.length && scores[j] && (scores[j][0] || "").match(/^(Location:|Notes:)/)) {
@@ -248,15 +250,12 @@ function renderScores(scores, replays) {
     gameIndex++;
     var replayEntry = replays.find(function(r) { return r.index === gameIndex; });
     var replay = replayEntry ? (replayEntry.replay || "") : "";
+    var gameDate = currentDate;
 
-    // Upcoming: 3 cells (visitor, time, home)
     if (row.length === 3) {
-      upcoming.push({ visitor: row[0], time: row[1], home: row[2], location: location, notes: notes, replay: replay });
-
-    // Completed: 4+ cells (visitor, vScore, hScore, home)
+      upcoming.push({ date: gameDate, visitor: row[0], time: row[1], home: row[2], location: location, notes: notes, replay: replay });
     } else if (row.length >= 4) {
       var visitor = row[0], vScore = row[1], hScore = row[2], home = row[3];
-      // Parse sets — volleyball: "2 (25, 25)", basketball: plain number
       var vNum = parseInt(vScore), hNum = parseInt(hScore);
       var result = "", badgeClass = "";
       if (!isNaN(vNum) && !isNaN(hNum)) {
@@ -264,44 +263,41 @@ function renderScores(scores, replays) {
         else if (isMySchool(home)) { result = hNum > vNum ? "Victoire" : "Défaite"; badgeClass = hNum > vNum ? "badge-win" : "badge-loss"; }
         else { result = vNum + " – " + hNum; badgeClass = "badge-upcoming"; }
       }
-      played.push({ visitor: visitor, vScore: vScore, hScore: hScore, home: home, result: result, badgeClass: badgeClass, location: location, notes: notes, replay: replay });
+      played.push({ date: gameDate, visitor: visitor, vScore: vScore, hScore: hScore, home: home, result: result, badgeClass: badgeClass, location: location, notes: notes, replay: replay });
     }
   }
 
-  // ── Upcoming ──
   var upEl = document.getElementById("upcoming-container");
   if (upEl) {
     if (!upcoming.length) {
       upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>';
     } else {
-      // HSSAA doesn't provide dates — show time + location, add note
+      var hasDate = upcoming.some(function(g) { return g.date; });
       upEl.innerHTML =
-        '<p style="font-size:12px;color:var(--default-color);opacity:0.5;margin-bottom:8px;"><i class="bi bi-info-circle me-1"></i>Les dates ne sont pas disponibles via HSSAA. Vérifiez auprès de l\'entraîneur.</p>' +
         '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
-        '<thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Lieu</th></tr></thead><tbody>' +
+        '<thead><tr>' + (hasDate ? '<th>Date</th>' : '') + '<th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Lieu</th></tr></thead><tbody>' +
         upcoming.map(function(g) {
-          return '<tr>' +
+          return '<tr>' + (hasDate ? '<td style="white-space:nowrap;font-size:12px;">' + (g.date || "—") + '</td>' : '') +
             '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
             '<td class="text-center">' + g.time + '</td>' +
             '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
-            '<td class="text-muted" style="font-size:12px;">' + (g.location || g.notes || "—") + '</td>' +
+            '<td class="text-muted" style="font-size:12px;">' + (g.location || "—") + '</td>' +
             '</tr>';
-        }).join("") +
-        '</tbody></table></div>';
+        }).join("") + '</tbody></table></div>';
     }
   }
 
-  // ── Results ──
   var plEl = document.getElementById("scores-container");
   if (plEl) {
     if (!played.length) {
-      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l'instant.</p>';
     } else {
+      var hasDate = played.some(function(g) { return g.date; });
       plEl.innerHTML =
         '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
-        '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Lieu</th><th>Vidéo</th></tr></thead><tbody>' +
+        '<thead><tr>' + (hasDate ? '<th>Date</th>' : '') + '<th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Lieu</th><th>Vidéo</th></tr></thead><tbody>' +
         played.map(function(g) {
-          return '<tr>' +
+          return '<tr>' + (hasDate ? '<td style="white-space:nowrap;font-size:12px;">' + (g.date || "—") + '</td>' : '') +
             '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
             '<td class="text-center">' + g.vScore + '</td>' +
             '<td class="text-center">' + g.hScore + '</td>' +
@@ -310,8 +306,7 @@ function renderScores(scores, replays) {
             '<td class="text-muted" style="font-size:12px;">' + (g.location || "—") + '</td>' +
             '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>' : '') + '</td>' +
             '</tr>';
-        }).join("") +
-        '</tbody></table></div>';
+        }).join("") + '</tbody></table></div>';
     }
   }
 }
