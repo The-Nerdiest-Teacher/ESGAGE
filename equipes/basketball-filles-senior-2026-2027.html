@@ -172,11 +172,9 @@ function renderStandings(standings, updated) {
   var html = "";
 
   standings.forEach(function(s) {
-    // Skip legend objects (they have no real data rows)
     if (!s.rows || s.rows.length < 2) return;
-    var tierName = (s.headers && s.headers[0]) ? s.headers[0] : "Classement";
-    // Skip if it looks like a legend row (key=value format)
-    if (tierName.indexOf("=") >= 0) return;
+    var tierName = (s.headers && s.headers[0] && s.headers[0].indexOf("=") < 0) ? s.headers[0] : "";
+    if (!tierName) return;
 
     // Find header row and data rows
     var headerRow = null;
@@ -198,22 +196,43 @@ function renderStandings(standings, updated) {
         displayHeaders.push(colMap[h] || h);
       });
     }
-
     var headerCells = displayHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join("");
-    var rows = dataRows.map(function(cells) {
-      var school = cells[1] || "";
-      var stats = cells.slice(2);
-      var mine = isMySchool(school);
-      var nc = mine ? LOGO_HTML + school : school;
-      return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
-        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
-    }).join("");
 
-    html += '<span class="tier-badge">' + tierName + '</span>' +
-      '<div class="table-responsive mb-4">' +
-      '<table class="table table-bordered standings-table">' +
-      '<thead><tr>' + headerCells + '</tr></thead>' +
-      '<tbody>' + rows + '</tbody></table></div>';
+    // Group by bracket suffix (AAA), (AA), (A)
+    var groups = {}, groupOrder = [];
+    dataRows.forEach(function(cells) {
+      var school = cells[1] || "";
+      var match = school.match(/\(([A-Z]+)\)$/);
+      var bracket = match ? match[1] : "";
+      if (!groups[bracket]) { groups[bracket] = []; groupOrder.push(bracket); }
+      groups[bracket].push(cells);
+    });
+
+    // If all schools have the same bracket or no brackets, render as one table
+    if (groupOrder.length <= 1) {
+      var label = groupOrder[0] ? tierName + " — " + groupOrder[0] : tierName;
+      var rows = dataRows.map(function(cells) {
+        var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);
+        var nc = mine ? LOGO_HTML + school : school;
+        return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
+          stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
+      }).join("");
+      html += '<span class="tier-badge">' + label + '</span><div class="table-responsive mb-4"><table class="table table-bordered standings-table"><thead><tr>' + headerCells + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+    } else {
+      // Multiple brackets — render each as its own tier table
+      // Sort brackets: AAA first, then AA, then A
+      groupOrder.sort(function(a, b) { return b.length - a.length || b.localeCompare(a); });
+      groupOrder.forEach(function(bracket) {
+        var label = bracket ? tierName + " — " + bracket : tierName;
+        var rows = groups[bracket].map(function(cells) {
+          var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);
+          var nc = mine ? LOGO_HTML + school : school;
+          return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
+            stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
+        }).join("");
+        html += '<span class="tier-badge">' + label + '</span><div class="table-responsive mb-4"><table class="table table-bordered standings-table"><thead><tr>' + headerCells + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+      });
+    }
   });
 
   if (!html) html = '<p class="data-loading">Aucun classement disponible.</p>';
