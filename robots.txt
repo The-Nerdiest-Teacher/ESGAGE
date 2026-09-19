@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /equipes/archive/
+
+Sitemap: https://esgage.ca/sitemap.xml
