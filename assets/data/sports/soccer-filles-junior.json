@@ -2,25 +2,7 @@
   "label": "Soccer — Filles Junior",
   "leagueid": 27,
   "schoolid": 12,
-  "updated": "Fri, 18 Sep 2026 17:04:00 GMT",
-  "standings": [
-    {
-      "tier": "Classement",
-      "headers": [
-        "GP = Games Played",
-        "W = Wins (3 points)"
-      ],
-      "rows": [
-        [
-          "L = Losses (0 points)",
-          "T = Ties (1 points)"
-        ],
-        [
-          "GF = Goals For",
-          "GA = Goals Against"
-        ]
-      ]
-    }
-  ],
+  "updated": "Sat, 19 Sep 2026 18:27:42 GMT",
+  "standings": [],
   "scores": []
 }
