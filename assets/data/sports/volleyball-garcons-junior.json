@@ -2,7 +2,7 @@
   "label": "Volleyball — Garçons Junior",
   "leagueid": 25,
   "schoolid": 12,
-  "updated": "Sat, 19 Sep 2026 18:55:00 GMT",
+  "updated": "Sat, 19 Sep 2026 19:01:25 GMT",
   "standings": [
     {
       "headers": [
@@ -176,7 +176,14 @@
           "0",
           "0",
           "-"
-        ],
+        ]
+      ]
+    },
+    {
+      "headers": [
+        "Tier 2"
+      ],
+      "rows": [
         [
           "",
           "School",
