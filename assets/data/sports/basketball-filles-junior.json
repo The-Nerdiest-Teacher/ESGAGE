@@ -2,14 +2,16 @@
   "label": "Basketball — Filles Junior",
   "leagueid": 21,
   "schoolid": 12,
-  "updated": "Fri, 18 Sep 2026 17:03:21 GMT",
+  "updated": "Sat, 19 Sep 2026 18:26:53 GMT",
   "standings": [
     {
-      "tier": "Classement",
       "headers": [
-        "Tier 1"
+        "Classement"
       ],
       "rows": [
+        [
+          "Tier 1"
+        ],
         [
           "",
           "School",
@@ -89,6 +91,12 @@
           "-"
         ],
         [
+          ""
+        ],
+        [
+          "Tier 2"
+        ],
+        [
           "",
           "School",
           "GP",
@@ -153,24 +161,8 @@
           "0",
           "-"
         ]
-      ]
-    },
-    {
-      "tier": "Classement",
-      "headers": [
-        "GP = Games Played",
-        "W = Wins (2 points)"
       ],
-      "rows": [
-        [
-          "L = Losses (0 points)",
-          "T = Ties (1 points)"
-        ],
-        [
-          "PF = Points For",
-          "PA = Points Against"
-        ]
-      ]
+      "tier": "Classement"
     }
   ],
   "scores": []
