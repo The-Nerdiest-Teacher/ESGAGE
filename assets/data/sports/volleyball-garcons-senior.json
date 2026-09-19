@@ -2,14 +2,16 @@
   "label": "Volleyball — Garçons Senior",
   "leagueid": 26,
   "schoolid": 12,
-  "updated": "Fri, 18 Sep 2026 17:03:56 GMT",
+  "updated": "Sat, 19 Sep 2026 18:27:36 GMT",
   "standings": [
     {
-      "tier": "Classement",
       "headers": [
-        "A Tier 2"
+        "Classement"
       ],
       "rows": [
+        [
+          "A Tier 2"
+        ],
         [
           "",
           "School",
@@ -81,6 +83,12 @@
           "-"
         ],
         [
+          ""
+        ],
+        [
+          "AA/AAA Tier 2"
+        ],
+        [
           "",
           "School",
           "MP",
@@ -149,6 +157,12 @@
           "0",
           "0",
           "-"
+        ],
+        [
+          ""
+        ],
+        [
+          "Tier 1"
         ],
         [
           "",
@@ -318,28 +332,8 @@
           "0",
           "-"
         ]
-      ]
-    },
-    {
-      "tier": "Classement",
-      "headers": [
-        "MP = Matches Played",
-        "W = Wins (2 points)"
       ],
-      "rows": [
-        [
-          "L = Losses (0 points)",
-          "T = Ties (1 points)"
-        ],
-        [
-          "SW = Sets Won",
-          "SL = Sets Lost"
-        ],
-        [
-          "PW = Total Points Won",
-          "PL = Total Points Lost"
-        ]
-      ]
+      "tier": "Classement"
     }
   ],
   "scores": [
