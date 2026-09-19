@@ -2,7 +2,7 @@
   "label": "Basketball — Filles Junior",
   "leagueid": 21,
   "schoolid": 12,
-  "updated": "Sat, 19 Sep 2026 18:54:27 GMT",
+  "updated": "Sat, 19 Sep 2026 19:00:49 GMT",
   "standings": [
     {
       "headers": [
@@ -86,7 +86,14 @@
           "0",
           "0",
           "-"
-        ],
+        ]
+      ]
+    },
+    {
+      "headers": [
+        "Tier 2"
+      ],
+      "rows": [
         [
           "",
           "School",
