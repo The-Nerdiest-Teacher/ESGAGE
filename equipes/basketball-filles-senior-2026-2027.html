@@ -165,62 +165,73 @@ function renderStandings(standings, updated) {
     el.innerHTML = '<p class="data-loading">Aucun classement disponible.</p>'; return;
   }
 
-  // Find the data standings object (not the legend one)
+  // Find the data object (not the legend)
   var raw = null;
   for (var i = 0; i < standings.length; i++) {
     if (standings[i].rows && standings[i].rows.length > 2) { raw = standings[i]; break; }
   }
   if (!raw) { el.innerHTML = '<p class="data-loading">Aucun classement disponible.</p>'; return; }
 
-  // Extract tier name from headers
   var tierName = (raw.headers && raw.headers[0]) ? raw.headers[0] : "Classement";
 
-  // Separate header row from data rows
-  var dataRows = raw.rows.filter(function(cells) {
-    return cells.length >= 3 && cells[1] && cells[1] !== "" && cells[1] !== "School";
+  // Detect column headers from first header row in data
+  var headerRow = null;
+  var dataRows = [];
+  raw.rows.forEach(function(cells) {
+    var isHeader = (cells[1] === "School") || (cells.indexOf("MP") >= 0) || (cells.indexOf("GP") >= 0);
+    if (isHeader && !headerRow) { headerRow = cells; }
+    else if (cells.length >= 3 && cells[1] && cells[1] !== "" && cells[1] !== "School") {
+      dataRows.push(cells);
+    }
   });
 
-  // Group schools by bracket suffix: (AA), (AAA), (A) etc.
+  // Map raw headers to French display labels
+  var colMap = { "GP":"PJ","MP":"PJ","W":"V","L":"D","T":"N","PTS":"PTS",
+                 "WIN %":"V%","PF":"PF","PA":"PA","SW":"SW","SL":"SL",
+                 "PW":"PG","PL":"PL","STREAK":"Série" };
+  var displayHeaders = ["École"];
+  if (headerRow) {
+    headerRow.forEach(function(h, idx) {
+      if (idx < 2) return;
+      displayHeaders.push(colMap[h] || h);
+    });
+  }
+
+  // Group by bracket suffix (AA), (AAA), (A), etc.
   var groups = {}, groupOrder = [];
   dataRows.forEach(function(cells) {
     var school = cells[1] || "";
     var match = school.match(/\(([A-Z]+)\)$/);
-    var bracket = match ? match[1] : "Autre";
+    var bracket = match ? match[1] : tierName;
     if (!groups[bracket]) { groups[bracket] = []; groupOrder.push(bracket); }
     groups[bracket].push(cells);
   });
 
   var html = "";
   groupOrder.forEach(function(bracket) {
+    var headerCells = displayHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join("");
     var rows = groups[bracket].map(function(cells) {
       var school = cells[1] || "";
       var stats = cells.slice(2);
       var mine = isMySchool(school);
       var displayName = school.replace(/\s*\([A-Z]+\)$/, "");
       var nc = mine ? LOGO_HTML + displayName : displayName;
-      return '<tr class="' + (mine ? "my-school" : "") + '">' +
-        '<td>' + nc + '</td>' +
-        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") +
-        '</tr>';
+      return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
+        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
     }).join("");
-
-    html += '<span class="tier-badge">' + bracket + ' — ' + tierName + '</span>' +
+    html += '<span class="tier-badge">' + bracket + '</span>' +
       '<div class="table-responsive mb-4">' +
       '<table class="table table-bordered standings-table">' +
-      '<thead><tr>' +
-        '<th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th>' +
-        '<th>PTS</th><th>V%</th><th>PF</th><th>PA</th><th>Série</th>' +
-      '</tr></thead>' +
-      '<tbody>' + rows + '</tbody>' +
-      '</table></div>';
+      '<thead><tr>' + headerCells + '</tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div>';
   });
 
   if (updated) html += '<p class="updated-tag">Source : HSSAA — Mise à jour : ' + updated + '</p>';
   el.innerHTML = html;
 }
 
-// ── Scores — Basketball specific ─────────────────────────────────────────
-// Scores are plain integers (no sets). Win/loss determined by higher score.
+
+
 function renderScores(scores, replays) {
   var upcoming = [], played = [];
   replays = replays || [];
