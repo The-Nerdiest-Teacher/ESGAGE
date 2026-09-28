@@ -158,6 +158,18 @@ if (PLAYERS.length === 0) {
   });
 }
 
+// ── Enregistrements de matchs ────────────────────────────────────────────
+// Ajoutez un lien par match filmé. "adversaire" = un mot du nom de l'autre
+// équipe (pas besoin du nom complet). Ajoutez "date" seulement si vous avez
+// joué deux fois contre la même équipe.
+//
+//   { adversaire: "Acton",  url: "https://youtu.be/XXXXXXXX" },
+//   { adversaire: "Sainte-Trinite", date: "October 14", url: "https://youtu.be/YYYYYYYY" },
+//
+var REPLAYS = [
+
+];
+
 // ── HSSAA Data ────────────────────────────────────────────────────────────
 var DATA_FILE = "/assets/data/sports/volleyball-garcons-junior.json";
 var MY_SCHOOL = ["gaétan","gervais","gage","g.g"];
@@ -239,11 +251,18 @@ function renderScores(scores, replays) {
     if (j > i + 1) i = j - 1;
 
     var gameDate = currentDate;
-    var replayEntry = replays.find(function(r) { return r.index === (played.length + 1); });
-    var replay = replayEntry ? (replayEntry.replay || "") : "";
+    var replay = "";
 
-    if (row.length === 3) {
-      upcoming.push({ date: gameDate, visitor: row[0], time: row[1], home: row[2] });
+    var timeIdx = -1;
+    for (var k = 1; k < row.length; k++) {
+      if (/^\d{1,2}:\d{2}\s*(AM|PM)?$/i.test((row[k] || "").trim())) { timeIdx = k; break; }
+    }
+    var lastCell = "";
+    for (var z = row.length - 1; z > 0; z--) {
+      if ((row[z] || "").trim() !== "") { lastCell = row[z].trim(); break; }
+    }
+    if (timeIdx > 0) {
+      upcoming.push({ date: gameDate, visitor: row[0], time: row[timeIdx], home: lastCell });
     } else if (row.length >= 4) {
       var visitor = row[0], vScore = row[1], hScore = row[2], home = row[3];
       var vSets = parseInt(vScore), hSets = parseInt(hScore);
@@ -253,6 +272,17 @@ function renderScores(scores, replays) {
         else if (isMySchool(home)) { result = hSets > vSets ? "Victoire" : "Défaite"; badgeClass = hSets > vSets ? "badge-win" : "badge-loss"; }
         else { result = vSets + " – " + hSets; badgeClass = "badge-upcoming"; }
       }
+      // Trouver l'enregistrement correspondant à cet adversaire
+      var opponent = isMySchool(visitor) ? home : visitor;
+      var rep = REPLAYS.find(function (x) {
+        if (!x || !x.adversaire || !x.url) return false;
+        var nameOk = opponent.toLowerCase().indexOf(x.adversaire.toLowerCase()) >= 0;
+        if (!nameOk) return false;
+        if (x.date) return (gameDate || "").toLowerCase().indexOf(x.date.toLowerCase()) >= 0;
+        return true;
+      });
+      replay = rep ? rep.url : "";
+
       played.push({ date: gameDate, visitor: visitor, vScore: vScore, hScore: hScore,
         home: home, result: result, badgeClass: badgeClass, replay: replay });
     }
