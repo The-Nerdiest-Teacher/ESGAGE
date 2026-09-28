@@ -2,7 +2,7 @@
   "label": "Volleyball — Garçons Senior",
   "leagueid": 26,
   "schoolid": 12,
-  "updated": "Sat, 19 Sep 2026 19:26:36 GMT",
+  "updated": "Mon, 28 Sep 2026 22:43:01 GMT",
   "standings": [
     {
       "headers": [
@@ -26,58 +26,58 @@
         [
           "",
           "E.S. Gaetan Gervais (A)",
+          "1",
+          "1",
           "0",
           "0",
+          "2",
+          "2",
           "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
-        ],
-        [
-          "",
-          "E.S. Sainte-Trinite (A)",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
+          "52",
+          "47",
+          "W 1"
         ],
         [
           "",
           "Acton D.H.S. (A)",
+          "1",
+          "1",
+          "0",
+          "0",
+          "2",
+          "2",
+          "0",
+          "50",
+          "32",
+          "W 1"
+        ],
+        [
+          "",
+          "E.S. Sainte-Trinite (A)",
+          "1",
+          "0",
+          "1",
           "0",
           "0",
           "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
+          "2",
+          "43",
+          "50",
+          "L 1"
         ],
         [
           "",
           "MacLachlan College (A)",
+          "1",
+          "0",
+          "1",
           "0",
           "0",
           "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
+          "2",
+          "32",
+          "50",
+          "L 1"
         ]
       ]
     },
@@ -103,16 +103,16 @@
         [
           "",
           "Elsie MacGill S.S. (AAA)",
+          "1",
+          "1",
           "0",
           "0",
+          "2",
+          "2",
           "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
+          "50",
+          "43",
+          "W 1"
         ],
         [
           "",
@@ -145,16 +145,16 @@
         [
           "",
           "M.M. Robinson H.S. (AAA)",
+          "1",
+          "0",
+          "1",
           "0",
           "0",
           "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
+          "2",
+          "47",
+          "52",
+          "L 1"
         ]
       ]
     },
@@ -342,179 +342,13 @@
       "Home"
     ],
     [
-      "__DATE__",
-      "Monday, September 28, 2026"
-    ],
-    [
       "E.S. Gaetan Gervais",
-      "03:30 PM",
+      "2 (25, 27)",
+      "0 (22, 25)",
       "M.M. Robinson H.S."
     ],
     [
       "Location: M.M. Robinson H.S.",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Monday, October 5, 2026"
-    ],
-    [
-      "MacLachlan College",
-      "03:30 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Gaetan Gervais",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 7, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "03:30 PM",
-      "King's Christian Collegiate"
-    ],
-    [
-      "Location: King's Christian Collegiate",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 14, 2026"
-    ],
-    [
-      "Acton D.H.S.",
-      "10:30 AM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Sainte-Trinite",
-      "Notes: Regular Season.  Tentative Time"
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "12:30 PM",
-      "E.S. Sainte-Trinite"
-    ],
-    [
-      "Location: E.S. Sainte-Trinite",
-      "Notes: Regular Season.  Tentative Time"
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "MacLachlan College",
-      "02:30 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Sainte-Trinite",
-      "Notes: Regular Season.  Tentative Time"
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Monday, October 19, 2026"
-    ],
-    [
-      "E.S. Sainte-Trinite",
-      "04:45 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Gaetan Gervais",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 21, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "03:30 PM",
-      "Aldershot High School"
-    ],
-    [
-      "Location: Aldershot High School",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Monday, October 26, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "04:45 PM",
-      "Elsie MacGill S.S."
-    ],
-    [
-      "Location: Elsie MacGill S.S.",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 28, 2026"
-    ],
-    [
-      "Acton D.H.S.",
-      "03:30 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Gaetan Gervais",
       "Notes: Regular Season."
     ]
   ]
