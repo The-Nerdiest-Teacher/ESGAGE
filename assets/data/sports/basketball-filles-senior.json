@@ -2,7 +2,7 @@
   "label": "Basketball — Filles Senior",
   "leagueid": 22,
   "schoolid": 12,
-  "updated": "Mon, 28 Sep 2026 22:42:23 GMT",
+  "updated": "Mon, 28 Sep 2026 23:26:32 GMT",
   "standings": [
     {
       "headers": [
@@ -261,6 +261,10 @@
       "Home"
     ],
     [
+      "__DATE__",
+      "Monday, September 28, 2026"
+    ],
+    [
       "Georgetown D.H.S.",
       "49",
       "16",
@@ -268,6 +272,158 @@
     ],
     [
       "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, October 5, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "04:30 PM",
+      "M.M. Robinson H.S."
+    ],
+    [
+      "Location: M.M. Robinson H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, October 7, 2026"
+    ],
+    [
+      "Burlington Central H.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, October 14, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "Abbey Park H.S."
+    ],
+    [
+      "Location: Abbey Park H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, October 19, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "04:30 PM",
+      "White Oaks High School"
+    ],
+    [
+      "Location: White Oaks High School",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, October 21, 2026"
+    ],
+    [
+      "Elsie MacGill S.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, October 26, 2026"
+    ],
+    [
+      "E.S. Sainte-Trinite",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, October 28, 2026"
+    ],
+    [
+      "Oakville Trafalgar H.S.",
+      "02:00 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, November 2, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "Aldershot High School"
+    ],
+    [
+      "Location: Aldershot High School",
       "Notes: Regular Season."
     ]
   ]
