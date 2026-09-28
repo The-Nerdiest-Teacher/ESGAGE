@@ -88,7 +88,7 @@
           <p class="sport-name">Natation</p>
         </div>
 
-        <div class="sport-card" id="card-hockey" onclick="window.location='/equipes/hockey.html'">
+        <div class="sport-card" id="card-hockey" onclick="toggleSport('hockey')">
           <span class="sport-icon"><img src="assets/img/sportslogos/hockey.png" alt="Hockey"/></span>
           <p class="sport-name">Hockey</p>
         </div>
@@ -123,7 +123,7 @@
           <div style="min-width:200px;">
             <p class="gender-col-title girls">Filles</p>
             <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/equipes/volleyball-filles-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="/equipes/volleyball-filles-78-2026-2027.html">7<sup>e</sup>/8<sup>e</sup></a>
               <a class="age-btn" href="/equipes/volleyball-filles-junior.html">Junior</a>
               <a class="age-btn" href="/equipes/volleyball-filles-senior.html">Senior</a>
             </div>
@@ -133,7 +133,7 @@
           <div style="min-width:200px;">
             <p class="gender-col-title boys">Garçons</p>
             <div class="d-flex flex-column gap-2">
-              <a class="age-btn" href="/equipes/volleyball-garcons-78.html">7<sup>e</sup>/8<sup>e</sup></a>
+              <a class="age-btn" href="/equipes/volleyball-garcons-78-2026-2027.html">7<sup>e</sup>/8<sup>e</sup></a>
               <a class="age-btn" href="/equipes/volleyball-garcons-junior-2026-2027.html">Junior</a>
               <a class="age-btn" href="/equipes/volleyball-garcons-senior-2026-2027.html">Senior</a>
             </div>
@@ -175,8 +175,8 @@
         </div>
         <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
           <div class="d-flex flex-column gap-2">
-            <a class="age-btn" href="/equipes/coursdefond-78.html">7<sup>e</sup>/8<sup>e</sup></a>
-            <a class="age-btn" href="/equipes/coursdefond-secondaire.html">Secondaire</a>
+            <a class="age-btn" href="/equipes/coursdefond-2026-2027.html">7<sup>e</sup>/8<sup>e</sup></a>
+            <a class="age-btn" href="/equipes/coursdefond-2026-2027.html">Secondaire</a>
           </div>
         </div>
       </div>
@@ -219,8 +219,8 @@
         </div>
         <div class="d-flex justify-content-center gap-4 flex-wrap align-items-start">
           <div class="d-flex flex-column gap-2">
-            <a class="age-btn" href="/equipes/natation-78.html">7<sup>e</sup>/8<sup>e</sup></a>
-            <a class="age-btn" href="/equipes/natation-secondaire.html">Secondaire</a>
+            <a class="age-btn" href="/equipes/natation-2026-2027.html">7<sup>e</sup>/8<sup>e</sup></a>
+            <a class="age-btn" href="/equipes/natation-2026-2027.html">Secondaire</a>
           </div>
         </div>
       </div>
@@ -389,6 +389,21 @@
         setTimeout(() => clickedPanel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
       }
     }
+  }
+
+  // Team pages not created yet: show the button as "À venir" instead of a 404.
+  // Once the page exists in /equipes/, the button works again automatically.
+  document.querySelectorAll('.age-group-panel a.age-btn').forEach(btn => {
+    fetch(btn.getAttribute('href'), { method: 'HEAD' })
+      .then(res => { if (!res.ok) markComingSoon(btn); })
+      .catch(() => {});
+  });
+
+  function markComingSoon(btn) {
+    btn.removeAttribute('href');
+    btn.classList.add('age-btn-soon');
+    btn.setAttribute('aria-disabled', 'true');
+    btn.insertAdjacentHTML('beforeend', '<span class="soon-tag">À venir</span>');
   }
 </script>
 </body>
