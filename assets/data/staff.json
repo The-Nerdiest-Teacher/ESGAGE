@@ -1,6 +1,7 @@
 [
   {
     "name": "Wassila Yalla",
+    "category": "admin",
     "role": "Direction",
     "department": "Administration",
     "email": "walter.white@example.com",
@@ -8,6 +9,7 @@
   },
   {
     "name": "Diana Rivero-Ednet",
+    "category": "admin",
     "role": "Direction Ajointe",
     "department": "Administration",
     "email": "riveroednetd@csviamonde.ca",
@@ -15,6 +17,7 @@
   },
   {
     "name": "Ashley Hoover",
+    "category": "enseignant",
     "role": "Enseignante",
     "department": "Orientation",
     "email": "hoovera@csviamonde.ca",
@@ -22,6 +25,7 @@
   },
   {
     "name": "Amanda Jepson",
+    "category": "enseignant",
     "role": "Teacher",
     "department": "French",
     "email": "amanda.jepson@example.com",
@@ -29,6 +33,7 @@
   },
   {
     "name": "Brian Doe",
+    "category": "aide",
     "role": "Support Staff",
     "department": "Student Services",
     "email": "brian.doe@example.com",
@@ -36,6 +41,7 @@
   },
   {
     "name": "Jane Doe",
+    "category": "admin",
     "role": "Administration",
     "department": "Office",
     "email": "jane.doe@example.com",
