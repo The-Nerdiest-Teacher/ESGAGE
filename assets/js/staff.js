@@ -17,13 +17,15 @@
 
       // Groups are shown in this order, each with its own heading.
       // Staff without a known "category" go in a final "Autre" group.
+      // "detail" is the one line shown under each name; the other field
+      // would only repeat the heading (e.g. "Enseignante" under Personnel enseignant).
       const groups = [
-        { key: "admin", title: "Administration" },
-        { key: "enseignant", title: "Personnel enseignant" },
-        { key: "aide", title: "Aides-enseignants" }
+        { key: "admin", title: "Administration", detail: "role" },
+        { key: "enseignant", title: "Personnel enseignant", detail: "department" },
+        { key: "aide", title: "Aides-enseignants", detail: "department" }
       ];
       const knownKeys = groups.map((g) => g.key);
-      groups.push({ key: "autre", title: "Autre", match: (p) => !knownKeys.includes(p.category) });
+      groups.push({ key: "autre", title: "Autre", detail: "role", match: (p) => !knownKeys.includes(p.category) });
 
       grid.innerHTML = groups.map((g) => {
         const members = staff.filter(g.match || ((p) => p.category === g.key));
@@ -32,7 +34,7 @@
         return `
 <div class="col-12 staff-group-heading" data-aos="fade-up">
   <h3>${g.title}</h3>
-</div>` + members.map(renderMember).join("");
+</div>` + members.map((p, idx) => renderMember(p, idx, g.detail)).join("");
       }).join("");
 
       // Re-init AOS if present
@@ -45,11 +47,10 @@
     }
   }
 
-  function renderMember(p, idx) {
+  function renderMember(p, idx, detailField) {
     const delay = ((idx % 6) + 1) * 100;
     const name = p.name || "";
-    const dept = p.department || "";
-    const role = p.role || "";
+    const detail = p[detailField] || "";
     const email = p.email || "";
     const photo = p.photo || "assets/img/team/team-1.jpg";
 
@@ -65,8 +66,7 @@
   </div>
   <div class="member-info text-center">
     <h4>${name}</h4>
-    <span>${dept}</span>
-    <p>${role}</p>
+    ${detail ? `<p>${detail}</p>` : ""}
   </div>
 </div>`;
   }
