@@ -69,6 +69,17 @@
   .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
   .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
 
+  .schedule-table .date-row {
+    background: color-mix(in srgb, var(--accent-color), transparent 88%);
+    color: var(--heading-color);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700; font-size: 13px; letter-spacing: .4px;
+    padding: 7px 14px;
+  }
+  html.dark-mode .schedule-table .date-row {
+    background: rgba(255,255,255,0.10);
+    color: #e9e9e9;
+  }
 </style>
 </head>
 <body class="starter-page-page">
@@ -310,7 +321,7 @@ function renderScores(scores, replays) {
     return groups;
   }
 
-  var DATE_ROW_STYLE = 'style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-weight:700;font-size:12px;padding:6px 12px;"';
+  var DATE_ROW_STYLE = 'class="date-row"';
 
   var upEl = document.getElementById("upcoming-container");
   if (upEl) {

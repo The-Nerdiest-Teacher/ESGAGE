@@ -69,6 +69,17 @@
   .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
   .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
 
+  .schedule-table .date-row {
+    background: color-mix(in srgb, var(--accent-color), transparent 88%);
+    color: var(--heading-color);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700; font-size: 13px; letter-spacing: .4px;
+    padding: 7px 14px;
+  }
+  html.dark-mode .schedule-table .date-row {
+    background: rgba(255,255,255,0.10);
+    color: #e9e9e9;
+  }
 </style>
 </head>
 <body class="starter-page-page">
@@ -308,7 +319,7 @@ function renderScores(scores, replays) {
         '<thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th></tr></thead><tbody>';
       groups.forEach(function(group) {
         if (group.date) {
-          html += '<tr><td colspan="3" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:Raleway,sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
+          html += '<tr><td colspan="3" class="date-row">' + group.date + '</td></tr>';
         }
         group.games.forEach(function(g) {
           html += '<tr>' +
@@ -333,7 +344,7 @@ function renderScores(scores, replays) {
         '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Vidéo</th></tr></thead><tbody>';
       groups.forEach(function(group) {
         if (group.date) {
-          html += '<tr><td colspan="6" style="background:color-mix(in srgb,var(--accent-color),transparent 92%);font-family:Raleway,sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;padding:6px 12px;">' + group.date + '</td></tr>';
+          html += '<tr><td colspan="6" class="date-row">' + group.date + '</td></tr>';
         }
         group.games.forEach(function(g) {
           html += '<tr>' +
