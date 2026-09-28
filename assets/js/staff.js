@@ -15,30 +15,26 @@
       if (!res.ok) throw new Error("Failed to load staff.json: " + res.status);
       const staff = await res.json();
 
-      grid.innerHTML = staff.map((p, idx) => {
-        const delay = ((idx % 6) + 1) * 100;
-        const name = p.name || "";
-        const dept = p.department || "";
-        const role = p.role || "";
-        const email = p.email || "";
-        const photo = p.photo || "assets/img/team/team-1.jpg";
+      // Groups are shown in this order, each with its own heading.
+      // Staff without a known "category" go in a final "Autre" group.
+      // "detail" is the one line shown under each name; the other field
+      // would only repeat the heading (e.g. "Enseignante" under Personnel enseignant).
+      const groups = [
+        { key: "admin", title: "Administration", detail: "role" },
+        { key: "enseignant", title: "Personnel enseignant", detail: "department" },
+        { key: "aide", title: "Aides-enseignants", detail: "department" }
+      ];
+      const knownKeys = groups.map((g) => g.key);
+      groups.push({ key: "autre", title: "Autre", detail: "role", match: (p) => !knownKeys.includes(p.category) });
 
-        const mailto = email ? `mailto:${email}` : "#";
+      grid.innerHTML = groups.map((g) => {
+        const members = staff.filter(g.match || ((p) => p.category === g.key));
+        if (!members.length) return "";
 
         return `
-<div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="${delay}">
-  <div class="member-img">
-    <img src="${photo}" class="img-fluid" alt="${name}">
-    <div class="social">
-      ${email ? `<a href="${mailto}" aria-label="Email ${name}"><i class="bi bi-envelope"></i></a>` : ""}
-    </div>
-  </div>
-  <div class="member-info text-center">
-    <h4>${name}</h4>
-    <span>${dept}</span>
-    <p>${role}</p>
-  </div>
-</div>`;
+<div class="col-12 staff-group-heading" data-aos="fade-up">
+  <h3>${g.title}</h3>
+</div>` + members.map((p, idx) => renderMember(p, idx, g.detail)).join("");
       }).join("");
 
       // Re-init AOS if present
@@ -49,6 +45,30 @@
       console.error(err);
       grid.innerHTML = `<div class="col-12"><p>Unable to load staff list.</p></div>`;
     }
+  }
+
+  function renderMember(p, idx, detailField) {
+    const delay = ((idx % 6) + 1) * 100;
+    const name = p.name || "";
+    const detail = p[detailField] || "";
+    const email = p.email || "";
+    const photo = p.photo || "assets/img/team/team-1.jpg";
+
+    const mailto = email ? `mailto:${email}` : "#";
+
+    return `
+<div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="${delay}">
+  <div class="member-img">
+    <img src="${photo}" class="img-fluid" alt="${name}">
+    <div class="social">
+      ${email ? `<a href="${mailto}" aria-label="Email ${name}"><i class="bi bi-envelope"></i></a>` : ""}
+    </div>
+  </div>
+  <div class="member-info text-center">
+    <h4>${name}</h4>
+    ${detail ? `<p>${detail}</p>` : ""}
+  </div>
+</div>`;
   }
 
   document.addEventListener("DOMContentLoaded", loadStaff);

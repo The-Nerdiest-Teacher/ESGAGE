@@ -2023,3 +2023,39 @@ html.dark-mode .navmenu a.active:focus {
 .trainers .member .social a:not([href^="mailto:"]) { 
   display: none !important; 
 }
+
+/* ===============================
+   Staff page: group headings (Administration, Personnel enseignant, ...)
+================================ */
+.trainers .staff-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.trainers .staff-group-heading:not(:first-child) {
+  margin-top: 30px;
+}
+.trainers .staff-group-heading h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--heading-color);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* Divider line that fills the rest of the row */
+.trainers .staff-group-heading::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--accent-color);
+}
+@media (max-width: 575px) {
+  .trainers .staff-group-heading h3 {
+    font-size: 20px;
+    white-space: normal;
+  }
+  .trainers .staff-group-heading::after {
+    min-width: 40px;
+  }
+}

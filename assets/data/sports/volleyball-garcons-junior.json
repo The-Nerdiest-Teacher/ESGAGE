@@ -2,7 +2,7 @@
   "label": "Volleyball — Garçons Junior",
   "leagueid": 25,
   "schoolid": 12,
-  "updated": "Sat, 19 Sep 2026 19:26:30 GMT",
+  "updated": "Mon, 28 Sep 2026 22:42:55 GMT",
   "standings": [
     {
       "headers": [
@@ -200,35 +200,35 @@
         ],
         [
           "",
+          "Elsie MacGill S.S. (AAA)",
+          "1",
+          "1",
+          "0",
+          "0",
+          "2",
+          "2",
+          "0",
+          "52",
+          "47",
+          "W 1"
+        ],
+        [
+          "",
+          "T.A. Blakelock H.S. (AAA)",
+          "1",
+          "1",
+          "0",
+          "0",
+          "2",
+          "2",
+          "1",
+          "59",
+          "61",
+          "W 1"
+        ],
+        [
+          "",
           "King's Christian Collegiate (AA)",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
-        ],
-        [
-          "",
-          "E.S. Sainte-Trinite (A)",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
-        ],
-        [
-          "",
-          "E.S. Gaetan Gervais (A)",
           "0",
           "0",
           "0",
@@ -256,20 +256,6 @@
         ],
         [
           "",
-          "T.A. Blakelock H.S. (AAA)",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
-        ],
-        [
-          "",
           "Acton D.H.S. (A)",
           "0",
           "0",
@@ -284,17 +270,31 @@
         ],
         [
           "",
-          "Elsie MacGill S.S. (AAA)",
+          "E.S. Gaetan Gervais (A)",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "1",
+          "2",
+          "61",
+          "59",
+          "L 1"
+        ],
+        [
+          "",
+          "E.S. Sainte-Trinite (A)",
+          "1",
+          "0",
+          "1",
           "0",
           "0",
           "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "-"
+          "2",
+          "47",
+          "52",
+          "L 1"
         ]
       ]
     }
@@ -307,145 +307,13 @@
       "Home"
     ],
     [
-      "__DATE__",
-      "Monday, September 28, 2026"
-    ],
-    [
       "E.S. Gaetan Gervais",
-      "03:30 PM",
+      "1 (23, 25, 13)",
+      "2 (25, 19, 15)",
       "T.A. Blakelock H.S."
     ],
     [
       "Location: T.A. Blakelock H.S.",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 7, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "04:45 PM",
-      "King's Christian Collegiate"
-    ],
-    [
-      "Location: King's Christian Collegiate",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Thursday, October 15, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "10:00 AM",
-      "Burlington Central H.S."
-    ],
-    [
-      "Location: Burlington Central H.S.",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "Elsie MacGill S.S.",
-      "01:00 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: Burlington Central H.S.",
-      "Notes: Regular Season.  Tentative Time"
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Monday, October 19, 2026"
-    ],
-    [
-      "E.S. Sainte-Trinite",
-      "03:30 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Gaetan Gervais",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 21, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "03:30 PM",
-      "Burlington Central H.S."
-    ],
-    [
-      "Location: Burlington Central H.S.",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Monday, October 26, 2026"
-    ],
-    [
-      "E.S. Gaetan Gervais",
-      "03:30 PM",
-      "Elsie MacGill S.S."
-    ],
-    [
-      "Location: Elsie MacGill S.S.",
-      "Notes: Regular Season."
-    ],
-    [
-      "Visitor",
-      "Score",
-      "Score",
-      "Home"
-    ],
-    [
-      "__DATE__",
-      "Wednesday, October 28, 2026"
-    ],
-    [
-      "Acton D.H.S.",
-      "04:45 PM",
-      "E.S. Gaetan Gervais"
-    ],
-    [
-      "Location: E.S. Gaetan Gervais",
       "Notes: Regular Season."
     ]
   ]

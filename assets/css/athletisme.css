@@ -113,3 +113,21 @@ html.dark-mode .age-btn:hover { background: #ffffff; color: var(--heading-color)
   .sport-card  { width: 100%; max-width: 320px; flex: none; }
   .gender-divider { display: none; }
 }
+
+/* Team page not created yet */
+.age-btn.age-btn-soon,
+.age-btn.age-btn-soon:hover {
+  opacity: 0.45;
+  cursor: default;
+  background: transparent;
+  color: var(--accent-color);
+  transform: none;
+  box-shadow: none;
+}
+.age-btn-soon .soon-tag {
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+}
+html.dark-mode .age-btn.age-btn-soon,
+html.dark-mode .age-btn.age-btn-soon:hover { color: #ffffff; background: transparent; }
