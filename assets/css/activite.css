@@ -1,142 +1,364 @@
-/* ── Filter tabs ── */
+/* Same card language as programmes-specialises.css and academique.css */
+.act-section { padding: 60px 0; }
+
+/* ── Intro banner ─────────────────────────────────────── */
+.act-intro {
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+  border-radius: 16px;
+  padding: 32px 36px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.act-intro > i {
+  font-size: 36px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+.act-intro h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--heading-color);
+  margin: 0 0 4px;
+}
+.act-intro p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--default-color);
+  opacity: .75;
+  margin: 0;
+  max-width: 820px;
+}
+
+/* ── Stats strip ─────────────────────────────────────── */
+.act-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.act-stat { text-align: center; }
+.act-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  line-height: 1;
+  display: block;
+}
+.act-stat-label {
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--default-color);
+  opacity: .55;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ── Section header ──────────────────────────────────── */
+.act-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+.act-header-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+.act-header-text h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--heading-color);
+  margin: 0 0 4px;
+}
+.act-header-text p {
+  font-size: 14px;
+  color: var(--default-color);
+  opacity: .65;
+  margin: 0;
+}
+
+/* ── Filter buttons ──────────────────────────────────── */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 .filter-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: 30px;
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
   background: transparent;
   color: var(--default-color);
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all .2s;
 }
-.filter-btn:hover,
+.filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
 .filter-btn.active {
   background: var(--accent-color);
   border-color: var(--accent-color);
-  color: #fff;
+  color: var(--contrast-color);
 }
 
-/* ── Activity cards ── */
-.activity-card {
-  background: var(--surface-color);
-  border-radius: 16px;
-  overflow: hidden;
+/* ── Club cards ──────────────────────────────────────── */
+.act-card {
+  border-radius: 14px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--surface-color, #fff);
+  overflow: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: box-shadow .25s, transform .25s;
 }
-.activity-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+.act-card:hover {
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--cat), transparent 82%);
+  transform: translateY(-4px);
 }
-.activity-card-banner {
-  height: 8px;
-  width: 100%;
-}
-.activity-card-body {
+.act-card-accent { height: 5px; background: var(--cat); }
+.act-card-body {
   padding: 24px 24px 20px;
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
-.activity-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+.act-card-top {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 22px;
+  justify-content: space-between;
   margin-bottom: 16px;
-  flex-shrink: 0;
 }
-.activity-tag {
-  display: inline-block;
+.act-card-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  background: var(--cat-light);
+  color: var(--cat);
+}
+.act-badge {
   font-family: 'Raleway', sans-serif;
+  font-size: 11px;
   font-weight: 700;
-  font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  background: var(--cat-light);
+  color: var(--cat);
 }
-.activity-card h4 {
+.act-card h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 22px;
+  letter-spacing: 1.5px;
   color: var(--heading-color);
-  margin-bottom: 10px;
-  line-height: 1.1;
+  margin: 0 0 8px;
+  line-height: 1.2;
 }
-.activity-card p {
+.act-card p {
   font-size: 14px;
-  color: var(--default-color);
-  opacity: 0.75;
   line-height: 1.7;
-  flex: 1;
-  margin-bottom: 16px;
+  color: var(--default-color);
+  opacity: .8;
+  margin: 0 0 16px;
 }
-.activity-meta {
+.act-features {
+  list-style: none;
+  padding: 0; margin: 0 0 18px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  flex-direction: column;
+  gap: 7px;
 }
-.activity-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+.act-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--default-color);
+  line-height: 1.5;
+}
+.act-features li i {
+  margin-top: 2px;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--cat, var(--accent-color));
+}
+.act-divider {
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  margin: auto 0 14px;
+  opacity: 1;
+}
+.act-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.act-tag {
   font-size: 12px;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--default-color), transparent 92%);
   color: var(--default-color);
-  opacity: 0.6;
+}
+.activity-col.hidden { display: none; }
+
+/* Category colours (same palette as the programme cards) */
+.cat-arts       { --cat: #ad1457; --cat-light: rgba(173,20,87,.10); }
+.cat-tech       { --cat: #1565c0; --cat-light: rgba(21,101,192,.10); }
+.cat-culture    { --cat: #d84315; --cat-light: rgba(216,67,21,.10); }
+.cat-engagement { --cat: #2e7d32; --cat-light: rgba(46,125,50,.12); }
+
+/* ── Student council ─────────────────────────────────── */
+.council-card {
+  background: var(--surface-color, #fff);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 14px;
+  padding: 28px;
+  height: 100%;
+}
+.council-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--heading-color);
+  margin: 0 0 12px;
+}
+.council-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--default-color);
+  opacity: .8;
+}
+.council-card .act-features { margin: 0; }
+.council-roles {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.council-roles li { display: flex; gap: 14px; align-items: flex-start; }
+.council-roles li > i,
+.season-item-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  color: var(--accent-color);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.council-roles strong,
+.season-list strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+.council-roles span,
+.season-list li span:not(.season-item-icon) {
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--default-color);
+  opacity: .75;
 }
 
-/* ── Outings section ── */
+/* ── Seasons ─────────────────────────────────────────── */
+.season-card {
+  background: var(--surface-color, #fff);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+}
+.season-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+.season-head > i { font-size: 28px; }
+.season-head h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: var(--contrast-color);
+  margin: 0;
+  line-height: 1.1;
+}
+.season-head p { font-size: 13px; margin: 0; opacity: .85; }
+.season-list {
+  list-style: none;
+  padding: 22px 24px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.season-list li { display: flex; gap: 14px; align-items: flex-start; }
+.act-note {
+  margin: 28px 0 0;
+  font-size: 14px;
+  color: var(--default-color);
+  opacity: .75;
+  text-align: center;
+}
+.act-note i { color: var(--accent-color); margin-right: 4px; }
+
+/* ── Outings ─────────────────────────────────────────── */
 .outing-card {
-  background: var(--surface-color);
+  background: var(--surface-color, #fff);
   border-radius: 14px;
   padding: 22px 24px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  transition: transform 0.25s, box-shadow 0.25s;
+  height: 100%;
+  transition: transform .25s, box-shadow .25s;
 }
 .outing-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--accent-color), transparent 82%);
 }
 .outing-icon {
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   border-radius: 12px;
-  background: color-mix(in srgb, var(--accent-color), transparent 85%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  display: flex; align-items: center; justify-content: center;
   font-size: 20px;
   color: var(--accent-color);
   flex-shrink: 0;
 }
-.outing-card h5 {
+.outing-card h4 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 15px;
@@ -144,39 +366,145 @@
   margin-bottom: 4px;
 }
 .outing-card p {
-  font-size: 13px;
-  color: var(--default-color);
-  opacity: 0.7;
-  margin: 0;
+  font-size: 13.5px;
   line-height: 1.6;
+  color: var(--default-color);
+  opacity: .75;
+  margin: 0;
 }
 
-/* ── Section title ── */
-.gage-section-title {
+/* ── Get involved ────────────────────────────────────── */
+.step-card {
+  background: var(--surface-color, #fff);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: 14px;
+  padding: 26px;
+  height: 100%;
+}
+.step-num {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: var(--contrast-color);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
+  font-size: 24px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.step-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--heading-color);
+  margin: 0 0 8px;
+}
+.step-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--default-color);
+  opacity: .8;
+  margin: 0;
+}
+.act-cta {
+  margin-top: 40px;
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+  border-radius: 16px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.act-cta h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
   letter-spacing: 2px;
   color: var(--heading-color);
-  margin-bottom: 4px;
+  margin: 0 0 4px;
 }
-.gage-section-sub {
-  font-size: 15px;
-  color: var(--default-color);
-  opacity: 0.6;
-  margin-bottom: 36px;
+.act-cta p { font-size: 14px; margin: 0; opacity: .75; }
+.act-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 30px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: gap .2s, background .2s;
+}
+.act-cta-btn:hover {
+  gap: 14px;
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), black 15%);
 }
 
-/* ── Category colours ── */
-.cat-arts     { --cat: #e91e8c; }
-.cat-tech     { --cat: #2196f3; }
-.cat-culture  { --cat: #ff9800; }
-.cat-sport    { --cat: #4caf50; }
-.cat-sortie   { --cat: #9c27b0; }
-.cat-conseil  { --cat: #f44336; }
+/* ── Phones ──────────────────────────────────────────── */
+@media (max-width: 575px) {
+  .act-intro { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .act-stats { gap: 24px 32px; }
+  .act-stat { flex: 0 0 40%; }
+  .act-cta { padding: 24px; }
+}
 
-.activity-card-banner { background: var(--cat, var(--accent-color)); }
-.activity-icon { background: color-mix(in srgb, var(--cat, var(--accent-color)), transparent 85%); color: var(--cat, var(--accent-color)); }
-.activity-tag  { background: color-mix(in srgb, var(--cat, var(--accent-color)), transparent 85%); color: var(--cat, var(--accent-color)); }
+/* ── Dark mode ───────────────────────────────────────── */
+/* .light-background forces a white surface; keep the dark one on this page */
+html.dark-mode .act-section.light-background {
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+}
+html.dark-mode .act-card,
+html.dark-mode .council-card,
+html.dark-mode .season-card,
+html.dark-mode .outing-card,
+html.dark-mode .step-card {
+  border-color: rgba(255,255,255,.1);
+}
+html.dark-mode .act-card p,
+html.dark-mode .act-features li,
+html.dark-mode .council-card p,
+html.dark-mode .step-card p,
+html.dark-mode .outing-card p,
+html.dark-mode .act-intro p,
+html.dark-mode .act-header-text p,
+html.dark-mode .act-note,
+html.dark-mode .act-cta p {
+  color: #c8c8c8;
+  opacity: 1;
+}
+html.dark-mode .council-roles span,
+html.dark-mode .season-list li span:not(.season-item-icon) {
+  color: #b0b0b0;
+  opacity: 1;
+}
+html.dark-mode .act-tag { background: rgba(255,255,255,.1); color: #e0e0e0; }
+html.dark-mode .act-divider { border-color: rgba(255,255,255,.12); }
+html.dark-mode .act-intro,
+html.dark-mode .act-cta { background: rgba(167,199,165,.08); }
+html.dark-mode .act-intro > i,
+html.dark-mode .act-stat-num,
+html.dark-mode .act-header-icon,
+html.dark-mode .council-roles li > i,
+html.dark-mode .season-item-icon,
+html.dark-mode .outing-icon,
+html.dark-mode .act-note i { color: #a7c7a5; }
+html.dark-mode .act-header-icon,
+html.dark-mode .council-roles li > i,
+html.dark-mode .season-item-icon,
+html.dark-mode .outing-icon { background: rgba(167,199,165,.12); }
+html.dark-mode .act-header { border-color: rgba(167,199,165,.25); }
+html.dark-mode .filter-btn { border-color: rgba(255,255,255,.2); }
+html.dark-mode .filter-btn:hover { color: #a7c7a5; border-color: #a7c7a5; }
+html.dark-mode .filter-btn.active { color: #fff; border-color: var(--accent-color); }
+html.dark-mode .act-cta-btn,
+html.dark-mode .act-cta-btn:hover { color: #fff; }
 
-/* Hide cards when filtered */
-.activity-col.hidden { display: none; }
+/* Brighter category colours so badges and icons stay readable on dark cards */
+html.dark-mode .cat-arts       { --cat: #f48fb1; --cat-light: rgba(244,143,177,.16); }
+html.dark-mode .cat-tech       { --cat: #64b5f6; --cat-light: rgba(100,181,246,.16); }
+html.dark-mode .cat-culture    { --cat: #ffab91; --cat-light: rgba(255,171,145,.16); }
+html.dark-mode .cat-engagement { --cat: #81c784; --cat-light: rgba(129,199,132,.16); }

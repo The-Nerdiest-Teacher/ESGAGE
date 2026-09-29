@@ -4,13 +4,13 @@
 <meta charset="utf-8"/>
 <script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Activité | École secondaire Gaétan‑Gervais</title>
-<meta name="description" content="Les activités parascolaires et clubs étudiants offerts à l'École secondaire Gaétan-Gervais pour enrichir la vie étudiante des Griffons."/>
-<meta name="keywords" content="activités parascolaires, clubs étudiants, École secondaire Gaétan-Gervais"/>
+<title>Activités | École secondaire Gaétan‑Gervais</title>
+<meta name="description" content="Clubs, comités, événements et sorties : découvrez la vie étudiante et les activités parascolaires de l'École secondaire Gaétan-Gervais."/>
+<meta name="keywords" content="activités parascolaires, clubs étudiants, conseil des élèves, vie étudiante, École secondaire Gaétan-Gervais"/>
 <link rel="canonical" href="https://esgage.ca/activite.html"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Activité | École secondaire Gaétan‑Gervais"/>
-<meta property="og:description" content="Les activités parascolaires et clubs étudiants offerts à l'École secondaire Gaétan-Gervais pour enrichir la vie étudiante des Griffons."/>
+<meta property="og:title" content="Activités | École secondaire Gaétan‑Gervais"/>
+<meta property="og:description" content="Clubs, comités, événements et sorties : découvrez la vie étudiante et les activités parascolaires de l'École secondaire Gaétan-Gervais."/>
 <meta property="og:url" content="https://esgage.ca/activite.html"/>
 <meta property="og:image" content="https://esgage.ca/assets/img/gage-logo.png"/>
 <meta property="og:locale" content="fr_CA"/>
@@ -31,239 +31,607 @@
 <script src="assets/js/include-partials.js"></script>
 <main class="main">
 
-  <!-- Page Title -->
-  <div class="page-title" data-aos="fade">
-    <div class="heading">
-      <div class="container">
-        <div class="row d-flex justify-content-center text-center">
-          <div class="col-lg-8">
-            <div style="margin-bottom:12px;">
-              <i class="bi bi-stars" style="font-size:52px;color:var(--accent-color);"></i>
-            </div>
-            <h1>Activité</h1>
-            <p class="mb-0">Clubs, sorties et vie étudiante à l'École secondaire Gaétan‑Gervais.</p>
-          </div>
-        </div>
-      </div>
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+<div class="heading">
+<div class="container">
+<div class="row d-flex justify-content-center text-center">
+<div class="col-lg-8">
+<h1>Activités</h1>
+<p class="mb-0">Clubs, comités, événements et sorties : la vie étudiante à Gaétan-Gervais.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="breadcrumbs">
+<div class="container">
+<ol>
+<li><a href="/index.html">Accueil</a></li>
+<li class="current">Activités</li>
+</ol>
+</div>
+</nav>
+</div>
+
+<!-- ── CLUBS & COMITÉS ─────────────────────────────────── -->
+<section class="act-section section">
+<div class="container">
+
+  <div class="act-intro" data-aos="fade-up">
+    <i class="bi bi-stars"></i>
+    <div>
+      <h2>La vie étudiante chez les Griffons</h2>
+      <p>À Gaétan-Gervais, on apprend aussi en dehors de la salle de classe. Nos clubs, comités et événements permettent à chaque élève de se faire des amis, de développer son leadership et de vivre sa francophonie au quotidien. Les activités sont ouvertes à tous les élèves, peu importe leur niveau d'expérience.</p>
     </div>
-    <nav class="breadcrumbs">
-      <div class="container">
-        <ol>
-          <li><a href="/index.html">Accueil</a></li>
-          <li class="current">Activité</li>
-        </ol>
-      </div>
-    </nav>
   </div>
 
-  <!-- ══ CLUBS & ACTIVITÉS ════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="container">
+  <div class="act-stats" data-aos="fade-up">
+    <div class="act-stat"><span class="act-stat-num">12</span><span class="act-stat-label">Clubs et comités</span></div>
+    <div class="act-stat"><span class="act-stat-num">4</span><span class="act-stat-label">Domaines d'intérêt</span></div>
+    <div class="act-stat"><span class="act-stat-num">12</span><span class="act-stat-label">Grands événements</span></div>
+    <div class="act-stat"><span class="act-stat-num">100&nbsp;%</span><span class="act-stat-label">En français</span></div>
+  </div>
 
-      <div class="text-center mb-2" data-aos="fade-up">
-        <p class="gage-section-title">Clubs &amp; Activités parascolaires</p>
-        <p class="gage-section-sub">Des activités pour tous les intérêts — rejoins une communauté qui te ressemble</p>
+  <div class="act-header" data-aos="fade-up">
+    <div class="act-header-icon"><i class="bi bi-grid-fill"></i></div>
+    <div class="act-header-text">
+      <h2>Clubs et comités</h2>
+      <p>Des activités pour tous les intérêts : trouve le groupe qui te ressemble</p>
+    </div>
+  </div>
+
+  <div class="filter-bar" data-aos="fade-up" role="group" aria-label="Filtrer les clubs par domaine">
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true"><i class="bi bi-grid-fill"></i> Tout</button>
+        <button type="button" class="filter-btn" data-filter="arts" aria-pressed="false"><i class="bi bi-palette-fill"></i> Arts</button>
+        <button type="button" class="filter-btn" data-filter="tech" aria-pressed="false"><i class="bi bi-cpu-fill"></i> Technologie</button>
+        <button type="button" class="filter-btn" data-filter="culture" aria-pressed="false"><i class="bi bi-globe2"></i> Culture</button>
+        <button type="button" class="filter-btn" data-filter="engagement" aria-pressed="false"><i class="bi bi-heart-fill"></i> Engagement</button>
+  </div>
+
+  <div class="row gy-4" id="activities-grid">
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-arts">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-palette-fill"></i></div>
+              <span class="act-badge">Arts</span>
+            </div>
+            <h3>GAGE en couleur</h3>
+            <p>Le club d'arts visuels de l'école. On y dessine, on peint et on imagine les murales et les décors qui donnent de la couleur aux corridors et aux grands événements.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Ateliers de dessin, peinture et techniques mixtes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Création de murales et de décors pour les spectacles</li>
+            <li><i class="bi bi-check-circle-fill"></i> Exposition des œuvres en fin d'année</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Filter bar -->
-      <div class="filter-bar justify-content-center" data-aos="fade-up" data-aos-delay="50">
-        <button class="filter-btn active" onclick="filterCards('all', this)">
-          <i class="bi bi-grid-fill"></i> Tout
-        </button>
-        <button class="filter-btn" onclick="filterCards('arts', this)">
-          <i class="bi bi-palette-fill"></i> Arts
-        </button>
-        <button class="filter-btn" onclick="filterCards('tech', this)">
-          <i class="bi bi-cpu-fill"></i> Technologie
-        </button>
-        <button class="filter-btn" onclick="filterCards('culture', this)">
-          <i class="bi bi-globe2"></i> Culture
-        </button>
-        <button class="filter-btn" onclick="filterCards('conseil', this)">
-          <i class="bi bi-people-fill"></i> Conseil
-        </button>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="150">
+        <div class="act-card cat-arts">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-mask"></i></div>
+              <span class="act-badge">Arts</span>
+            </div>
+            <h3>Troupe de théâtre</h3>
+            <p>De la lecture du texte jusqu'au soir de la première, la troupe monte une pièce en français chaque année. Il y a une place pour les comédiens comme pour les équipes techniques.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Jeu, voix et présence sur scène</li>
+            <li><i class="bi bi-check-circle-fill"></i> Costumes, éclairage, son et mise en scène</li>
+            <li><i class="bi bi-check-circle-fill"></i> Une production présentée aux familles</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Après l'école</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="row gy-4" id="activities-grid">
-
-        <!-- GAGE en couleur -->
-        <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="100">
-          <div class="activity-card cat-arts">
-            <div class="activity-card-banner"></div>
-            <div class="activity-card-body">
-              <div class="activity-icon"><i class="bi bi-palette-fill"></i></div>
-              <span class="activity-tag">Arts</span>
-              <h4>GAGE en couleur</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <div class="activity-meta">
-                <span><i class="bi bi-calendar3"></i> À déterminer</span>
-                <span><i class="bi bi-clock"></i> À déterminer</span>
-              </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="200">
+        <div class="act-card cat-arts">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-music-note-beamed"></i></div>
+              <span class="act-badge">Arts</span>
+            </div>
+            <h3>Ensemble musical</h3>
+            <p>Que tu joues d'un instrument ou que tu chantes, l'ensemble musical répète ensemble et anime les rassemblements, les spectacles et les cérémonies de l'école.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Répétitions en petits groupes et en ensemble</li>
+            <li><i class="bi bi-check-circle-fill"></i> Répertoire francophone, pop et classique</li>
+            <li><i class="bi bi-check-circle-fill"></i> Prestations lors des événements scolaires</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
-
-        <!-- GAGETECH -->
-        <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="150">
-          <div class="activity-card cat-tech">
-            <div class="activity-card-banner"></div>
-            <div class="activity-card-body">
-              <div class="activity-icon"><i class="bi bi-cpu-fill"></i></div>
-              <span class="activity-tag">Technologie</span>
-              <h4>GAGETECH</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <div class="activity-meta">
-                <span><i class="bi bi-calendar3"></i> À déterminer</span>
-                <span><i class="bi bi-clock"></i> À déterminer</span>
-              </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-tech">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-cpu-fill"></i></div>
+              <span class="act-badge">Technologie</span>
+            </div>
+            <h3>GAGETECH</h3>
+            <p>Le club techno des Griffons. Programmation, robotique, électronique : on apprend en construisant des projets concrets, seul ou en équipe.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Défis de programmation et de robotique</li>
+            <li><i class="bi bi-check-circle-fill"></i> Découverte de l'impression 3D et de l'électronique</li>
+            <li><i class="bi bi-check-circle-fill"></i> Soutien technique lors des événements de l'école</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
-
-        <!-- Placeholder 3 -->
-        <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="200">
-          <div class="activity-card cat-culture">
-            <div class="activity-card-banner"></div>
-            <div class="activity-card-body">
-              <div class="activity-icon"><i class="bi bi-globe2"></i></div>
-              <span class="activity-tag">Culture</span>
-              <h4>Nom de l'activité</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <div class="activity-meta">
-                <span><i class="bi bi-calendar3"></i> À déterminer</span>
-                <span><i class="bi bi-clock"></i> À déterminer</span>
-              </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="150">
+        <div class="act-card cat-tech">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-controller"></i></div>
+              <span class="act-badge">Technologie</span>
+            </div>
+            <h3>Club d'esports</h3>
+            <p>Un espace pour jouer en équipe dans un esprit de respect et d'esprit sportif. Le club organise des tournois amicaux et travaille la communication et la stratégie.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Tournois internes entre élèves</li>
+            <li><i class="bi bi-check-circle-fill"></i> Esprit sportif et bonnes habitudes de jeu</li>
+            <li><i class="bi bi-check-circle-fill"></i> Jeux adaptés à un milieu scolaire</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Après l'école</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
-
-        <!-- Placeholder 4 -->
-        <div class="col-lg-4 col-md-6 activity-col" data-cat="conseil" data-aos="fade-up" data-aos-delay="250">
-          <div class="activity-card cat-conseil">
-            <div class="activity-card-banner"></div>
-            <div class="activity-card-body">
-              <div class="activity-icon"><i class="bi bi-people-fill"></i></div>
-              <span class="activity-tag">Conseil</span>
-              <h4>Conseil des élèves</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <div class="activity-meta">
-                <span><i class="bi bi-calendar3"></i> À déterminer</span>
-                <span><i class="bi bi-clock"></i> À déterminer</span>
-              </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="200">
+        <div class="act-card cat-tech">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-camera-fill"></i></div>
+              <span class="act-badge">Technologie</span>
+            </div>
+            <h3>Médias et album-souvenir</h3>
+            <p>Photographes, vidéastes et rédacteurs couvrent la vie de l'école tout au long de l'année et préparent l'album-souvenir que chaque élève garde longtemps.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Photo et vidéo lors des événements</li>
+            <li><i class="bi bi-check-circle-fill"></i> Rédaction et mise en page</li>
+            <li><i class="bi bi-check-circle-fill"></i> Conception de l'album-souvenir annuel</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
-
-        <!-- Placeholder 5 -->
-        <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="300">
-          <div class="activity-card cat-arts">
-            <div class="activity-card-banner"></div>
-            <div class="activity-card-body">
-              <div class="activity-icon"><i class="bi bi-music-note-beamed"></i></div>
-              <span class="activity-tag">Arts</span>
-              <h4>Nom de l'activité</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <div class="activity-meta">
-                <span><i class="bi bi-calendar3"></i> À déterminer</span>
-                <span><i class="bi bi-clock"></i> À déterminer</span>
-              </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-culture">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+              <span class="act-badge">Culture</span>
+            </div>
+            <h3>Ligue d'improvisation</h3>
+            <p>Une tradition franco-ontarienne! En équipe, les joueurs improvisent des scènes sur des thèmes pigés au hasard. Parfait pour gagner en confiance et s'amuser en français.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Pratiques et matchs d'improvisation</li>
+            <li><i class="bi bi-check-circle-fill"></i> Travail d'équipe, écoute et créativité</li>
+            <li><i class="bi bi-check-circle-fill"></i> Matchs amicaux contre d'autres écoles</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Après l'école</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
-
-        <!-- Placeholder 6 -->
-        <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="350">
-          <div class="activity-card cat-tech">
-            <div class="activity-card-banner"></div>
-            <div class="activity-card-body">
-              <div class="activity-icon"><i class="bi bi-controller"></i></div>
-              <span class="activity-tag">Technologie</span>
-              <h4>Nom de l'activité</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-              <div class="activity-meta">
-                <span><i class="bi bi-calendar3"></i> À déterminer</span>
-                <span><i class="bi bi-clock"></i> À déterminer</span>
-              </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="150">
+        <div class="act-card cat-culture">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-flag-fill"></i></div>
+              <span class="act-badge">Culture</span>
+            </div>
+            <h3>Comité de la francophonie</h3>
+            <p>Le comité fait rayonner la fierté franco-ontarienne à l'école : activités culturelles, musique francophone et célébrations tout au long de l'année.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Organisation du Jour des Franco-Ontariens</li>
+            <li><i class="bi bi-check-circle-fill"></i> Activités de la Semaine de la francophonie</li>
+            <li><i class="bi bi-check-circle-fill"></i> Promotion de la culture francophone à l'école</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="200">
+        <div class="act-card cat-culture">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-puzzle-fill"></i></div>
+              <span class="act-badge">Culture</span>
+            </div>
+            <h3>Échecs et jeux de société</h3>
+            <p>Un rendez-vous calme et convivial pour apprendre, jouer et se mesurer aux autres autour d'un échiquier ou d'un bon jeu de société.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Initiation aux échecs pour les débutants</li>
+            <li><i class="bi bi-check-circle-fill"></i> Tournoi d'échecs de l'école</li>
+            <li><i class="bi bi-check-circle-fill"></i> Grande collection de jeux de société</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="engagement" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-engagement">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-people-fill"></i></div>
+              <span class="act-badge">Engagement</span>
+            </div>
+            <h3>Conseil des élèves</h3>
+            <p>La voix des élèves auprès de la direction. Le conseil organise les grands événements de l'année et fait avancer les idées des élèves pour améliorer la vie à l'école.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Représentants élus pour chaque niveau</li>
+            <li><i class="bi bi-check-circle-fill"></i> Organisation des journées thématiques et des danses</li>
+            <li><i class="bi bi-check-circle-fill"></i> Projets proposés par les élèves</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Rencontres régulières</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Élus par les élèves</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="engagement" data-aos="fade-up" data-aos-delay="150">
+        <div class="act-card cat-engagement">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-tree-fill"></i></div>
+              <span class="act-badge">Engagement</span>
+            </div>
+            <h3>Éco-Griffons</h3>
+            <p>Le club environnemental de l'école. Les Éco-Griffons mènent des projets pour réduire les déchets, encourager le recyclage et verdir la cour d'école.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Gestion du recyclage et du compostage</li>
+            <li><i class="bi bi-check-circle-fill"></i> Corvées de nettoyage et plantation</li>
+            <li><i class="bi bi-check-circle-fill"></i> Campagnes de sensibilisation</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="engagement" data-aos="fade-up" data-aos-delay="200">
+        <div class="act-card cat-engagement">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+              <span class="act-badge">Engagement</span>
+            </div>
+            <h3>Comité d'entraide</h3>
+            <p>Collectes de denrées, campagnes de dons et bénévolat : le comité rassemble les élèves qui veulent aider la communauté. Idéal pour accumuler des heures de bénévolat.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Collectes pour une banque alimentaire locale</li>
+            <li><i class="bi bi-check-circle-fill"></i> Campagnes de financement pour des causes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Heures de service communautaire reconnues</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-clock me-1"></i> Selon les projets</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
 
+<!-- ── CONSEIL DES ÉLÈVES ──────────────────────────────── -->
+<section class="act-section section light-background">
+<div class="container">
+
+  <div class="act-header" data-aos="fade-up">
+    <div class="act-header-icon"><i class="bi bi-megaphone-fill"></i></div>
+    <div class="act-header-text">
+      <h2>Conseil des élèves</h2>
+      <p>Des élèves élus qui représentent leurs pairs et font bouger l'école</p>
+    </div>
+  </div>
+
+  <div class="row gy-4 align-items-stretch">
+    <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+      <div class="council-card">
+        <h3>Le rôle du conseil</h3>
+        <p>Le conseil des élèves est le lien entre les élèves et la direction. Ses membres écoutent les idées de leurs camarades, planifient les journées thématiques, les danses et les grands événements, et gèrent un budget pour les projets étudiants.</p>
+        <p>Chaque automne, les élèves votent pour élire l'exécutif et les représentants de chaque niveau. Faire partie du conseil, c'est une excellente façon de développer son leadership, sa prise de parole et son sens de l'organisation.</p>
+        <ul class="act-features">
+          <li><i class="bi bi-check-circle-fill"></i> Élections tenues au début de l'année scolaire</li>
+          <li><i class="bi bi-check-circle-fill"></i> Rencontres régulières avec un membre du personnel responsable</li>
+          <li><i class="bi bi-check-circle-fill"></i> Boîte à idées ouverte à tous les élèves</li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- ══ SORTIES & ÉVÉNEMENTS ════════════════════════════════════════════ -->
-  <section class="section light-background">
-    <div class="container">
-      <div class="text-center mb-2" data-aos="fade-up">
-        <p class="gage-section-title">Sorties &amp; Événements</p>
-        <p class="gage-section-sub">Expériences en dehors de la classe — voyages, visites et événements spéciaux</p>
-      </div>
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="outing-card">
-            <div class="outing-icon"><i class="bi bi-bus-front-fill"></i></div>
-            <div>
-              <h5>Nom de la sortie</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-          <div class="outing-card">
-            <div class="outing-icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <div>
-              <h5>Nom de la sortie</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="outing-card">
-            <div class="outing-icon"><i class="bi bi-camera-fill"></i></div>
-            <div>
-              <h5>Nom de la sortie</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="outing-card">
-            <div class="outing-icon"><i class="bi bi-trophy-fill"></i></div>
-            <div>
-              <h5>Nom de l'événement</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="outing-card">
-            <div class="outing-icon"><i class="bi bi-star-fill"></i></div>
-            <div>
-              <h5>Nom de l'événement</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-          <div class="outing-card">
-            <div class="outing-icon"><i class="bi bi-balloon-heart-fill"></i></div>
-            <div>
-              <h5>Nom de l'événement</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-          </div>
-        </div>
-
+    <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+      <div class="council-card">
+        <h3>Les postes</h3>
+        <ul class="council-roles">
+          <li><i class="bi bi-star-fill"></i><div><strong>Présidence</strong><span>Dirige les rencontres et représente les élèves.</span></div></li>
+          <li><i class="bi bi-person-check-fill"></i><div><strong>Vice-présidence</strong><span>Appuie la présidence et coordonne les comités.</span></div></li>
+          <li><i class="bi bi-cash-coin"></i><div><strong>Trésorerie</strong><span>Gère le budget des activités étudiantes.</span></div></li>
+          <li><i class="bi bi-journal-text"></i><div><strong>Secrétariat</strong><span>Prend les notes et partage les annonces.</span></div></li>
+          <li><i class="bi bi-people-fill"></i><div><strong>Représentants de niveau</strong><span>Portent la voix de chaque année d'études.</span></div></li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+</section>
+
+<!-- ── ÉVÉNEMENTS DE L'ANNÉE ───────────────────────────── -->
+<section class="act-section section">
+<div class="container">
+
+  <div class="act-header" data-aos="fade-up">
+    <div class="act-header-icon"><i class="bi bi-calendar-heart-fill"></i></div>
+    <div class="act-header-text">
+      <h2>Les événements de l'année</h2>
+      <p>Les traditions qui rythment l'année scolaire, saison après saison</p>
+    </div>
+  </div>
+
+  <div class="row gy-4">
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="season-card">
+          <div class="season-head">
+            <i class="bi bi-tree"></i>
+            <div>
+              <h3>Automne</h3>
+              <p>La rentrée et les premières traditions</p>
+            </div>
+          </div>
+          <ul class="season-list">
+            <li>
+              <span class="season-item-icon"><i class="bi bi-emoji-smile-fill"></i></span>
+              <div><strong>Semaine d'accueil des Griffons</strong><span>Activités pour accueillir les nouveaux élèves et lancer l'année en grand.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-flag-fill"></i></span>
+              <div><strong>Jour des Franco-Ontariens</strong><span>Le 25 septembre, on hisse le drapeau vert et blanc et on célèbre notre francophonie.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-megaphone-fill"></i></span>
+              <div><strong>Élections du conseil des élèves</strong><span>Campagnes, discours et vote pour choisir les représentants de l'année.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-moon-stars-fill"></i></span>
+              <div><strong>Journée thématique d'Halloween</strong><span>Concours de costumes et activités au dîner.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="season-card">
+          <div class="season-head">
+            <i class="bi bi-snow"></i>
+            <div>
+              <h3>Hiver</h3>
+              <p>Des activités pour réchauffer la saison</p>
+            </div>
+          </div>
+          <ul class="season-list">
+            <li>
+              <span class="season-item-icon"><i class="bi bi-gift-fill"></i></span>
+              <div><strong>Spectacle des Fêtes</strong><span>Musique, théâtre et numéros d'élèves avant le congé d'hiver.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-box2-heart-fill"></i></span>
+              <div><strong>Collecte des Fêtes</strong><span>Le comité d'entraide recueille des denrées pour les familles de la région.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-snow2"></i></span>
+              <div><strong>Carnaval d'hiver</strong><span>Une semaine de jeux, de défis entre niveaux et de journées thématiques.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-chat-quote-fill"></i></span>
+              <div><strong>Semaine de la francophonie</strong><span>En mars, activités culturelles, musique et improvisation en français.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="season-card">
+          <div class="season-head">
+            <i class="bi bi-flower1"></i>
+            <div>
+              <h3>Printemps</h3>
+              <p>Une fin d'année à célébrer</p>
+            </div>
+          </div>
+          <ul class="season-list">
+            <li>
+              <span class="season-item-icon"><i class="bi bi-mic-fill"></i></span>
+              <div><strong>Soirée des talents</strong><span>Les élèves montent sur scène pour chanter, danser, jouer ou faire rire.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-globe-americas"></i></span>
+              <div><strong>Semaine de la Terre</strong><span>Les Éco-Griffons organisent corvées de nettoyage et ateliers verts.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-award-fill"></i></span>
+              <div><strong>Gala méritas</strong><span>On souligne l'engagement, le leadership et la réussite des élèves.</span></div>
+            </li>
+            <li>
+              <span class="season-item-icon"><i class="bi bi-mortarboard-fill"></i></span>
+              <div><strong>Bal des finissants</strong><span>Une soirée mémorable pour célébrer les élèves de 12<sup>e</sup> année.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+  <p class="act-note" data-aos="fade-up"><i class="bi bi-info-circle"></i> Les dates exactes sont annoncées au <a href="/calendrier.html">calendrier</a> et lors des annonces du matin.</p>
+</div>
+</section>
+
+<!-- ── SORTIES ÉDUCATIVES ──────────────────────────────── -->
+<section class="act-section section light-background">
+<div class="container">
+
+  <div class="act-header" data-aos="fade-up">
+    <div class="act-header-icon"><i class="bi bi-bus-front-fill"></i></div>
+    <div class="act-header-text">
+      <h2>Sorties éducatives</h2>
+      <p>Des expériences en dehors de l'école pour apprendre autrement</p>
+    </div>
+  </div>
+
+  <div class="row gy-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="outing-card">
+          <div class="outing-icon"><i class="bi bi-bank2"></i></div>
+          <div>
+            <h4>Musées et galeries</h4>
+            <p>Visites guidées en lien avec les cours d'histoire, de sciences et d'arts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+        <div class="outing-card">
+          <div class="outing-icon"><i class="bi bi-ticket-perforated-fill"></i></div>
+          <div>
+            <h4>Spectacles en français</h4>
+            <p>Pièces de théâtre, concerts et humoristes francophones en tournée.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="outing-card">
+          <div class="outing-icon"><i class="bi bi-tree-fill"></i></div>
+          <div>
+            <h4>Journées plein air</h4>
+            <p>Randonnée, activités d'hiver et sorties de groupe pour bouger ensemble.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="outing-card">
+          <div class="outing-icon"><i class="bi bi-building-fill"></i></div>
+          <div>
+            <h4>Visites postsecondaires</h4>
+            <p>Salons et visites de campus pour préparer la suite après le secondaire.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+        <div class="outing-card">
+          <div class="outing-icon"><i class="bi bi-signpost-2-fill"></i></div>
+          <div>
+            <h4>Voyages culturels</h4>
+            <p>Des séjours pour découvrir la francophonie ailleurs au Canada.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="outing-card">
+          <div class="outing-icon"><i class="bi bi-people-fill"></i></div>
+          <div>
+            <h4>Rassemblements franco-ontariens</h4>
+            <p>Des rencontres avec des élèves d'autres écoles de langue française de la province.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- ── S'IMPLIQUER ─────────────────────────────────────── -->
+<section class="act-section section">
+<div class="container">
+
+  <div class="act-header" data-aos="fade-up">
+    <div class="act-header-icon"><i class="bi bi-hand-index-thumb-fill"></i></div>
+    <div class="act-header-text">
+      <h2>Comment s'impliquer?</h2>
+      <p>Trois étapes pour rejoindre la vie étudiante</p>
+    </div>
+  </div>
+
+  <div class="row gy-4">
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="step-card">
+        <span class="step-num">1</span>
+        <h3>Explore</h3>
+        <p>Parcours les clubs et comités ci-dessus et repère ceux qui t'intéressent. Tu peux t'inscrire à plus d'une activité!</p>
+      </div>
+    </div>
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+      <div class="step-card">
+        <span class="step-num">2</span>
+        <h3>Présente-toi</h3>
+        <p>Les premières rencontres sont annoncées au début de l'année. Présente-toi ou parle au membre du personnel responsable du club.</p>
+      </div>
+    </div>
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="step-card">
+        <span class="step-num">3</span>
+        <h3>Propose ton idée</h3>
+        <p>Ton activité préférée n'existe pas encore? Trouve quelques amis et un membre du personnel prêt à vous accompagner pour lancer un nouveau club.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="act-cta" data-aos="fade-up">
+    <div>
+      <h3>Des questions sur les activités?</h3>
+      <p>Communique avec l'école, nous serons heureux de te guider.</p>
+    </div>
+    <a class="act-cta-btn" href="/contact.html">Nous joindre <i class="bi bi-arrow-right"></i></a>
+  </div>
+</div>
+</section>
 
 </main>
 <div id="footer-placeholder"></div>
@@ -273,20 +641,18 @@
 <script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
-function filterCards(cat, btn) {
-  // Update active button
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  // Show/hide cards
-  document.querySelectorAll('.activity-col').forEach(col => {
-    if (cat === 'all' || col.dataset.cat === cat) {
-      col.classList.remove('hidden');
-    } else {
-      col.classList.add('hidden');
-    }
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b === btn);
+      b.setAttribute('aria-pressed', b === btn);
+    });
+    document.querySelectorAll('.activity-col').forEach(col => {
+      col.classList.toggle('hidden', cat !== 'all' && col.dataset.cat !== cat);
+    });
   });
-}
+});
 </script>
 </body>
 </html>
