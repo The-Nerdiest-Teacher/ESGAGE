@@ -32,18 +32,10 @@
     "photo": "assets/img/team/nopicstaff.jpg"
   },
   {
-    "name": "Jane Doe",
-    "category": "admin",
-    "role": "Administration",
-    "department": "Office",
-    "email": "jane.doe@example.com",
-    "photo": "assets/img/team/team-6.jpg"
-  },
-  {
     "name": "Merlin Aghogue Paka",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Mathématiques",
     "email": "aghoguepakam@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -51,7 +43,7 @@
     "name": "Salima Alalou",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Mathématiques",
     "email": "alalous@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -59,7 +51,7 @@
     "name": "Mehdi Bekkari",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Éducation physique 7/8",
     "email": "bekkarim@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -67,7 +59,7 @@
     "name": "Edouard Claude Cantave",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Français",
     "email": "cantavec@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -75,7 +67,7 @@
     "name": "Michelle Chartrand",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "English",
     "email": "chartrandm@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -83,7 +75,7 @@
     "name": "Nicholas Chauvin",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Informatique",
     "email": "chauvinn@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -91,7 +83,7 @@
     "name": "Michelle Côté",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Orientation",
     "email": "cotemi@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -99,7 +91,7 @@
     "name": "Moudjahidou Demba Diallo",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Sciences",
     "email": "dembadiallom@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -107,7 +99,7 @@
     "name": "Améline Diane Djeukam",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "secondaire",
     "email": "djeukama@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -115,7 +107,7 @@
     "name": "Svetlana Dragancea",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "secondaire",
     "email": "draganceas@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -123,7 +115,7 @@
     "name": "Duclair GangueLebou",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Technologie",
     "email": "gangueleboud@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -131,7 +123,7 @@
     "name": "Dona Foucault",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Mathématiques 7/8",
     "email": "foucaultd@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -139,7 +131,7 @@
     "name": "Michael Hinton",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "English 7/8",
     "email": "hintonm@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -155,7 +147,7 @@
     "name": "Jeffrey Karanfil",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Éducation spécialisé 7/8",
     "email": "karanfilj@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -163,7 +155,7 @@
     "name": "Caroline Loh",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Arts et français",
     "email": "lohc@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -171,7 +163,7 @@
     "name": "Jean Mougou Sandjo",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Sciences",
     "email": "mougousandjoj@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -179,7 +171,7 @@
     "name": "Jean-Paul Musafiri",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Français 7/8",
     "email": "musafirij@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -187,7 +179,7 @@
     "name": "Micha Lyne Patenaude",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "English et Études sociales",
     "email": "patenaudem@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -195,7 +187,7 @@
     "name": "Carolyne Prévost",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Mathématiques et musculation",
     "email": "prevostc@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -203,7 +195,7 @@
     "name": "Abdel-krim Riahi",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "COOP",
     "email": "riahia@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -211,7 +203,7 @@
     "name": "Abdelhakim Sebbane",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Éducation spécialisé secondaire",
     "email": "sebbanea@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -219,7 +211,7 @@
     "name": "Eulalie Songwa",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Sciences 7/8",
     "email": "songwae@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -227,7 +219,7 @@
     "name": "Sylvain Thibault",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "Mathématiques et sciences 7/8",
     "email": "thibaults@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -235,7 +227,7 @@
     "name": "Aaron Uruçi",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "",
+    "department": "secondaire",
     "email": "uruciaa@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
@@ -314,7 +306,7 @@
   {
     "name": "Karine Boucher",
     "category": "soutien",
-    "role": "TS",
+    "role": "Travailleuse sociale",
     "department": "",
     "email": "boucherk@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
