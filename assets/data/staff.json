@@ -16,6 +16,134 @@
     "photo": "assets/img/team/D_RiveroEdnet.jpg"
   },
   {
+    "name": "Véronique Lamotte",
+    "category": "admin",
+    "role": "Sécrétaire senior",
+    "department": "Administration",
+    "email": "lamottev@CSViamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Solange Liliane Mbita Nana",
+    "category": "admin",
+    "role": "Sécrétaire",
+    "department": "Administration",
+    "email": "mbitananas@CSViamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Jane Doe",
+    "category": "admin",
+    "role": "Administration",
+    "department": "Office",
+    "email": "jane.doe@example.com",
+    "photo": "assets/img/team/team-6.jpg"
+  },
+  {
+    "name": "Merlin Aghogue Paka",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "aghoguepakam@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Salima Alalou",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "alalous@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Mehdi Bekkari",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "bekkarim@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Edouard Claude Cantave",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "cantavec@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Michelle Chartrand",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "chartrandm@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Nicholas Chauvin",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "chauvinn@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Michelle Côté",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "cotemi@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Moudjahidou Demba Diallo",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "dembadiallom@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Améline Diane Djeukam",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "djeukama@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Svetlana Dragancea",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "draganceas@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Duclair GangeuLebou",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "gangueleboud@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Dona Foucault",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "foucaultd@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Michael Hinton",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "hintonm@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
     "name": "Ashley Hoover",
     "category": "enseignant",
     "role": "Enseignante",
@@ -24,19 +152,91 @@
     "photo": "assets/img/team/A. Hoover.jpg"
   },
   {
-    "name": "Véronique Lamotte",
-    "category": "admin",
-    "role": "Sécrétaire senior",
-    "department": "Administration",
-    "email": "lamottev@CSViamonde.ca",
+    "name": "Jeffrey Karanfil",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "karanfilj@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
-    {
-    "name": "Solange Liliane Mbita Nana",
-    "category": "admin",
-    "role": "Sécrétaire",
-    "department": "Administration",
-    "email": "mbitananas@CSViamonde.ca",
+  {
+    "name": "Caroline Loh",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "lohc@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Jean Mougou Sandjo",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "mougousandjoj@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Jean-Paul Musafiri",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "musafirij@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Micha Lyne Patenaude",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "patenaudem@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Carolyne Prévost",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "prevostc@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Abdel-krim Riahi",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "riahia@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Abdelhakim Sebbane",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "sebbanea@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Eulalie Songwa",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "songwae@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Sylvain Thibault",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "thibaults@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Aaron Uruçi",
+    "category": "enseignant",
+    "role": "Enseignant(e)",
+    "department": "",
+    "email": "uruciaa@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
   },
   {
@@ -46,13 +246,5 @@
     "department": "Student Services",
     "email": "brian.doe@example.com",
     "photo": "assets/img/team/team-5.jpg"
-  },
-  {
-    "name": "Jane Doe",
-    "category": "admin",
-    "role": "Administration",
-    "department": "Office",
-    "email": "jane.doe@example.com",
-    "photo": "assets/img/team/team-6.jpg"
   }
 ]
