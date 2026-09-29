@@ -1,106 +1,68 @@
-# GAGE Site — GitHub Setup Guide
+# esgage.ca
 
-## First-time setup
+Website of École secondaire Gaétan-Gervais. Plain HTML/CSS/JS, served by GitHub Pages straight from `main` (no build step). Anything merged to `main` is live within a minute or two.
 
-### 1. Create a GitHub repository
-1. Go to https://github.com/new
-2. Name it `gage-site` (or anything you like)
-3. Set it to **Public**
-4. Click **Create repository**
+## Where things live
 
-### 2. Push your site files
-In your terminal (or GitHub Desktop):
+```
+index.html, cours.html, ...      Top-level pages
+partials/header.html             Menu shown on every page
+partials/footer.html             Footer shown on every page
+equipes/                         One page per team and season (e.g. volleyball-garcons-senior-2026-2027.html)
+equipes/archive/<saison>/        Past seasons' team pages
+assets/css/main.css              Site-wide styles (colours, header, footer, dark mode)
+assets/css/equipes.css           Styles shared by the team pages
+assets/css/<page>.css            Styles for one page only
+assets/js/include-partials.js    Loads the header and footer into each page
+assets/js/main.js                Menu, dark mode button, scroll animations
+assets/data/staff.json           Personnel page
+assets/data/news.json            Nouvelles page
+assets/data/sports/*.json        Standings and scores (updated by the browser extension)
+assets/img/                      Images
+```
+
+## Common updates
+
+**Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant` or `aide`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
+
+**News** — add an item to `assets/data/news.json`; the newest date shows first:
+
+```json
+{ "date": "2026-10-01", "categorie": "Vie scolaire", "titre": "Titre", "resume": "Une ou deux phrases.", "url": "calendrier.html", "image": "assets/img/..." }
+```
+
+`url` and `image` are optional. When the page has real news, add `https://esgage.ca/nouvelles.html` back to `sitemap.xml` (and a link in `partials/header.html` if you want it in the menu).
+
+**Players on a team page** — edit the `PLAYERS` list near the bottom of the team's page in `equipes/`. Photos go in the folder named by `IMG_BASE` on that page.
+
+Player photos should be **WebP, about 600×750**. Full-size PNGs are ~1.3 MB each; WebP at that size is ~50 KB and looks the same on the card. To convert a folder (needs Python and `pip install pillow`):
+
 ```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/gage-site.git
-git push -u origin main
+python3 -c "
+import sys, glob
+from PIL import Image
+for p in glob.glob(sys.argv[1] + '/*.png'):
+    im = Image.open(p); im.thumbnail((600, 750)); im.save(p[:-4] + '.webp', quality=82)
+" assets/img/sportsplayers/2026-2027/VBGS
 ```
 
-### 3. Enable GitHub Pages
-1. Go to your repo → **Settings** → **Pages**
-2. Under "Branch", select `main` and folder `/` (root)
-3. Click **Save**
-4. Your site will be live at `https://YOUR-USERNAME.github.io/gage-site/`
+Online converters (e.g. squoosh.app) work too.
 
-### 4. Enable the scraper workflow
-The scraper runs automatically at midnight (Eastern time) every day.
-To trigger it manually at any time:
-1. Go to your repo → **Actions**
-2. Click **Scrape HSSAA Data**
-3. Click **Run workflow** → **Run workflow**
+**Game replays** — add a line to the `REPLAYS` list on the team page; the comments above it show the format.
 
----
+**New team page** — copy an existing team page for the same sport, keep the `equipes.css` link, change the `PLAYERS`, `IMG_BASE` and `DATA_FILE` values, and add it to `sitemap.xml`. The Sports page (`athletisme.html`) shows "À venir" for any team button whose page doesn't exist yet, and links to it automatically once the file is there. Each page can add its own `<style>` block for a layout unique to that sport.
 
-## How it works
+## Archiving a season
 
-```
-Every night at midnight:
-  GitHub Action runs scripts/scrape_hssaa.py
-    → Fetches standings & scores from hssaa.ca for all 12 leagues
-    → Saves data to assets/data/sports/*.json
-    → Commits and pushes the updated JSON files
+1. `git mv` each outgoing team page into `equipes/archive/<saison>/` and add it to `equipes/archive/index.html`.
+2. Copy the current `assets/data/sports/<sport>.json` to `assets/data/sports/archive/<saison>/<sport>-<saison>.json`, and point the archived page's `DATA_FILE` at that frozen copy.
+3. Move any `-replays.json` file for that page into the same archive folder.
+4. Build the new season's pages in `equipes/` (year-stamped filename, empty `PLAYERS` list until rosters are set) and update the links in `athletisme.html`.
 
-Team pages (equipes/*.html):
-    → Load their JSON file on page load
-    → Render standings and scores automatically
-```
+## Contact form
 
-## File structure
+`contact.html` posts to Formspree (`formspree.io/f/mkovzpwe`), so it works on GitHub Pages without a server.
 
-```
-.github/
-  workflows/
-    scrape-hssaa.yml        ← The automation schedule
+## Credits
 
-scripts/
-  scrape_hssaa.py           ← The scraper (edit league IDs here)
-
-assets/
-  data/
-    sports/
-      volleyball-garcons-senior.json   ← Auto-updated nightly
-      basketball-garcons-senior.json
-      soccer-filles-junior.json
-      ... (12 files total)
-
-equipes/
-  volleyball-garcons-senior-2026-2027.html   ← Team pages go here, named sport-genre-niveau-SAISON.html
-  basketball-filles-senior-2026-2027.html
-  archive/
-    index.html                               ← Links to archived seasons
-    2025-2026/                                ← Past seasons' pages + frozen data snapshots
-  ...
-```
-
-## Adding a new sport league
-
-1. Add the league ID to `scripts/scrape_hssaa.py` in the `LEAGUES` dictionary
-2. Create a team page in `equipes/` using an existing page as a template
-3. Update the `DATA_FILE` variable at the top of the script in the new page
-4. Push to GitHub — the scraper will pick it up at the next run
-
-## Archiving a season / starting a new one
-
-Data files in `assets/data/sports/*.json` are **not** season-stamped — the
-scraper overwrites them in place every night. So before a new season's
-scraping starts:
-
-1. `git mv` each outgoing team page into `equipes/archive/<saison>/`, and
-   add it to `equipes/archive/index.html`.
-2. Copy (don't move, if the sport continues) the current `assets/data/
-   sports/<sport>.json` into `assets/data/sports/archive/<saison>/
-   <sport>-<saison>.json`, and update the archived page's `DATA_FILE`
-   constant to point at that frozen copy instead of the live file.
-3. Move any `-replays.json` file for that page into the same archive
-   folder (the scraper never touches replay files, so this is safe).
-4. Comment out any league with no team this year in `scripts/
-   scrape_hssaa.py`'s `LEAGUES` dict — no point scraping it.
-5. Re-check every `leagueid` in `LEAGUES` against hssaa.ca: HSSAA
-   re-issues league IDs each season, so last year's IDs will silently
-   point at stale or closed leagues.
-6. Build the new season's page(s) in `equipes/` (year-stamped filename,
-   empty `PLAYERS` array until rosters are set) and update the links in
-   `athletisme.html`.
+Based on the Mentor template by BootstrapMade (https://bootstrapmade.com/license/).
