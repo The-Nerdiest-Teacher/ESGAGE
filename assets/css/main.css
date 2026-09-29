@@ -2059,3 +2059,8 @@ html.dark-mode .navmenu a.active:focus {
     min-width: 40px;
   }
 }
+
+/* Reserve the header's height while include-partials.js loads it */
+#header-placeholder {
+  min-height: 74px;
+}
