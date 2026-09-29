@@ -64,8 +64,18 @@
   .badge-win      { background:#198754; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
   .badge-loss     { background:#dc3545; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
   .badge-upcoming { background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
-  .replay-btn { display:inline-flex; align-items:center; gap:4px; color:var(--accent-color); font-weight:600; font-size:12px; text-decoration:none; }
-  .replay-btn:hover { text-decoration:underline; }
+  .replay-btn {
+    display:inline-flex; align-items:center; gap:5px;
+    padding:4px 11px; border-radius:20px;
+    background: color-mix(in srgb, var(--accent-color), transparent 88%);
+    color: var(--accent-color);
+    font-family:'Rajdhani', sans-serif; font-weight:700; font-size:12px;
+    letter-spacing:.3px; text-decoration:none;
+    transition: background .2s, color .2s;
+  }
+  .replay-btn:hover { background: var(--accent-color); color:#fff; text-decoration:none; }
+  html.dark-mode .replay-btn { background: rgba(255,255,255,0.12); color:#8ee6a8; }
+  html.dark-mode .replay-btn:hover { background:#8ee6a8; color:#10231a; }
   .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
   .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
 
