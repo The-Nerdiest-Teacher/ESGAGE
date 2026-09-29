@@ -66,7 +66,7 @@
   </div>
 
   <div class="act-stats" data-aos="fade-up">
-    <div class="act-stat"><span class="act-stat-num">12</span><span class="act-stat-label">Clubs et comités</span></div>
+    <div class="act-stat"><span class="act-stat-num">12</span><span class="act-stat-label">Clubs et activités</span></div>
     <div class="act-stat"><span class="act-stat-num">4</span><span class="act-stat-label">Domaines d'intérêt</span></div>
     <div class="act-stat"><span class="act-stat-num">12</span><span class="act-stat-label">Grands événements</span></div>
     <div class="act-stat"><span class="act-stat-num">100&nbsp;%</span><span class="act-stat-label">En français</span></div>
@@ -75,7 +75,7 @@
   <div class="act-header" data-aos="fade-up">
     <div class="act-header-icon"><i class="bi bi-grid-fill"></i></div>
     <div class="act-header-text">
-      <h2>Clubs et comités</h2>
+      <h2>Clubs et activités</h2>
       <p>Des activités pour tous les intérêts : trouve le groupe qui te ressemble</p>
     </div>
   </div>
@@ -83,13 +83,59 @@
   <div class="filter-bar" data-aos="fade-up" role="group" aria-label="Filtrer les clubs par domaine">
         <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true"><i class="bi bi-grid-fill"></i> Tout</button>
         <button type="button" class="filter-btn" data-filter="arts" aria-pressed="false"><i class="bi bi-palette-fill"></i> Arts</button>
-        <button type="button" class="filter-btn" data-filter="tech" aria-pressed="false"><i class="bi bi-cpu-fill"></i> Technologie</button>
+        <button type="button" class="filter-btn" data-filter="tech" aria-pressed="false"><i class="bi bi-cpu-fill"></i> Sciences et techno</button>
         <button type="button" class="filter-btn" data-filter="culture" aria-pressed="false"><i class="bi bi-globe2"></i> Culture</button>
         <button type="button" class="filter-btn" data-filter="engagement" aria-pressed="false"><i class="bi bi-heart-fill"></i> Engagement</button>
   </div>
 
   <div class="row gy-4" id="activities-grid">
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="engagement" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-engagement">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-trophy-fill"></i></div>
+              <span class="act-badge">Engagement</span>
+            </div>
+            <h3>GAGE en couleur</h3>
+            <p>La grande compétition entre les niveaux de l'école! Chaque mois, les élèves se rassemblent pour une série d'activités où chaque niveau accumule des points. À la fin de l'année, le niveau qui a le plus de points est couronné le meilleur de l'école.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Un rassemblement de toute l'école chaque mois</li>
+            <li><i class="bi bi-check-circle-fill"></i> Des activités variées où chaque niveau gagne des points</li>
+            <li><i class="bi bi-check-circle-fill"></i> Le titre de meilleur niveau de l'année à la clé</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-calendar3 me-1"></i> Chaque mois</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Niveau contre niveau</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="150">
+        <div class="act-card cat-tech">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-cpu-fill"></i></div>
+              <span class="act-badge">Sciences et techno</span>
+            </div>
+            <h3>GAGETECH</h3>
+            <p>Une journée où les élèves de 5<sup>e</sup> et 6<sup>e</sup> année viennent à Gaétan-Gervais pour une série d'activités technologiques animées par nos élèves du secondaire. Une belle façon de découvrir leur future école!</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Une journée complète d'ateliers technologiques</li>
+            <li><i class="bi bi-check-circle-fill"></i> Activités préparées et animées par nos élèves</li>
+            <li><i class="bi bi-check-circle-fill"></i> Une première visite de l'école pour les futurs Griffons</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
+            <span class="act-tag"><i class="bi bi-calendar3 me-1"></i> Une journée complète</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Élèves de 5<sup>e</sup> et 6<sup>e</sup></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="200">
         <div class="act-card cat-arts">
           <div class="act-card-accent"></div>
           <div class="act-card-body">
@@ -97,16 +143,37 @@
               <div class="act-card-icon"><i class="bi bi-palette-fill"></i></div>
               <span class="act-badge">Arts</span>
             </div>
-            <h3>GAGE en couleur</h3>
-            <p>Le club d'arts visuels de l'école. On y dessine, on peint et on imagine les murales et les décors qui donnent de la couleur aux corridors et aux grands événements.</p>
+            <h3>Club d'art</h3>
+            <p>Un lieu pour dessiner, peindre et créer avec d'autres élèves qui aiment les arts visuels, peu importe leur niveau.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Ateliers de dessin, peinture et techniques mixtes</li>
-            <li><i class="bi bi-check-circle-fill"></i> Création de murales et de décors pour les spectacles</li>
-            <li><i class="bi bi-check-circle-fill"></i> Exposition des œuvres en fin d'année</li>
+            <li><i class="bi bi-check-circle-fill"></i> Projets de création individuels et en groupe</li>
+            <li><i class="bi bi-check-circle-fill"></i> Découverte de différentes techniques</li>
+            <li><i class="bi bi-check-circle-fill"></i> Partage des œuvres avec l'école</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-arts">
+          <div class="act-card-accent"></div>
+          <div class="act-card-body">
+            <div class="act-card-top">
+              <div class="act-card-icon"><i class="bi bi-camera-fill"></i></div>
+              <span class="act-badge">Arts</span>
+            </div>
+            <h3>Photographie</h3>
+            <p>Les membres apprennent à cadrer, à jouer avec la lumière et à raconter une histoire en images.</p>
+            <ul class="act-features">
+            <li><i class="bi bi-check-circle-fill"></i> Techniques de base de la photographie</li>
+            <li><i class="bi bi-check-circle-fill"></i> Sorties photo et défis thématiques</li>
+            <li><i class="bi bi-check-circle-fill"></i> Photos des événements de l'école</li>
+            </ul>
+            <hr class="act-divider"/>
+            <div class="act-meta">
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
@@ -117,88 +184,18 @@
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-mask"></i></div>
+              <div class="act-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
               <span class="act-badge">Arts</span>
             </div>
-            <h3>Troupe de théâtre</h3>
-            <p>De la lecture du texte jusqu'au soir de la première, la troupe monte une pièce en français chaque année. Il y a une place pour les comédiens comme pour les équipes techniques.</p>
+            <h3>Improvisation</h3>
+            <p>Une tradition franco-ontarienne! En équipe, les joueurs improvisent des scènes sur des thèmes pigés au hasard.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Jeu, voix et présence sur scène</li>
-            <li><i class="bi bi-check-circle-fill"></i> Costumes, éclairage, son et mise en scène</li>
-            <li><i class="bi bi-check-circle-fill"></i> Une production présentée aux familles</li>
+            <li><i class="bi bi-check-circle-fill"></i> Pratiques et matchs d'improvisation</li>
+            <li><i class="bi bi-check-circle-fill"></i> Écoute, créativité et travail d'équipe</li>
+            <li><i class="bi bi-check-circle-fill"></i> Confiance en soi et plaisir en français</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Après l'école</span>
-            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="arts" data-aos="fade-up" data-aos-delay="200">
-        <div class="act-card cat-arts">
-          <div class="act-card-accent"></div>
-          <div class="act-card-body">
-            <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-music-note-beamed"></i></div>
-              <span class="act-badge">Arts</span>
-            </div>
-            <h3>Ensemble musical</h3>
-            <p>Que tu joues d'un instrument ou que tu chantes, l'ensemble musical répète ensemble et anime les rassemblements, les spectacles et les cérémonies de l'école.</p>
-            <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Répétitions en petits groupes et en ensemble</li>
-            <li><i class="bi bi-check-circle-fill"></i> Répertoire francophone, pop et classique</li>
-            <li><i class="bi bi-check-circle-fill"></i> Prestations lors des événements scolaires</li>
-            </ul>
-            <hr class="act-divider"/>
-            <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
-            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="100">
-        <div class="act-card cat-tech">
-          <div class="act-card-accent"></div>
-          <div class="act-card-body">
-            <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-cpu-fill"></i></div>
-              <span class="act-badge">Technologie</span>
-            </div>
-            <h3>GAGETECH</h3>
-            <p>Le club techno des Griffons. Programmation, robotique, électronique : on apprend en construisant des projets concrets, seul ou en équipe.</p>
-            <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Défis de programmation et de robotique</li>
-            <li><i class="bi bi-check-circle-fill"></i> Découverte de l'impression 3D et de l'électronique</li>
-            <li><i class="bi bi-check-circle-fill"></i> Soutien technique lors des événements de l'école</li>
-            </ul>
-            <hr class="act-divider"/>
-            <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
-            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="150">
-        <div class="act-card cat-tech">
-          <div class="act-card-accent"></div>
-          <div class="act-card-body">
-            <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-controller"></i></div>
-              <span class="act-badge">Technologie</span>
-            </div>
-            <h3>Club d'esports</h3>
-            <p>Un espace pour jouer en équipe dans un esprit de respect et d'esprit sportif. Le club organise des tournois amicaux et travaille la communication et la stratégie.</p>
-            <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Tournois internes entre élèves</li>
-            <li><i class="bi bi-check-circle-fill"></i> Esprit sportif et bonnes habitudes de jeu</li>
-            <li><i class="bi bi-check-circle-fill"></i> Jeux adaptés à un milieu scolaire</li>
-            </ul>
-            <hr class="act-divider"/>
-            <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Après l'école</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
@@ -209,65 +206,62 @@
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-camera-fill"></i></div>
-              <span class="act-badge">Technologie</span>
+              <div class="act-card-icon"><i class="bi bi-code-slash"></i></div>
+              <span class="act-badge">Sciences et techno</span>
             </div>
-            <h3>Médias et album-souvenir</h3>
-            <p>Photographes, vidéastes et rédacteurs couvrent la vie de l'école tout au long de l'année et préparent l'album-souvenir que chaque élève garde longtemps.</p>
+            <h3>Club du site Web</h3>
+            <p>Les élèves de ce club travaillent sur le site Web de l'école : celui que tu es en train de lire!</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Photo et vidéo lors des événements</li>
-            <li><i class="bi bi-check-circle-fill"></i> Rédaction et mise en page</li>
-            <li><i class="bi bi-check-circle-fill"></i> Conception de l'album-souvenir annuel</li>
+            <li><i class="bi bi-check-circle-fill"></i> HTML, CSS et design Web</li>
+            <li><i class="bi bi-check-circle-fill"></i> Mise à jour du contenu du site</li>
+            <li><i class="bi bi-check-circle-fill"></i> Un vrai projet utilisé par toute l'école</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="100">
-        <div class="act-card cat-culture">
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-tech">
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-              <span class="act-badge">Culture</span>
+              <div class="act-card-icon"><i class="bi bi-robot"></i></div>
+              <span class="act-badge">Sciences et techno</span>
             </div>
-            <h3>Ligue d'improvisation</h3>
-            <p>Une tradition franco-ontarienne! En équipe, les joueurs improvisent des scènes sur des thèmes pigés au hasard. Parfait pour gagner en confiance et s'amuser en français.</p>
+            <h3>Robotique</h3>
+            <p>Les membres conçoivent, construisent et programment des robots pour relever des défis en équipe.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Pratiques et matchs d'improvisation</li>
-            <li><i class="bi bi-check-circle-fill"></i> Travail d'équipe, écoute et créativité</li>
-            <li><i class="bi bi-check-circle-fill"></i> Matchs amicaux contre d'autres écoles</li>
+            <li><i class="bi bi-check-circle-fill"></i> Conception et construction de robots</li>
+            <li><i class="bi bi-check-circle-fill"></i> Programmation et résolution de problèmes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Travail d'équipe sur des défis</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Après l'école</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="150">
-        <div class="act-card cat-culture">
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="tech" data-aos="fade-up" data-aos-delay="150">
+        <div class="act-card cat-tech">
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-flag-fill"></i></div>
-              <span class="act-badge">Culture</span>
+              <div class="act-card-icon"><i class="bi bi-calculator-fill"></i></div>
+              <span class="act-badge">Sciences et techno</span>
             </div>
-            <h3>Comité de la francophonie</h3>
-            <p>Le comité fait rayonner la fierté franco-ontarienne à l'école : activités culturelles, musique francophone et célébrations tout au long de l'année.</p>
+            <h3>Club de mathématiques</h3>
+            <p>Pour les élèves qui aiment les chiffres, les énigmes et les problèmes qui font réfléchir.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Organisation du Jour des Franco-Ontariens</li>
-            <li><i class="bi bi-check-circle-fill"></i> Activités de la Semaine de la francophonie</li>
-            <li><i class="bi bi-check-circle-fill"></i> Promotion de la culture francophone à l'école</li>
+            <li><i class="bi bi-check-circle-fill"></i> Énigmes et problèmes de logique</li>
+            <li><i class="bi bi-check-circle-fill"></i> Préparation aux concours de mathématiques</li>
+            <li><i class="bi bi-check-circle-fill"></i> Entraide entre élèves</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
@@ -278,43 +272,41 @@
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-puzzle-fill"></i></div>
+              <div class="act-card-icon"><i class="bi bi-book-fill"></i></div>
               <span class="act-badge">Culture</span>
             </div>
-            <h3>Échecs et jeux de société</h3>
-            <p>Un rendez-vous calme et convivial pour apprendre, jouer et se mesurer aux autres autour d'un échiquier ou d'un bon jeu de société.</p>
+            <h3>Club de lecture</h3>
+            <p>Les membres lisent et discutent de livres ensemble, dans une ambiance détendue.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Initiation aux échecs pour les débutants</li>
-            <li><i class="bi bi-check-circle-fill"></i> Tournoi d'échecs de l'école</li>
-            <li><i class="bi bi-check-circle-fill"></i> Grande collection de jeux de société</li>
+            <li><i class="bi bi-check-circle-fill"></i> Lectures choisies en groupe</li>
+            <li><i class="bi bi-check-circle-fill"></i> Discussions et échanges d'opinions</li>
+            <li><i class="bi bi-check-circle-fill"></i> Découverte d'auteurs francophones</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 activity-col" data-cat="engagement" data-aos="fade-up" data-aos-delay="100">
-        <div class="act-card cat-engagement">
+      <div class="col-lg-4 col-md-6 activity-col" data-cat="culture" data-aos="fade-up" data-aos-delay="100">
+        <div class="act-card cat-culture">
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-people-fill"></i></div>
-              <span class="act-badge">Engagement</span>
+              <div class="act-card-icon"><i class="bi bi-chat-square-quote-fill"></i></div>
+              <span class="act-badge">Culture</span>
             </div>
-            <h3>Conseil des élèves</h3>
-            <p>La voix des élèves auprès de la direction. Le conseil organise les grands événements de l'année et fait avancer les idées des élèves pour améliorer la vie à l'école.</p>
+            <h3>Club de débats</h3>
+            <p>Les élèves apprennent à construire un argument, à le défendre et à répondre aux idées des autres.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Représentants élus pour chaque niveau</li>
-            <li><i class="bi bi-check-circle-fill"></i> Organisation des journées thématiques et des danses</li>
-            <li><i class="bi bi-check-circle-fill"></i> Projets proposés par les élèves</li>
+            <li><i class="bi bi-check-circle-fill"></i> Préparation d'arguments sur des sujets variés</li>
+            <li><i class="bi bi-check-circle-fill"></i> Prise de parole en public</li>
+            <li><i class="bi bi-check-circle-fill"></i> Débats amicaux entre membres</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Rencontres régulières</span>
-            <span class="act-tag"><i class="bi bi-people me-1"></i> Élus par les élèves</span>
+            <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
         </div>
@@ -324,19 +316,18 @@
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-tree-fill"></i></div>
+              <div class="act-card-icon"><i class="bi bi-rainbow"></i></div>
               <span class="act-badge">Engagement</span>
             </div>
-            <h3>Éco-Griffons</h3>
-            <p>Le club environnemental de l'école. Les Éco-Griffons mènent des projets pour réduire les déchets, encourager le recyclage et verdir la cour d'école.</p>
+            <h3>Alliance LGBTQ+</h3>
+            <p>Un espace sûr et accueillant pour les élèves LGBTQ+ et leurs alliés, où chacun peut être soi-même.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Gestion du recyclage et du compostage</li>
-            <li><i class="bi bi-check-circle-fill"></i> Corvées de nettoyage et plantation</li>
-            <li><i class="bi bi-check-circle-fill"></i> Campagnes de sensibilisation</li>
+            <li><i class="bi bi-check-circle-fill"></i> Un groupe de soutien et d'amitié</li>
+            <li><i class="bi bi-check-circle-fill"></i> Activités de sensibilisation à l'école</li>
+            <li><i class="bi bi-check-circle-fill"></i> Ouvert à tous les élèves et aux alliés</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Au dîner</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
@@ -347,19 +338,18 @@
           <div class="act-card-accent"></div>
           <div class="act-card-body">
             <div class="act-card-top">
-              <div class="act-card-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+              <div class="act-card-icon"><i class="bi bi-tree-fill"></i></div>
               <span class="act-badge">Engagement</span>
             </div>
-            <h3>Comité d'entraide</h3>
-            <p>Collectes de denrées, campagnes de dons et bénévolat : le comité rassemble les élèves qui veulent aider la communauté. Idéal pour accumuler des heures de bénévolat.</p>
+            <h3>ÉcoÉcole</h3>
+            <p>Le club environnemental de l'école mène des projets pour réduire les déchets et prendre soin de notre milieu.</p>
             <ul class="act-features">
-            <li><i class="bi bi-check-circle-fill"></i> Collectes pour une banque alimentaire locale</li>
-            <li><i class="bi bi-check-circle-fill"></i> Campagnes de financement pour des causes</li>
-            <li><i class="bi bi-check-circle-fill"></i> Heures de service communautaire reconnues</li>
+            <li><i class="bi bi-check-circle-fill"></i> Projets de recyclage et de réduction des déchets</li>
+            <li><i class="bi bi-check-circle-fill"></i> Activités de sensibilisation à l'environnement</li>
+            <li><i class="bi bi-check-circle-fill"></i> Actions concrètes pour une école plus verte</li>
             </ul>
             <hr class="act-divider"/>
             <div class="act-meta">
-            <span class="act-tag"><i class="bi bi-clock me-1"></i> Selon les projets</span>
             <span class="act-tag"><i class="bi bi-people me-1"></i> Tous les niveaux</span>
             </div>
           </div>
@@ -468,7 +458,7 @@
             </li>
             <li>
               <span class="season-item-icon"><i class="bi bi-box2-heart-fill"></i></span>
-              <div><strong>Collecte des Fêtes</strong><span>Le comité d'entraide recueille des denrées pour les familles de la région.</span></div>
+              <div><strong>Collecte des Fêtes</strong><span>L'école recueille des denrées pour les familles de la région.</span></div>
             </li>
             <li>
               <span class="season-item-icon"><i class="bi bi-snow2"></i></span>
@@ -497,7 +487,7 @@
             </li>
             <li>
               <span class="season-item-icon"><i class="bi bi-globe-americas"></i></span>
-              <div><strong>Semaine de la Terre</strong><span>Les Éco-Griffons organisent corvées de nettoyage et ateliers verts.</span></div>
+              <div><strong>Semaine de la Terre</strong><span>Le club ÉcoÉcole organise des corvées de nettoyage et ateliers verts.</span></div>
             </li>
             <li>
               <span class="season-item-icon"><i class="bi bi-award-fill"></i></span>
@@ -604,7 +594,7 @@
       <div class="step-card">
         <span class="step-num">1</span>
         <h3>Explore</h3>
-        <p>Parcours les clubs et comités ci-dessus et repère ceux qui t'intéressent. Tu peux t'inscrire à plus d'une activité!</p>
+        <p>Parcours les clubs ci-dessus et repère ceux qui t'intéressent. Tu peux t'inscrire à plus d'une activité!</p>
       </div>
     </div>
     <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
