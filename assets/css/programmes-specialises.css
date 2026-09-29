@@ -1,6 +1,5 @@
 /* ── Programme cards ─────────────────────────────────── */
 .prog-section { padding: 60px 0; }
-.prog-section + .prog-section { padding-top: 0; }
 
 .prog-header {
   display: flex;
@@ -121,6 +120,11 @@
 }
 
 /* Dark mode fixes */
+/* .light-background forces a white surface; keep the dark one on this page */
+html.dark-mode .prog-section.light-background {
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+}
 html.dark-mode .prog-card {
   background: color-mix(in srgb, var(--surface-color, #1a1a2e), transparent 0%);
   border-color: rgba(255,255,255,0.1);
@@ -162,6 +166,11 @@ html.dark-mode .prog-intro p {
 .prog-features li i.theme-bi   { color: var(--pc); }
 .prog-features li i.theme-mhs-sport { color: var(--pc); }
 .prog-features li i.theme-mhs-tic   { color: var(--pc); }
+
+/* Brighter theme colours so badges and icons stay readable on dark cards */
+html.dark-mode .theme-bi         { --pc: #64b5f6; --pc-light: rgba(100,181,246,.16); }
+html.dark-mode .theme-mhs-sport  { --pc: #81c784; --pc-light: rgba(129,199,132,.16); }
+html.dark-mode .theme-mhs-tic    { --pc: #ce93d8; --pc-light: rgba(206,147,216,.16); }
 
 /* Intro banner */
 .prog-intro {

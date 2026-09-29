@@ -49,8 +49,9 @@ html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(
   transition: background .2s, color .2s;
 }
 .replay-btn:hover { background: var(--accent-color); color:#fff; text-decoration:none; }
-html.dark-mode .replay-btn { background: rgba(255,255,255,0.12); color:#8ee6a8; }
-html.dark-mode .replay-btn:hover { background:#8ee6a8; color:#10231a; }
+/* Solid button in dark mode: the schedule rows stay white, so a pale tint disappears */
+html.dark-mode .replay-btn { background: var(--accent-color); color:#fff; }
+html.dark-mode .replay-btn:hover { background:#2e8b50; color:#fff; }
 .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
 .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
 
