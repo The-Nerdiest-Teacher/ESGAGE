@@ -1287,3 +1287,9 @@ html.dark-mode .navmenu a.active:focus {
 #header-placeholder {
   min-height: 74px;
 }
+
+@media (min-width: 1200px) {
+  #header-placeholder {
+    min-height: 90px;
+  }
+}
