@@ -22,7 +22,9 @@
       const groups = [
         { key: "admin", title: "Administration", detail: "role" },
         { key: "enseignant", title: "Personnel enseignant", detail: "department" },
-        { key: "aide", title: "Aides-enseignants", detail: "department" }
+        { key: "aide", title: "Aides-enseignants", detail: "department" },
+        { key: "soutien", title: "Personnel de soutien", detail: "role" },
+        { key: "conciergerie", title: "Personnel de conciergerie", detail: "role" }
       ];
       const knownKeys = groups.map((g) => g.key);
       groups.push({ key: "autre", title: "Autre", detail: "role", match: (p) => !knownKeys.includes(p.category) });

@@ -278,5 +278,69 @@
     "department": "",
     "email": "nguessanb@csviamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Brigitte Caouette",
+    "category": "soutien",
+    "role": "Bibliotechnicienne",
+    "department": "",
+    "email": "caouetteb@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Clément Vianney Moudiongui Ebweya",
+    "category": "soutien",
+    "role": "Animateur culturel",
+    "department": "",
+    "email": "moudionguiebweyc@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Ismaila Adamou",
+    "category": "soutien",
+    "role": "Technicien en informatique",
+    "department": "",
+    "email": "adamoui@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Béatrice Khemiss",
+    "category": "soutien",
+    "role": "CP ÉSB",
+    "department": "",
+    "email": "khemissb@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Karine Boucher",
+    "category": "soutien",
+    "role": "TS",
+    "department": "",
+    "email": "boucherk@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Abdallahman Habyarimana",
+    "category": "conciergerie",
+    "role": "Concierge en chef",
+    "department": "",
+    "email": "habyarimanaa@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Marcel Patrick Njialeu Emassi",
+    "category": "conciergerie",
+    "role": "Concierge",
+    "department": "",
+    "email": "njialeuemassim@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Maty Niang",
+    "category": "conciergerie",
+    "role": "Concierge",
+    "department": "",
+    "email": "niangm@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
   }
 ]
