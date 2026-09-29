@@ -23,7 +23,7 @@ assets/img/                      Images
 
 ## Common updates
 
-**Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant` or `aide`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
+**Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
 
 **News** — add an item to `assets/data/news.json`; the newest date shows first:
 
