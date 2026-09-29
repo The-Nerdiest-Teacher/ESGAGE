@@ -24,12 +24,20 @@
     "photo": "assets/img/team/A. Hoover.jpg"
   },
   {
-    "name": "Amanda Jepson",
-    "category": "enseignant",
-    "role": "Teacher",
-    "department": "French",
-    "email": "amanda.jepson@example.com",
-    "photo": "assets/img/team/team-4.jpg"
+    "name": "Véronique Lamotte",
+    "category": "admin",
+    "role": "Sécrétaire senior",
+    "department": "Administration",
+    "email": "lamottev@CSViamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+    {
+    "name": "Solange Liliane Mbita Nana",
+    "category": "admin",
+    "role": "Sécrétaire",
+    "department": "Administration",
+    "email": "mbitananas@CSViamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
   },
   {
     "name": "Brian Doe",
