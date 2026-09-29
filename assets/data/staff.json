@@ -240,11 +240,43 @@
     "photo": "assets/img/team/nopicstaff.jpg"
   },
   {
-    "name": "Brian Doe",
+    "name": "Loubna El Harrak",
     "category": "aide",
-    "role": "Support Staff",
-    "department": "Student Services",
-    "email": "brian.doe@example.com",
-    "photo": "assets/img/team/team-5.jpg"
+    "role": "Aide-enseignant(e)",
+    "department": "",
+    "email": "elharrakl@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Maya El Masri",
+    "category": "aide",
+    "role": "Aide-enseignant(e)",
+    "department": "",
+    "email": "elmasrima@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Marie Dominique Jean",
+    "category": "aide",
+    "role": "Aide-enseignant(e)",
+    "department": "",
+    "email": "jeanma@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Sevede Madade",
+    "category": "aide",
+    "role": "Aide-enseignant(e)",
+    "department": "",
+    "email": "madades@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
+  },
+  {
+    "name": "Berthe N’Guessan",
+    "category": "aide",
+    "role": "Aide-enseignant(e)",
+    "department": "",
+    "email": "nguessanb@csviamonde.ca",
+    "photo": "assets/img/team/nopicstaff.jpg"
   }
 ]
