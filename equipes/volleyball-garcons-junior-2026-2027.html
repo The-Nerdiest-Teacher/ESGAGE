@@ -134,8 +134,12 @@ function renderStandings(standings, updated) {
   }
 
   var colMap = { "GP":"PJ","MP":"PJ","W":"V","L":"D","T":"N","PTS":"PTS",
-                 "WIN %":"V%","PF":"PF","PA":"PA","SW":"SW","SL":"SL",
-                 "PW":"PG","PL":"PL","STREAK":"Série" };
+                 "WIN %":"% V","PF":"PM","PA":"PA","SW":"MG","SL":"MP",
+                 "PW":"PG","PL":"PP","STREAK":"Série" };
+  var colTitles = { "PJ":"Parties jouées","V":"Victoires","D":"Défaites","N":"Matchs nuls",
+                    "PTS":"Points au classement","% V":"Pourcentage de victoires",
+                    "PM":"Points marqués","PA":"Points accordés","MG":"Manches gagnées",
+                    "MP":"Manches perdues","PG":"Points gagnés","PP":"Points perdus" };
 
   var html = "";
 
@@ -162,7 +166,9 @@ function renderStandings(standings, updated) {
         displayHeaders.push(colMap[h] || h);
       });
     }
-    var headerCells = displayHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join("");
+    var headerCells = displayHeaders.map(function(h) {
+      return '<th' + (colTitles[h] ? ' title="' + colTitles[h] + '"' : '') + '>' + h + '</th>';
+    }).join("");
 
     var rows = dataRows.map(function(cells) {
       var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);

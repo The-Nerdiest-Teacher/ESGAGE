@@ -425,10 +425,21 @@ function renderStandings(standings, updated) {
     t.tierLabel = match ? match[1] + " — " + tierName : tierName;
   });
 
+  // French labels (and full-word tooltips) for the English column names in the data
+  const COL_FR = {
+    "GP": ["PJ", "Parties jouées"], "W": ["V", "Victoires"], "L": ["D", "Défaites"],
+    "T": ["N", "Matchs nuls"], "PTS": ["PTS", "Points au classement"],
+    "WIN %": ["% V", "Pourcentage de victoires"], "PF": ["PM", "Points marqués"],
+    "PA": ["PA", "Points accordés"], "STREAK": ["Série", ""]
+  };
+
   let html = "";
   tiers.forEach(t => {
     // Skip "School" from scraped headers since we hardcode "École"
-    const thCells = t.colHeaders.filter(h => h !== "School").map(h => `<th>${h}</th>`).join("");
+    const thCells = t.colHeaders.filter(h => h !== "School").map(h => {
+      const [label, title] = COL_FR[h] || [h, ""];
+      return `<th${title ? ` title="${title}"` : ""}>${label}</th>`;
+    }).join("");
 
     const rows = t.rows.map(cells => {
       const school      = cells[1] || "";
