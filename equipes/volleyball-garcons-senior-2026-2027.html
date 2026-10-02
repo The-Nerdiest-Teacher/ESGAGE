@@ -32,13 +32,18 @@
 .tournament-body { flex: 1 1 auto; min-width: 0; }
 .tournament-name { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.2; color: #fff; margin: 0; }
 .tournament-dates { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
-.tournament-result { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; background: #f9a825; color: #1b1b1b; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+.tournament-result { display: inline-flex; align-items: center; gap: 6px; background: #f9a825; color: #1b1b1b; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
 .results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 10px; }
+.tournament-actions { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tournament-card .replay-btn, html.dark-mode .tournament-card .replay-btn { background: #fff; color: #1f6b3a; }
+.tournament-card .replay-btn:hover, html.dark-mode .tournament-card .replay-btn:hover { background: #ffe082; color: #134527; }
+.tournament-card .replay-btn[href=""] { display: none; }
 html.dark-mode .tournament-card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
 @media (max-width: 575px) {
   .tournament-card { flex-wrap: wrap; }
   .tournament-body { flex-basis: calc(100% - 56px); }
-  .tournament-result { margin-left: 56px; max-width: calc(100% - 56px); font-size: 12px; }
+  .tournament-actions { margin-left: 56px; max-width: calc(100% - 56px); }
+  .tournament-result { font-size: 12px; }
 }
 </style>
 </head>
@@ -86,7 +91,11 @@ html.dark-mode .tournament-card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
               <h3 class="tournament-name">Tournoi provincial Franco</h3>
               <div class="tournament-dates"><i class="bi bi-calendar-event me-1"></i>30 septembre au 1<sup>er</sup> octobre 2026</div>
             </div>
-            <span class="tournament-result"><i class="bi bi-award-fill"></i>Champions de la consolation AA</span>
+            <div class="tournament-actions">
+              <span class="tournament-result"><i class="bi bi-award-fill"></i>Champions de la consolation AA</span>
+              <!-- Lien vers la vidéo du match de championnat (le bouton reste caché tant que href est vide) -->
+              <a class="replay-btn" href="" target="_blank"><i class="bi bi-play-circle-fill"></i> Vidéo</a>
+            </div>
           </article>
         </div>
         <p class="results-subtitle">Saison régulière</p>
