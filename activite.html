@@ -632,7 +632,10 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
     document.querySelectorAll('.activity-col').forEach(col => {
       col.classList.toggle('hidden', cat !== 'all' && col.dataset.cat !== cat);
+      // Cards that move up after filtering may not have faded in yet; show them now
+      col.classList.add('aos-animate');
     });
+    if (window.AOS) AOS.refresh();
   });
 });
 </script>
