@@ -433,6 +433,9 @@ function renderStandings(standings, updated) {
     "PA": ["PA", "Points accordés"], "STREAK": ["Série", ""]
   };
 
+  // Streak cells come in English ("W 3"); show them in French ("V 3")
+  const frStreak = c => String(c).replace(/^([WLT]) (\d+)$/, (m, r, n) => ({ W: "V", L: "D", T: "N" })[r] + " " + n);
+
   let html = "";
   tiers.forEach(t => {
     // Skip "School" from scraped headers since we hardcode "École"
@@ -451,7 +454,7 @@ function renderStandings(standings, updated) {
         : displayName;
       return `<tr class="${mine ? "my-school" : ""}">
         <td>${nameCell}</td>
-        ${stats.map(c => `<td>${c}</td>`).join("")}
+        ${stats.map(c => `<td>${frStreak(c)}</td>`).join("")}
       </tr>`;
     }).join("");
 

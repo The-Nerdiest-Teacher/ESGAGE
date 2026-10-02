@@ -156,6 +156,11 @@ function renderStandings(standings, updated) {
                     "PM":"Points marqués","PA":"Points accordés","MG":"Manches gagnées",
                     "MP":"Manches perdues","PG":"Points gagnés","PP":"Points perdus" };
 
+  // Streak cells come in English ("W 3"); show them in French ("V 3")
+  function frStreak(c) {
+    return String(c).replace(/^([WLT]) (\d+)$/, function(m, r, n) { return ({ W:"V", L:"D", T:"N" })[r] + " " + n; });
+  }
+
   var html = "";
 
   standings.forEach(function(s) {
@@ -189,7 +194,7 @@ function renderStandings(standings, updated) {
       var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);
       var nc = mine ? LOGO_HTML + school : school;
       return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
-        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
+        stats.map(function(c) { return '<td>' + frStreak(c) + '</td>'; }).join("") + '</tr>';
     }).join("");
 
     html += '<span class="tier-badge">' + tierName + '</span>' +
