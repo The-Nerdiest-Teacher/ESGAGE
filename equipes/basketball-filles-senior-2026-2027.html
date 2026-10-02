@@ -149,8 +149,17 @@ function renderStandings(standings, updated) {
   }
 
   var colMap = { "GP":"PJ","MP":"PJ","W":"V","L":"D","T":"N","PTS":"PTS",
-                 "WIN %":"V%","PF":"PF","PA":"PA","SW":"SW","SL":"SL",
-                 "PW":"PG","PL":"PL","STREAK":"Série" };
+                 "WIN %":"% V","PF":"PM","PA":"PA","SW":"MG","SL":"MP",
+                 "PW":"PG","PL":"PP","STREAK":"Série" };
+  var colTitles = { "PJ":"Parties jouées","V":"Victoires","D":"Défaites","N":"Matchs nuls",
+                    "PTS":"Points au classement","% V":"Pourcentage de victoires",
+                    "PM":"Points marqués","PA":"Points accordés","MG":"Manches gagnées",
+                    "MP":"Manches perdues","PG":"Points gagnés","PP":"Points perdus" };
+
+  // Streak cells come in English ("W 3"); show them in French ("V 3")
+  function frStreak(c) {
+    return String(c).replace(/^([WLT]) (\d+)$/, function(m, r, n) { return ({ W:"V", L:"D", T:"N" })[r] + " " + n; });
+  }
 
   var html = "";
 
@@ -177,13 +186,15 @@ function renderStandings(standings, updated) {
         displayHeaders.push(colMap[h] || h);
       });
     }
-    var headerCells = displayHeaders.map(function(h) { return '<th>' + h + '</th>'; }).join("");
+    var headerCells = displayHeaders.map(function(h) {
+      return '<th' + (colTitles[h] ? ' title="' + colTitles[h] + '"' : '') + '>' + h + '</th>';
+    }).join("");
 
     var rows = dataRows.map(function(cells) {
       var school = cells[1] || "", stats = cells.slice(2), mine = isMySchool(school);
       var nc = mine ? LOGO_HTML + school : school;
       return '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nc + '</td>' +
-        stats.map(function(c) { return '<td>' + c + '</td>'; }).join("") + '</tr>';
+        stats.map(function(c) { return '<td>' + frStreak(c) + '</td>'; }).join("") + '</tr>';
     }).join("");
 
     html += '<span class="tier-badge">' + tierName + '</span>' +
