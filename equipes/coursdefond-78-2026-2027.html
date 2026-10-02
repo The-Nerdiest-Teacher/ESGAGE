@@ -36,6 +36,12 @@
 .cdf-card td { padding: 10px 18px; font-size: 14px; border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%); }
 .cdf-card th:last-child, .cdf-card td:last-child { text-align: right; }
 .cdf-place { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; color: var(--accent-color); }
+/* Médailles (1re, 2e, 3e place) ajoutées automatiquement par le script plus bas */
+.cdf-medal { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; margin-right: 8px; font-size: 15px; color: #fff; vertical-align: middle; box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+.cdf-medal.gold { background: linear-gradient(135deg, #f9d423, #e0a800); }
+.cdf-medal.silver { background: linear-gradient(135deg, #e0e0e0, #9e9e9e); }
+.cdf-medal.bronze { background: linear-gradient(135deg, #e09a5b, #a0522d); }
+.cdf-card tr.cdf-podium td { background: color-mix(in srgb, #cd7f32, transparent 90%); font-weight: 600; }
 html.dark-mode .cdf-card { box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
 html.dark-mode .cdf-place { color: #6fcf8f; }
 </style>
@@ -128,5 +134,15 @@ html.dark-mode .cdf-place { color: #6fcf8f; }
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendor/aos/aos.js"></script>
 <script src="/assets/js/main.js"></script>
+<script>
+// Ajoute une médaille à côté des 1re, 2e et 3e places.
+var MEDALS = { 1: ["gold", "Médaille d'or"], 2: ["silver", "Médaille d'argent"], 3: ["bronze", "Médaille de bronze"] };
+document.querySelectorAll(".cdf-place").forEach(function(el) {
+  var m = MEDALS[parseInt(el.textContent, 10)];
+  if (!m) return;
+  el.insertAdjacentHTML("beforebegin", '<span class="cdf-medal ' + m[0] + '" title="' + m[1] + '" aria-label="' + m[1] + '"><i class="bi bi-award-fill"></i></span>');
+  el.closest("tr").classList.add("cdf-podium");
+});
+</script>
 </body>
 </html>
