@@ -26,22 +26,19 @@
 <link href="/assets/css/equipes.css" rel="stylesheet"/>
 <style>
 /* Résultats de tournois : carte vedette au-dessus des matchs de la saison */
-.tournament-list { display: grid; gap: 16px; margin-bottom: 32px; }
-.tournament-card { position: relative; overflow: hidden; display: flex; align-items: center; gap: 22px; padding: 26px 28px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #1f6b3a 0%, #134527 100%); box-shadow: 0 10px 28px rgba(19, 69, 39, 0.28); border: 2px solid #f9a825; }
-.tournament-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #f9a825, #ffd54f, #f9a825); }
-.tournament-card::after { content: '\F5E7'; font-family: 'bootstrap-icons'; position: absolute; right: -10px; bottom: -38px; font-size: 170px; line-height: 1; color: rgba(255, 255, 255, 0.06); pointer-events: none; }
-.tournament-trophy { flex: 0 0 auto; width: 76px; height: 76px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 30%, #ffe082, #f9a825 60%, #c77c02); color: #134527; font-size: 36px; box-shadow: 0 0 0 5px rgba(249, 168, 37, 0.25); }
-.tournament-body { position: relative; z-index: 1; min-width: 0; }
-.tournament-kicker { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #ffd54f; margin-bottom: 2px; }
-.tournament-name { font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 1.5px; line-height: 1.05; color: #fff; margin: 0 0 4px; }
-.tournament-dates { font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-bottom: 12px; }
-.tournament-result { display: inline-flex; align-items: center; gap: 8px; background: #f9a825; color: #1b1b1b; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1px; text-transform: uppercase; padding: 6px 16px; border-radius: 14px; }
-.results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 12px; }
-html.dark-mode .tournament-card { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5); }
+.tournament-list { display: grid; gap: 10px; margin-bottom: 24px; }
+.tournament-card { position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 8px; color: #fff; background: linear-gradient(135deg, #1f6b3a 0%, #134527 100%); border-left: 5px solid #f9a825; box-shadow: 0 4px 12px rgba(19, 69, 39, 0.18); }
+.tournament-trophy { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 30%, #ffe082, #f9a825 60%, #c77c02); color: #134527; font-size: 20px; }
+.tournament-body { flex: 1 1 auto; min-width: 0; }
+.tournament-name { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.2; color: #fff; margin: 0; }
+.tournament-dates { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+.tournament-result { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; background: #f9a825; color: #1b1b1b; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+.results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 10px; }
+html.dark-mode .tournament-card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
 @media (max-width: 575px) {
-  .tournament-card { flex-direction: column; align-items: flex-start; gap: 14px; padding: 22px 20px; }
-  .tournament-trophy { width: 60px; height: 60px; font-size: 28px; }
-  .tournament-name { font-size: 28px; }
+  .tournament-card { flex-wrap: wrap; }
+  .tournament-body { flex-basis: calc(100% - 56px); }
+  .tournament-result { margin-left: 56px; max-width: calc(100% - 56px); font-size: 12px; }
 }
 </style>
 </head>
@@ -86,11 +83,10 @@ html.dark-mode .tournament-card { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5); }
           <article class="tournament-card">
             <div class="tournament-trophy"><i class="bi bi-trophy-fill"></i></div>
             <div class="tournament-body">
-              <div class="tournament-kicker">Résultat final</div>
               <h3 class="tournament-name">Tournoi provincial Franco</h3>
               <div class="tournament-dates"><i class="bi bi-calendar-event me-1"></i>30 septembre au 1<sup>er</sup> octobre 2026</div>
-              <span class="tournament-result"><i class="bi bi-award-fill"></i>Champions de la consolation AA</span>
             </div>
+            <span class="tournament-result"><i class="bi bi-award-fill"></i>Champions de la consolation AA</span>
           </article>
         </div>
         <p class="results-subtitle">Saison régulière</p>
