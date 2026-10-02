@@ -409,6 +409,9 @@ function renderStandings(standings, updated) {
     t.tier = match ? match[1] + " — " + tierName : tierName;
   });
 
+  // Streak cells come in English ("W 3"); show them in French ("V 3")
+  const frStreak = c => String(c).replace(/^([WLT]) (\d+)$/, (m, r, n) => ({ W: "V", L: "D", T: "N" })[r] + " " + n);
+
   let html = "";
   tiers.forEach(t => {
     const rows = t.rows.map(cells => {
@@ -423,7 +426,7 @@ function renderStandings(standings, updated) {
         : displayName;
       return `<tr class="${mine ? "my-school" : ""}">
         <td>${nameCell}</td>
-        ${stats.map(c => `<td>${c}</td>`).join("")}
+        ${stats.map(c => `<td>${frStreak(c)}</td>`).join("")}
       </tr>`;
     }).join("");
 
@@ -432,8 +435,8 @@ function renderStandings(standings, updated) {
       <div class="table-responsive mb-4">
         <table class="table table-bordered standings-table">
           <thead><tr>
-            <th>École</th><th>PJ</th><th>V</th><th>D</th><th>N</th>
-            <th>PTS</th><th>SW</th><th>SL</th><th>PG</th><th>PL</th><th>Série</th>
+            <th>École</th><th title="Parties jouées">PJ</th><th title="Victoires">V</th><th title="Défaites">D</th><th title="Matchs nuls">N</th>
+            <th title="Points au classement">PTS</th><th title="Manches gagnées">MG</th><th title="Manches perdues">MP</th><th title="Points gagnés">PG</th><th title="Points perdus">PP</th><th>Série</th>
           </tr></thead>
           <tbody>${rows}</tbody>
         </table>
