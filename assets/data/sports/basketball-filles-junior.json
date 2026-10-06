@@ -2,7 +2,7 @@
   "label": "Basketball — Filles Junior",
   "leagueid": 21,
   "schoolid": 12,
-  "updated": "Mon, 05 Oct 2026 21:46:12 GMT",
+  "updated": "Tue, 06 Oct 2026 00:23:42 GMT",
   "standings": [
     {
       "headers": [
@@ -122,6 +122,19 @@
         ],
         [
           "",
+          "White Oaks High School (AAA)",
+          "2",
+          "1",
+          "1",
+          "0",
+          "2",
+          "0.500",
+          "58",
+          "48",
+          "W 1"
+        ],
+        [
+          "",
           "M.M. Robinson H.S. (AAA)",
           "2",
           "1",
@@ -135,29 +148,16 @@
         ],
         [
           "",
-          "White Oaks High School (AAA)",
-          "1",
-          "0",
-          "1",
-          "0",
-          "0",
-          "0.000",
-          "20",
-          "29",
-          "L 1"
-        ],
-        [
-          "",
           "Craig Kielburger High School (AAA)",
-          "1",
+          "2",
           "0",
-          "1",
+          "2",
           "0",
           "0",
           "0.000",
-          "9",
-          "47",
-          "L 1"
+          "28",
+          "85",
+          "L 2"
         ]
       ]
     }
