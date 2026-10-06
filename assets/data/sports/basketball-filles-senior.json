@@ -2,7 +2,7 @@
   "label": "Basketball — Filles Senior",
   "leagueid": 22,
   "schoolid": 12,
-  "updated": "Mon, 05 Oct 2026 21:46:21 GMT",
+  "updated": "Tue, 06 Oct 2026 00:23:51 GMT",
   "standings": [
     {
       "headers": [
@@ -161,6 +161,19 @@
         ],
         [
           "",
+          "M.M. Robinson H.S. (AAA)",
+          "2",
+          "1",
+          "1",
+          "0",
+          "2",
+          "0.500",
+          "92",
+          "55",
+          "W 1"
+        ],
+        [
+          "",
           "Abbey Park H.S. (AAA)",
           "2",
           "1",
@@ -200,32 +213,6 @@
         ],
         [
           "",
-          "M.M. Robinson H.S. (AAA)",
-          "1",
-          "0",
-          "1",
-          "0",
-          "0",
-          "0.000",
-          "30",
-          "39",
-          "L 1"
-        ],
-        [
-          "",
-          "E.S. Gaetan Gervais (A)",
-          "1",
-          "0",
-          "1",
-          "0",
-          "0",
-          "0.000",
-          "16",
-          "49",
-          "L 1"
-        ],
-        [
-          "",
           "Aldershot High School (AA)",
           "2",
           "0",
@@ -235,6 +222,19 @@
           "0.000",
           "38",
           "71",
+          "L 2"
+        ],
+        [
+          "",
+          "E.S. Gaetan Gervais (A)",
+          "2",
+          "0",
+          "2",
+          "0",
+          "0",
+          "0.000",
+          "32",
+          "111",
           "L 2"
         ],
         [
@@ -286,7 +286,8 @@
     ],
     [
       "E.S. Gaetan Gervais",
-      "04:30 PM\nscore pending",
+      "16",
+      "62",
       "M.M. Robinson H.S."
     ],
     [
