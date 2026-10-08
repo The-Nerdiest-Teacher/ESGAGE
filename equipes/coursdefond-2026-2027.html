@@ -36,7 +36,6 @@
 .cdf-card td { padding: 10px 18px; font-size: 14px; border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%); }
 .cdf-card th:last-child, .cdf-card td:last-child { text-align: right; white-space: nowrap; }
 .cdf-grade { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 13px; opacity: 0.75; white-space: nowrap; }
-.cdf-field { font-size: 12px; opacity: 0.6; margin-left: 4px; }
 .cdf-place { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; color: var(--accent-color); }
 /* Médailles (1re, 2e, 3e place) ajoutées automatiquement par le script plus bas */
 .cdf-medal { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; margin-right: 8px; font-size: 15px; color: #fff; vertical-align: middle; box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
@@ -78,44 +77,60 @@ html.dark-mode .cdf-place { color: #6fcf8f; }
         <!-- Pour ajouter un·e athlète, copiez une ligne <tr> dans la bonne carte. -->
         <div class="cdf-grid">
           <div class="cdf-card">
-            <div class="cdf-card-head"><h3>Filles junior</h3><span class="cdf-total">9<sup>e</sup>/10<sup>e</sup></span></div>
+            <div class="cdf-card-head"><h3>Filles de 9<sup>e</sup> année</h3><span class="cdf-total">113 participants</span></div>
             <table>
-              <thead><tr><th>Athlète</th><th>Année</th><th title="Position à l'arrivée / nombre de participants">Position</th></tr></thead>
+              <thead><tr><th>Athlète</th><th title="Position à l'arrivée">Position</th></tr></thead>
               <tbody>
-                <tr><td>Liliana Serra</td><td class="cdf-grade">10<sup>e</sup></td><td><span class="cdf-place">35<sup>e</sup></span><span class="cdf-field">/ 119</span></td></tr>
-                <tr><td>Evelyn Seow</td><td class="cdf-grade">10<sup>e</sup></td><td><span class="cdf-place">47<sup>e</sup></span><span class="cdf-field">/ 119</span></td></tr>
-                <tr><td>EmmyLou Morlighem</td><td class="cdf-grade">9<sup>e</sup></td><td><span class="cdf-place">69<sup>e</sup></span><span class="cdf-field">/ 113</span></td></tr>
-                <tr><td>Lycia Nasri</td><td class="cdf-grade">9<sup>e</sup></td><td><span class="cdf-place">79<sup>e</sup></span><span class="cdf-field">/ 113</span></td></tr>
-                <tr><td>Aya Bouchra</td><td class="cdf-grade">9<sup>e</sup></td><td><span class="cdf-place">83<sup>e</sup></span><span class="cdf-field">/ 113</span></td></tr>
+                <tr><td>EmmyLou Morlighem</td><td><span class="cdf-place">69<sup>e</sup></span></td></tr>
+                <tr><td>Lycia Nasri</td><td><span class="cdf-place">79<sup>e</sup></span></td></tr>
+                <tr><td>Aya Bouchra</td><td><span class="cdf-place">83<sup>e</sup></span></td></tr>
               </tbody>
             </table>
           </div>
           <div class="cdf-card">
-            <div class="cdf-card-head"><h3>Filles senior</h3><span class="cdf-total">11<sup>e</sup>/12<sup>e</sup></span></div>
+            <div class="cdf-card-head"><h3>Garçons de 9<sup>e</sup> année</h3><span class="cdf-total">122 participants</span></div>
             <table>
-              <thead><tr><th>Athlète</th><th>Année</th><th title="Position à l'arrivée / nombre de participants">Position</th></tr></thead>
+              <thead><tr><th>Athlète</th><th title="Position à l'arrivée">Position</th></tr></thead>
               <tbody>
-                <tr><td>Emma McIsaac</td><td class="cdf-grade">12<sup>e</sup></td><td><span class="cdf-place">24<sup>e</sup></span><span class="cdf-field">/ 147</span></td></tr>
+                <tr><td>Griffyn Virk-Lagac</td><td><span class="cdf-place">103<sup>e</sup></span></td></tr>
               </tbody>
             </table>
           </div>
           <div class="cdf-card">
-            <div class="cdf-card-head"><h3>Garçons junior</h3><span class="cdf-total">9<sup>e</sup>/10<sup>e</sup></span></div>
+            <div class="cdf-card-head"><h3>Filles de 10<sup>e</sup> année</h3><span class="cdf-total">119 participants</span></div>
             <table>
-              <thead><tr><th>Athlète</th><th>Année</th><th title="Position à l'arrivée / nombre de participants">Position</th></tr></thead>
+              <thead><tr><th>Athlète</th><th title="Position à l'arrivée">Position</th></tr></thead>
               <tbody>
-                <tr><td>Ethan</td><td class="cdf-grade">10<sup>e</sup></td><td><span class="cdf-place">69<sup>e</sup></span><span class="cdf-field">/ 129</span></td></tr>
-                <tr><td>Griffyn Virk-Lagac</td><td class="cdf-grade">9<sup>e</sup></td><td><span class="cdf-place">103<sup>e</sup></span><span class="cdf-field">/ 122</span></td></tr>
+                <tr><td>Liliana Serra</td><td><span class="cdf-place">35<sup>e</sup></span></td></tr>
+                <tr><td>Evelyn Seow</td><td><span class="cdf-place">47<sup>e</sup></span></td></tr>
               </tbody>
             </table>
           </div>
           <div class="cdf-card">
-            <div class="cdf-card-head"><h3>Garçons senior</h3><span class="cdf-total">11<sup>e</sup>/12<sup>e</sup></span></div>
+            <div class="cdf-card-head"><h3>Garçons de 10<sup>e</sup> année</h3><span class="cdf-total">129 participants</span></div>
             <table>
-              <thead><tr><th>Athlète</th><th>Année</th><th title="Position à l'arrivée / nombre de participants">Position</th></tr></thead>
+              <thead><tr><th>Athlète</th><th title="Position à l'arrivée">Position</th></tr></thead>
               <tbody>
-                <tr><td>Keegan Hinton</td><td class="cdf-grade">12<sup>e</sup></td><td><span class="cdf-place">23<sup>e</sup></span><span class="cdf-field">/ 203</span></td></tr>
-                <tr><td>Jackson Tedjo</td><td class="cdf-grade">11<sup>e</sup></td><td><span class="cdf-place">89<sup>e</sup></span><span class="cdf-field">/ 203</span></td></tr>
+                <tr><td>Ethan Mantadis</td><td><span class="cdf-place">69<sup>e</sup></span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cdf-card">
+            <div class="cdf-card-head"><h3>Filles de 11<sup>e</sup>/12<sup>e</sup> année</h3><span class="cdf-total">147 participants</span></div>
+            <table>
+              <thead><tr><th>Athlète</th><th>Année</th><th title="Position à l'arrivée">Position</th></tr></thead>
+              <tbody>
+                <tr><td>Emma McIsaac</td><td class="cdf-grade">12<sup>e</sup></td><td><span class="cdf-place">24<sup>e</sup></span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cdf-card">
+            <div class="cdf-card-head"><h3>Garçons de 11<sup>e</sup>/12<sup>e</sup> année</h3><span class="cdf-total">203 participants</span></div>
+            <table>
+              <thead><tr><th>Athlète</th><th>Année</th><th title="Position à l'arrivée">Position</th></tr></thead>
+              <tbody>
+                <tr><td>Keegan Hinton</td><td class="cdf-grade">12<sup>e</sup></td><td><span class="cdf-place">23<sup>e</sup></span></td></tr>
+                <tr><td>Jackson Tedjo</td><td class="cdf-grade">11<sup>e</sup></td><td><span class="cdf-place">89<sup>e</sup></span></td></tr>
               </tbody>
             </table>
           </div>
