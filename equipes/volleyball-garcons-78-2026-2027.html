@@ -25,6 +25,10 @@
 <link href="/assets/vendor/aos/aos.css" rel="stylesheet"/>
 <link href="/assets/css/main.css" rel="stylesheet"/>
 <link href="/assets/css/equipes.css" rel="stylesheet"/>
+<style>
+.roster-grid .data-loading { grid-column: 1 / -1; }
+.results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 10px; }
+</style>
 </head>
 <body class="starter-page-page">
 <div id="header-placeholder"></div>
@@ -56,27 +60,17 @@
         <div class="roster-grid" id="roster-container"></div>
       </div>
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier &amp; Résultats</p>
-        <div class="table-responsive">
-          <table class="table table-bordered manual-table">
-            <thead><tr><th>Date</th><th>Adversaire</th><th>Lieu</th><th>Résultat</th><th>Score</th><th>Notes</th></tr></thead>
-            <tbody>
-              <!--
-              MODÈLE — copiez et remplissez:
-              <tr>
-                <td>15 jan. 2027</td><td>École XYZ</td><td>Domicile</td>
-                <td><span class="badge-win">Victoire</span></td>
-                <td>3 – 1</td><td></td>
-              </tr>
-              -->
-              <tr>
-                <td colspan="6" class="text-center" style="color:var(--default-color);opacity:0.5;font-style:italic;padding:20px;">
-                  <i class="bi bi-clock me-1"></i>Aucun match enregistré pour l'instant.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
+        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
+        <p class="results-subtitle">Saison régulière</p>
+        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Classement</p>
+        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
     </div>
   </section>
@@ -99,7 +93,7 @@ const IMG_BASE = "/assets/img/sportsplayers/2026-2027/VBGM/";
 const roster = document.getElementById("roster-container");
 
 if (PLAYERS.length === 0) {
-  roster.innerHTML = '<p class="data-loading"><i class="bi bi-people me-1"></i>L\'équipe sera annoncée prochainement.</p>';
+  roster.innerHTML = '<p class="data-loading"><i class="bi bi-people me-1"></i>Les photos des joueurs arriveront bientôt.</p>';
 } else {
   PLAYERS.forEach(function(p, i) {
     var card = document.createElement("div");
@@ -118,7 +112,130 @@ if (PLAYERS.length === 0) {
     roster.appendChild(card);
   });
 }
+</script>
+<script>
+// ── Matchs ────────────────────────────────────────────────────────────────
+// Un match par ligne, comme dans la feuille de la ligue : visiteur, puis domicile.
+// Pour entrer un résultat, ajoutez manches: "..." avec les scores de chaque
+// manche dans l'ordre visiteur - domicile, séparés par des points-virgules.
+// Un match sans "manches" s'affiche dans le calendrier (à venir).
+//
+//   { date: "Mardi 27 octobre 2026", visiteur: "Oodenawi", domicile: "Gaétan-Gervais", manches: "25-19; 13-25; 13-15" },
+//
+var MATCHS = [
+  { date: "Mardi 13 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "Harvest Oak",    manches: "26-24; 20-25; 15-8" },
+  { date: "Mercredi 14 octobre 2026", visiteur: "Dr. David Williams", domicile: "Gaétan-Gervais", manches: "11-25; 24-26" },
+  { date: "Mardi 20 octobre 2026",    visiteur: "Joshua Creek",       domicile: "Gaétan-Gervais", manches: "25-19; 13-25; 13-15" },
+  { date: "Mercredi 21 octobre 2026", visiteur: "Gaétan-Gervais",     domicile: "Posts Corners",  manches: "25-10; 25-20" },
+  { date: "Mardi 27 octobre 2026",    visiteur: "Oodenawi",           domicile: "Gaétan-Gervais" },
+  { date: "Jeudi 29 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "W.H. Morden" },
+  { date: "Mardi 3 novembre 2026",    visiteur: "Maple Grove",        domicile: "Gaétan-Gervais" },
+];
 
+// ── Classement ────────────────────────────────────────────────────────────
+// Laissez vide tant que la ligue ne publie pas de classement.
+// pj = parties jouées, v = victoires, d = défaites, mg = manches gagnées, mp = manches perdues
+//
+//   { ecole: "Gaétan-Gervais", pj: 4, v: 4, d: 0, mg: 8, mp: 2 },
+//
+var CLASSEMENT = [
+];
+</script>
+<script>
+var MY_SCHOOL = ["gaétan","gaetan","gervais","gage"];
+function isMySchool(t) { return MY_SCHOOL.some(function(k) { return t.toLowerCase().indexOf(k) >= 0; }); }
+var LOGO_HTML = '<img src="/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
+function nameCell(n) { return isMySchool(n) ? LOGO_HTML + n : n; }
+function boldStyle(n) { return isMySchool(n) ? "font-weight:700;" : ""; }
+
+function groupByDate(games) {
+  var groups = [], seen = {};
+  games.forEach(function(g) {
+    if (!seen[g.date]) { seen[g.date] = []; groups.push({ date: g.date, games: seen[g.date] }); }
+    seen[g.date].push(g);
+  });
+  return groups;
+}
+
+function renderMatchs() {
+  var upcoming = [], played = [];
+  (typeof MATCHS !== "undefined" ? MATCHS : []).forEach(function(m) {
+    if (!m || !m.visiteur || !m.domicile) return;
+    if (!m.manches) { upcoming.push(m); return; }
+    // "26-24; 20-25; 15-8" → sets gagnés et points de chaque équipe
+    var vPts = [], hPts = [], vSets = 0, hSets = 0;
+    m.manches.split(/[;,]/).forEach(function(set) {
+      var pts = set.split("-").map(function(x) { return parseInt(x, 10); });
+      if (pts.length !== 2 || isNaN(pts[0]) || isNaN(pts[1])) return;
+      vPts.push(pts[0]); hPts.push(pts[1]);
+      if (pts[0] > pts[1]) vSets++; else hSets++;
+    });
+    var mineWon = isMySchool(m.visiteur) ? vSets > hSets : hSets > vSets;
+    played.push({ date: m.date, visitor: m.visiteur, home: m.domicile,
+      vScore: vSets + " (" + vPts.join(", ") + ")", hScore: hSets + " (" + hPts.join(", ") + ")",
+      result: mineWon ? "Victoire" : "Défaite", badgeClass: mineWon ? "badge-win" : "badge-loss" });
+  });
+
+  var upEl = document.getElementById("upcoming-container");
+  if (!upcoming.length) {
+    upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>';
+  } else {
+    var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+      '<thead><tr><th>Visiteur</th><th>Domicile</th></tr></thead><tbody>';
+    groupByDate(upcoming).forEach(function(group) {
+      html += '<tr><td colspan="2" class="date-row">' + group.date + '</td></tr>';
+      group.games.forEach(function(g) {
+        html += '<tr>' +
+          '<td style="' + boldStyle(g.visiteur) + '">' + nameCell(g.visiteur) + '</td>' +
+          '<td style="' + boldStyle(g.domicile) + '">' + nameCell(g.domicile) + '</td>' +
+          '</tr>';
+      });
+    });
+    upEl.innerHTML = html + '</tbody></table></div>';
+  }
+
+  var plEl = document.getElementById("scores-container");
+  if (!played.length) {
+    plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+  } else {
+    var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+      '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th></tr></thead><tbody>';
+    groupByDate(played).forEach(function(group) {
+      html += '<tr><td colspan="5" class="date-row">' + group.date + '</td></tr>';
+      group.games.forEach(function(g) {
+        html += '<tr>' +
+          '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
+          '<td class="text-center" style="font-weight:700;">' + g.vScore + '</td>' +
+          '<td class="text-center" style="font-weight:700;">' + g.hScore + '</td>' +
+          '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
+          '<td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td>' +
+          '</tr>';
+      });
+    });
+    plEl.innerHTML = html + '</tbody></table></div>';
+  }
+}
+
+function renderClassement() {
+  var el = document.getElementById("standings-container");
+  var rows = typeof CLASSEMENT !== "undefined" ? CLASSEMENT : [];
+  if (!rows.length) {
+    el.innerHTML = '<p class="data-loading"><i class="bi bi-hourglass-split me-1"></i>Le classement de la ligue n\'est pas disponible pour l\'instant.</p>';
+    return;
+  }
+  var html = '<div class="table-responsive"><table class="table table-bordered standings-table"><thead><tr>' +
+    '<th>École</th><th title="Parties jouées">PJ</th><th title="Victoires">V</th><th title="Défaites">D</th>' +
+    '<th title="Manches gagnées">MG</th><th title="Manches perdues">MP</th></tr></thead><tbody>';
+  rows.forEach(function(r) {
+    var mine = isMySchool(r.ecole || "");
+    html += '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nameCell(r.ecole || "") + '</td>' +
+      [r.pj, r.v, r.d, r.mg, r.mp].map(function(c) { return '<td>' + (c === undefined ? "" : c) + '</td>'; }).join("") + '</tr>';
+  });
+  el.innerHTML = html + '</tbody></table></div>';
+}
+
+renderMatchs();
+renderClassement();
 </script>
 </body>
 </html>
