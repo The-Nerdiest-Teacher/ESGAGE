@@ -28,7 +28,6 @@
 <style>
 .roster-grid .data-loading { grid-column: 1 / -1; }
 .results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 10px; }
-.playoff-label { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--accent-color); }
 </style>
 </head>
 <body class="starter-page-page">
@@ -62,28 +61,7 @@
       </div>
       <div class="mb-5">
         <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
-        <p class="results-subtitle">Saison régulière</p>
-        <div id="upcoming-container" class="mb-4"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
-        <p class="results-subtitle">Séries éliminatoires</p>
-        <div class="table-responsive">
-          <table class="table table-bordered schedule-table">
-            <thead><tr><th style="width:90px;">Match</th><th>Affrontement</th></tr></thead>
-            <tbody>
-              <tr><td colspan="2" class="date-row">Jeudi 5 novembre 2026 — Quarts de finale</td></tr>
-              <tr><td class="text-center playoff-label">A</td><td>8<sup>e</sup> contre 1<sup>re</sup></td></tr>
-              <tr><td class="text-center playoff-label">B</td><td>7<sup>e</sup> contre 2<sup>e</sup></td></tr>
-              <tr><td class="text-center playoff-label">C</td><td>6<sup>e</sup> contre 3<sup>e</sup></td></tr>
-              <tr><td class="text-center playoff-label">D</td><td>5<sup>e</sup> contre 4<sup>e</sup></td></tr>
-              <tr><td colspan="2" class="date-row">Mardi 10 novembre 2026 — Demi-finales</td></tr>
-              <tr><td class="text-center playoff-label">E</td><td>Gagnant D contre gagnant A</td></tr>
-              <tr><td class="text-center playoff-label">F</td><td>Gagnant C contre gagnant B</td></tr>
-              <tr><td colspan="2" class="date-row">Mardi 17 novembre 2026 — Finale de division</td></tr>
-              <tr><td class="text-center playoff-label"><i class="bi bi-trophy-fill"></i></td><td>Gagnant F contre gagnant E</td></tr>
-              <tr><td colspan="2" class="date-row">Mercredi 2 décembre 2026 — Finales de Halton</td></tr>
-              <tr><td class="text-center playoff-label"><i class="bi bi-trophy-fill"></i></td><td>Finale des garçons</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
       <div class="mb-5">
         <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
