@@ -27,42 +27,8 @@
 <link href="/assets/css/equipes.css" rel="stylesheet"/>
 <style>
 .roster-grid .data-loading { grid-column: 1 / -1; }
-/* Fiche de la saison */
-.vb-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
-@media (max-width: 767px) { .vb-summary { grid-template-columns: 1fr; } }
-.vb-stat { border-radius: 14px; padding: 16px 18px; background: var(--surface-color, #fff); box-shadow: 0 4px 18px rgba(0,0,0,0.08); border-top: 5px solid var(--accent-color); }
-.vb-stat-label { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--default-color); opacity: 0.7; }
-.vb-stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 40px; line-height: 1.1; color: var(--heading-color); letter-spacing: 1px; }
-.vb-stat-sub { font-size: 14px; color: var(--default-color); }
-/* Matchs */
-.vb-games { display: grid; gap: 12px; }
-.vb-game { display: grid; grid-template-columns: 92px 1fr auto; align-items: center; gap: 16px; padding: 14px 18px; border-radius: 12px; background: var(--surface-color, #fff); box-shadow: 0 2px 10px rgba(0,0,0,0.06); border-left: 5px solid #6c757d; }
-.vb-game.win { border-left-color: #198754; }
-.vb-game.loss { border-left-color: #dc3545; }
-.vb-date { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; color: var(--heading-color); line-height: 1.2; }
-.vb-date small { display: block; font-weight: 600; font-size: 12px; opacity: 0.6; text-transform: uppercase; }
-.vb-opp { font-weight: 600; color: var(--heading-color); }
-.vb-where { font-size: 12px; color: var(--default-color); opacity: 0.7; }
-.vb-sets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-.vb-set { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14px; padding: 2px 10px; border-radius: 8px; background: color-mix(in srgb, #dc3545, transparent 88%); color: var(--default-color); }
-.vb-set.won { background: color-mix(in srgb, #198754, transparent 85%); color: var(--heading-color); }
-@media (max-width: 575px) { .vb-game { grid-template-columns: 70px 1fr; } .vb-game > :last-child { grid-column: 1 / -1; } }
-/* Séries éliminatoires */
-.vb-playoffs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: start; }
-@media (max-width: 991px) { .vb-playoffs { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 575px) { .vb-playoffs { grid-template-columns: 1fr; } }
-.vb-round { border-radius: 14px; overflow: hidden; background: var(--surface-color, #fff); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
-.vb-round-head { background: var(--accent-color); color: #fff; padding: 10px 16px; }
-.vb-round-head h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; margin: 0; color: #fff; }
-.vb-round-head span { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 14px; opacity: 0.9; }
-.vb-round ul { list-style: none; margin: 0; padding: 0; }
-.vb-round li { padding: 10px 16px; font-size: 14px; border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%); }
-.vb-round li:first-child { border-top: 0; }
-.vb-round li b { font-family: 'Rajdhani', sans-serif; color: var(--accent-color); margin-right: 6px; }
-.vb-round.final .vb-round-head { background: linear-gradient(135deg, #e0a800, #c99700); }
-.vb-note { font-size: 13px; color: var(--default-color); opacity: 0.7; margin-top: 12px; }
-html.dark-mode .vb-stat, html.dark-mode .vb-game, html.dark-mode .vb-round { box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
-html.dark-mode .vb-round li b { color: #6fcf8f; }
+.results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 10px; }
+.playoff-label { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--accent-color); }
 </style>
 </head>
 <body class="starter-page-page">
@@ -94,89 +60,39 @@ html.dark-mode .vb-round li b { color: #6fcf8f; }
         <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Notre équipe</p>
         <div class="roster-grid" id="roster-container"></div>
       </div>
-      <div class="mb-5 mt-2">
-        <p class="section-tab-title"><i class="bi bi-trophy-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Saison régulière</p>
-        <div class="vb-summary">
-          <div class="vb-stat"><div class="vb-stat-label">Fiche</div><div class="vb-stat-value" id="vb-record">0-0</div><div class="vb-stat-sub">Victoires - Défaites</div></div>
-          <div class="vb-stat"><div class="vb-stat-label">Manches</div><div class="vb-stat-value" id="vb-sets">0-0</div><div class="vb-stat-sub">Gagnées - Perdues</div></div>
-          <div class="vb-stat"><div class="vb-stat-label">Prochain match</div><div class="vb-stat-value" id="vb-next">—</div><div class="vb-stat-sub" id="vb-next-sub"></div></div>
-        </div>
-        <!--
-          Pour entrer un résultat: ajoutez data-sets="..." au match, avec le score de Gaétan-Gervais en premier.
-          Exemple: <div class="vb-game" data-sets="25-18, 22-25, 15-11">
-          La victoire/défaite, la fiche et les manches se calculent toutes seules.
-        -->
-        <div class="vb-games">
-          <div class="vb-game" data-sets="26-24, 20-25, 15-8">
-            <div class="vb-date">13 oct.<small>mardi</small></div>
-            <div><div class="vb-opp">Harvest Oak</div><div class="vb-where">À l'extérieur</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
-          <div class="vb-game" data-sets="25-11, 26-24">
-            <div class="vb-date">14 oct.<small>mercredi</small></div>
-            <div><div class="vb-opp">Dr. David Williams</div><div class="vb-where">À domicile</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
-          <div class="vb-game" data-sets="19-25, 25-13, 15-13">
-            <div class="vb-date">20 oct.<small>mardi</small></div>
-            <div><div class="vb-opp">Joshua Creek</div><div class="vb-where">À domicile</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
-          <div class="vb-game" data-sets="25-10, 25-20">
-            <div class="vb-date">21 oct.<small>mercredi</small></div>
-            <div><div class="vb-opp">Posts Corners</div><div class="vb-where">À l'extérieur</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
-          <div class="vb-game">
-            <div class="vb-date">27 oct.<small>mardi</small></div>
-            <div><div class="vb-opp">Oodenawi</div><div class="vb-where">À domicile</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
-          <div class="vb-game">
-            <div class="vb-date">29 oct.<small>jeudi</small></div>
-            <div><div class="vb-opp">W.H. Morden</div><div class="vb-where">À l'extérieur</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
-          <div class="vb-game">
-            <div class="vb-date">3 nov.<small>mardi</small></div>
-            <div><div class="vb-opp">Maple Grove</div><div class="vb-where">À domicile</div><div class="vb-sets"></div></div>
-            <div class="vb-result"><span class="badge-upcoming">À venir</span></div>
-          </div>
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
+        <p class="results-subtitle">Saison régulière</p>
+        <div id="upcoming-container" class="mb-4"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="results-subtitle">Séries éliminatoires</p>
+        <div class="table-responsive">
+          <table class="table table-bordered schedule-table">
+            <thead><tr><th style="width:90px;">Match</th><th>Affrontement</th></tr></thead>
+            <tbody>
+              <tr><td colspan="2" class="date-row">Jeudi 5 novembre 2026 — Quarts de finale</td></tr>
+              <tr><td class="text-center playoff-label">A</td><td>8<sup>e</sup> contre 1<sup>re</sup></td></tr>
+              <tr><td class="text-center playoff-label">B</td><td>7<sup>e</sup> contre 2<sup>e</sup></td></tr>
+              <tr><td class="text-center playoff-label">C</td><td>6<sup>e</sup> contre 3<sup>e</sup></td></tr>
+              <tr><td class="text-center playoff-label">D</td><td>5<sup>e</sup> contre 4<sup>e</sup></td></tr>
+              <tr><td colspan="2" class="date-row">Mardi 10 novembre 2026 — Demi-finales</td></tr>
+              <tr><td class="text-center playoff-label">E</td><td>Gagnant D contre gagnant A</td></tr>
+              <tr><td class="text-center playoff-label">F</td><td>Gagnant C contre gagnant B</td></tr>
+              <tr><td colspan="2" class="date-row">Mardi 17 novembre 2026 — Finale de division</td></tr>
+              <tr><td class="text-center playoff-label"><i class="bi bi-trophy-fill"></i></td><td>Gagnant F contre gagnant E</td></tr>
+              <tr><td colspan="2" class="date-row">Mercredi 2 décembre 2026 — Finales de Halton</td></tr>
+              <tr><td class="text-center playoff-label"><i class="bi bi-trophy-fill"></i></td><td>Finale des garçons</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-diagram-3-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Séries éliminatoires</p>
-        <div class="vb-playoffs">
-          <div class="vb-round">
-            <div class="vb-round-head"><h3>Quarts de finale</h3><span>5 novembre</span></div>
-            <ul>
-              <li><b>A</b>8<sup>e</sup> contre 1<sup>re</sup></li>
-              <li><b>B</b>7<sup>e</sup> contre 2<sup>e</sup></li>
-              <li><b>C</b>6<sup>e</sup> contre 3<sup>e</sup></li>
-              <li><b>D</b>5<sup>e</sup> contre 4<sup>e</sup></li>
-            </ul>
-          </div>
-          <div class="vb-round">
-            <div class="vb-round-head"><h3>Demi-finales</h3><span>10 novembre</span></div>
-            <ul>
-              <li><b>E</b>Gagnant D contre gagnant A</li>
-              <li><b>F</b>Gagnant C contre gagnant B</li>
-            </ul>
-          </div>
-          <div class="vb-round">
-            <div class="vb-round-head"><h3>Finale de division</h3><span>17 novembre</span></div>
-            <ul>
-              <li>Gagnant F contre gagnant E</li>
-            </ul>
-          </div>
-          <div class="vb-round final">
-            <div class="vb-round-head"><h3>Finale de Halton</h3><span>2 décembre</span></div>
-            <ul>
-              <li>Championnat régional des garçons</li>
-            </ul>
-          </div>
-        </div>
-        <p class="vb-note"><i class="bi bi-info-circle me-1"></i>Le classement de fin de saison détermine les affrontements des quarts de finale.</p>
+        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
+        <p class="results-subtitle">Saison régulière</p>
+        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+      </div>
+      <div class="mb-5">
+        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Classement</p>
+        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
       </div>
     </div>
   </section>
@@ -218,43 +134,130 @@ if (PLAYERS.length === 0) {
     roster.appendChild(card);
   });
 }
+</script>
+<script>
+// ── Matchs ────────────────────────────────────────────────────────────────
+// Un match par ligne, comme dans la feuille de la ligue : visiteur, puis domicile.
+// Pour entrer un résultat, ajoutez manches: "..." avec les scores de chaque
+// manche dans l'ordre visiteur - domicile, séparés par des points-virgules.
+// Un match sans "manches" s'affiche dans le calendrier (à venir).
+//
+//   { date: "Mardi 27 octobre 2026", visiteur: "Oodenawi", domicile: "Gaétan-Gervais", manches: "25-19; 13-25; 13-15" },
+//
+var MATCHS = [
+  { date: "Mardi 13 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "Harvest Oak",    manches: "26-24; 20-25; 15-8" },
+  { date: "Mercredi 14 octobre 2026", visiteur: "Dr. David Williams", domicile: "Gaétan-Gervais", manches: "11-25; 24-26" },
+  { date: "Mardi 20 octobre 2026",    visiteur: "Joshua Creek",       domicile: "Gaétan-Gervais", manches: "25-19; 13-25; 13-15" },
+  { date: "Mercredi 21 octobre 2026", visiteur: "Gaétan-Gervais",     domicile: "Posts Corners",  manches: "25-10; 25-20" },
+  { date: "Mardi 27 octobre 2026",    visiteur: "Oodenawi",           domicile: "Gaétan-Gervais" },
+  { date: "Jeudi 29 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "W.H. Morden" },
+  { date: "Mardi 3 novembre 2026",    visiteur: "Maple Grove",        domicile: "Gaétan-Gervais" },
+];
 
-// ── Résultats ─────────────────────────────────────────────────────────────
-// Calcule la victoire/défaite de chaque match à partir de data-sets
-// (score de Gaétan-Gervais en premier), puis la fiche et les manches.
-(function() {
-  var wins = 0, losses = 0, setsWon = 0, setsLost = 0, next = null;
-  document.querySelectorAll(".vb-game").forEach(function(game) {
-    var data = game.getAttribute("data-sets");
-    if (!data) { if (!next) next = game; return; }
-    var won = 0, lost = 0, chips = "";
-    data.split(",").forEach(function(set) {
-      var pts = set.trim().split("-").map(Number);
-      if (pts.length !== 2 || isNaN(pts[0]) || isNaN(pts[1])) return;
-      var w = pts[0] > pts[1];
-      if (w) won++; else lost++;
-      chips += '<span class="vb-set' + (w ? ' won' : '') + '">' + pts[0] + '-' + pts[1] + '</span>';
-    });
-    game.querySelector(".vb-sets").innerHTML = chips;
-    var victory = won > lost;
-    game.classList.add(victory ? "win" : "loss");
-    game.querySelector(".vb-result").innerHTML = victory
-      ? '<span class="badge-win">Victoire ' + won + '-' + lost + '</span>'
-      : '<span class="badge-loss">Défaite ' + won + '-' + lost + '</span>';
-    if (victory) wins++; else losses++;
-    setsWon += won; setsLost += lost;
+// ── Classement ────────────────────────────────────────────────────────────
+// Laissez vide tant que la ligue ne publie pas de classement.
+// pj = parties jouées, v = victoires, d = défaites, mg = manches gagnées, mp = manches perdues
+//
+//   { ecole: "Gaétan-Gervais", pj: 4, v: 4, d: 0, mg: 8, mp: 2 },
+//
+var CLASSEMENT = [
+];
+</script>
+<script>
+var MY_SCHOOL = ["gaétan","gaetan","gervais","gage"];
+function isMySchool(t) { return MY_SCHOOL.some(function(k) { return t.toLowerCase().indexOf(k) >= 0; }); }
+var LOGO_HTML = '<img src="/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
+function nameCell(n) { return isMySchool(n) ? LOGO_HTML + n : n; }
+function boldStyle(n) { return isMySchool(n) ? "font-weight:700;" : ""; }
+
+function groupByDate(games) {
+  var groups = [], seen = {};
+  games.forEach(function(g) {
+    if (!seen[g.date]) { seen[g.date] = []; groups.push({ date: g.date, games: seen[g.date] }); }
+    seen[g.date].push(g);
   });
-  document.getElementById("vb-record").textContent = wins + "-" + losses;
-  document.getElementById("vb-sets").textContent = setsWon + "-" + setsLost;
-  if (next) {
-    document.getElementById("vb-next").textContent = next.querySelector(".vb-date").firstChild.textContent;
-    document.getElementById("vb-next-sub").textContent =
-      next.querySelector(".vb-opp").textContent + " · " + next.querySelector(".vb-where").textContent.toLowerCase();
-  } else {
-    document.getElementById("vb-next").textContent = "Séries";
-  }
-})();
+  return groups;
+}
 
+function renderMatchs() {
+  var upcoming = [], played = [];
+  (typeof MATCHS !== "undefined" ? MATCHS : []).forEach(function(m) {
+    if (!m || !m.visiteur || !m.domicile) return;
+    if (!m.manches) { upcoming.push(m); return; }
+    // "26-24; 20-25; 15-8" → sets gagnés et points de chaque équipe
+    var vPts = [], hPts = [], vSets = 0, hSets = 0;
+    m.manches.split(/[;,]/).forEach(function(set) {
+      var pts = set.split("-").map(function(x) { return parseInt(x, 10); });
+      if (pts.length !== 2 || isNaN(pts[0]) || isNaN(pts[1])) return;
+      vPts.push(pts[0]); hPts.push(pts[1]);
+      if (pts[0] > pts[1]) vSets++; else hSets++;
+    });
+    var mineWon = isMySchool(m.visiteur) ? vSets > hSets : hSets > vSets;
+    played.push({ date: m.date, visitor: m.visiteur, home: m.domicile,
+      vScore: vSets + " (" + vPts.join(", ") + ")", hScore: hSets + " (" + hPts.join(", ") + ")",
+      result: mineWon ? "Victoire" : "Défaite", badgeClass: mineWon ? "badge-win" : "badge-loss" });
+  });
+
+  var upEl = document.getElementById("upcoming-container");
+  if (!upcoming.length) {
+    upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>';
+  } else {
+    var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+      '<thead><tr><th>Visiteur</th><th>Domicile</th></tr></thead><tbody>';
+    groupByDate(upcoming).forEach(function(group) {
+      html += '<tr><td colspan="2" class="date-row">' + group.date + '</td></tr>';
+      group.games.forEach(function(g) {
+        html += '<tr>' +
+          '<td style="' + boldStyle(g.visiteur) + '">' + nameCell(g.visiteur) + '</td>' +
+          '<td style="' + boldStyle(g.domicile) + '">' + nameCell(g.domicile) + '</td>' +
+          '</tr>';
+      });
+    });
+    upEl.innerHTML = html + '</tbody></table></div>';
+  }
+
+  var plEl = document.getElementById("scores-container");
+  if (!played.length) {
+    plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+  } else {
+    var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
+      '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th></tr></thead><tbody>';
+    groupByDate(played).forEach(function(group) {
+      html += '<tr><td colspan="5" class="date-row">' + group.date + '</td></tr>';
+      group.games.forEach(function(g) {
+        html += '<tr>' +
+          '<td style="' + boldStyle(g.visitor) + '">' + nameCell(g.visitor) + '</td>' +
+          '<td class="text-center" style="font-weight:700;">' + g.vScore + '</td>' +
+          '<td class="text-center" style="font-weight:700;">' + g.hScore + '</td>' +
+          '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
+          '<td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td>' +
+          '</tr>';
+      });
+    });
+    plEl.innerHTML = html + '</tbody></table></div>';
+  }
+}
+
+function renderClassement() {
+  var el = document.getElementById("standings-container");
+  var rows = typeof CLASSEMENT !== "undefined" ? CLASSEMENT : [];
+  if (!rows.length) {
+    el.innerHTML = '<p class="data-loading"><i class="bi bi-hourglass-split me-1"></i>Le classement de la ligue n\'est pas disponible pour l\'instant.</p>';
+    return;
+  }
+  var html = '<div class="table-responsive"><table class="table table-bordered standings-table"><thead><tr>' +
+    '<th>École</th><th title="Parties jouées">PJ</th><th title="Victoires">V</th><th title="Défaites">D</th>' +
+    '<th title="Manches gagnées">MG</th><th title="Manches perdues">MP</th></tr></thead><tbody>';
+  rows.forEach(function(r) {
+    var mine = isMySchool(r.ecole || "");
+    html += '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nameCell(r.ecole || "") + '</td>' +
+      [r.pj, r.v, r.d, r.mg, r.mp].map(function(c) { return '<td>' + (c === undefined ? "" : c) + '</td>'; }).join("") + '</tr>';
+  });
+  el.innerHTML = html + '</tbody></table></div>';
+}
+
+renderMatchs();
+renderClassement();
 </script>
 </body>
 </html>
