@@ -207,7 +207,7 @@
 }
 .highlight-item .hi-text span {
   font-size: 12px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.85);
 }
 @media (max-width: 768px) {
   .highlights-strip .strip-inner { flex-direction: column; }
@@ -271,7 +271,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--default-color);
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 /* ══ QUICK LINKS ══════════════════════════════════════════════════════════ */
@@ -330,7 +330,7 @@
 .gage-section-sub {
   font-size: 15px;
   color: var(--default-color);
-  opacity: 0.65;
+  opacity: 0.85;
   margin-bottom: 40px;
 }
 
@@ -404,4 +404,9 @@ html.dark-mode .ranking-silver {
   .ranking-card { padding: 20px 18px; gap: 14px; }
   .ranking-number { font-size: 52px; }
   .ranking-medal { font-size: 34px; }
+}
+
+/* Lighter green for text on the dark background */
+html.dark-mode .stat-card .stat-number {
+  color: #5cb87a;
 }

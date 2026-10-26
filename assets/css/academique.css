@@ -18,7 +18,7 @@
   font-size: 15px;
   color: var(--default-color);
   line-height: 1.8;
-  opacity: .7;
+  opacity: .8;
   margin: 0;
 }
 
@@ -115,8 +115,8 @@
 .card-cours .acad-card-icon { background: rgba(25,118,210,.12); color: #1976d2; }
 .card-cours .acad-card-top h3 { color: var(--heading-color); }
 .card-cours .acad-card-top p { color: var(--default-color); }
-.card-cours .acad-pill { background: rgba(25,118,210,.1); color: #1976d2; }
-.card-cours .acad-cta { color: #1976d2; }
+.card-cours .acad-pill { background: rgba(25,118,210,.1); color: #1565c0; }
+.card-cours .acad-cta { color: #1565c0; }
 
 .card-prog {
   --card-accent: #6a1b9a;
@@ -154,7 +154,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--default-color);
-  opacity: .5;
+  opacity: .8;
   margin-top: 4px;
   display: block;
 }
@@ -173,4 +173,18 @@ html.dark-mode .acad-intro p {
 }
 html.dark-mode .acad-stats {
   border-color: rgba(255,255,255,.08);
+}
+html.dark-mode .acad-intro h2,
+html.dark-mode .acad-stat-num {
+  color: #5cb87a;
+}
+html.dark-mode .card-cours .acad-card-icon,
+html.dark-mode .card-cours .acad-pill,
+html.dark-mode .card-cours .acad-cta {
+  color: #90caf9;
+}
+html.dark-mode .card-prog .acad-card-icon,
+html.dark-mode .card-prog .acad-pill,
+html.dark-mode .card-prog .acad-cta {
+  color: #ce93d8;
 }

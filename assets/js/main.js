@@ -46,6 +46,7 @@
    * Animation on scroll function and init
    */
   function aosInit() {
+    if (!window.AOS) return;
     AOS.init({
       duration: 600,
       easing: 'ease-in-out',
@@ -63,12 +64,18 @@
   /**
    * GAGE Dark Mode Toggle
    */
-  function gageSetTheme(mode) {
+  function gageApplyTheme(mode) {
     if (mode === "dark") {
       document.documentElement.classList.add("dark-mode");
     } else {
       document.documentElement.classList.remove("dark-mode");
     }
+  }
+
+  // Only called when the visitor clicks the button, so pages keep
+  // following the device's light/dark setting until they make a choice
+  function gageSetTheme(mode) {
+    gageApplyTheme(mode);
     try { localStorage.setItem("gage-theme", mode); } catch (e) {}
   }
 
@@ -99,6 +106,12 @@
    * The header is loaded by include-partials.js, so wait for it first.
    */
   function initHeader() {
+    /**
+     * Current year in the footer
+     */
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
+
     /**
      * Apply .scrolled class to the body as the page is scrolled down
      */
@@ -155,7 +168,7 @@
      */
     const btn = document.getElementById("theme-toggle");
     // Ensure theme is applied (in case the inline init script is missing on a page)
-    gageSetTheme(gageGetTheme());
+    gageApplyTheme(gageGetTheme());
     gageUpdateThemeToggleUI(btn);
 
     if (btn) {
@@ -171,7 +184,8 @@
       const hasSaved = !!localStorage.getItem("gage-theme");
       if (!hasSaved && window.matchMedia) {
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(e) {
-          gageSetTheme(e.matches ? "dark" : "light");
+          if (localStorage.getItem("gage-theme")) return; // the visitor chose a theme since
+          gageApplyTheme(e.matches ? "dark" : "light");
           gageUpdateThemeToggleUI(btn);
         });
       }

@@ -61,7 +61,7 @@
     return `
 <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="${delay}">
   <div class="member-img">
-    <img src="${photo}" class="img-fluid" alt="${name}">
+    <img src="${photo}" class="img-fluid" alt="${name}" width="640" height="640" loading="lazy">
     <div class="social">
       ${email ? `<a href="${mailto}" aria-label="Email ${name}"><i class="bi bi-envelope"></i></a>` : ""}
     </div>
