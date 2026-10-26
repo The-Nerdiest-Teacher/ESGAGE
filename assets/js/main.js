@@ -48,6 +48,7 @@
   function aosInit() {
     if (!window.AOS) return;
     AOS.init({
+      disable: window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
       duration: 600,
       easing: 'ease-in-out',
       once: true,

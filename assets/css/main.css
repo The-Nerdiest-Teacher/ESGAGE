@@ -1195,3 +1195,13 @@ html.dark-mode .navmenu a.active:focus {
     min-height: 90px;
   }
 }
+
+/* Visitors who asked their device to reduce motion: show content right away, no fade-ins */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

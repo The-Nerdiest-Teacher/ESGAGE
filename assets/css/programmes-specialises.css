@@ -201,3 +201,6 @@ html.dark-mode .theme-mhs-tic    { --pc: #ce93d8; --pc-light: rgba(206,147,216,.
   margin: 0;
   max-width: 640px;
 }
+
+/* Leave room for the sticky header when a link jumps to a program (#bi, #mhs-sports, #mhs-tic) */
+.prog-card[id] { scroll-margin-top: 110px; }
