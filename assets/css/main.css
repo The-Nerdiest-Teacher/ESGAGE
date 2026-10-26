@@ -484,29 +484,46 @@ h6 {
 }
 
 .footer .footer-top {
-  padding-top: 20px;
+  padding-top: 44px;
 }
 
 .footer .footer-about .logo {
   margin-bottom: 0;
+  gap: 10px;
 }
 
 .footer .footer-about .logo img {
   max-height: 40px;
-  margin-right: 6px;
+  width: auto;
 }
 
-.footer .footer-about .logo span {
-  font-size: 26px;
+.footer .footer-about .footer-sitename {
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 1px;
   font-family: var(--heading-font);
   color: var(--heading-color);
+  line-height: 1.2;
 }
 
 .footer .footer-about p {
-  font-size: 14px;
-  font-family: var(--heading-font);
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.footer a {
+  color: var(--default-color);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--default-color), transparent 60%);
+  text-underline-offset: 3px;
+}
+
+.footer a:hover {
+  color: var(--accent-color);
+}
+
+.footer .footer-about .logo,
+.footer .social-links a {
+  text-decoration: none;
 }
 
 .footer .social-links a {
@@ -518,7 +535,7 @@ h6 {
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--default-color);
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -531,13 +548,22 @@ h6 {
 .footer h4 {
   font-size: 16px;
   font-weight: bold;
-  position: relative;
-  padding-bottom: 12px;
-  text-align: center;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
 }
 
-.footer .footer-links {
-  margin-bottom: 30px;
+.footer .footer-contact p {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer .footer-contact i {
+  color: var(--accent-color);
+  flex-shrink: 0;
 }
 
 .footer .footer-links ul {
@@ -546,92 +572,32 @@ h6 {
   margin: 0;
 }
 
-.footer .footer-links ul i {
-  padding-right: 2px;
-  font-size: 12px;
-  line-height: 0;
-}
-
 .footer .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.footer .footer-links ul li:first-child {
-  padding-top: 0;
-}
-
-.footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  display: inline-block;
-  line-height: 1;
-}
-
-.footer .footer-links ul a:hover {
-  color: var(--accent-color);
-}
-
-.footer .footer-contact p {
-  margin-bottom: 5px;
-}
-
-.footer .footer-newsletter .newsletter-form {
-  margin-top: 30px;
-  margin-bottom: 15px;
-  padding: 6px 8px;
-  position: relative;
-  border-radius: 50px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  display: flex;
-  background-color: var(--surface-color);
-  transition: 0.3s;
-}
-
-.footer .footer-newsletter .newsletter-form:focus-within {
-  border-color: var(--accent-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email] {
-  border: 0;
-  padding: 4px 8px;
-  width: 100%;
-  background-color: var(--surface-color);
-  color: var(--default-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
-  outline: none;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit] {
-  border: 0;
-  font-size: 16px;
-  padding: 0 20px 2px 20px;
-  margin: -7px -8px -7px 0;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transition: 0.3s;
-  border-radius: 50px;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  padding: 6px 0;
 }
 
 .footer .copyright {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  font-size: 13px;
 }
 
 .footer .copyright p {
   margin-bottom: 0;
 }
 
-.footer .credits {
-  margin-top: 6px;
-  font-size: 13px;
+/* Keep the copyright line clear of the scroll-to-top button on phones */
+@media (max-width: 575px) {
+  .footer .copyright {
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+}
+
+html.dark-mode .footer h4,
+html.dark-mode .footer .footer-contact i {
+  --accent-color: #5cb87a;
 }
 
 /*--------------------------------------------------------------
@@ -1074,6 +1040,27 @@ html.dark-mode .footer {
   background: #151515;
 }
 
+/* Beige sections set their own light colours; keep cards dark in dark mode */
+html.dark-mode .light-background {
+  --background-color: #171717;
+  --surface-color: #1e1e1e;
+}
+
+/* Bootstrap tables and list groups follow dark mode */
+html.dark-mode {
+  --bs-body-bg: #121212;
+  --bs-body-color: #e6e6e6;
+  --bs-emphasis-color: #ffffff;
+  --bs-secondary-color: rgba(230, 230, 230, 0.75);
+  --bs-tertiary-bg: #1e1e1e;
+  --bs-border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Lighter green for accent-coloured links on the dark background */
+html.dark-mode .back-link {
+  --accent-color: #5cb87a;
+}
+
 html.dark-mode .section,
 html.dark-mode section {
   background: transparent;
@@ -1140,14 +1127,12 @@ html.dark-mode .navmenu a.active:focus {
 }
 
 /* ===============================
-   Center Footer Social Icons
+   Footer Social Icons
 ================================ */
 
 .footer .social-links {
   display: flex !important;
-  justify-content: center;
   align-items: center;
-  gap: 18px;
 }
 
 
@@ -1208,5 +1193,15 @@ html.dark-mode .navmenu a.active:focus {
 @media (min-width: 1200px) {
   #header-placeholder {
     min-height: 90px;
+  }
+}
+
+/* Visitors who asked their device to reduce motion: show content right away, no fade-ins */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
