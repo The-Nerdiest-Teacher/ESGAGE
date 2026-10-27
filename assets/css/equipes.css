@@ -37,7 +37,8 @@ html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(
 .manual-table td { vertical-align: middle; padding: 10px 14px; font-size: 13px; }
 .manual-table tbody tr:hover { background: color-mix(in srgb, var(--accent-color), transparent 92%); }
 .badge-win      { background:#198754; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
-.badge-loss     { background:#dc3545; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+.badge-loss     { background:#495057; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
+html.dark-mode .badge-loss { background:#5c636a; color:#f1f3f5; }
 .badge-upcoming { background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; }
 .replay-btn {
   display:inline-flex; align-items:center; gap:5px;
