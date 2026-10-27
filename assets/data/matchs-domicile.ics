@@ -123,6 +123,17 @@ DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Basketball filles senior vs E.S. Sainte-Trinite
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261027T140000
+DTEND;TZID=America/Toronto:20261027T153000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
+ -senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-28-basketball-filles-senior-vs-oakville-trafalgar-h-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Basketball filles senior vs Oakville Trafalgar H.S.
@@ -132,6 +143,28 @@ DTEND;TZID=America/Toronto:20261028T153000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
  -senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-volleyball-garcons-senior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball garçons senior vs Acton D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261028T153000
+DTEND;TZID=America/Toronto:20261028T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
+ s-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-volleyball-garcons-junior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball garçons junior vs Acton D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261028T164500
+DTEND;TZID=America/Toronto:20261028T181500
+URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
+DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
+ s-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-03-volleyball-garcons-7e-8e-vs-maple-grove@esgage.ca
