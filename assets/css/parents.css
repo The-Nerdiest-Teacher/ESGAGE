@@ -1,0 +1,129 @@
+/* Coin des parents (parents.html, en/parents.html) */
+
+/* Jump links under the page title */
+.parents-jump { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 8px; padding: 0; list-style: none; }
+.parents-jump a {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 30px;
+  border: 2px solid var(--accent-color); color: var(--accent-color);
+  font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.parents-jump a:hover { background: var(--accent-color); color: #fff; }
+
+.parents-section { scroll-margin-top: 90px; }
+.parents-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 1.5px; line-height: 1.1;
+  color: var(--heading-color); margin: 0 0 6px; text-align: center;
+}
+.parents-sub { text-align: center; margin: 0 auto 28px; max-width: 640px; color: var(--default-color); opacity: 0.9; }
+
+/* Info cards (absences, transport, links) */
+.parents-card {
+  height: 100%; padding: 24px; border-radius: 16px;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+.parents-card h3 {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 19px; margin: 0 0 12px; color: var(--heading-color);
+}
+.parents-card h3 .bi {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 12px; font-size: 20px;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%); color: var(--accent-color);
+}
+.parents-card p:last-child, .parents-card ul:last-child { margin-bottom: 0; }
+.parents-card ul { padding-left: 20px; }
+.parents-card li { margin-bottom: 6px; }
+.parents-card .parents-contact { list-style: none; padding: 0; }
+.parents-card .parents-contact .bi { color: var(--accent-color); margin-right: 8px; }
+.parents-note {
+  margin: 14px 0 0; padding: 10px 14px; border-radius: 10px; font-size: 14px;
+  background: rgba(212, 160, 23, 0.16); color: var(--default-color);
+}
+.parents-note .bi { color: #d4a017; margin-right: 6px; }
+
+/* Link tiles */
+.parents-link {
+  display: flex; align-items: flex-start; gap: 14px; height: 100%; padding: 18px 20px; border-radius: 14px;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  text-decoration: none; transition: transform 0.2s, border-color 0.2s;
+}
+.parents-link:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+.parents-link > .bi { flex: 0 0 auto; font-size: 26px; color: var(--accent-color); line-height: 1; margin-top: 2px; }
+.parents-link strong { display: block; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 16px; color: var(--heading-color); }
+.parents-link span { display: block; font-size: 14px; color: var(--default-color); opacity: 0.85; margin-top: 2px; }
+.parents-link .bi-box-arrow-up-right { font-size: 12px; margin-left: 4px; }
+
+/* "À venir" cards: same look as the home page (index.css) */
+.event-card {
+  display: flex; align-items: center; gap: 16px; height: 100%; padding: 16px 20px; border-radius: 14px;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  text-decoration: none; transition: transform 0.2s, border-color 0.2s;
+}
+.event-card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+.event-date {
+  flex: 0 0 auto; width: 62px; padding: 8px 0; border-radius: 10px;
+  background: var(--accent-color); color: #fff; text-align: center; line-height: 1;
+}
+.event-day { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 30px; }
+.event-month { display: block; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.event-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.event-title { font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.3; color: var(--heading-color); }
+.event-when { font-size: 13px; color: var(--default-color); opacity: 0.85; }
+.event-when::first-letter { text-transform: uppercase; }
+.events-empty { text-align: center; margin: 0; color: var(--default-color); opacity: 0.85; }
+.event-icon { margin-right: 6px; color: var(--accent-color); }
+.event-icon.is-emoji { margin-right: 4px; }
+.parents-more { text-align: center; margin-top: 22px; }
+.parents-more a { font-family: 'Raleway', sans-serif; font-weight: 700; color: var(--accent-color); text-decoration: none; }
+.parents-more a .bi { transition: transform 0.2s; display: inline-block; }
+.parents-more a:hover .bi { transform: translateX(4px); }
+
+/* App + contact band */
+.parents-band {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  padding: 32px 36px; border-radius: 20px; color: #fff;
+  background: linear-gradient(135deg, #1f6b3a 0%, #134527 100%);
+}
+.parents-band img { width: 64px; height: 64px; border-radius: 16px; flex: 0 0 auto; }
+.parents-band-text { flex: 1 1 320px; display: flex; gap: 18px; align-items: center; }
+.parents-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1.5px; line-height: 1.1; margin: 0 0 6px; color: #fff; }
+.parents-band p { margin: 0; color: rgba(255, 255, 255, 0.9); }
+.parents-band-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.parents-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px;
+  background: #fff; color: #134527; border: 2px solid #fff;
+  font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.parents-btn:hover { background: #ffe082; border-color: #ffe082; color: #134527; }
+.parents-btn-outline { background: transparent; color: #fff; }
+.parents-btn-outline:hover { background: rgba(255, 255, 255, 0.15); border-color: #fff; color: #fff; }
+
+/* Dark mode */
+html.dark-mode .parents-card,
+html.dark-mode .parents-link,
+html.dark-mode .event-card { background: #1e1e1e; border-color: rgba(255, 255, 255, 0.1); }
+html.dark-mode .parents-jump a,
+html.dark-mode .parents-card h3 .bi,
+html.dark-mode .parents-card .parents-contact .bi,
+html.dark-mode .parents-link > .bi,
+html.dark-mode .event-icon,
+html.dark-mode .parents-more a { color: #5cb87a; }
+html.dark-mode .parents-jump a { border-color: #5cb87a; }
+html.dark-mode .parents-jump a:hover { background: #5cb87a; color: #121212; }
+html.dark-mode .parents-btn { color: #134527; }
+html.dark-mode .parents-btn-outline,
+html.dark-mode .parents-btn-outline:hover { color: #fff; }
+
+@media (max-width: 575px) {
+  .parents-band { padding: 26px 22px; }
+  .parents-band-text { flex-direction: column; align-items: flex-start; }
+  .parents-title { font-size: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .parents-link, .event-card, .parents-more a .bi { transition: none; }
+}
