@@ -1,0 +1,56 @@
+/* Aujourd'hui à GAGE page (assets/js/aujourdhui.js). Uses the calendar styles in calendrier.css. */
+.today-wrap { max-width: 760px; margin: 0 auto; }
+.today-date {
+  margin: 0 0 14px; text-align: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 2px; color: var(--heading-color);
+}
+.today-panel { margin-top: 0; }
+.today-none { font-size: 16px; }
+.today-none .bi { color: #d4a017; margin-right: 6px; }
+.today-next { margin-top: 32px; }
+.today-pill {
+  display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 1px 8px; border-radius: 20px;
+  background: #d4a017; color: #1b1b1b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.today-offline {
+  margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; font-size: 14px;
+  background: rgba(212, 160, 23, 0.16); color: var(--default-color);
+}
+a.cal-badge, a.cal-badge:hover { color: #fff; }
+.today-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px; }
+.today-links a {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 30px;
+  background: var(--accent-color); color: #fff; font-weight: 600;
+}
+.today-links a.is-outline { background: transparent; color: var(--accent-color); border: 2px solid var(--accent-color); }
+.today-links a:hover { filter: brightness(1.1); }
+
+/* "Installer l'app" card: the Android button shows when the browser allows it, the iPhone steps on iPhone/iPad */
+.install-card {
+  display: flex; gap: 16px; align-items: center; margin-top: 36px; padding: 18px 20px; border-radius: 14px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+.install-card[hidden] { display: none; }
+.install-card img { flex: 0 0 auto; width: 56px; height: 56px; border-radius: 14px; }
+.install-card h2 { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 17px; margin: 0 0 4px; color: var(--heading-color); }
+.install-card p { margin: 0; font-size: 14px; }
+.install-steps-ios, .install-card.is-ios .install-steps-other, .install-button { display: none; }
+.install-card.is-ios .install-steps-ios { display: block; }
+.install-card.can-prompt .install-steps-other { display: none; }
+.install-card.can-prompt .install-button { display: inline-flex; }
+.install-button {
+  align-items: center; gap: 6px; margin-top: 10px; padding: 8px 18px; border: 0; border-radius: 30px;
+  background: var(--accent-color); color: #fff; font-weight: 600;
+}
+.install-share { display: inline-block; vertical-align: -2px; }
+
+@media (max-width: 767px) {
+  .today-date { font-size: 28px; }
+  .install-card { align-items: flex-start; }
+  .install-card img { width: 44px; height: 44px; border-radius: 11px; }
+}
+
+html.dark-mode .today-wrap { --accent-color: #2f8a4f; }
+html.dark-mode .today-links a.is-outline { color: #5cb87a; border-color: #5cb87a; }
+html.dark-mode .install-card { background: #1e1e1e; border-color: rgba(255, 255, 255, 0.1); }

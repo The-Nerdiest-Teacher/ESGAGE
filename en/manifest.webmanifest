@@ -1,0 +1,23 @@
+{
+  "id": "/en/",
+  "name": "École secondaire Gaétan-Gervais",
+  "short_name": "GAGE",
+  "description": "Today at GAGE, the calendar, sports and news of École secondaire Gaétan-Gervais.",
+  "lang": "en-CA",
+  "dir": "ltr",
+  "start_url": "/en/aujourdhui.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f6b3a",
+  "icons": [
+    { "src": "/assets/img/app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/app/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Today at GAGE", "url": "/en/aujourdhui.html", "icons": [{ "src": "/assets/img/app/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Calendar", "url": "/en/calendrier.html", "icons": [{ "src": "/assets/img/app/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Sports", "url": "/en/athletisme.html", "icons": [{ "src": "/assets/img/app/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

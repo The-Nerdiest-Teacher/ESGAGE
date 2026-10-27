@@ -19,6 +19,8 @@ assets/js/main.js                Menu, FR/EN and dark mode buttons, scroll anima
 assets/js/event-icons.js         Which icon each calendar event gets (word list)
 assets/js/matchs.js              Teams list + reads played games (game images, home page wins)
 assets/js/images-matchs.js       Draws the game images (equipes/images-matchs.html)
+assets/js/aujourdhui.js          "Aujourd'hui à GAGE" page (today's events, Installer l'app card)
+sw.js, manifest.webmanifest      Installable app (see "Application (PWA)" below); en/manifest.webmanifest for English
 assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
 assets/data/events.json          Calendrier page and home "À venir" (copied from Outlook, don't edit)
@@ -34,7 +36,7 @@ The site is bilingual. Each main page has an English twin with the **same file n
 
 - **Paths in `en/` pages start with `/`** (`/assets/img/...`, `/en/contact.html`) because the files sit one folder down.
 - **Menu and footer** have one file per language: `partials/header.html` / `header-en.html` and `partials/footer.html` / `footer-en.html`. Links in the English ones start with `/en/`.
-- **New page**: make `page.html` and `en/page.html` (`<html lang="en">` on the English one). In each `<head>`, under the `canonical` line, paste the three `hreflang` lines from any other page and change the file name. They tell Google the two pages are translations of each other, and the FR/EN button uses them to find the twin. Add both pages to `sitemap.xml`.
+- **New page**: make `page.html` and `en/page.html` (`<html lang="en">` on the English one). In each `<head>`, under the `canonical` line, paste the three `hreflang` lines from any other page and change the file name. They tell Google the two pages are translations of each other, and the FR/EN button uses them to find the twin. Add both pages to `sitemap.xml`. Also keep the `manifest` and `theme-color` lines under `apple-touch-icon` (the English page points to `/en/manifest.webmanifest`).
 - **Staff**: `staff.json` stays in French. Job titles and departments are translated by the `EN_TERMS` list at the top of `assets/js/staff.js`; a new title shows in French on the English page until it's added there.
 - **News**: give each item in `news.json` a `titre_en`, `resume_en` and `categorie_en` too.
 - **Fiertés Griffons** (home page): wins from the last 45 days are added automatically from the scores (`assets/js/fiertes.js`). Type only tournaments and other achievements, in `index.html` and `en/index.html`; typed cards always come first.
@@ -95,6 +97,23 @@ ffmpeg -i nouvelle-video.mp4 -frames:v 1 -vf scale=1280:720 -quality 62 assets/i
 ```
 
 Keep the files small (about 10 MB and 5 MB for two minutes): every visitor downloads the video as it plays.
+
+## Application (PWA)
+
+The site can be installed on a phone like an app (free, no app store). It opens on **Aujourd'hui à GAGE** (`aujourdhui.html`, or `en/aujourdhui.html` when installed from an English page), which shows today's events and home games from `events.json` and the next few events.
+
+- **Install**: iPhone/iPad, in Safari: Share → *Sur l'écran d'accueil* / *Add to Home Screen*. Android, in Chrome: the *Installer l'app* button on the Aujourd'hui page, or menu ⋮ → *Installer l'application* / *Ajouter à l'écran d'accueil*.
+- **Name, colours, shortcuts**: `manifest.webmanifest` and `en/manifest.webmanifest`. Icons are in `assets/img/app/` (the `maskable` one keeps the griffon inside the middle 80% so Android can crop it to a circle).
+- **`sw.js`** (service worker) always loads pages, scripts, styles and data (events, scores) **from the network first**, so nobody keeps an old version. The saved copy is only used offline, and `offline.html` / `en/offline.html` show for pages never opened before. Images and `assets/vendor/` are shown from the saved copy and refreshed in the background. Videos aren't saved. If you change the `PRECACHE` list or the rules in `sw.js`, change `VERSION` too (`gage-v2`, ...).
+- **Emergency off switch**: if the app ever misbehaves, replace everything in `sw.js` with the lines below and merge. Every visitor's browser removes the saved copies and goes back to plain website mode on their next visit.
+
+```js
+self.addEventListener("install", function () { self.skipWaiting(); });
+self.addEventListener("activate", function (e) {
+  e.waitUntil(caches.keys().then(function (k) { return Promise.all(k.map(function (n) { return caches.delete(n); })); })
+    .then(function () { return self.registration.unregister(); }));
+});
+```
 
 ## Archiving a season
 
