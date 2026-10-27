@@ -1,4 +1,5 @@
-# Copies the shared Outlook calendar to assets/data/events.json every 30 minutes.
+# Copies the shared Outlook calendar, plus home games from the team pages,
+# to assets/data/events.json every 30 minutes.
 # To update right away: Actions tab > "Calendrier (Outlook)" > Run workflow.
 name: Calendrier (Outlook)
 
@@ -11,6 +12,9 @@ on:
     paths:
       - .github/workflows/calendrier.yml
       - .github/scripts/calendrier.py
+      # and when team data or a team page's MATCHS list changes
+      - assets/data/sports/*.json
+      - equipes/*.html
 
 permissions:
   contents: write

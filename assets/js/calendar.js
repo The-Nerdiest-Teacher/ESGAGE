@@ -99,7 +99,9 @@
       iconHtml(e, "cal-event-icon") +
       '<span class="cal-event-text">' +
       '<span class="cal-event-when">' + escapeHtml(whenText(e)) + "</span>" +
-      '<strong class="cal-event-title">' + escapeHtml(title(e)) + "</strong>" +
+      '<strong class="cal-event-title">' + (e.url
+        ? '<a href="' + escapeHtml(e.url + (EN ? "?lang=en" : "")) + '">' + escapeHtml(title(e)) + ' <i class="bi bi-arrow-right-short"></i></a>'
+        : escapeHtml(title(e))) + "</strong>" +
       (e.location ? '<span class="cal-event-place"><i class="bi bi-geo-alt"></i> ' + escapeHtml(e.location) + "</span>" : "") +
       (desc ? '<p class="cal-event-desc">' + escapeHtml(desc).replace(/\n/g, "<br>") + "</p>" : "") +
       "</span></li>";

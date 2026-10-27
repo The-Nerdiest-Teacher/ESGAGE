@@ -5,6 +5,12 @@ which the Calendrier page and the home page "À venir" read.
 Run by .github/workflows/calendrier.yml. The calendar's published ICS link
 is in the CALENDAR_ICS_URL setting of that workflow.
 Events are typed in French only; the English pages show them as is.
+
+Games are added automatically from the team pages' data (read only):
+  - assets/data/sports/*.json (HSSAA schedule from Nick's browser extension)
+  - the MATCHS list in equipes/*-<season>.html pages (e.g. 7e/8e volleyball)
+Only home games (played at Gaétan-Gervais) are added.
+A game already typed in Outlook (same day, same sport and opponent) is not added twice.
 """
 
 import datetime as dt
@@ -19,7 +25,8 @@ import icalendar
 import recurring_ical_events
 
 ZONE = ZoneInfo("America/Toronto")
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "assets", "data", "events.json")
+ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
+OUT = os.path.join(ROOT, "assets", "data", "events.json")
 MAX_DESCRIPTION = 1200
 
 
@@ -90,6 +97,177 @@ def convert(ics_bytes, today):
     return events
 
 
+# ── Games from the team pages ────────────────────────────────────────────
+
+SPORT_NAMES = {"volleyball": "Volleyball", "basketball": "Basketball", "soccer": "Soccer"}
+SPORT_WORDS = {"volleyball": r"volley|vb", "basketball": r"basket|bb", "soccer": r"soccer"}
+GENDERS = {"filles": "filles", "garcons": "garçons"}
+LEVELS = {"junior": "junior", "senior": "senior", "78": "7e/8e"}
+MY_SCHOOL = re.compile(r"ga[eé]tan|gervais|\bgage\b", re.I)
+FRENCH_MONTHS = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet",
+                 "aout", "septembre", "octobre", "novembre", "decembre"]
+GENERIC_WORDS = {"high", "school", "secondary", "collegiate", "college", "catholic", "christian",
+                 "ecole", "secondaire", "academy", "the", "and", "des", "les"}
+
+
+def plain(text):
+    """Lower case, no accents: 'Garçons Sénior' -> 'garcons senior'."""
+    import unicodedata
+    text = unicodedata.normalize("NFD", str(text).lower())
+    return "".join(c for c in text if unicodedata.category(c) != "Mn").replace("’", "'")
+
+
+def team_from_name(name):
+    """'volleyball-garcons-senior' -> ('volleyball', 'garcons', 'senior') or None."""
+    parts = name.split("-")
+    if len(parts) < 3 or parts[0] not in SPORT_NAMES or parts[1] not in GENDERS or parts[2] not in LEVELS:
+        return None
+    return parts[0], parts[1], parts[2]
+
+
+def team_label(team):
+    sport, gender, level = team
+    return "%s %s %s" % (SPORT_NAMES[sport], GENDERS[gender], LEVELS[level])
+
+
+def team_page(team, today):
+    """The current season's page for this team, if there is one."""
+    year = today.year if today.month >= 8 else today.year - 1
+    page = "equipes/%s-%d-%d.html" % ("-".join(team), year, year + 1)
+    return page if os.path.exists(os.path.join(ROOT, page)) else None
+
+
+def game_event(team, day, time, visitor, home, location, today):
+    """A home game as a calendar event; None for away games (Nick wants home games only)."""
+    if not MY_SCHOOL.search(location or home):
+        return None
+    opponent = visitor
+    event = {
+        "title": "%s vs %s" % (team_label(team), opponent),
+        "start": day.isoformat() + ("T" + time if time else ""),
+        "allDay": not time,
+        "game": True,
+        "opponent": opponent,
+    }
+    event["end"] = (day + dt.timedelta(days=1)).isoformat() if not time else event["start"]
+    event["location"] = "Gaétan-Gervais"
+    page = team_page(team, today)
+    if page:
+        event["url"] = "/" + page
+    return event
+
+
+def hssaa_games(today):
+    """Games in assets/data/sports/*.json (written by the browser extension)."""
+    games = []
+    folder = os.path.join(ROOT, "assets", "data", "sports")
+    for name in sorted(os.listdir(folder)):
+        team = team_from_name(name[:-5]) if name.endswith(".json") else None
+        if not team:
+            continue
+        try:
+            with open(os.path.join(folder, name), encoding="utf-8") as f:
+                rows = json.load(f).get("scores") or []
+        except (OSError, ValueError) as error:
+            print("Skipped %s: %s" % (name, error))
+            continue
+        day = None
+        for i, row in enumerate(rows):
+            if not row or not row[0] or row[0] == "Visitor" or re.match(r"(Location|Notes):", row[0]):
+                continue
+            if row[0] == "__DATE__":
+                try:
+                    day = dt.datetime.strptime(row[1].strip(), "%A, %B %d, %Y").date()
+                except (IndexError, ValueError):
+                    day = None
+                continue
+            if day is None or len(row) < 3:
+                continue
+            time = ""
+            for cell in row[1:]:
+                match = re.match(r"^(\d{1,2}):(\d{2})\s*(AM|PM)?$", (cell or "").strip(), re.I)
+                if match:
+                    hour = int(match.group(1)) % 12 if match.group(3) else int(match.group(1))
+                    if (match.group(3) or "").upper() == "PM":
+                        hour += 12
+                    time = "%02d:%s" % (hour, match.group(2))
+                    break
+            cells = [c.strip() for c in row if (c or "").strip()]
+            visitor, home = cells[0], cells[-1]
+            location = ""
+            if i + 1 < len(rows) and rows[i + 1] and str(rows[i + 1][0]).startswith("Location:"):
+                location = rows[i + 1][0].split(":", 1)[1].strip()
+            games.append(game_event(team, day, time, visitor, home, location, today))
+    return games
+
+
+def french_date(text):
+    """'Mardi 13 octobre 2026' -> date(2026, 10, 13)."""
+    match = re.search(r"(\d{1,2})(?:er)?\s+([a-z]+)\s+(\d{4})", plain(text))
+    if not match or match.group(2) not in FRENCH_MONTHS:
+        return None
+    return dt.date(int(match.group(3)), FRENCH_MONTHS.index(match.group(2)) + 1, int(match.group(1)))
+
+
+def page_games(today):
+    """Games typed in a team page's MATCHS list (teams without HSSAA data)."""
+    games = []
+    folder = os.path.join(ROOT, "equipes")
+    for name in sorted(os.listdir(folder)):
+        match = re.match(r"(.+)-\d{4}-\d{4}\.html$", name)
+        team = team_from_name(match.group(1)) if match else None
+        if not team:
+            continue
+        with open(os.path.join(folder, name), encoding="utf-8") as f:
+            html = f.read()
+        block = re.search(r"var MATCHS\s*=\s*\[(.*?)\n\s*\];", html, re.S)
+        if not block:
+            continue
+        for item in re.findall(r"\{[^{}]*\}", block.group(1)):
+            fields = dict(re.findall(r"(\w+)\s*:\s*\"([^\"]*)\"", item))
+            day = french_date(fields.get("date", ""))
+            if not day or not fields.get("visiteur") or not fields.get("domicile"):
+                continue
+            time = ""
+            heure = re.match(r"(\d{1,2})\s*[h:]\s*(\d{2})?", fields.get("heure", ""))
+            if heure:
+                time = "%02d:%s" % (int(heure.group(1)), heure.group(2) or "00")
+            games.append(game_event(team, day, time, fields["visiteur"], fields["domicile"], "", today))
+    return games
+
+
+def same_game(game, event):
+    """True when an Outlook event looks like this game (same day, sport, opponent)."""
+    if event.get("game") or event["start"][:10] > game["start"][:10] or event["end"][:10] < game["start"][:10]:
+        return False
+    title = plain(event["title"])
+    sport = plain(game["title"]).split()[0]
+    if not re.search(r"\b(%s)" % SPORT_WORDS[sport], title):
+        return False
+    label = plain(game["title"])
+    for words in (("filles", "garcons", "gars"), ("junior", "senior", "7e", "78")):
+        said = [w for w in words if re.search(r"\b%s\b" % w, title)]
+        if said and not any(w in label for w in said):
+            return False
+    names = [w for w in re.findall(r"[a-z]{3,}", plain(game["opponent"])) if w not in GENERIC_WORDS]
+    return not names or any(re.search(r"\b%s" % w, title) for w in names)
+
+
+def add_games(events, today):
+    games = [g for g in hssaa_games(today) + page_games(today) if g]
+    added = 0
+    for game in games:
+        if any(same_game(game, e) for e in events):
+            continue
+        events.append(game)
+        added += 1
+    print("Games from the team pages: %d found, %d added (others are already in Outlook)." % (len(games), added))
+    for game in games:
+        game.pop("opponent", None)
+    events.sort(key=lambda e: (e["start"], e["title"]))
+    return events
+
+
 def main():
     url = os.environ.get("CALENDAR_ICS_URL", "").strip()
     if not url:
@@ -105,7 +283,8 @@ def main():
         sys.exit("The link did not return a calendar (.ics). events.json was left as is.")
 
     print("Outlook sent %d event entries." % ics.count(b"BEGIN:VEVENT"))
-    events = convert(ics, dt.datetime.now(ZONE).date())
+    today = dt.datetime.now(ZONE).date()
+    events = add_games(convert(ics, today), today)
     data = {"events": events}
 
     path = os.path.normpath(OUT)
