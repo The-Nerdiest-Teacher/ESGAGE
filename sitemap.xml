@@ -36,6 +36,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://esgage.ca/aujourdhui.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://esgage.ca/personnel.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -158,6 +163,11 @@
   <url>
     <loc>https://esgage.ca/en/calendrier.html</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://esgage.ca/en/aujourdhui.html</loc>
+    <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>

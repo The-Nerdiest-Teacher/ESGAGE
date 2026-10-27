@@ -212,4 +212,14 @@
   }
 
   (window.gagePartialsReady || Promise.resolve()).then(initHeader);
+
+  /**
+   * App (PWA): the service worker (sw.js) lets families install the site
+   * and see the pages they already opened when offline
+   */
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
 })();
