@@ -17,6 +17,7 @@ assets/css/<page>.css            Styles for one page only
 assets/js/include-partials.js    Loads the header and footer into each page
 assets/js/main.js                Menu, FR/EN and dark mode buttons, scroll animations
 assets/js/event-icons.js         Which icon each calendar event gets (word list)
+assets/js/matchs.js              Teams list + reads played games (game images, home page wins)
 assets/js/images-matchs.js       Draws the game images (equipes/images-matchs.html)
 assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
@@ -36,7 +37,7 @@ The site is bilingual. Each main page has an English twin with the **same file n
 - **New page**: make `page.html` and `en/page.html` (`<html lang="en">` on the English one). In each `<head>`, under the `canonical` line, paste the three `hreflang` lines from any other page and change the file name. They tell Google the two pages are translations of each other, and the FR/EN button uses them to find the twin. Add both pages to `sitemap.xml`.
 - **Staff**: `staff.json` stays in French. Job titles and departments are translated by the `EN_TERMS` list at the top of `assets/js/staff.js`; a new title shows in French on the English page until it's added there.
 - **News**: give each item in `news.json` a `titre_en`, `resume_en` and `categorie_en` too.
-- **Fiertés Griffons** (home page): add the card to `index.html` and `en/index.html`.
+- **Fiertés Griffons** (home page): wins from the last 45 days are added automatically from the scores (`assets/js/fiertes.js`). Type only tournaments and other achievements, in `index.html` and `en/index.html`; typed cards always come first.
 - **Team pages** (`equipes/`) are **one file for both languages**: add `?lang=en` to the address for English (`/equipes/natation-2026-2027.html?lang=en`). `assets/js/team-lang.js` does the switch:
   - Text written in the HTML gets its English in a `data-en="..."` attribute on the same tag, e.g. `<h3 data-en="Grade 9 girls">9e année filles</h3>` (also on `<title>` and the `description` meta).
   - Text built by the page's script uses `tr("français", "English")`, e.g. `tr("Victoire", "Win")`.
@@ -64,7 +65,7 @@ Each event gets an icon picked from words in its name. Sports get their emoji ("
 
 `url` and `image` are optional. For the English page, add `"categorie_en"`, `"titre_en"` and `"resume_en"` to the same item. When the page has real news, add `https://esgage.ca/nouvelles.html` and `https://esgage.ca/en/nouvelles.html` back to `sitemap.xml` (and a link in both header partials if you want it in the menu).
 
-**Game images for Instagram** — `equipes/images-matchs.html` (English: add `?lang=en`) makes one image per game Gaétan-Gervais has played, newest first: "Victoire !" for a win, "Résultat final" otherwise, set scores for volleyball. Pick a team, pick Publication (4:5) or Story (9:16), then Télécharger (or Partager on a phone). Nothing to type: it reads the same data as the team pages (the extension's files and the `MATCHS` lists) and updates itself. The page isn't in the menu or in Google, so bookmark it. `?equipe=volleyball-garcons-senior` opens it on one team. A new team page with a `MATCHS` list needs one line in the `EQUIPES` list at the bottom of the page. The drawing code is in `assets/js/images-matchs.js`.
+**Game images for Instagram** — `equipes/images-matchs.html` (English: add `?lang=en`) makes one image per game Gaétan-Gervais has played, newest first: "Victoire !" for a win, "Résultat final" otherwise, set scores for volleyball. Pick a team, pick Publication (4:5) or Story (9:16), then Télécharger (or Partager on a phone). Nothing to type: it reads the same data as the team pages (the extension's files and the `MATCHS` lists) and updates itself. The page isn't in the menu or in Google, so bookmark it. `?equipe=volleyball-garcons-senior` opens it on one team. The list of teams is `EQUIPES` at the top of `assets/js/matchs.js` (shared with the home page wins): each new season, change the year in the `page` links; a new team page with a `MATCHS` list needs one line there. The drawing code is in `assets/js/images-matchs.js`.
 
 **Players on a team page** — edit the `PLAYERS` list near the bottom of the team's page in `equipes/`. Photos go in the folder named by `IMG_BASE` on that page.
 
