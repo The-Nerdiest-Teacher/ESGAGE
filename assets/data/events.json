@@ -29,10 +29,10 @@
   },
   {
    "title": "Volleyball garçons 7e/8e vs Dr. David Williams",
-   "start": "2026-10-14",
-   "allDay": true,
+   "start": "2026-10-14T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-15",
+   "end": "2026-10-14T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
   },
@@ -56,10 +56,10 @@
   },
   {
    "title": "Volleyball garçons 7e/8e vs Joshua Creek",
-   "start": "2026-10-20",
-   "allDay": true,
+   "start": "2026-10-20T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-21",
+   "end": "2026-10-20T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
   },
@@ -73,15 +73,6 @@
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
-   "title": "Volleyball garçons 7e/8e vs Oodenawi",
-   "start": "2026-10-27",
-   "allDay": true,
-   "game": true,
-   "end": "2026-10-28",
-   "location": "Gaétan-Gervais",
-   "url": "/equipes/volleyball-garcons-78-2026-2027.html"
-  },
-  {
    "title": "Basketball filles senior vs E.S. Sainte-Trinite",
    "start": "2026-10-27T14:00",
    "allDay": false,
@@ -89,6 +80,15 @@
    "end": "2026-10-27T14:00",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons 7e/8e vs Oodenawi",
+   "start": "2026-10-27T15:30",
+   "allDay": false,
+   "game": true,
+   "end": "2026-10-27T15:30",
+   "location": "Gaétan-Gervais",
+   "url": "/equipes/volleyball-garcons-78-2026-2027.html"
   },
   {
    "title": "Basketball filles senior vs Oakville Trafalgar H.S.",
@@ -119,10 +119,10 @@
   },
   {
    "title": "Volleyball garçons 7e/8e vs Maple Grove",
-   "start": "2026-11-03",
-   "allDay": true,
+   "start": "2026-11-03T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-11-04",
+   "end": "2026-11-03T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
   }

@@ -61,8 +61,8 @@ UID:2026-10-14-volleyball-garcons-7e-8e-vs-dr-david-williams@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons 7e/8e vs Dr. David Williams
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261014
-DTEND;VALUE=DATE:20261015
+DTSTART;TZID=America/Toronto:20261014T153000
+DTEND;TZID=America/Toronto:20261014T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-78-2026-2027.html
@@ -94,8 +94,8 @@ UID:2026-10-20-volleyball-garcons-7e-8e-vs-joshua-creek@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons 7e/8e vs Joshua Creek
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261020
-DTEND;VALUE=DATE:20261021
+DTSTART;TZID=America/Toronto:20261020T153000
+DTEND;TZID=America/Toronto:20261020T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-78-2026-2027.html
@@ -112,17 +112,6 @@ DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
  -senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-10-27-volleyball-garcons-7e-8e-vs-oodenawi@esgage.ca
-DTSTAMP:20260801T000000Z
-SUMMARY:Volleyball garçons 7e/8e vs Oodenawi
-LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261027
-DTEND;VALUE=DATE:20261028
-URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-78-2026-2027.html
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Basketball filles senior vs E.S. Sainte-Trinite
@@ -132,6 +121,17 @@ DTEND;TZID=America/Toronto:20261027T153000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
  -senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-volleyball-garcons-7e-8e-vs-oodenawi@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball garçons 7e/8e vs Oodenawi
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261027T153000
+DTEND;TZID=America/Toronto:20261027T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
+ s-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-basketball-filles-senior-vs-oakville-trafalgar-h-s@esgage.ca
@@ -171,8 +171,8 @@ UID:2026-11-03-volleyball-garcons-7e-8e-vs-maple-grove@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons 7e/8e vs Maple Grove
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261103
-DTEND;VALUE=DATE:20261104
+DTSTART;TZID=America/Toronto:20261103T153000
+DTEND;TZID=America/Toronto:20261103T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-78-2026-2027.html
