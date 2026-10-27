@@ -30,6 +30,9 @@
     }
   }
   if (scrollTop) {
+    if (!scrollTop.hasAttribute('aria-label')) {
+      scrollTop.setAttribute('aria-label', /^en/i.test(document.documentElement.lang) ? 'Back to top' : 'Retour en haut');
+    }
     scrollTop.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({
@@ -110,7 +113,27 @@
    * Header behaviour (menu, sticky header, dark mode button).
    * The header is loaded by include-partials.js, so wait for it first.
    */
+  const EN = /^en/i.test(document.documentElement.lang);
+
+  /**
+   * "Skip to content" link: the first thing keyboard users reach on every page,
+   * so they don't have to tab through the whole menu each time
+   */
+  function addSkipLink() {
+    const main = document.querySelector('main');
+    if (!main || document.querySelector('.skip-link')) return;
+    if (!main.id) main.id = 'main';
+    if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+    const skip = document.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = '#' + main.id;
+    skip.textContent = EN ? 'Skip to main content' : 'Aller au contenu principal';
+    document.body.prepend(skip);
+  }
+
   function initHeader() {
+    addSkipLink();
+
     /**
      * Current year in the footer
      */
@@ -148,18 +171,45 @@
     const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
     if (!mobileNavToggleBtn) return;
 
+    // The menu icon is an <i>, so give it what a real button has (keyboard, name, state)
+    const navLabels = EN ? ['Open the menu', 'Close the menu'] : ['Ouvrir le menu', 'Fermer le menu'];
+    mobileNavToggleBtn.setAttribute('role', 'button');
+    mobileNavToggleBtn.setAttribute('tabindex', '0');
+    mobileNavToggleBtn.setAttribute('aria-controls', 'navmenu');
+    mobileNavToggleBtn.setAttribute('aria-expanded', 'false');
+    mobileNavToggleBtn.setAttribute('aria-label', navLabels[0]);
+
     function mobileNavToogle() {
-      document.querySelector('body').classList.toggle('mobile-nav-active');
+      const open = document.querySelector('body').classList.toggle('mobile-nav-active');
       mobileNavToggleBtn.classList.toggle('bi-list');
       mobileNavToggleBtn.classList.toggle('bi-x');
+      mobileNavToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileNavToggleBtn.setAttribute('aria-label', navLabels[open ? 1 : 0]);
     }
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+    mobileNavToggleBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        mobileNavToogle();
+        // the links come before this button, so take the keyboard to the first one
+        const first = document.querySelector('.mobile-nav-active #navmenu > ul a');
+        if (first) first.focus();
+      }
+    });
+    // Escape closes the phone menu and puts the focus back on its button
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
+        mobileNavToggleBtn.focus();
+      }
+    });
 
     /**
      * Hide mobile nav on same-page/hash links
      */
     document.querySelectorAll('#navmenu a').forEach(navmenu => {
       navmenu.addEventListener('click', () => {
+        if (navmenu.getAttribute('href') === '#' && navmenu.nextElementSibling) return; // opens a sub-menu instead
         if (document.querySelector('.mobile-nav-active')) {
           mobileNavToogle();
         }
@@ -171,11 +221,31 @@
      * Toggle mobile nav dropdowns
      */
     document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+      navmenu.setAttribute('aria-hidden', 'true');
       navmenu.addEventListener('click', function(e) {
         e.preventDefault();
-        this.parentNode.classList.toggle('active');
+        const open = this.parentNode.classList.toggle('active');
         this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+        if (this.parentNode.getAttribute('href') === '#') this.parentNode.setAttribute('aria-expanded', open ? 'true' : 'false');
         e.stopImmediatePropagation();
+      });
+    });
+
+    // A menu title with no page of its own (href="#", e.g. Vie étudiante) opens its sub-menu,
+    // so keyboard and screen reader users can reach it on phones too
+    document.querySelectorAll('.navmenu .dropdown > a[href="#"]').forEach(link => {
+      link.setAttribute('role', 'button');
+      link.setAttribute('aria-expanded', 'false');
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const icon = link.querySelector('.toggle-dropdown');
+        if (icon && window.matchMedia('(max-width: 1199px)').matches) icon.click();
+      });
+      link.addEventListener('keydown', (e) => {
+        if (e.key === ' ') {
+          e.preventDefault();
+          link.click();
+        }
       });
     });
 
@@ -212,6 +282,25 @@
   }
 
   (window.gagePartialsReady || Promise.resolve()).then(initHeader);
+
+  /**
+   * Team rosters swipe sideways on phones (equipes.css): name the strip and let
+   * keyboard users reach it, so the arrow keys can scroll through the players
+   */
+  function rosterKeyboard() {
+    document.querySelectorAll('.roster-grid').forEach(grid => {
+      grid.setAttribute('role', 'region');
+      grid.setAttribute('aria-label', EN ? 'Team roster' : "Membres de l'équipe");
+      if (grid.scrollWidth > grid.clientWidth + 1) grid.setAttribute('tabindex', '0');
+      else grid.removeAttribute('tabindex');
+    });
+  }
+  window.addEventListener('load', () => {
+    rosterKeyboard();
+    // the players are added by the page's script, sometimes after the page has loaded
+    document.querySelectorAll('.roster-grid').forEach(grid => new MutationObserver(rosterKeyboard).observe(grid, { childList: true }));
+  });
+  window.addEventListener('resize', rosterKeyboard);
 
   /**
    * App (PWA): the service worker (sw.js) lets families install the site

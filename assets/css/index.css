@@ -12,8 +12,29 @@
 #hero-video-container {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: auto; /* lets the pause button sit above the dark overlay */
 }
+
+/* Pause / play button for the drone video (bottom right of the hero) */
+.hero-video-toggle {
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.hero-video-toggle[hidden] { display: none; }
+.hero-video-toggle:hover { background: rgba(0, 0, 0, 0.7); }
 
 #hero-video-container video {
   position: absolute;
@@ -235,7 +256,8 @@
   margin-bottom: 20px;
   font-size: 26px;
 }
-.pilier-card h4 {
+.pilier-card h4,
+.pilier-card h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -319,6 +341,9 @@
 
 /* ══ SECTION TITLES ═══════════════════════════════════════════════════════ */
 .gage-section-title {
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 0;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 38px;
   letter-spacing: 2px;

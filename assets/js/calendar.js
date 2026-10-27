@@ -16,13 +16,19 @@
     month: "Month", list: "List", today: "Today", prev: "Previous month", next: "Next month",
     allDay: "All day", more: "more", none: "No events this day.",
     noUpcoming: "No upcoming events for now.", error: "The calendar could not be loaded. Please try again later.",
-    loading: "Loading the calendar…", upcoming: "Upcoming events"
+    loading: "Loading the calendar…", upcoming: "Upcoming events", view: "Calendar view", events: "events", event: "event"
   } : {
     month: "Mois", list: "Liste", today: "Aujourd’hui", prev: "Mois précédent", next: "Mois suivant",
     allDay: "Toute la journée", more: "de plus", none: "Aucun événement cette journée.",
     noUpcoming: "Aucun événement à venir pour le moment.", error: "Le calendrier n’a pas pu être chargé. Réessayez plus tard.",
-    loading: "Chargement du calendrier…", upcoming: "Événements à venir"
+    loading: "Chargement du calendrier…", upcoming: "Événements à venir", view: "Affichage du calendrier", events: "événements", event: "événement"
   };
+
+  // Screen readers hear what changed after a click (the calendar is redrawn each time)
+  var status = document.createElement("p");
+  status.className = "sr-only";
+  status.setAttribute("aria-live", "polite");
+  root.parentNode.insertBefore(status, root.nextSibling);
 
   var events = [];
   var view = "month";
@@ -109,7 +115,7 @@
 
   function dayPanel() {
     var list = eventsOn(selected);
-    return '<div class="cal-day-panel" aria-live="polite">' +
+    return '<div class="cal-day-panel">' +
       '<h3 class="cal-day-title">' + escapeHtml(cap(fmt(selected, { weekday: "long", day: "numeric", month: "long", year: "numeric" }))) + "</h3>" +
       (list.length ? '<ul class="cal-events">' + list.map(eventItem).join("") + "</ul>"
                    : '<p class="cal-empty">' + T.none + "</p>") +
@@ -119,11 +125,12 @@
   function monthGrid() {
     var first = toDate(shown + "-01");
     var start = addDays(shown + "-01", -first.getDay()); // weeks start on Sunday
-    var html = '<div class="cal-grid" role="grid">';
+    var html = '<div class="cal-grid">';
 
     for (var w = 0; w < 7; w++) {
       var name = fmt(addDays(start, w), { weekday: "short" }).replace(".", "");
-      html += '<div class="cal-weekday" role="columnheader">' + escapeHtml(cap(name)) + "</div>";
+      // Each day button already says its weekday, so screen readers skip these headers
+      html += '<div class="cal-weekday" aria-hidden="true">' + escapeHtml(cap(name)) + "</div>";
     }
 
     var day = start;
@@ -188,7 +195,7 @@
           '<button type="button" class="cal-btn" data-move="1" aria-label="' + T.next + '"><i class="bi bi-chevron-right"></i></button>' +
         "</div>" +
         '<h2 class="cal-heading">' + escapeHtml(heading) + "</h2>" +
-        '<div class="cal-views" role="group">' +
+        '<div class="cal-views" role="group" aria-label="' + T.view + '">' +
           '<button type="button" class="cal-view' + (view === "month" ? " active" : "") + '" data-view="month" aria-pressed="' + (view === "month") + '"><i class="bi bi-calendar3"></i> ' + T.month + "</button>" +
           '<button type="button" class="cal-view' + (view === "list" ? " active" : "") + '" data-view="list" aria-pressed="' + (view === "list") + '"><i class="bi bi-list-ul"></i> ' + T.list + "</button>" +
         "</div>" +
@@ -211,6 +218,22 @@
       if (selected.slice(0, 7) !== shown) shown = selected.slice(0, 7);
     } else return;
     render();
+
+    // Redrawing removes the clicked button, so put the keyboard focus back on its new copy
+    var key = btn.dataset.view ? '[data-view="' + btn.dataset.view + '"]'
+      : btn.dataset.move ? '[data-move="' + btn.dataset.move + '"]'
+      : '[data-day="' + selected + '"]';
+    var again = root.querySelector(key);
+    if (again) again.focus();
+
+    if (view === "month") {
+      var count = eventsOn(selected).length;
+      status.textContent = (btn.dataset.day ? "" : cap(fmt(shown + "-01", { month: "long", year: "numeric" })) + ". ") +
+        cap(fmt(selected, { weekday: "long", day: "numeric", month: "long" })) + (EN ? ": " : " : ") +
+        (count ? count + " " + (count > 1 ? T.events : T.event) : T.none);
+    } else {
+      status.textContent = T.upcoming;
+    }
   });
 
   // Open on a day from the address, e.g. calendrier.html#2026-11-05

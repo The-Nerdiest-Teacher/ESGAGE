@@ -1,7 +1,7 @@
 /* Shared styles for team pages (equipes/*.html).
    A page can still add its own <style> block for anything unique to it. */
 
-.section-tab-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--heading-color); border-left: 5px solid var(--accent-color); padding-left: 14px; margin-bottom: 28px; }
+.section-tab-title { font-weight: 400; line-height: 1.5; margin-top: 0; font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--heading-color); border-left: 5px solid var(--accent-color); padding-left: 14px; margin-bottom: 28px; }
 .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-color); font-weight: 600; text-decoration: none; font-size: 14px; margin-bottom: 16px; }
 .back-link:hover { text-decoration: underline; }
 .roster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 24px; }
