@@ -30,6 +30,9 @@ OUT = os.path.join(ROOT, "assets", "data", "events.json")
 # Home games as a calendar Outlook can subscribe to (https://esgage.ca/assets/data/matchs-domicile.ics)
 GAMES_ICS = os.path.join(ROOT, "assets", "data", "matchs-domicile.ics")
 SITE = "https://esgage.ca"
+# Game times seen in the HSSAA data. Once a game is played, its time is replaced by
+# the score, so the time is remembered here to keep showing it on the calendar.
+GAME_TIMES = os.path.join(ROOT, "assets", "data", "matchs-heures.json")
 MAX_DESCRIPTION = 1200
 
 
@@ -160,7 +163,7 @@ def game_event(team, day, time, visitor, home, location, today):
     return event
 
 
-def hssaa_games(today):
+def hssaa_games(today, known_times):
     """Games in assets/data/sports/*.json (written by the browser extension)."""
     games = []
     folder = os.path.join(ROOT, "assets", "data", "sports")
@@ -197,6 +200,11 @@ def hssaa_games(today):
                     break
             cells = [c.strip() for c in row if (c or "").strip()]
             visitor, home = cells[0], cells[-1]
+            key = "%s|%s|%s|%s" % (name[:-5], day.isoformat(), visitor, home)
+            if time:
+                known_times[key] = time
+            else:
+                time = known_times.get(key, "")
             location = ""
             if i + 1 < len(rows) and rows[i + 1] and str(rows[i + 1][0]).startswith("Location:"):
                 location = rows[i + 1][0].split(":", 1)[1].strip()
@@ -256,8 +264,20 @@ def same_game(game, event):
     return not names or any(re.search(r"\b%s" % w, title) for w in names)
 
 
+def load_json(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return default
+
+
 def add_games(events, today):
-    games = [g for g in hssaa_games(today) + page_games(today) if g]
+    known_times = load_json(GAME_TIMES, {})
+    games = [g for g in hssaa_games(today, known_times) + page_games(today) if g]
+    text = json.dumps(dict(sorted(known_times.items())), ensure_ascii=False, indent=1) + "\n"
+    if write_if_changed(GAME_TIMES, text):
+        print("Updated the remembered game times.")
     added = 0
     for game in games:
         if any(same_game(game, e) for e in events):
