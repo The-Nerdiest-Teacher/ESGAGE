@@ -27,6 +27,9 @@ import recurring_ical_events
 ZONE = ZoneInfo("America/Toronto")
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "assets", "data", "events.json")
+# Home games as a calendar Outlook can subscribe to (https://esgage.ca/assets/data/matchs-domicile.ics)
+GAMES_ICS = os.path.join(ROOT, "assets", "data", "matchs-domicile.ics")
+SITE = "https://esgage.ca"
 MAX_DESCRIPTION = 1200
 
 
@@ -263,9 +266,68 @@ def add_games(events, today):
         added += 1
     print("Games from the team pages: %d found, %d added (others are already in Outlook)." % (len(games), added))
     for game in games:
+        game["uid"] = re.sub(r"[^a-z0-9]+", "-", plain("%s-%s" % (game["start"][:10], game["title"]))).strip("-")
         game.pop("opponent", None)
     events.sort(key=lambda e: (e["start"], e["title"]))
     return events
+
+
+def ics_text(text):
+    return str(text).replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def games_calendar(events):
+    """The added home games (not the ones already in Outlook) as an .ics calendar."""
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//esgage.ca//Matchs a domicile//FR",
+             "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:Matchs à domicile – GAGE",
+             "X-WR-TIMEZONE:America/Toronto", "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
+             "BEGIN:VTIMEZONE", "TZID:America/Toronto",
+             "BEGIN:DAYLIGHT", "TZOFFSETFROM:-0500", "TZOFFSETTO:-0400", "TZNAME:EDT",
+             "DTSTART:19700308T020000", "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU", "END:DAYLIGHT",
+             "BEGIN:STANDARD", "TZOFFSETFROM:-0400", "TZOFFSETTO:-0500", "TZNAME:EST",
+             "DTSTART:19701101T020000", "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU", "END:STANDARD",
+             "END:VTIMEZONE"]
+    for e in events:
+        if not e.get("game"):
+            continue
+        lines += ["BEGIN:VEVENT", "UID:%s@esgage.ca" % e["uid"], "DTSTAMP:20260801T000000Z",
+                  "SUMMARY:" + ics_text(e["title"]), "LOCATION:" + ics_text(e.get("location", ""))]
+        if e["allDay"]:
+            lines += ["DTSTART;VALUE=DATE:" + e["start"].replace("-", ""),
+                      "DTEND;VALUE=DATE:" + e["end"].replace("-", "")]
+        else:
+            start = dt.datetime.strptime(e["start"], "%Y-%m-%dT%H:%M")
+            finish = start + dt.timedelta(hours=1, minutes=30)
+            lines += ["DTSTART;TZID=America/Toronto:" + start.strftime("%Y%m%dT%H%M00"),
+                      "DTEND;TZID=America/Toronto:" + finish.strftime("%Y%m%dT%H%M00")]
+        if e.get("url"):
+            lines += ["URL:" + SITE + e["url"], "DESCRIPTION:" + ics_text("Page de l'équipe : " + SITE + e["url"])]
+        lines.append("END:VEVENT")
+    lines.append("END:VCALENDAR")
+    # Lines longer than 75 bytes are folded, as the .ics format asks
+    folded = []
+    for line in lines:
+        raw = line.encode("utf-8")
+        while len(raw) > 75:
+            cut = 75
+            while (raw[cut] & 0xC0) == 0x80:
+                cut -= 1
+            folded.append(raw[:cut].decode("utf-8"))
+            raw = b" " + raw[cut:]
+        folded.append(raw.decode("utf-8"))
+    return "\r\n".join(folded) + "\r\n"
+
+
+def write_if_changed(path, text):
+    try:
+        with open(path, encoding="utf-8", newline="") as f:
+            if f.read() == text:
+                return False
+    except OSError:
+        pass
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        f.write(text)
+    return True
 
 
 def main():
@@ -285,21 +347,16 @@ def main():
     print("Outlook sent %d event entries." % ics.count(b"BEGIN:VEVENT"))
     today = dt.datetime.now(ZONE).date()
     events = add_games(convert(ics, today), today)
-    data = {"events": events}
+    if write_if_changed(GAMES_ICS, games_calendar(events)):
+        print("Wrote the home games calendar to %s" % GAMES_ICS)
+    for e in events:
+        e.pop("uid", None)
 
-    path = os.path.normpath(OUT)
-    try:
-        with open(path, encoding="utf-8") as f:
-            if json.load(f) == data:
-                print("No change (%d events)." % len(events))
-                return
-    except (OSError, ValueError):
-        pass
-
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=1)
-        f.write("\n")
-    print("Wrote %d events to %s" % (len(events), path))
+    text = json.dumps({"events": events}, ensure_ascii=False, indent=1) + "\n"
+    if write_if_changed(OUT, text):
+        print("Wrote %d events to %s" % (len(events), OUT))
+    else:
+        print("No change (%d events)." % len(events))
 
 
 if __name__ == "__main__":
