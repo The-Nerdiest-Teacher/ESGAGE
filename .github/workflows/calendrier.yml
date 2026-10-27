@@ -5,7 +5,8 @@ name: Calendrier (Outlook)
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    # Odd minutes: GitHub often skips schedules set on the hour or half hour
+    - cron: "7,37 * * * *"
   workflow_dispatch:
   # Also runs right away when the link or the script changes
   push:
