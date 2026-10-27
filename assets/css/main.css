@@ -1114,6 +1114,46 @@ html.dark-mode .theme-toggle {
   color: #e6e6e6;
 }
 
+/* FR/EN button, same look as the dark mode button */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 58, 43, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+  color: #1b3a2b;
+  font-family: var(--nav-font);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--accent-color);
+}
+
+html.dark-mode .lang-toggle {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #e6e6e6;
+}
+
+html.dark-mode .lang-toggle:hover {
+  color: #5cb87a;
+}
+
+.lang-toggle + .theme-toggle {
+  margin-left: 8px;
+}
+
 /* Keep icon crisp */
 .theme-toggle i {
   font-size: 18px;

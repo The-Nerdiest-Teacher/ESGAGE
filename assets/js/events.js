@@ -7,13 +7,15 @@
   "use strict";
 
   var CALENDAR = "gaetangervais";
+  var EN = /^en/i.test(document.documentElement.lang);
+  var LOCALE = EN ? "en-CA" : "fr-CA";
   var MAX_EVENTS = 3;
   var list = document.getElementById("events-list");
   if (!list) return;
 
   function showFallback() {
     list.innerHTML = '<div class="col-lg-8"><p class="events-empty"><i class="bi bi-calendar-event me-2"></i>' +
-      "Consultez le calendrier pour voir les prochains événements.</p></div>";
+      (EN ? "See the calendar for upcoming events." : "Consultez le calendrier pour voir les prochains événements.") + "</p></div>";
   }
 
   function escapeHtml(text) {
@@ -27,10 +29,10 @@
     var date = new Date(millis);
     var zone = allDay ? "UTC" : "America/Toronto";
     return {
-      day: date.toLocaleDateString("fr-CA", { day: "numeric", timeZone: zone }),
-      month: date.toLocaleDateString("fr-CA", { month: "short", timeZone: zone }).replace(".", ""),
-      weekday: date.toLocaleDateString("fr-CA", { weekday: "long", timeZone: zone }),
-      time: allDay ? "" : date.toLocaleTimeString("fr-CA", { hour: "numeric", minute: "2-digit", timeZone: zone })
+      day: date.toLocaleDateString(LOCALE, { day: "numeric", timeZone: zone }),
+      month: date.toLocaleDateString(LOCALE, { month: "short", timeZone: zone }).replace(".", ""),
+      weekday: date.toLocaleDateString(LOCALE, { weekday: "long", timeZone: zone }),
+      time: allDay ? "" : date.toLocaleTimeString(LOCALE, { hour: "numeric", minute: "2-digit", timeZone: zone })
     };
   }
 

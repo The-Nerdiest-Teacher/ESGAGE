@@ -99,7 +99,11 @@
       icon.classList.remove("bi-moon-stars", "bi-sun");
       icon.classList.add(isDark ? "bi-sun" : "bi-moon-stars");
     }
-    btn.title = isDark ? "Passer au mode clair" : "Passer au mode sombre";
+    if (/^en/i.test(document.documentElement.lang)) {
+      btn.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+    } else {
+      btn.title = isDark ? "Passer au mode clair" : "Passer au mode sombre";
+    }
   }
 
   /**
@@ -112,6 +116,20 @@
      */
     const footerYear = document.getElementById('footer-year');
     if (footerYear) footerYear.textContent = new Date().getFullYear();
+
+    /**
+     * FR/EN button: go to this page in the other language.
+     * Each page names its twin in a <link rel="alternate" hreflang="..."> tag in its <head>;
+     * without one, the button goes to the other language's home page.
+     */
+    const langBtn = document.getElementById('lang-toggle');
+    if (langBtn) {
+      const twin = document.querySelector('link[rel="alternate"][hreflang^="' + langBtn.getAttribute('hreflang') + '"]');
+      if (twin) {
+        const url = new URL(twin.href, location.href);
+        langBtn.href = url.pathname + url.search + location.hash;
+      }
+    }
 
     /**
      * Apply .scrolled class to the body as the page is scrolled down

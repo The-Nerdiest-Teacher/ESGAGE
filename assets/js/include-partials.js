@@ -1,6 +1,7 @@
 /**
  * Shared header + footer loader
  * - Fetches partials/header.html and partials/footer.html without blocking the page
+ * - English pages (<html lang="en">) get partials/header-en.html and partials/footer-en.html
  * - main.js waits on window.gagePartialsReady before wiring up the menu
  */
 (function () {
@@ -16,8 +17,10 @@
     });
   }
 
+  var suffix = /^en/i.test(document.documentElement.lang) ? "-en" : "";
+
   function include(name) {
-    var url = base + "partials/" + name + ".html";
+    var url = base + "partials/" + name + suffix + ".html";
     return Promise.all([fetch(url).then(function (r) {
       if (!r.ok) throw new Error(r.status + " " + url);
       return r.text();
