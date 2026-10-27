@@ -73,6 +73,7 @@
 <div class="container">
 <ul class="parents-jump" aria-label="Sur cette page">
 <li><a href="#dates"><i class="bi bi-calendar-event"></i> Prochaines dates</a></li>
+<li><a href="#horaire"><i class="bi bi-bell"></i> Horaire</a></li>
 <li><a href="#absences"><i class="bi bi-person-check"></i> Absences</a></li>
 <li><a href="#transport"><i class="bi bi-bus-front"></i> Transport</a></li>
 <li><a href="#liens"><i class="bi bi-link-45deg"></i> Liens utiles</a></li>
@@ -93,17 +94,23 @@
 </div>
 </section>
 
-<!-- ══ HORAIRE DE LA JOURNÉE ══
-     À REMPLIR : heures de la cloche (début des cours, dîner, fin des cours).
-     Quand les heures sont là, enlever « hidden » ci-dessous et ajouter le lien #horaire en haut de la page. -->
-<section class="section parents-section light-background" id="horaire" hidden>
+<!-- ══ HORAIRE DE LA JOURNÉE ══ -->
+<section class="section parents-section light-background" id="horaire">
 <div class="container">
-<h2 class="parents-title">Horaire de la journée</h2>
+<h2 class="parents-title" data-aos="fade-up">Horaire de la journée</h2>
+<p class="parents-sub">Les périodes de cours et le dîner.</p>
+<ol class="bell-list" data-aos="fade-up">
+<li class="bell-row"><span class="bell-name">Période 1</span><span class="bell-time">8 h 10 – 9 h 25</span></li>
+<li class="bell-row"><span class="bell-name">Période 2</span><span class="bell-time">9 h 30 – 10 h 45</span></li>
+<li class="bell-row is-lunch"><span class="bell-name"><i class="bi bi-cup-hot"></i> Dîner</span><span class="bell-time">10 h 45 – 11 h 55</span></li>
+<li class="bell-row"><span class="bell-name">Période 3</span><span class="bell-time">11 h 55 – 13 h 10</span></li>
+<li class="bell-row"><span class="bell-name">Période 4</span><span class="bell-time">13 h 15 – 14 h 30</span></li>
+</ol>
 </div>
 </section>
 
 <!-- ══ ABSENCES ET RETARDS ══ -->
-<section class="section parents-section light-background" id="absences">
+<section class="section parents-section" id="absences">
 <div class="container">
 <h2 class="parents-title" data-aos="fade-up">Absences et retards</h2>
 <p class="parents-sub">Toutes les absences doivent être justifiées par un parent.</p>
@@ -116,7 +123,6 @@
 <li><i class="bi bi-telephone"></i><a href="tel:+12895290065">289-529-0065</a></li>
 <li><i class="bi bi-envelope"></i><a href="mailto:gaetangervais@csviamonde.ca">gaetangervais@csviamonde.ca</a></li>
 </ul>
-<!-- À REMPLIR : ligne ou courriel d'absences dédié, s'il y en a un, et l'heure limite pour avertir l'école. -->
 </div>
 </div>
 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
@@ -131,32 +137,23 @@
 </section>
 
 <!-- ══ TRANSPORT SCOLAIRE ══ -->
-<section class="section parents-section" id="transport">
+<section class="section parents-section light-background" id="transport">
 <div class="container">
 <h2 class="parents-title" data-aos="fade-up">Transport scolaire</h2>
 <p class="parents-sub">Les autobus des écoles du Conseil scolaire Viamonde de notre région sont gérés par <strong>Francobus</strong>.</p>
 <div class="row gy-4">
-<div class="col-lg-4" data-aos="fade-up">
+<div class="col-lg-6" data-aos="fade-up">
 <div class="parents-card">
 <h3><i class="bi bi-bus-front"></i> Trajets et admissibilité</h3>
 <p>Pour savoir si votre enfant a droit au transport, connaître son arrêt et ses heures de passage, ou faire une demande, consultez le site de Francobus.</p>
 <p><a href="https://www.francobus.ca/" target="_blank" rel="noopener">francobus.ca <i class="bi bi-box-arrow-up-right"></i></a></p>
 </div>
 </div>
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 <div class="parents-card">
 <h3><i class="bi bi-cloud-snow"></i> Retards et annulations</h3>
 <p>Les autobus annulés (mauvais temps, par exemple) sont affichés sur le site de Francobus. Vous pouvez aussi vous abonner à ses alertes par courriel ou par texto.</p>
 <p>Les décisions sont généralement annoncées avant 6 h 30. Si l'école est fermée, l'avis est publié sur le site du <a href="https://csviamonde.ca/" target="_blank" rel="noopener">Conseil scolaire Viamonde</a>.</p>
-</div>
-</div>
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-<div class="parents-card">
-<h3><i class="bi bi-shield-check"></i> À bord</h3>
-<ul>
-<li>Respect envers les autres élèves et le chauffeur.</li>
-<li>Un élève prend seulement l'autobus qui lui est assigné, même avec la permission d'un parent.</li>
-</ul>
 </div>
 </div>
 </div>
@@ -164,7 +161,7 @@
 </section>
 
 <!-- ══ LIENS UTILES ══ -->
-<section class="section parents-section light-background" id="liens">
+<section class="section parents-section" id="liens">
 <div class="container">
 <h2 class="parents-title" data-aos="fade-up">Liens utiles</h2>
 <p class="parents-sub">Les pages que les parents consultent le plus souvent.</p>
@@ -181,7 +178,7 @@
 </section>
 
 <!-- ══ L'APP GAGE + NOUS JOINDRE ══ -->
-<section class="section parents-section" id="app">
+<section class="section parents-section light-background" id="app">
 <div class="container">
 <div class="parents-band" data-aos="fade-up">
 <div class="parents-band-text">
