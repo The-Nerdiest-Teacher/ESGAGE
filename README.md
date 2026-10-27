@@ -20,7 +20,7 @@ assets/js/event-icons.js         Which icon each calendar event gets (word list)
 assets/js/matchs.js              Teams list + reads played games (game images, home page wins)
 assets/js/images-matchs.js       Draws the game images (equipes/images-matchs.html)
 assets/js/aujourdhui.js          "Aujourd'hui à GAGE" page (today's events, Installer l'app card)
-parents.html                     Coin des parents ("À REMPLIR" / "TO FILL IN" comments mark spots waiting for info)
+parents.html                     Coin des parents (bell schedule, absences, buses, links)
 sw.js, manifest.webmanifest      Installable app (see "Application (PWA)" below); en/manifest.webmanifest for English
 assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
