@@ -111,6 +111,8 @@ def convert(ics_bytes, today):
 SPORT_NAMES = {"volleyball": "Volleyball", "basketball": "Basketball", "soccer": "Soccer"}
 SPORT_WORDS = {"volleyball": r"volley|vb", "basketball": r"basket|bb", "soccer": r"soccer"}
 GENDERS = {"filles": "filles", "garcons": "garçons"}
+# 7e/8e games all start at 15 h 30 (Nick, 2026-10-27), unless a game has its own heure
+DEFAULT_TIMES = {"78": "15:30"}
 LEVELS = {"junior": "junior", "senior": "senior", "78": "7e/8e"}
 MY_SCHOOL = re.compile(r"ga[eé]tan|gervais|\bgage\b", re.I)
 FRENCH_MONTHS = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet",
@@ -242,7 +244,7 @@ def page_games(today):
             day = french_date(fields.get("date", ""))
             if not day or not fields.get("visiteur") or not fields.get("domicile"):
                 continue
-            time = ""
+            time = DEFAULT_TIMES.get(team[2], "")
             heure = re.match(r"(\d{1,2})\s*[h:]\s*(\d{2})?", fields.get("heure", ""))
             if heure:
                 time = "%02d:%s" % (int(heure.group(1)), heure.group(2) or "00")
