@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: calendrier
@@ -46,3 +47,7 @@ jobs:
           git commit -m "Calendrier : mise à jour depuis Outlook"
           git pull --rebase
           git push
+          # Pushes made by this job don't always start a site rebuild, so ask for one
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages rebuild request failed"
+        env:
+          GH_TOKEN: ${{ github.token }}
