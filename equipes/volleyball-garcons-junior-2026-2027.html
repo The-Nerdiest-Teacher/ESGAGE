@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"/><script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Volleyball — Garçons Junior | École secondaire Gaétan-Gervais</title>
-<meta name="description" content="Horaire, joueurs et résultats de l'équipe de volleyball masculin junior des Griffons, saison 2026-2027, École secondaire Gaétan-Gervais."/>
+<script src="/assets/js/team-lang.js"></script>
+<title data-en="Volleyball — Junior Boys | École secondaire Gaétan-Gervais">Volleyball — Garçons Junior | École secondaire Gaétan-Gervais</title>
+<meta name="description" data-en="Schedule, players and results for the Griffons junior boys volleyball team, 2026-2027 season, École secondaire Gaétan-Gervais." content="Horaire, joueurs et résultats de l'équipe de volleyball masculin junior des Griffons, saison 2026-2027, École secondaire Gaétan-Gervais."/>
 <meta name="keywords" content="volleyball masculin junior, Griffons, École secondaire Gaétan-Gervais"/>
 <link rel="canonical" href="https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html"/>
 <meta property="og:type" content="website"/>
@@ -37,35 +38,35 @@
           <div style="margin-bottom:12px;">
             <img src="/assets/img/sportslogos/volleyball.png" alt="Volleyball" style="width:64px;height:64px;object-fit:contain;"/>
           </div>
-          <h1>Volleyball — Garçons Junior</h1>
-          <p class="mb-0">Saison 2026-2027</p>
+          <h1 data-en="Volleyball — Junior Boys">Volleyball — Garçons Junior</h1>
+          <p class="mb-0" data-en="2026-2027 season">Saison 2026-2027</p>
         </div>
       </div>
     </div></div>
     <nav class="breadcrumbs"><div class="container"><ol>
-      <li><a href="/index.html">Accueil</a></li>
+      <li><a href="/index.html" data-en="Home">Accueil</a></li>
       <li><a href="/athletisme.html">Sports</a></li>
-      <li class="current">Volleyball Garçons Junior</li>
+      <li class="current" data-en="Junior Boys Volleyball">Volleyball Garçons Junior</li>
     </ol></div></nav>
   </div>
   <section class="section">
     <div class="container" data-aos="fade-up">
-      <a class="back-link" href="/athletisme.html"><i class="bi bi-arrow-left"></i> Retour aux sports</a>
+      <a class="back-link" href="/athletisme.html"><i class="bi bi-arrow-left"></i> <span data-en="Back to sports">Retour aux sports</span></a>
       <div class="mb-5 mt-2">
-        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Notre équipe</p>
+        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Our team">Notre équipe</span></p>
         <div class="roster-grid" id="roster-container"></div>
       </div>
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
-        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Schedule">Calendrier</span></p>
+        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
-        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Results">Résultats</span></p>
+        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Classement HSSAA</p>
-        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="HSSAA standings">Classement HSSAA</span></p>
+        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
     </div>
   </section>
@@ -73,7 +74,6 @@
 <div id="footer-placeholder"></div>
 <a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendor/aos/aos.js"></script>
 <script src="/assets/js/main.js"></script>
 <script>
@@ -88,7 +88,7 @@ const IMG_BASE = "/assets/img/sportsplayers/2026-2027/VBGJ/";
 const roster = document.getElementById("roster-container");
 
 if (PLAYERS.length === 0) {
-  roster.innerHTML = '<p class="data-loading"><i class="bi bi-people me-1"></i>L\'équipe sera annoncée prochainement.</p>';
+  roster.innerHTML = '<p class="data-loading"><i class="bi bi-people me-1"></i>' + tr("L'équipe sera annoncée prochainement.", "The team will be announced soon.") + '</p>';
 } else {
   PLAYERS.forEach(function(p, i) {
     var card = document.createElement("div");
@@ -98,11 +98,10 @@ if (PLAYERS.length === 0) {
       '<img class="card-photo" src="' + IMG_BASE + p.img + '" alt="' + p.name + '" loading="lazy"/>' +
       '<div class="card-overlay"></div>' +
       '<div class="card-school">GAGE</div>' +
-      (p.captain ? '<div class="captain-badge" title="Capitaine">C</div>' : '') +
+      (p.captain ? '<div class="captain-badge" title="' + tr("Capitaine", "Captain") + '">C</div>' : '') +
       '<div class="card-info">' +
         '<div class="card-position">' + p.position + '</div>' +
         '<div class="card-name">' + p.name + '</div>' +
-        '<div class="card-meta">Garçons Junior</div>' +
       '</div>';
     roster.appendChild(card);
   });
@@ -131,7 +130,7 @@ function boldStyle(n) { return isMySchool(n) ? "font-weight:700;" : ""; }
 function renderStandings(standings, updated) {
   var el = document.getElementById("standings-container");
   if (!standings || !standings.length) {
-    el.innerHTML = '<p class="data-loading">Aucun classement disponible.</p>'; return;
+    el.innerHTML = '<p class="data-loading">' + tr("Aucun classement disponible.", "No standings available.") + '</p>'; return;
   }
 
   var colMap = { "GP":"PJ","MP":"PJ","W":"V","L":"D","T":"N","PTS":"PTS",
@@ -141,9 +140,17 @@ function renderStandings(standings, updated) {
                     "PTS":"Points au classement","% V":"Pourcentage de victoires",
                     "PM":"Points marqués","PA":"Points accordés","MG":"Manches gagnées",
                     "MP":"Manches perdues","PG":"Points gagnés","PP":"Points perdus" };
+  if (GAGE_EN) {
+    // English page: keep the extension's English headers
+    colMap = {};
+    colTitles = { "GP":"Games played","MP":"Matches played","W":"Wins","L":"Losses","T":"Ties",
+                  "PTS":"Standings points","WIN %":"Win percentage","PF":"Points for","PA":"Points against",
+                  "SW":"Sets won","SL":"Sets lost","PW":"Points won","PL":"Points lost","STREAK":"Streak" };
+  }
 
   // Streak cells come in English ("W 3"); show them in French ("V 3")
   function frStreak(c) {
+    if (GAGE_EN) return c;
     return String(c).replace(/^([WLT]) (\d+)$/, function(m, r, n) { return ({ W:"V", L:"D", T:"N" })[r] + " " + n; });
   }
 
@@ -165,7 +172,7 @@ function renderStandings(standings, updated) {
     });
     if (!dataRows.length) return;
 
-    var displayHeaders = ["École"];
+    var displayHeaders = [tr("École", "School")];
     if (headerRow) {
       headerRow.forEach(function(h, idx) {
         if (idx < 2) return;
@@ -188,8 +195,8 @@ function renderStandings(standings, updated) {
       '<thead><tr>' + headerCells + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
   });
 
-  if (!html) html = '<p class="data-loading">Aucun classement disponible.</p>';
-  if (updated) html += '<p class="updated-tag">Source : HSSAA — Mise à jour : ' + updated + '</p>';
+  if (!html) html = '<p class="data-loading">' + tr("Aucun classement disponible.", "No standings available.") + '</p>';
+  if (updated) html += '<p class="updated-tag">' + tr("Source : HSSAA — Mise à jour : ", "Source: HSSAA · Updated: ") + updated + '</p>';
   el.innerHTML = html;
 }
 
@@ -229,8 +236,8 @@ function renderScores(scores, replays) {
       var vSets = parseInt(vScore), hSets = parseInt(hScore);
       var result = "", badgeClass = "";
       if (!isNaN(vSets) && !isNaN(hSets)) {
-        if (isMySchool(visitor)) { result = vSets > hSets ? "Victoire" : "Défaite"; badgeClass = vSets > hSets ? "badge-win" : "badge-loss"; }
-        else if (isMySchool(home)) { result = hSets > vSets ? "Victoire" : "Défaite"; badgeClass = hSets > vSets ? "badge-win" : "badge-loss"; }
+        if (isMySchool(visitor)) { result = vSets > hSets ? tr("Victoire", "Win") : tr("Défaite", "Loss"); badgeClass = vSets > hSets ? "badge-win" : "badge-loss"; }
+        else if (isMySchool(home)) { result = hSets > vSets ? tr("Victoire", "Win") : tr("Défaite", "Loss"); badgeClass = hSets > vSets ? "badge-win" : "badge-loss"; }
         else { result = vSets + " – " + hSets; badgeClass = "badge-upcoming"; }
       }
       // Trouver l'enregistrement correspondant à cet adversaire
@@ -262,11 +269,11 @@ function renderScores(scores, replays) {
   var upEl = document.getElementById("upcoming-container");
   if (upEl) {
     if (!upcoming.length) {
-      upEl.innerHTML = '<p class="data-loading">Aucun match à venir.</p>';
+      upEl.innerHTML = '<p class="data-loading">' + tr("Aucun match à venir.", "No upcoming games.") + '</p>';
     } else {
       var groups = groupByDate(upcoming);
       var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
-        '<thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th></tr></thead><tbody>';
+        '<thead><tr><th>' + tr("Visiteur", "Visitor") + '</th><th>' + tr("Heure", "Time") + '</th><th>' + tr("Domicile", "Home") + '</th></tr></thead><tbody>';
       groups.forEach(function(group) {
         if (group.date) {
           html += '<tr><td colspan="3" class="date-row">' + group.date + '</td></tr>';
@@ -287,11 +294,11 @@ function renderScores(scores, replays) {
   var plEl = document.getElementById("scores-container");
   if (plEl) {
     if (!played.length) {
-      plEl.innerHTML = '<p class="data-loading">Aucun résultat pour l\'instant.</p>';
+      plEl.innerHTML = '<p class="data-loading">' + tr("Aucun résultat pour l'instant.", "No results yet.") + '</p>';
     } else {
       var groups = groupByDate(played);
       var html = '<div class="table-responsive"><table class="table table-bordered schedule-table">' +
-        '<thead><tr><th>Visiteur</th><th>Score</th><th>Score</th><th>Domicile</th><th>Résultat</th><th>Vidéo</th></tr></thead><tbody>';
+        '<thead><tr><th>' + tr("Visiteur", "Visitor") + '</th><th>Score</th><th>Score</th><th>' + tr("Domicile", "Home") + '</th><th>' + tr("Résultat", "Result") + '</th><th>' + tr("Vidéo", "Video") + '</th></tr></thead><tbody>';
       groups.forEach(function(group) {
         if (group.date) {
           html += '<tr><td colspan="6" class="date-row">' + group.date + '</td></tr>';
@@ -303,7 +310,7 @@ function renderScores(scores, replays) {
             '<td class="text-center" style="font-weight:700;">' + g.hScore + '</td>' +
             '<td style="' + boldStyle(g.home) + '">' + nameCell(g.home) + '</td>' +
             '<td class="text-center"><span class="' + g.badgeClass + '">' + g.result + '</span></td>' +
-            '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>' : '') + '</td>' +
+            '<td class="text-center">' + (g.replay ? '<a href="' + g.replay + '" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> ' + tr("Vidéo", "Video") + '</a>' : '') + '</td>' +
             '</tr>';
         });
       });
@@ -320,7 +327,7 @@ fetch(DATA_FILE)
     console.error("Erreur:", err);
     ["upcoming-container","scores-container","standings-container"].forEach(function(id) {
       var el = document.getElementById(id);
-      if (el) el.innerHTML = '<p class="data-loading">Données indisponibles. Réessayez plus tard.</p>';
+      if (el) el.innerHTML = '<p class="data-loading">' + tr("Données indisponibles. Réessayez plus tard.", "Data unavailable. Please try again later.") + '</p>';
     });
   });
 

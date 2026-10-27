@@ -28,7 +28,7 @@
 .prog-header-text p {
   font-size: 14px;
   color: var(--default-color);
-  opacity: .65;
+  opacity: .8;
   margin: 0;
 }
 
@@ -152,7 +152,7 @@ html.dark-mode .prog-intro p {
 
 /* Colour themes */
 .theme-bi  { --pc: #1565c0; --pc-light: rgba(21,101,192,.12); }
-.theme-mhs-sport { --pc: #2e7d32; --pc-light: rgba(46,125,50,.12); }
+.theme-mhs-sport { --pc: #1b5e20; --pc-light: rgba(46,125,50,.12); }
 .theme-mhs-tic   { --pc: #6a1b9a; --pc-light: rgba(106,27,154,.12); }
 
 .prog-card-accent.theme-bi   { background: var(--pc); }
@@ -197,7 +197,10 @@ html.dark-mode .theme-mhs-tic    { --pc: #ce93d8; --pc-light: rgba(206,147,216,.
 .prog-intro p {
   font-size: 14px;
   color: var(--default-color);
-  opacity: .7;
+  opacity: .85;
   margin: 0;
   max-width: 640px;
 }
+
+/* Leave room for the sticky header when a link jumps to a program (#bi, #mhs-sports, #mhs-tic) */
+.prog-card[id] { scroll-margin-top: 110px; }

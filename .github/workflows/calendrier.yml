@@ -1,0 +1,43 @@
+# Copies the shared Outlook calendar to assets/data/events.json every 30 minutes.
+# To update right away: Actions tab > "Calendrier (Outlook)" > Run workflow.
+name: Calendrier (Outlook)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+  # Also runs right away when the link or the script changes
+  push:
+    paths:
+      - .github/workflows/calendrier.yml
+      - .github/scripts/calendrier.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: calendrier
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      # Outlook > Settings > Calendar > Shared calendars > Publish a calendar > ICS link
+      CALENDAR_ICS_URL: "https://outlook.office365.com/owa/calendar/ff630cd0e6a34fb186769a1ce9923096@CSViamonde.ca/7fb82e00cf2f49da964f0ac2357869f01781105512684895925/calendar.ics"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install icalendar==7.3.0 recurring-ical-events==3.8.2
+      - run: python .github/scripts/calendrier.py
+      - name: Commit if the calendar changed
+        run: |
+          if git diff --quiet -- assets/data/events.json; then exit 0; fi
+          git config user.name "calendrier-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/events.json
+          git commit -m "Calendrier : mise à jour depuis Outlook"
+          git pull --rebase
+          git push

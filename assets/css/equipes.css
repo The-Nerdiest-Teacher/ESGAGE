@@ -52,8 +52,8 @@ html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(
 /* Solid button in dark mode: the schedule rows stay white, so a pale tint disappears */
 html.dark-mode .replay-btn { background: var(--accent-color); color:#fff; }
 html.dark-mode .replay-btn:hover { background:#2e8b50; color:#fff; }
-.data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
-.updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
+.data-loading { color: var(--default-color); opacity: 0.8; font-style: italic; }
+.updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.9; margin-top: 8px; }
 
 .schedule-table .date-row {
   background: color-mix(in srgb, var(--accent-color), transparent 88%);
@@ -65,4 +65,11 @@ html.dark-mode .replay-btn:hover { background:#2e8b50; color:#fff; }
 html.dark-mode .schedule-table .date-row {
   background: rgba(255,255,255,0.10);
   color: #e9e9e9;
+}
+/* Mobile : l'équipe devient un carrousel qu'on glisse avec le doigt (l'ordinateur garde la grille) */
+@media (max-width: 767px) {
+  .roster-grid { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 10px 4px 18px; margin: 0 -4px; scrollbar-width: thin; }
+  .roster-grid .player-card { flex: 0 0 68%; max-width: 260px; scroll-snap-align: center; }
+  .roster-grid .player-card:hover { transform: none; }
+  .roster-grid .data-loading { flex: 1 0 100%; }
 }

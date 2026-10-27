@@ -10,7 +10,7 @@
   {
     "name": "Diana Rivero-Ednet",
     "category": "admin",
-    "role": "Direction Ajointe",
+    "role": "Direction adjointe",
     "department": "Administration",
     "email": "riveroednetd@csviamonde.ca",
     "photo": "assets/img/team/D_RiveroEdnet.jpg"
@@ -18,7 +18,7 @@
   {
     "name": "Véronique Lamotte",
     "category": "admin",
-    "role": "Sécrétaire senior",
+    "role": "Secrétaire senior",
     "department": "Administration",
     "email": "lamottev@CSViamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
@@ -26,7 +26,7 @@
   {
     "name": "Solange Liliane Mbita Nana",
     "category": "admin",
-    "role": "Sécrétaire",
+    "role": "Secrétaire",
     "department": "Administration",
     "email": "mbitananas@CSViamonde.ca",
     "photo": "assets/img/team/nopicstaff.jpg"
@@ -147,7 +147,7 @@
     "name": "Jeffrey Karanfil",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "Éducation spécialisé 7/8",
+    "department": "Éducation spécialisée 7/8",
     "email": "karanfilj@csviamonde.ca",
     "photo": "assets/img/team/J. Karanfil.jpg"
   },
@@ -203,7 +203,7 @@
     "name": "Abdelhakim Sebbane",
     "category": "enseignant",
     "role": "Enseignant(e)",
-    "department": "Éducation spécialisé secondaire",
+    "department": "Éducation spécialisée secondaire",
     "email": "sebbanea@csviamonde.ca",
     "photo": "assets/img/team/A. Sebbane.jpg"
   },

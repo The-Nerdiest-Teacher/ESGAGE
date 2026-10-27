@@ -4,8 +4,9 @@
 <meta charset="utf-8"/>
 <script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Basketball — Garçons Senior | École secondaire Gaétan-Gervais</title>
-<meta name="description" content="Archive : équipe de basketball masculin senior des Griffons, saison 2025-2026, École secondaire Gaétan-Gervais."/>
+<script src="/assets/js/team-lang.js"></script>
+<title data-en="Basketball — Senior Boys | École secondaire Gaétan-Gervais">Basketball — Garçons Senior | École secondaire Gaétan-Gervais</title>
+<meta name="description" data-en="Archive: the Griffons senior boys basketball team, 2025-2026 season, École secondaire Gaétan-Gervais." content="Archive : équipe de basketball masculin senior des Griffons, saison 2025-2026, École secondaire Gaétan-Gervais."/>
 <meta name="keywords" content="basketball masculin senior archive, Griffons"/>
 <link rel="canonical" href="https://esgage.ca/equipes/archive/2025-2026/basketball-garcons-senior-2025-2026.html"/>
 <meta name="robots" content="noindex, follow"/>
@@ -280,9 +281,15 @@
   }
   .replay-btn:hover { background: #b02a37; color: #fff; }
 
-  .data-loading { color: var(--default-color); opacity: 0.6; font-style: italic; }
-  .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.45; margin-top: 8px; }
+  .data-loading { color: var(--default-color); opacity: 0.8; font-style: italic; }
+  .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.9; margin-top: 8px; }
   html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(--accent-color), transparent 78%); }
+  /* Mobile : carrousel de l'équipe */
+  @media (max-width: 767px) {
+    .roster-grid { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 10px 4px 18px; margin: 0 -4px; }
+    .roster-grid .player-card { flex: 0 0 68%; max-width: 260px; scroll-snap-align: center; }
+    .roster-grid .player-card:hover { transform: none; }
+  }
 </style>
 </head>
 <body class="starter-page-page">
@@ -298,8 +305,8 @@
             <div style="margin-bottom:12px;">
               <img src="/assets/img/sportslogos/basketball.png" alt="Basketball" style="width:64px;height:64px;object-fit:contain;"/>
             </div>
-            <h1>Basketball — Garçons Senior</h1>
-            <p class="mb-0">Saison 2025–2026</p>
+            <h1 data-en="Basketball — Senior Boys">Basketball — Garçons Senior</h1>
+            <p class="mb-0" data-en="2025–2026 season">Saison 2025–2026</p>
           </div>
         </div>
       </div>
@@ -307,9 +314,9 @@
     <nav class="breadcrumbs">
       <div class="container">
         <ol>
-          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/index.html" data-en="Home">Accueil</a></li>
           <li><a href="/athletisme.html">Sports</a></li>
-          <li class="current">Basketball Garçons Senior</li>
+          <li class="current" data-en="Senior Boys Basketball">Basketball Garçons Senior</li>
         </ol>
       </div>
     </nav>
@@ -317,26 +324,26 @@
 
   <section class="section">
     <div class="container" data-aos="fade-up">
-      <a class="back-link" href="/athletisme.html"><i class="bi bi-arrow-left"></i> Retour aux sports</a>
+      <a class="back-link" href="/athletisme.html"><i class="bi bi-arrow-left"></i> <span data-en="Back to sports">Retour aux sports</span></a>
 
       <div class="mb-5 mt-2">
-        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Notre équipe</p>
+        <p class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Our team">Notre équipe</span></p>
         <div class="roster-grid" id="roster-container"></div>
       </div>
 
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i>Calendrier</p>
-        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Schedule">Calendrier</span></p>
+        <div id="upcoming-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
 
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i>Résultats</p>
-        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Results">Résultats</span></p>
+        <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
 
       <div class="mb-5">
-        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i>Classement HSSAA</p>
-        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i>Chargement...</p></div>
+        <p class="section-tab-title"><i class="bi bi-bar-chart-fill me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="HSSAA standings">Classement HSSAA</span></p>
+        <div id="standings-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
     </div>
   </section>
@@ -345,7 +352,6 @@
 <div id="footer-placeholder"></div>
 <a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
 <div id="preloader"></div>
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendor/aos/aos.js"></script>
 <script src="/assets/js/main.js"></script>
 
@@ -376,11 +382,10 @@ PLAYERS.forEach((p, i) => {
     <img class="card-photo" src="${IMG_BASE}${p.img}" alt="${p.name}" loading="lazy"/>
     <div class="card-overlay"></div>
     <div class="card-school">GAGE</div>
-    ${p.captain ? `<div class="captain-badge" title="Capitaine">C</div>` : ""}
+    ${p.captain ? `<div class="captain-badge" title="${tr("Capitaine", "Captain")}">C</div>` : ""}
     <div class="card-info">
       <div class="card-position">${p.position}</div>
       <div class="card-name">${p.name}</div>
-      <div class="card-meta">Garçons Senior</div>
     </div>`;
   roster.appendChild(card);
 });
@@ -394,14 +399,14 @@ function isMySchool(t) { return MY_SCHOOL.some(k => t.toLowerCase().includes(k))
 function renderStandings(standings, updated) {
   const el = document.getElementById("standings-container");
   if (!standings || !standings.length) {
-    el.innerHTML = `<p class="data-loading">Aucun classement disponible pour l'instant.</p>`;
+    el.innerHTML = `<p class="data-loading">${tr("Aucun classement disponible pour l'instant.", "No standings available yet.")}</p>`;
     return;
   }
 
   const raw = standings[0];
   if (!raw) return;
 
-  const tierName = raw.headers[0] || "Classement";
+  const tierName = raw.headers[0] || tr("Classement", "Standings");
 
   // Split rows into tiers at each header row (contains "School")
   const tiers = [];
@@ -433,15 +438,22 @@ function renderStandings(standings, updated) {
     "WIN %": ["% V", "Pourcentage de victoires"], "PF": ["PM", "Points marqués"],
     "PA": ["PA", "Points accordés"], "STREAK": ["Série", ""]
   };
+  // English page: the data's own column names, with English tooltips
+  const COL_EN = {
+    "GP": ["GP", "Games played"], "W": ["W", "Wins"], "L": ["L", "Losses"],
+    "T": ["T", "Ties"], "PTS": ["PTS", "Standings points"],
+    "WIN %": ["WIN %", "Win percentage"], "PF": ["PF", "Points for"],
+    "PA": ["PA", "Points against"], "STREAK": ["Streak", ""]
+  };
 
   // Streak cells come in English ("W 3"); show them in French ("V 3")
-  const frStreak = c => String(c).replace(/^([WLT]) (\d+)$/, (m, r, n) => ({ W: "V", L: "D", T: "N" })[r] + " " + n);
+  const frStreak = c => GAGE_EN ? c : String(c).replace(/^([WLT]) (\d+)$/, (m, r, n) => ({ W: "V", L: "D", T: "N" })[r] + " " + n);
 
   let html = "";
   tiers.forEach(t => {
     // Skip "School" from scraped headers since we hardcode "École"
     const thCells = t.colHeaders.filter(h => h !== "School").map(h => {
-      const [label, title] = COL_FR[h] || [h, ""];
+      const [label, title] = (GAGE_EN ? COL_EN : COL_FR)[h] || [h, ""];
       return `<th${title ? ` title="${title}"` : ""}>${label}</th>`;
     }).join("");
 
@@ -463,14 +475,14 @@ function renderStandings(standings, updated) {
       <span class="tier-badge">${t.tierLabel}</span>
       <div class="table-responsive mb-4">
         <table class="table table-bordered standings-table">
-          <thead><tr><th>École</th>${thCells}</tr></thead>
+          <thead><tr><th>${tr("École", "School")}</th>${thCells}</tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;
   });
 
   if (updated) {
-    html += `<p class="updated-tag">Source : <a href="https://www.hssaa.ca/displayStandings.php?leagueid=2" target="_blank">HSSAA</a> — Mise à jour : ${updated}</p>`;
+    html += `<p class="updated-tag">${tr("Source : ", "Source: ")}<a href="https://www.hssaa.ca/displayStandings.php?leagueid=2" target="_blank">HSSAA</a>${tr(" — Mise à jour : ", " · Updated: ")}${updated}</p>`;
   }
   el.innerHTML = html;
 }
@@ -485,7 +497,7 @@ function renderScores(scores, replays = []) {
   function boldStyle(n) { return isUs(n) ? "font-weight:700;" : ""; }
   function replayBtn(url) {
     if (!url) return "";
-    return `<a href="${url}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> Vidéo</a>`;
+    return `<a href="${url}" target="_blank" class="replay-btn"><i class="bi bi-play-circle-fill"></i> ${tr("Vidéo", "Video")}</a>`;
   }
 
   const upcoming = [];
@@ -526,10 +538,10 @@ function renderScores(scores, replays = []) {
 
       if (!isNaN(vPts) && !isNaN(hPts)) {
         if (isUs(visitor)) {
-          result = vPts > hPts ? "Victoire" : "Défaite";
+          result = vPts > hPts ? tr("Victoire", "Win") : tr("Défaite", "Loss");
           badgeClass = vPts > hPts ? "badge-win" : "badge-loss";
         } else if (isUs(home)) {
-          result = hPts > vPts ? "Victoire" : "Défaite";
+          result = hPts > vPts ? tr("Victoire", "Win") : tr("Défaite", "Loss");
           badgeClass = hPts > vPts ? "badge-win" : "badge-loss";
         } else {
           result = `${vPts} – ${hPts}`;
@@ -544,7 +556,7 @@ function renderScores(scores, replays = []) {
   const upcomingEl = document.getElementById("upcoming-container");
   if (upcomingEl) {
     if (!upcoming.length) {
-      upcomingEl.innerHTML = `<p class="data-loading">Aucun match à venir.</p>`;
+      upcomingEl.innerHTML = `<p class="data-loading">${tr("Aucun match à venir.", "No upcoming games.")}</p>`;
     } else {
       const rows = upcoming.map(g => `<tr>
         <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
@@ -554,7 +566,7 @@ function renderScores(scores, replays = []) {
       </tr>`).join("");
       upcomingEl.innerHTML = `<div class="table-responsive">
         <table class="table table-bordered schedule-table">
-          <thead><tr><th>Visiteur</th><th>Heure</th><th>Domicile</th><th>Notes</th></tr></thead>
+          <thead><tr><th>' + tr("Visiteur", "Visitor") + '</th><th>' + tr("Heure", "Time") + '</th><th>' + tr("Domicile", "Home") + '</th><th>Notes</th></tr></thead>
           <tbody>${rows}</tbody>
         </table></div>`;
     }
@@ -564,7 +576,7 @@ function renderScores(scores, replays = []) {
   const playedEl = document.getElementById("scores-container");
   if (playedEl) {
     if (!played.length) {
-      playedEl.innerHTML = `<p class="data-loading">Aucun résultat pour l'instant.</p>`;
+      playedEl.innerHTML = `<p class="data-loading">${tr("Aucun résultat pour l'instant.", "No results yet.")}</p>`;
     } else {
       const rows = played.map(g => `<tr>
         <td style="${boldStyle(g.visitor)}">${nameCell(g.visitor)}</td>
@@ -578,8 +590,8 @@ function renderScores(scores, replays = []) {
       playedEl.innerHTML = `<div class="table-responsive">
         <table class="table table-bordered schedule-table">
           <thead><tr>
-            <th>Visiteur</th><th>Score V</th><th>Score D</th>
-            <th>Domicile</th><th>Résultat</th><th>Notes</th><th>Vidéo</th>
+            <th>${tr("Visiteur", "Visitor")}</th><th>${tr("Score V", "Score (V)")}</th><th>${tr("Score D", "Score (H)")}</th>
+            <th>${tr("Domicile", "Home")}</th><th>${tr("Résultat", "Result")}</th><th>Notes</th><th>${tr("Vidéo", "Video")}</th>
           </tr></thead>
           <tbody>${rows}</tbody>
         </table></div>`;
@@ -614,7 +626,7 @@ fetch(DATA_FILE)
   })
   .catch(err => {
     console.error("Failed to load data:", err);
-    setError("Données indisponibles. (" + err.message + ")");
+    setError(tr("Données indisponibles.", "Data unavailable.") + " (" + err.message + ")");
   });
 </script>
 </body>
