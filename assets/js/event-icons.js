@@ -11,8 +11,8 @@
 
   // Sports get their own emoji (checked first)
   var SPORTS = [
-    ["🏐", /\b(volley|volleyball|volley-ball)\b/],
-    ["🏀", /\b(basket|basketball|basket-ball)\b/],
+    ["🏐", /\b(volley|volleyball|volley-ball|vb[a-z0-9]{0,3})\b/]  // VB, VBG, VBF...,
+    ["🏀", /\b(basket|basketball|basket-ball|bb[a-z0-9]{0,3})\b/]  // BB, BBG, BBF...,
     ["⚽", /\b(soccer)\b/],
     ["🏒", /\b(hockey)\b/],
     ["🏸", /\b(badminton)\b/],
