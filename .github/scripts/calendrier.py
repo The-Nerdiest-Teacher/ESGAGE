@@ -104,6 +104,7 @@ def main():
     if b"BEGIN:VCALENDAR" not in ics:
         sys.exit("The link did not return a calendar (.ics). events.json was left as is.")
 
+    print("Outlook sent %d event entries." % ics.count(b"BEGIN:VEVENT"))
     events = convert(ics, dt.datetime.now(ZONE).date())
     data = {"events": events}
 
