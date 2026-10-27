@@ -19,6 +19,7 @@ assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
 assets/data/sports/*.json        Standings and scores (updated by the browser extension)
 assets/img/                      Images
+assets/video/                    Home page drone video (720p for computers, 480p for phones)
 ```
 
 ## Common updates
@@ -51,6 +52,16 @@ Online converters (e.g. squoosh.app) work too.
 **Game replays** — add a line to the `REPLAYS` list on the team page; the comments above it show the format.
 
 **New team page** — copy an existing team page for the same sport, keep the `equipes.css` link, change the `PLAYERS`, `IMG_BASE` and `DATA_FILE` values, and add it to `sitemap.xml`. The Sports page (`athletisme.html`) shows "À venir" for any team button whose page doesn't exist yet, and links to it automatically once the file is there. Each page can add its own `<style>` block for a layout unique to that sport.
+
+**Home page video** — `index.html` plays `assets/video/drone-720.mp4` on computers and `drone-480.mp4` on phones, with `assets/img/hero-drone.webp` shown while it loads (and instead of the video for visitors with data saver or "reduce motion" on). To swap in a new video, export it without sound and convert it with [ffmpeg](https://ffmpeg.org):
+
+```bash
+ffmpeg -i nouvelle-video.mp4 -an -vf "scale=1280:720,hqdn3d=2:2:4:4" -c:v libx264 -preset slow -crf 34 -pix_fmt yuv420p -movflags +faststart assets/video/drone-720.mp4
+ffmpeg -i nouvelle-video.mp4 -an -vf "scale=854:480,hqdn3d=2:2:4:4" -c:v libx264 -preset slow -crf 36 -pix_fmt yuv420p -movflags +faststart assets/video/drone-480.mp4
+ffmpeg -i nouvelle-video.mp4 -frames:v 1 -vf scale=1280:720 -quality 62 assets/img/hero-drone.webp
+```
+
+Keep the files small (about 10 MB and 5 MB for two minutes): every visitor downloads the video as it plays.
 
 ## Archiving a season
 

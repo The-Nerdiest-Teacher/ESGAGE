@@ -12,7 +12,10 @@
 <meta property="og:title" content="École secondaire Gaétan-Gervais (ESGAGE) | Oakville, Ontario"/>
 <meta property="og:description" content="École secondaire Gaétan-Gervais à Oakville : n° 1 des écoles secondaires francophones de l'Ontario (Institut Fraser). 7e à 12e année, BI, sports et TIC."/>
 <meta property="og:url" content="https://esgage.ca/"/>
-<meta property="og:image" content="https://esgage.ca/assets/img/gage-logo.png"/>
+<meta property="og:image" content="https://esgage.ca/assets/img/og-ecole.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Vue aérienne de l'École secondaire Gaétan-Gervais"/>
 <meta property="og:locale" content="fr_CA"/>
 <meta property="og:site_name" content="École secondaire Gaétan-Gervais"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -24,7 +27,7 @@
   "alternateName": "ESGAGE",
   "url": "https://esgage.ca/",
   "logo": "https://esgage.ca/assets/img/gage-logo.png",
-  "image": "https://esgage.ca/assets/img/gage-logo.png",
+  "image": "https://esgage.ca/assets/img/og-ecole.jpg",
   "telephone": "+1-289-529-0065",
   "email": "gaetangervais@csviamonde.ca",
   "address": {
@@ -56,6 +59,7 @@
   "inLanguage": "fr-CA"
 }
 </script>
+<link rel="preload" as="image" href="assets/img/hero-drone.webp" type="image/webp"/>
 <link href="assets/img/favicon.png" rel="icon"/>
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -76,18 +80,41 @@
 <section id="hero">
   <div id="hero-video-container">
     <!--
-      ═══════════════════════════════════════════════════════════
-      REMPLACEZ -G2jRtJ1eeg par l'ID de votre vidéo YouTube
-      Ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ → dQw4w9WgXcQ
-      ═══════════════════════════════════════════════════════════
+      Vidéo de drone de l'école (2 min, sans son), hébergée sur le site :
+        assets/video/drone-720.mp4  pour les ordinateurs
+        assets/video/drone-480.mp4  pour les téléphones (fichier plus léger)
+        assets/img/hero-drone.webp  image affichée pendant le chargement
+      Le script juste en dessous démarre la vidéo, sauf si le visiteur a activé
+      l'économiseur de données ou demandé moins de mouvement (l'image reste alors).
     -->
-    <iframe
-      id="yt-bg"
-      title="Vidéo aérienne de l'École secondaire Gaétan-Gervais"
-      src="https://www.youtube.com/embed/-G2jRtJ1eeg?autoplay=1&mute=1&loop=1&playlist=-G2jRtJ1eeg&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&fs=0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
+    <video id="hero-video" muted loop playsinline preload="none"
+      poster="assets/img/hero-drone.webp"
+      data-src-small="assets/video/drone-480.mp4"
+      data-src-large="assets/video/drone-720.mp4"
+      aria-hidden="true" tabindex="-1"></video>
+    <script>
+    (function () {
+      var video = document.getElementById("hero-video");
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var saveData = navigator.connection && navigator.connection.saveData;
+      if (!video || reduceMotion || saveData) return;
+
+      var small = window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+      video.muted = true;
+      video.src = small ? video.getAttribute("data-src-small") : video.getAttribute("data-src-large");
+
+      // If the browser blocks autoplay (e.g. phone battery saver), the image simply stays
+      function play() { var p = video.play(); if (p) p.catch(function () {}); }
+      play();
+
+      // Pause while the video is scrolled out of view, to save battery
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) play(); else video.pause();
+        }).observe(video);
+      }
+    })();
+    </script>
   </div>
 
   <div class="container hero-content">
