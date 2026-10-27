@@ -594,3 +594,6 @@ html.dark-mode .visite-btn-outline:hover { color: #fff; }
   .hero-scroll { animation: none; }
   .fierte-card, .event-card, .pilier-card { transition: none; }
 }
+.event-icon { margin-right: 6px; color: var(--accent-color); }
+.event-icon.is-emoji { margin-right: 4px; }
+html.dark-mode .event-icon { color: #5cb87a; }

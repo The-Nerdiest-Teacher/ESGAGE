@@ -64,8 +64,9 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
-  function title(e) { return (EN && e.title_en) || e.title; }
-  function description(e) { return (EN && e.description_en) || e.description || ""; }
+  // Event names come from Outlook in French; the icon is picked from the name (event-icons.js)
+  function title(e) { return e.icon.title; }
+  function iconHtml(e, className) { return window.gageEventIconHtml(e.icon, className); }
 
   // First and last day an event covers (all-day "end" is the day after, as in Outlook)
   function firstDay(e) { return e.start.slice(0, 10); }
@@ -93,13 +94,15 @@
 
   /* ── Pieces ── */
   function eventItem(e) {
-    var desc = description(e);
+    var desc = e.description || "";
     return '<li class="cal-event' + (e.allDay ? " is-allday" : "") + '">' +
+      iconHtml(e, "cal-event-icon") +
+      '<span class="cal-event-text">' +
       '<span class="cal-event-when">' + escapeHtml(whenText(e)) + "</span>" +
       '<strong class="cal-event-title">' + escapeHtml(title(e)) + "</strong>" +
       (e.location ? '<span class="cal-event-place"><i class="bi bi-geo-alt"></i> ' + escapeHtml(e.location) + "</span>" : "") +
       (desc ? '<p class="cal-event-desc">' + escapeHtml(desc).replace(/\n/g, "<br>") + "</p>" : "") +
-      "</li>";
+      "</span></li>";
   }
 
   function dayPanel() {
@@ -133,6 +136,7 @@
 
       var chips = list.slice(0, 3).map(function (e) {
         return '<span class="cal-chip' + (e.allDay ? " is-allday" : "") + '">' +
+          iconHtml(e, "cal-chip-icon") +
           (e.allDay || firstDay(e) !== day ? "" : '<span class="cal-chip-time">' + escapeHtml(fmtTime(e.start)) + "</span> ") +
           escapeHtml(title(e)) + "</span>";
       }).join("");
@@ -225,6 +229,7 @@
     })
     .then(function (data) {
       events = ((data && data.events) || []).filter(function (e) { return e && e.title && e.start; });
+      events.forEach(function (e) { e.icon = window.gageEventIcon(e.title); });
       render();
     })
     .catch(function () {

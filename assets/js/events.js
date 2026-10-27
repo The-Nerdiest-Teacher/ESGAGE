@@ -45,11 +45,12 @@
     var cards = events.map(function (e) {
       var p = formatParts(e);
       var when = p.weekday + (p.time ? " · " + p.time : "");
+      var icon = window.gageEventIcon(e.title); // assets/js/event-icons.js
       return '<div class="col-lg-4 col-md-6">' +
         '<a class="event-card" href="' + CALENDAR + "#" + e.start.slice(0, 10) + '">' +
           '<span class="event-date"><span class="event-day">' + p.day + '</span><span class="event-month">' + escapeHtml(p.month) + "</span></span>" +
           '<span class="event-body">' +
-            '<strong class="event-title">' + escapeHtml((EN && e.title_en) || e.title) + "</strong>" +
+            '<strong class="event-title">' + window.gageEventIconHtml(icon, "event-icon") + escapeHtml(icon.title) + "</strong>" +
             '<span class="event-when">' + escapeHtml(when) + "</span>" +
           "</span>" +
         "</a></div>";

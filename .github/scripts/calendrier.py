@@ -4,11 +4,7 @@ which the Calendrier page and the home page "À venir" read.
 
 Run by .github/workflows/calendrier.yml. The calendar's published ICS link
 is in the CALENDAR_ICS_URL setting of that workflow.
-
-Bilingual events (typed in Outlook):
-  - Title: "Soirée des parents | Parents' night"  (French | English)
-  - Description: French text, then a line starting with "EN:" and the English.
-Without " | " or "EN:", the English page shows the French text.
+Events are typed in French only; the English pages show them as is.
 """
 
 import datetime as dt
@@ -31,14 +27,6 @@ def school_year_start(today):
     """August 1 of the current school year, so the whole year can be browsed."""
     year = today.year if today.month >= 8 else today.year - 1
     return dt.date(year, 8, 1)
-
-
-def split_lang(text, separator):
-    """'Français | English' -> ('Français', 'English'); no separator -> (text, '')."""
-    parts = re.split(separator, text, maxsplit=1)
-    if len(parts) == 2:
-        return parts[0].strip(), parts[1].strip()
-    return text.strip(), ""
 
 
 def clean_description(text):
@@ -70,7 +58,7 @@ def convert(ics_bytes, today):
         if str(item.get("CLASS", "PUBLIC")).upper() in ("PRIVATE", "CONFIDENTIAL"):
             continue
 
-        title, title_en = split_lang(str(item.get("SUMMARY", "")), r"\s+\|\s+")
+        title = str(item.get("SUMMARY", "")).strip()
         if not title:
             continue
 
@@ -83,9 +71,7 @@ def convert(ics_bytes, today):
         else:
             finish = begin + dt.timedelta(days=1) if all_day else begin
 
-        description, description_en = split_lang(
-            clean_description(str(item.get("DESCRIPTION", ""))), r"(?im)^\s*(?:EN|English)\s*:\s*"
-        )
+        description = clean_description(str(item.get("DESCRIPTION", "")))
 
         event = {
             "title": title,
@@ -93,15 +79,11 @@ def convert(ics_bytes, today):
             "end": when(finish, all_day),  # all-day: the day after the last day, as in Outlook
             "allDay": all_day,
         }
-        if title_en:
-            event["title_en"] = title_en
         location = str(item.get("LOCATION", "")).strip()
         if location:
             event["location"] = location
         if description:
             event["description"] = description
-        if description_en:
-            event["description_en"] = description_en
         events.append(event)
 
     events.sort(key=lambda e: (e["start"], e["title"]))
