@@ -47,6 +47,8 @@ The site is bilingual. Each main page has an English twin with the **same file n
 
 **Calendar** — staff add events to the shared Outlook calendar. Every 30 minutes, the "Calendrier (Outlook)" job (Actions tab) copies it to `assets/data/events.json`, which the Calendrier page and the home page "À venir" read. To update right away: Actions → Calendrier (Outlook) → Run workflow. The calendar's published ICS link is `CALENDAR_ICS_URL` in `.github/workflows/calendrier.yml`. Private events are left out.
 
+**Home games are added automatically** from the team pages: the HSSAA schedule in `assets/data/sports/*.json` and the `MATCHS` list of pages like the 7e/8e volleyball one (add `heure: "15 h 30"` to a game there to show its time). Only games at Gaétan-Gervais are added, away games are not. If a game is also typed in Outlook (same day, sport and opponent, e.g. "VB Garçons Senior vs Acton"), it shows once, as typed in Outlook. Each game links to its team page.
+
 Each event gets an icon picked from words in its name. Sports get their emoji ("volleyball" or "VB" → 🏐, "basket" or "BB" → 🏀, "soccer" → ⚽, "course de fond" → 🏃, ...); other events get an icon ("photo" → camera, "tournoi" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
 
 **Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
