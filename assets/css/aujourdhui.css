@@ -51,6 +51,8 @@ a.cal-badge, a.cal-badge:hover { color: #fff; }
   .install-card img { width: 44px; height: 44px; border-radius: 11px; }
 }
 
-html.dark-mode .today-wrap { --accent-color: #2f8a4f; }
+html.dark-mode .today-wrap { --accent-color: #2a7d47; }
+/* the dark-mode light-green link colour is too pale on the green buttons and date badges */
+html.dark-mode .today-links a:not(.is-outline), html.dark-mode a.cal-badge { color: #fff; }
 html.dark-mode .today-links a.is-outline { color: #5cb87a; border-color: #5cb87a; }
 html.dark-mode .install-card { background: #1e1e1e; border-color: rgba(255, 255, 255, 0.1); }

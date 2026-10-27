@@ -78,7 +78,7 @@
 
         return `
 <div class="col-12 staff-group-heading" data-aos="fade-up">
-  <h3>${g.title}</h3>
+  <h2>${g.title}</h2>
 </div>` + members.map((p, idx) => renderMember(p, idx, g.detail)).join("");
       }).join("");
 
@@ -112,7 +112,7 @@
     </div>
   </div>
   <div class="member-info text-center">
-    <h4>${name}</h4>
+    <h3>${name}</h3>
     ${detail ? `<p>${detail}</p>` : ""}
   </div>
 </div>`;

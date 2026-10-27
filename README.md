@@ -116,6 +116,20 @@ self.addEventListener("activate", function (e) {
 });
 ```
 
+## Accessibility (AODA)
+
+The site aims for WCAG 2.1 AA, the level Ontario's AODA asks for. What is already built in:
+a "Skip to main content" link, a keyboard-friendly menu (Tab, Enter, Escape), a visible focus outline,
+a pause button on the home video, no animations for visitors who ask their device for less motion,
+and a calendar that works with the keyboard and screen readers.
+
+When you add or change a page:
+- Every photo needs `alt="..."` describing it (a student's photo: their name; a decorative icon: `alt=""`).
+- Keep heading levels in order: one `<h1>` per page, then `<h2>` for sections, `<h3>` inside them.
+- Link text should say where it goes ("Calendrier", not "cliquez ici").
+- Don't use colour alone to show something (the Victoire/Défaite badges also have words).
+- Embedded videos (`<iframe>`) need a `title="..."`.
+
 ## Archiving a season
 
 1. `git mv` each outgoing team page into `equipes/archive/<saison>/` and add it to `equipes/archive/index.html`.

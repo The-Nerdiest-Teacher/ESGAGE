@@ -101,6 +101,8 @@
       data-src-small="/assets/video/drone-480.mp4"
       data-src-large="/assets/video/drone-720.mp4"
       aria-hidden="true" tabindex="-1"></video>
+    <button type="button" class="hero-video-toggle" id="hero-video-toggle" hidden
+      data-label-pause="Pause the video" data-label-play="Play the video" aria-label="Pause the video"><i class="bi bi-pause-fill" aria-hidden="true"></i></button>
     <script>
     (function () {
       var video = document.getElementById("hero-video");
@@ -113,7 +115,20 @@
       video.src = small ? video.getAttribute("data-src-small") : video.getAttribute("data-src-large");
 
       // If the browser blocks autoplay (e.g. phone battery saver), the image simply stays
-      function play() { var p = video.play(); if (p) p.catch(function () {}); }
+      function play() { if (stopped) return; var p = video.play(); if (p) p.catch(function () {}); }
+
+      // Pause button (moving video must be stoppable for accessibility)
+      var stopped = false;
+      var toggle = document.getElementById("hero-video-toggle");
+      if (toggle) {
+        toggle.hidden = false;
+        toggle.addEventListener("click", function () {
+          stopped = !stopped;
+          if (stopped) video.pause(); else play();
+          toggle.setAttribute("aria-label", toggle.getAttribute(stopped ? "data-label-play" : "data-label-pause"));
+          toggle.firstElementChild.className = stopped ? "bi bi-play-fill" : "bi bi-pause-fill";
+        });
+      }
       play();
 
       // Pause while the video is scrolled out of view, to save battery
@@ -192,7 +207,7 @@
   <div class="container">
     <div class="row gy-4 align-items-center justify-content-center" data-aos="fade-up">
       <div class="col-12 text-center mb-2">
-        <p class="gage-section-title">Ranked among the best</p>
+        <h2 class="gage-section-title">Ranked among the best</h2>
         <p class="gage-section-sub">Fraser Institute: Report Card on Ontario's Secondary Schools</p>
       </div>
       <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -228,7 +243,7 @@
 <section class="section" id="fiertes">
   <div class="container">
     <div class="text-center" data-aos="fade-up">
-      <p class="gage-section-title">Griffon Pride</p>
+      <h2 class="gage-section-title">Griffon Pride</h2>
       <p class="gage-section-sub">Our teams' latest wins</p>
     </div>
     <div class="row gy-4 justify-content-center" id="fiertes-cartes">
@@ -263,14 +278,14 @@
 <section class="section light-background" id="pourquoi">
   <div class="container">
     <div class="text-center" data-aos="fade-up">
-      <p class="gage-section-title">Why choose GAGE?</p>
+      <h2 class="gage-section-title">Why choose GAGE?</h2>
       <p class="gage-section-sub">Programs that make a difference, in French</p>
     </div>
     <div class="row gy-4">
       <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <a class="pilier-card pilier-link" href="/en/programmes-specialises.html#bi">
           <div class="pilier-icon"><i class="bi bi-globe2"></i></div>
-          <h4>International Baccalaureate</h4>
+          <h3>International Baccalaureate</h3>
           <p>A program recognized in more than 160 countries, for students who aim high.</p>
           <span class="pilier-more">Learn more <i class="bi bi-arrow-right"></i></span>
         </a>
@@ -278,7 +293,7 @@
       <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <a class="pilier-card pilier-link" href="/en/programmes-specialises.html#mhs-sports">
           <div class="pilier-icon"><i class="bi bi-trophy-fill"></i></div>
-          <h4>SHSM Sports</h4>
+          <h3>SHSM Sports</h3>
           <p>High-level sport and academic success together, with the right support.</p>
           <span class="pilier-more">Learn more <i class="bi bi-arrow-right"></i></span>
         </a>
@@ -286,7 +301,7 @@
       <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
         <a class="pilier-card pilier-link" href="/en/programmes-specialises.html#mhs-tic">
           <div class="pilier-icon"><i class="bi bi-cpu-fill"></i></div>
-          <h4>SHSM ICT</h4>
+          <h3>SHSM ICT</h3>
           <p>Programming, robotics and cybersecurity, through hands-on projects.</p>
           <span class="pilier-more">Learn more <i class="bi bi-arrow-right"></i></span>
         </a>
@@ -294,7 +309,7 @@
       <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
         <a class="pilier-card pilier-link" href="/en/activite.html">
           <div class="pilier-icon"><i class="bi bi-stars"></i></div>
-          <h4>Student life</h4>
+          <h3>Student life</h3>
           <p>12 clubs, a student council and events all year long.</p>
           <span class="pilier-more">Learn more <i class="bi bi-arrow-right"></i></span>
         </a>
@@ -307,7 +322,7 @@
 <section class="section" id="a-venir">
   <div class="container">
     <div class="text-center" data-aos="fade-up">
-      <p class="gage-section-title">Coming up</p>
+      <h2 class="gage-section-title">Coming up</h2>
       <p class="gage-section-sub">Upcoming events at the school</p>
     </div>
     <div class="row gy-3 justify-content-center" id="events-list" aria-live="polite">

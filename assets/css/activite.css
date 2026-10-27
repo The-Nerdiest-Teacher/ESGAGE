@@ -358,7 +358,8 @@
   color: var(--accent-color);
   flex-shrink: 0;
 }
-.outing-card h4 {
+.outing-card h4,
+.outing-card h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 15px;
