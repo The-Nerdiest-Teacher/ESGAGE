@@ -47,7 +47,7 @@ The site is bilingual. Each main page has an English twin with the **same file n
 
 **Calendar** — staff add events to the shared Outlook calendar. Every 30 minutes, the "Calendrier (Outlook)" job (Actions tab) copies it to `assets/data/events.json`, which the Calendrier page and the home page "À venir" read. To update right away: Actions → Calendrier (Outlook) → Run workflow. The calendar's published ICS link is `CALENDAR_ICS_URL` in `.github/workflows/calendrier.yml`. Private events are left out.
 
-Each event gets an icon picked from words in its name ("photo" → camera, "volleyball" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
+Each event gets an icon picked from words in its name. Sports get their emoji ("volleyball" → 🏐, "basket" → 🏀, "soccer" → ⚽, "course de fond" → 🏃, ...); other events get an icon ("photo" → camera, "tournoi" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
 
 **Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
 

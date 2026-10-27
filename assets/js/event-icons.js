@@ -1,12 +1,34 @@
 /**
  * Picks a small icon for a calendar event from words in its name
  * (used by the Calendrier page and the home page "À venir").
+ * Sports get an emoji (SPORTS), everything else a Bootstrap icon (RULES).
  * The first rule that matches wins; accents and capitals don't matter.
  * Icons: https://icons.getbootstrap.com (write the name without "bi-").
  * Starting an event name with an emoji (e.g. "🎃 Danse") shows that emoji instead.
  */
 (function () {
   "use strict";
+
+  // Sports get their own emoji (checked first)
+  var SPORTS = [
+    ["🏐", /\b(volley|volleyball|volley-ball)\b/],
+    ["🏀", /\b(basket|basketball|basket-ball)\b/],
+    ["⚽", /\b(soccer)\b/],
+    ["🏒", /\b(hockey)\b/],
+    ["🏸", /\b(badminton)\b/],
+    ["🏊", /\b(natation)\b/],
+    ["🏉", /\b(rugby)\b/],
+    ["🏈", /\b(football)\b/],
+    ["🥏", /\b(ultimate|frisbee)\b/],
+    ["🏓", /\b(tennis de table|ping-pong|ping pong)\b/],
+    ["🎾", /\b(tennis)\b/],
+    ["🤼", /\b(lutte)\b/],
+    ["⚾", /\b(baseball|balle-molle|balle molle)\b/],
+    ["🏃", /\b(course de fond|cross-country|cross|athletisme|marathon)\b/],
+    ["⛷️", /\b(ski)\b/],
+    ["⛳", /\b(golf)\b/],
+    ["🏋️", /\b(musculation)\b/]
+  ];
 
   var RULES = [
     ["snow", /\b(ski|neige|planche a neige|hiver)\b/],
@@ -15,8 +37,7 @@
     ["camera", /\b(photo|photos)\b/],
     ["journal-text", /\b(bulletin|bulletins|releve)\b/],
     ["pencil-square", /\b(examen|examens|evaluation|test|oqre|tpcl)\b/],
-    ["stopwatch", /\b(course|cross|athletisme|marathon)\b/],
-    ["trophy", /\b(volley|volleyball|basket|basketball|soccer|hockey|badminton|natation|rugby|football|ultimate|tournoi|match|championnat|sport|sports|griffons)\b/],
+    ["trophy", /\b(tournoi|match|championnat|sport|sports|griffons)\b/],
     ["people", /\b(parents|conseil d.ecole|rencontre|reunion|soiree d.information)\b/],
     ["megaphone", /\b(election|elections|conseil des eleves|assemblee)\b/],
     ["flag", /\b(francophonie|franco|fierte|drapeau)\b/],
@@ -44,6 +65,9 @@
     var match = String(title).match(EMOJI);
     if (match) return { emoji: match[1], title: title.slice(match[0].length) || title };
     var text = normalize(title);
+    for (var j = 0; j < SPORTS.length; j++) {
+      if (SPORTS[j][1].test(text)) return { emoji: SPORTS[j][0], title: title };
+    }
     for (var i = 0; i < RULES.length; i++) {
       if (RULES[i][1].test(text)) return { icon: RULES[i][0], title: title };
     }
