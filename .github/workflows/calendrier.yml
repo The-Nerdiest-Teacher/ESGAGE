@@ -39,11 +39,12 @@ jobs:
       - run: python .github/scripts/calendrier.py
       - name: Commit if the calendar changed
         run: |
-          git add -N assets/data/matchs-domicile.ics
-          if git diff --quiet -- assets/data/events.json assets/data/matchs-domicile.ics; then exit 0; fi
+          FILES="assets/data/events.json assets/data/matchs-domicile.ics assets/data/matchs-heures.json"
+          git add -N $FILES
+          if git diff --quiet -- $FILES; then exit 0; fi
           git config user.name "calendrier-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/events.json assets/data/matchs-domicile.ics
+          git add $FILES
           git commit -m "Calendrier : mise à jour depuis Outlook"
           git pull --rebase
           git push

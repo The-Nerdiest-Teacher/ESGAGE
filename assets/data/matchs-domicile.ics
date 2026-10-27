@@ -28,8 +28,8 @@ UID:2026-09-28-basketball-filles-senior-vs-georgetown-d-h-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Basketball filles senior vs Georgetown D.H.S.
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20260929
+DTSTART;TZID=America/Toronto:20260928T153000
+DTEND;TZID=America/Toronto:20260928T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
  -senior-2026-2027.html
@@ -39,8 +39,8 @@ UID:2026-10-05-volleyball-garcons-senior-vs-maclachlan-college@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons senior vs MacLachlan College
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261005
-DTEND;VALUE=DATE:20261006
+DTSTART;TZID=America/Toronto:20261005T153000
+DTEND;TZID=America/Toronto:20261005T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-senior-2026-2027.html
@@ -50,8 +50,8 @@ UID:2026-10-07-basketball-filles-senior-vs-burlington-central-h-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Basketball filles senior vs Burlington Central H.S.
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261007
-DTEND;VALUE=DATE:20261008
+DTSTART;TZID=America/Toronto:20261007T153000
+DTEND;TZID=America/Toronto:20261007T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
  -senior-2026-2027.html
@@ -72,8 +72,8 @@ UID:2026-10-19-volleyball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons junior vs E.S. Sainte-Trinite
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261019
-DTEND;VALUE=DATE:20261020
+DTSTART;TZID=America/Toronto:20261019T153000
+DTEND;TZID=America/Toronto:20261019T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-junior-2026-2027.html
@@ -83,8 +83,8 @@ UID:2026-10-19-volleyball-garcons-senior-vs-e-s-sainte-trinite@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons senior vs E.S. Sainte-Trinite
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261019
-DTEND;VALUE=DATE:20261020
+DTSTART;TZID=America/Toronto:20261019T164500
+DTEND;TZID=America/Toronto:20261019T181500
 URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
  s-senior-2026-2027.html
@@ -105,8 +105,8 @@ UID:2026-10-21-basketball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Basketball filles senior vs Elsie MacGill S.S.
 LOCATION:Gaétan-Gervais
-DTSTART;VALUE=DATE:20261021
-DTEND;VALUE=DATE:20261022
+DTSTART;TZID=America/Toronto:20261021T153000
+DTEND;TZID=America/Toronto:20261021T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
  -senior-2026-2027.html
