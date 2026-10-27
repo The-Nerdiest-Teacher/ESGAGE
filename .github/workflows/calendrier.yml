@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Outlook > Settings > Calendar > Shared calendars > Publish a calendar > ICS link
-      CALENDAR_ICS_URL: "https://outlook.office365.com/owa/calendar/ff630cd0e6a34fb186769a1ce9923096@CSViamonde.ca/7fb82e00cf2f49da964f0ac2357869f01781105512684895925/calendar.ics"
+      CALENDAR_ICS_URL: "https://outlook.office365.com/owa/calendar/ff630cd0e6a34fb186769a1ce9923096@CSViamonde.ca/efd7d2eceaf449a7b7007a961fd73e0717076481162160073236/calendar.ics"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
