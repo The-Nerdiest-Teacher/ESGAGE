@@ -2,28 +2,28 @@
  "events": [
   {
    "title": "Basketball filles senior vs Georgetown D.H.S.",
-   "start": "2026-09-28",
-   "allDay": true,
+   "start": "2026-09-28T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-09-29",
+   "end": "2026-09-28T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
    "title": "Volleyball garçons senior vs MacLachlan College",
-   "start": "2026-10-05",
-   "allDay": true,
+   "start": "2026-10-05T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-06",
+   "end": "2026-10-05T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
   },
   {
    "title": "Basketball filles senior vs Burlington Central H.S.",
-   "start": "2026-10-07",
-   "allDay": true,
+   "start": "2026-10-07T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-08",
+   "end": "2026-10-07T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
@@ -38,19 +38,19 @@
   },
   {
    "title": "Volleyball garçons junior vs E.S. Sainte-Trinite",
-   "start": "2026-10-19",
-   "allDay": true,
+   "start": "2026-10-19T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-20",
+   "end": "2026-10-19T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
   },
   {
    "title": "Volleyball garçons senior vs E.S. Sainte-Trinite",
-   "start": "2026-10-19",
-   "allDay": true,
+   "start": "2026-10-19T16:45",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-20",
+   "end": "2026-10-19T16:45",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
   },
@@ -65,10 +65,10 @@
   },
   {
    "title": "Basketball filles senior vs Elsie MacGill S.S.",
-   "start": "2026-10-21",
-   "allDay": true,
+   "start": "2026-10-21T15:30",
+   "allDay": false,
    "game": true,
-   "end": "2026-10-22",
+   "end": "2026-10-21T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
