@@ -1,3 +1,22 @@
 {
- "events": []
+ "events": [
+  {
+   "title": "BB Filles Senior vs E.S. Sainte-Trinité",
+   "start": "2026-10-27T14:00",
+   "end": "2026-10-27T15:30",
+   "allDay": false
+  },
+  {
+   "title": "VB Garçons Senior vs Acton D.H.S.",
+   "start": "2026-10-28T15:30",
+   "end": "2026-10-28T16:30",
+   "allDay": false
+  },
+  {
+   "title": "VB Garçons Junior contre Acton D.H.S.",
+   "start": "2026-10-28T16:45",
+   "end": "2026-10-28T17:45",
+   "allDay": false
+  }
+ ]
 }
