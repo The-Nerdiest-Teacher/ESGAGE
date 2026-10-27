@@ -84,31 +84,12 @@ html.dark-mode .btn-image:hover { background: #2e8b50; border-color: #2e8b50; }
 <a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
 <script src="/assets/vendor/aos/aos.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/matchs.js"></script>
 <script src="/assets/js/images-matchs.js"></script>
 <script>
-// ── Équipes ───────────────────────────────────────────────────────────────
-// Les matchs viennent des mêmes données que les pages d'équipe (rien à taper ici).
-//   donnees : fichier de l'extension (HSSAA)
-//   page    : page d'équipe qui a une liste MATCHS (équipes sans données HSSAA)
-// Nouvelle équipe ? Copiez une ligne. Le nom anglais va dans en.
-var EQUIPES = [
-  { cle: "volleyball-garcons-senior",  sport: "volleyball", fr: "Garçons senior",  en: "Senior boys",    donnees: "/assets/data/sports/volleyball-garcons-senior.json" },
-  { cle: "volleyball-garcons-junior",  sport: "volleyball", fr: "Garçons junior",  en: "Junior boys",    donnees: "/assets/data/sports/volleyball-garcons-junior.json" },
-  { cle: "volleyball-filles-senior",   sport: "volleyball", fr: "Filles senior",   en: "Senior girls",   donnees: "/assets/data/sports/volleyball-filles-senior.json" },
-  { cle: "volleyball-filles-junior",   sport: "volleyball", fr: "Filles junior",   en: "Junior girls",   donnees: "/assets/data/sports/volleyball-filles-junior.json" },
-  { cle: "volleyball-garcons-78",      sport: "volleyball", fr: "Garçons 7e/8e",   en: "Grade 7/8 boys", page: "/equipes/volleyball-garcons-78-2026-2027.html" },
-  { cle: "basketball-filles-senior",   sport: "basketball", fr: "Filles senior",   en: "Senior girls",   donnees: "/assets/data/sports/basketball-filles-senior.json" },
-  { cle: "basketball-filles-junior",   sport: "basketball", fr: "Filles junior",   en: "Junior girls",   donnees: "/assets/data/sports/basketball-filles-junior.json" },
-  { cle: "basketball-garcons-senior",  sport: "basketball", fr: "Garçons senior",  en: "Senior boys",    donnees: "/assets/data/sports/basketball-garcons-senior.json" },
-  { cle: "basketball-garcons-junior",  sport: "basketball", fr: "Garçons junior",  en: "Junior boys",    donnees: "/assets/data/sports/basketball-garcons-junior.json" },
-  { cle: "soccer-filles-senior",       sport: "soccer",     fr: "Filles senior",   en: "Senior girls",   donnees: "/assets/data/sports/soccer-filles-senior.json" },
-  { cle: "soccer-filles-junior",       sport: "soccer",     fr: "Filles junior",   en: "Junior girls",   donnees: "/assets/data/sports/soccer-filles-junior.json" },
-  { cle: "soccer-garcons-senior",      sport: "soccer",     fr: "Garçons senior",  en: "Senior boys",    donnees: "/assets/data/sports/soccer-garcons-senior.json" },
-  { cle: "soccer-garcons-junior",      sport: "soccer",     fr: "Garçons junior",  en: "Junior boys",    donnees: "/assets/data/sports/soccer-garcons-junior.json" },
-];
-
+// Les matchs et la liste des équipes viennent de /assets/js/matchs.js (rien à taper ici).
 if (window.GAGE_EN) document.getElementById("team-filter").setAttribute("aria-label", "Team");
-imagesMatchs(EQUIPES);
+imagesMatchs();
 </script>
 </body>
 </html>
