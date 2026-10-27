@@ -1,14 +1,16 @@
 /**
- * Home page "À venir": the next events from the school's Tockify calendar
- * (the same calendar as calendrier.html), so the list updates itself.
- * If the calendar can't be reached, only the "Voir le calendrier complet" link shows.
+ * Home page "À venir": the next events from assets/data/events.json
+ * (the school's shared Outlook calendar, also shown on calendrier.html),
+ * so the list updates itself.
+ * If there are no upcoming events, only the "Voir le calendrier complet" link shows.
  */
 (function () {
   "use strict";
 
-  var CALENDAR = "gaetangervais";
   var EN = /^en/i.test(document.documentElement.lang);
   var LOCALE = EN ? "en-CA" : "fr-CA";
+  var SOURCE = EN ? "/assets/data/events.json" : "assets/data/events.json";
+  var CALENDAR = EN ? "/en/calendrier.html" : "calendrier.html";
   var MAX_EVENTS = 3;
   var list = document.getElementById("events-list");
   if (!list) return;
@@ -24,27 +26,30 @@
     });
   }
 
-  // All-day events are stored as a date, so show them in UTC to avoid landing on the day before
-  function formatParts(millis, allDay) {
-    var date = new Date(millis);
-    var zone = allDay ? "UTC" : "America/Toronto";
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function isoDate(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+
+  // Dates in events.json are school (Toronto) time: "2026-11-05" or "2026-11-05T18:30"
+  function formatParts(e) {
+    var p = e.start.split(/[-T:]/);
+    var date = new Date(+p[0], +p[1] - 1, +p[2], e.allDay ? 12 : +p[3], e.allDay ? 0 : +p[4]);
     return {
-      day: date.toLocaleDateString(LOCALE, { day: "numeric", timeZone: zone }),
-      month: date.toLocaleDateString(LOCALE, { month: "short", timeZone: zone }).replace(".", ""),
-      weekday: date.toLocaleDateString(LOCALE, { weekday: "long", timeZone: zone }),
-      time: allDay ? "" : date.toLocaleTimeString(LOCALE, { hour: "numeric", minute: "2-digit", timeZone: zone })
+      day: date.toLocaleDateString(LOCALE, { day: "numeric" }),
+      month: date.toLocaleDateString(LOCALE, { month: "short" }).replace(".", ""),
+      weekday: date.toLocaleDateString(LOCALE, { weekday: "long" }),
+      time: e.allDay ? "" : date.toLocaleTimeString(LOCALE, { hour: "numeric", minute: "2-digit" })
     };
   }
 
   function render(events) {
     var cards = events.map(function (e) {
-      var p = formatParts(e.start, e.allDay);
+      var p = formatParts(e);
       var when = p.weekday + (p.time ? " · " + p.time : "");
       return '<div class="col-lg-4 col-md-6">' +
-        '<a class="event-card" href="calendrier.html">' +
+        '<a class="event-card" href="' + CALENDAR + "#" + e.start.slice(0, 10) + '">' +
           '<span class="event-date"><span class="event-day">' + p.day + '</span><span class="event-month">' + escapeHtml(p.month) + "</span></span>" +
           '<span class="event-body">' +
-            '<strong class="event-title">' + escapeHtml(e.title) + "</strong>" +
+            '<strong class="event-title">' + escapeHtml((EN && e.title_en) || e.title) + "</strong>" +
             '<span class="event-when">' + escapeHtml(when) + "</span>" +
           "</span>" +
         "</a></div>";
@@ -52,25 +57,15 @@
     list.innerHTML = cards.join("");
   }
 
-  var url = "https://tockify.com/api/ngevent?calname=" + CALENDAR + "&max=" + MAX_EVENTS + "&startms=" + Date.now();
-
-  fetch(url)
+  fetch(SOURCE, { cache: "no-cache" })
     .then(function (res) {
       if (!res.ok) throw new Error(res.status);
       return res.json();
     })
     .then(function (data) {
-      var events = ((data && data.events) || []).map(function (e) {
-        var when = e.when || {};
-        var start = when.start || {};
-        var summary = (e.content && e.content.summary) || {};
-        return {
-          title: summary.text || "",
-          start: start.millis,
-          allDay: !!(when.allDay || start.allDay)
-        };
-      }).filter(function (e) {
-        return e.title && typeof e.start === "number";
+      var today = isoDate(new Date());
+      var events = ((data && data.events) || []).filter(function (e) {
+        return e && e.title && e.start && e.start.slice(0, 10) >= today;
       }).slice(0, MAX_EVENTS);
 
       if (events.length) render(events);
