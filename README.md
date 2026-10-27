@@ -49,6 +49,8 @@ The site is bilingual. Each main page has an English twin with the **same file n
 
 **Home games are added automatically** from the team pages: the HSSAA schedule in `assets/data/sports/*.json` and the `MATCHS` list of pages like the 7e/8e volleyball one (add `heure: "15 h 30"` to a game there to show its time). Only games at Gaétan-Gervais are added, away games are not. If a game is also typed in Outlook (same day, sport and opponent, e.g. "VB Garçons Senior vs Acton"), it shows once, as typed in Outlook. Each game links to its team page.
 
+**Home games in Outlook**: the same games are published as a calendar at `https://esgage.ca/assets/data/matchs-domicile.ics` (only the games not already typed in the shared Outlook calendar). In Outlook: Calendar → Add calendar → Subscribe from web, paste that link. It shows next to your other calendars and updates itself (Outlook checks a few times a day).
+
 Each event gets an icon picked from words in its name. Sports get their emoji ("volleyball" or "VB" → 🏐, "basket" or "BB" → 🏀, "soccer" → ⚽, "course de fond" → 🏃, ...); other events get an icon ("photo" → camera, "tournoi" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
 
 **Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
