@@ -18,6 +18,9 @@ import json
 import os
 import re
 import sys
+import http.cookiejar
+import time as timer
+import urllib.error
 import urllib.request
 from zoneinfo import ZoneInfo
 
@@ -350,6 +353,23 @@ def write_if_changed(path, text):
     return True
 
 
+def download(url):
+    """The .ics file, or None. Outlook redirects with cookies, so they are kept between hops."""
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+    headers = {"User-Agent": "Mozilla/5.0 (esgage.ca calendar sync)", "Accept": "text/calendar, */*"}
+    for attempt in range(3):
+        try:
+            with opener.open(urllib.request.Request(url, headers=headers), timeout=60) as response:
+                ics = response.read()
+            if b"BEGIN:VCALENDAR" in ics:
+                return ics
+            print("The link did not return a calendar (.ics).")
+        except (urllib.error.URLError, OSError) as error:
+            print("Download failed (try %d): %s" % (attempt + 1, error))
+        timer.sleep(10)
+    return None
+
+
 def main():
     url = os.environ.get("CALENDAR_ICS_URL", "").strip()
     if not url:
@@ -358,15 +378,16 @@ def main():
     if url.startswith("webcal://"):
         url = "https://" + url[len("webcal://"):]
 
-    request = urllib.request.Request(url, headers={"User-Agent": "esgage.ca calendar sync"})
-    with urllib.request.urlopen(request, timeout=60) as response:
-        ics = response.read()
-    if b"BEGIN:VCALENDAR" not in ics:
-        sys.exit("The link did not return a calendar (.ics). events.json was left as is.")
-
-    print("Outlook sent %d event entries." % ics.count(b"BEGIN:VEVENT"))
     today = dt.datetime.now(ZONE).date()
-    events = add_games(convert(ics, today), today)
+    ics = download(url)
+    if ics:
+        print("Outlook sent %d event entries." % ics.count(b"BEGIN:VEVENT"))
+        outlook = convert(ics, today)
+    else:
+        # Outlook didn't answer: keep its events from last time, still update the games
+        print("::warning::Outlook calendar could not be downloaded; keeping its events from last time.")
+        outlook = [e for e in load_json(OUT, {}).get("events", []) if not e.get("game")]
+    events = add_games(outlook, today)
     if write_if_changed(GAMES_ICS, games_calendar(events)):
         print("Wrote the home games calendar to %s" % GAMES_ICS)
     for e in events:
