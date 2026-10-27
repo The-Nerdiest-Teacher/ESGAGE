@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
+<!-- Addresses under /en/ get the English menu and text -->
+<script>if (location.pathname.indexOf("/en/") === 0) document.documentElement.lang = "en";</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Page introuvable | École secondaire Gaétan-Gervais</title>
 <meta name="robots" content="noindex"/>
@@ -41,6 +43,7 @@
   html.dark-mode .notfound-links a { --accent-color: #5cb87a; color: #e6e6e6; }
   html.dark-mode .notfound-links a:first-child,
   html.dark-mode .notfound-links a:hover { background: #1f6b3a; border-color: #1f6b3a; color: #fff; }
+  html[lang="en"] .notfound-fr, html:not([lang="en"]) .notfound-en { display: none; }
 </style>
 </head>
 <body class="notfound-page">
@@ -50,18 +53,31 @@
   <section class="notfound">
     <div class="container">
       <p class="notfound-code" aria-hidden="true">404</p>
-      <h1>Page introuvable</h1>
-      <p>Oups! Cette page n'existe pas ou a été déplacée. Le lien est peut-être ancien, ou l'adresse contient une faute de frappe.</p>
-      <div class="notfound-links">
-        <a href="/index.html"><i class="bi bi-house-fill"></i> Accueil</a>
-        <a href="/athletisme.html"><i class="bi bi-trophy-fill"></i> Sports</a>
-        <a href="/calendrier.html"><i class="bi bi-calendar-event-fill"></i> Calendrier</a>
-        <a href="/contact.html"><i class="bi bi-envelope-fill"></i> Contact</a>
+      <div class="notfound-fr">
+        <h1>Page introuvable</h1>
+        <p>Oups! Cette page n'existe pas ou a été déplacée. Le lien est peut-être ancien, ou l'adresse contient une faute de frappe.</p>
+        <div class="notfound-links">
+          <a href="/index.html"><i class="bi bi-house-fill"></i> Accueil</a>
+          <a href="/athletisme.html"><i class="bi bi-trophy-fill"></i> Sports</a>
+          <a href="/calendrier.html"><i class="bi bi-calendar-event-fill"></i> Calendrier</a>
+          <a href="/contact.html"><i class="bi bi-envelope-fill"></i> Contact</a>
+        </div>
+      </div>
+      <div class="notfound-en" lang="en">
+        <h1>Page not found</h1>
+        <p>Oops! This page doesn't exist or has moved. The link may be old, or the address may have a typo.</p>
+        <div class="notfound-links">
+          <a href="/en/index.html"><i class="bi bi-house-fill"></i> Home</a>
+          <a href="/en/athletisme.html"><i class="bi bi-trophy-fill"></i> Sports</a>
+          <a href="/en/calendrier.html"><i class="bi bi-calendar-event-fill"></i> Calendar</a>
+          <a href="/en/contact.html"><i class="bi bi-envelope-fill"></i> Contact</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 <div id="footer-placeholder"></div>
 <script src="/assets/js/main.js"></script>
+<script>if (document.documentElement.lang === "en") document.title = "Page not found | École secondaire Gaétan-Gervais";</script>
 </body>
 </html>

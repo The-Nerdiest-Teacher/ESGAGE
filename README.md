@@ -5,22 +5,36 @@ Website of École secondaire Gaétan-Gervais. Plain HTML/CSS/JS, served by GitHu
 ## Where things live
 
 ```
-index.html, cours.html, ...      Top-level pages
-partials/header.html             Menu shown on every page
-partials/footer.html             Footer shown on every page
+index.html, cours.html, ...      Top-level pages (French)
+en/                              English version: same file names (en/index.html, en/cours.html, ...)
+partials/header.html             Menu shown on every page (header-en.html on English pages)
+partials/footer.html             Footer shown on every page (footer-en.html on English pages)
 equipes/                         One page per team and season (e.g. volleyball-garcons-senior-2026-2027.html)
 equipes/archive/<saison>/        Past seasons' team pages
 assets/css/main.css              Site-wide styles (colours, header, footer, dark mode)
 assets/css/equipes.css           Styles shared by the team pages
 assets/css/<page>.css            Styles for one page only
 assets/js/include-partials.js    Loads the header and footer into each page
-assets/js/main.js                Menu, dark mode button, scroll animations
+assets/js/main.js                Menu, FR/EN and dark mode buttons, scroll animations
 assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
 assets/data/sports/*.json        Standings and scores (updated by the browser extension)
 assets/img/                      Images
 assets/video/                    Home page drone video (720p for computers, 480p for phones)
 ```
+
+## English version (`en/`)
+
+The site is bilingual. Each main page has an English twin with the **same file name** in `en/` (`cours.html` → `en/cours.html`), and the FR/EN button in the menu jumps between the two. **Any change to a page needs the same change in its twin**: same blocks in the same order, only the words in English.
+
+- **Paths in `en/` pages start with `/`** (`/assets/img/...`, `/en/contact.html`) because the files sit one folder down.
+- **Menu and footer** have one file per language: `partials/header.html` / `header-en.html` and `partials/footer.html` / `footer-en.html`. Links in the English ones start with `/en/`.
+- **New page**: make `page.html` and `en/page.html` (`<html lang="en">` on the English one). In each `<head>`, under the `canonical` line, paste the three `hreflang` lines from any other page and change the file name. They tell Google the two pages are translations of each other, and the FR/EN button uses them to find the twin. Add both pages to `sitemap.xml`.
+- **Staff**: `staff.json` stays in French. Job titles and departments are translated by the `EN_TERMS` list at the top of `assets/js/staff.js`; a new title shows in French on the English page until it's added there.
+- **News**: give each item in `news.json` a `titre_en`, `resume_en` and `categorie_en` too.
+- **Fiertés Griffons** (home page): add the card to `index.html` and `en/index.html`.
+- **Team pages** (`equipes/`) are French only for now; the English Sports page links to them.
+- Events on the home page and the calendar come from Tockify, so their names show as typed there.
 
 ## Common updates
 
@@ -32,7 +46,7 @@ assets/video/                    Home page drone video (720p for computers, 480p
 { "date": "2026-10-01", "categorie": "Vie scolaire", "titre": "Titre", "resume": "Une ou deux phrases.", "url": "calendrier.html", "image": "assets/img/..." }
 ```
 
-`url` and `image` are optional. When the page has real news, add `https://esgage.ca/nouvelles.html` back to `sitemap.xml` (and a link in `partials/header.html` if you want it in the menu).
+`url` and `image` are optional. For the English page, add `"categorie_en"`, `"titre_en"` and `"resume_en"` to the same item. When the page has real news, add `https://esgage.ca/nouvelles.html` and `https://esgage.ca/en/nouvelles.html` back to `sitemap.xml` (and a link in both header partials if you want it in the menu).
 
 **Players on a team page** — edit the `PLAYERS` list near the bottom of the team's page in `equipes/`. Photos go in the folder named by `IMG_BASE` on that page.
 
