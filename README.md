@@ -16,8 +16,11 @@ assets/css/equipes.css           Styles shared by the team pages
 assets/css/<page>.css            Styles for one page only
 assets/js/include-partials.js    Loads the header and footer into each page
 assets/js/main.js                Menu, FR/EN and dark mode buttons, scroll animations
+assets/js/event-icons.js         Which icon each calendar event gets (word list)
 assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
+assets/data/events.json          Calendrier page and home "À venir" (copied from Outlook, don't edit)
+.github/workflows/calendrier.yml Copies the shared Outlook calendar to events.json every 30 minutes
 assets/data/sports/*.json        Standings and scores (updated by the browser extension)
 assets/img/                      Images
 assets/video/                    Home page drone video (720p for computers, 480p for phones)
@@ -38,9 +41,13 @@ The site is bilingual. Each main page has an English twin with the **same file n
   - Text built by the page's script uses `tr("français", "English")`, e.g. `tr("Victoire", "Win")`.
   - French dates like "Mardi 13 octobre 2026" and cross-country places like "3e" are turned into English automatically, so `MATCHS`, `PLAYERS`, `REPLAYS` and results are typed once, as before.
   - Links to team pages from `en/` pages end with `?lang=en`.
-- Events on the home page and the calendar come from Tockify, so their names show as typed there.
+- **Calendar events** are written in French only in Outlook; the English pages show them as is.
 
 ## Common updates
+
+**Calendar** — staff add events to the shared Outlook calendar. Every 30 minutes, the "Calendrier (Outlook)" job (Actions tab) copies it to `assets/data/events.json`, which the Calendrier page and the home page "À venir" read. To update right away: Actions → Calendrier (Outlook) → Run workflow. The calendar's published ICS link is `CALENDAR_ICS_URL` in `.github/workflows/calendrier.yml`. Private events are left out.
+
+Each event gets an icon picked from words in its name. Sports get their emoji ("volleyball" or "VB" → 🏐, "basket" or "BB" → 🏀, "soccer" → ⚽, "course de fond" → 🏃, ...); other events get an icon ("photo" → camera, "tournoi" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
 
 **Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
 

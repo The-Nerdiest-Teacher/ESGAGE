@@ -33,6 +33,7 @@
 <link href="/assets/vendor/aos/aos.css" rel="stylesheet"/>
 <!-- Main CSS File -->
 <link href="/assets/css/main.css" rel="stylesheet"/>
+<link href="/assets/css/calendrier.css" rel="stylesheet"/>
 <!-- =======================================================
   * Template Name: Mentor
   * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
@@ -66,9 +67,10 @@
 </div>
 </nav>
 </div><!-- End Page Title -->
-<section class="section" id="calendrier-data">
-<div data-tockify-component="calendar" data-tockify-calendar="gaetangervais"></div>
-<script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+<section class="section cal-section" id="calendrier-data">
+<div class="container">
+<div class="gage-calendar" id="gage-calendar" data-src="/assets/data/events.json"></div>
+</div>
 </section><!-- /Events Section -->
 </main>
 <div id="footer-placeholder"></div>
@@ -80,5 +82,7 @@
 <script src="/assets/vendor/aos/aos.js"></script>
 <!-- Main JS File -->
 <script src="/assets/js/main.js"></script>
+<script src="/assets/js/event-icons.js"></script>
+<script src="/assets/js/calendar.js"></script>
 </body>
 </html>
