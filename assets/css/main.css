@@ -887,6 +887,11 @@ section,
 .trainers .member .member-img img {
   position: relative;
   z-index: 1;
+  /* Staff photos come in different shapes (square, 3:4): crop them all to a circle */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .trainers .member .member-img .social {
