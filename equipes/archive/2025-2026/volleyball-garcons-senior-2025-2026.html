@@ -265,6 +265,12 @@
   .data-loading { color: var(--default-color); opacity: 0.8; font-style: italic; }
   .updated-tag  { font-size: 11px; color: var(--default-color); opacity: 0.9; margin-top: 8px; }
   html.dark-mode .standings-table .my-school { background: color-mix(in srgb, var(--accent-color), transparent 78%); }
+  /* Mobile : carrousel de l'équipe */
+  @media (max-width: 767px) {
+    .roster-grid { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 10px 4px 18px; margin: 0 -4px; }
+    .roster-grid .player-card { flex: 0 0 68%; max-width: 260px; scroll-snap-align: center; }
+    .roster-grid .player-card:hover { transform: none; }
+  }
 </style>
 </head>
 <body class="starter-page-page">
@@ -360,7 +366,6 @@ PLAYERS.forEach((p, i) => {
     <div class="card-info">
       <div class="card-position">${p.position}</div>
       <div class="card-name">${p.name}</div>
-      <div class="card-meta">${tr("Garçons Senior", "Senior Boys")}</div>
     </div>`;
   roster.appendChild(card);
 });
