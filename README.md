@@ -17,6 +17,7 @@ assets/css/<page>.css            Styles for one page only
 assets/js/include-partials.js    Loads the header and footer into each page
 assets/js/main.js                Menu, FR/EN and dark mode buttons, scroll animations
 assets/js/event-icons.js         Which icon each calendar event gets (word list)
+assets/js/images-matchs.js       Draws the game images (equipes/images-matchs.html)
 assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
 assets/data/events.json          Calendrier page and home "À venir" (copied from Outlook, don't edit)
@@ -62,6 +63,8 @@ Each event gets an icon picked from words in its name. Sports get their emoji ("
 ```
 
 `url` and `image` are optional. For the English page, add `"categorie_en"`, `"titre_en"` and `"resume_en"` to the same item. When the page has real news, add `https://esgage.ca/nouvelles.html` and `https://esgage.ca/en/nouvelles.html` back to `sitemap.xml` (and a link in both header partials if you want it in the menu).
+
+**Game images for Instagram** — `equipes/images-matchs.html` (English: add `?lang=en`) makes one image per game Gaétan-Gervais has played, newest first: "Victoire !" for a win, "Résultat final" otherwise, set scores for volleyball. Pick a team, pick Publication (4:5) or Story (9:16), then Télécharger (or Partager on a phone). Nothing to type: it reads the same data as the team pages (the extension's files and the `MATCHS` lists) and updates itself. The page isn't in the menu or in Google, so bookmark it. `?equipe=volleyball-garcons-senior` opens it on one team. A new team page with a `MATCHS` list needs one line in the `EQUIPES` list at the bottom of the page. The drawing code is in `assets/js/images-matchs.js`.
 
 **Players on a team page** — edit the `PLAYERS` list near the bottom of the team's page in `equipes/`. Photos go in the folder named by `IMG_BASE` on that page.
 
