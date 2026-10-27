@@ -33,7 +33,11 @@ The site is bilingual. Each main page has an English twin with the **same file n
 - **Staff**: `staff.json` stays in French. Job titles and departments are translated by the `EN_TERMS` list at the top of `assets/js/staff.js`; a new title shows in French on the English page until it's added there.
 - **News**: give each item in `news.json` a `titre_en`, `resume_en` and `categorie_en` too.
 - **Fiertés Griffons** (home page): add the card to `index.html` and `en/index.html`.
-- **Team pages** (`equipes/`) are French only for now; the English Sports page links to them.
+- **Team pages** (`equipes/`) are **one file for both languages**: add `?lang=en` to the address for English (`/equipes/natation-2026-2027.html?lang=en`). `assets/js/team-lang.js` does the switch:
+  - Text written in the HTML gets its English in a `data-en="..."` attribute on the same tag, e.g. `<h3 data-en="Grade 9 girls">9e année filles</h3>` (also on `<title>` and the `description` meta).
+  - Text built by the page's script uses `tr("français", "English")`, e.g. `tr("Victoire", "Win")`.
+  - French dates like "Mardi 13 octobre 2026" and cross-country places like "3e" are turned into English automatically, so `MATCHS`, `PLAYERS`, `REPLAYS` and results are typed once, as before.
+  - Links to team pages from `en/` pages end with `?lang=en`.
 - Events on the home page and the calendar come from Tockify, so their names show as typed there.
 
 ## Common updates
@@ -65,7 +69,7 @@ Online converters (e.g. squoosh.app) work too.
 
 **Game replays** — add a line to the `REPLAYS` list on the team page; the comments above it show the format.
 
-**New team page** — copy an existing team page for the same sport, keep the `equipes.css` link, change the `PLAYERS`, `IMG_BASE` and `DATA_FILE` values, and add it to `sitemap.xml`. The Sports page (`athletisme.html`) shows "À venir" for any team button whose page doesn't exist yet, and links to it automatically once the file is there. Each page can add its own `<style>` block for a layout unique to that sport.
+**New team page** — copy an existing team page for the same sport, keep the `equipes.css` and `team-lang.js` lines in the `<head>`, change the `PLAYERS`, `IMG_BASE` and `DATA_FILE` values, update the `data-en` texts, and add it to `sitemap.xml` twice (once more with `?lang=en` at the end). The Sports pages (`athletisme.html` and `en/athletisme.html`) show "À venir" / "Coming soon" for any team button whose page doesn't exist yet, and link to it automatically once the file is there. Each page can add its own `<style>` block for a layout unique to that sport.
 
 **Home page video** — `index.html` plays `assets/video/drone-720.mp4` on computers and `drone-480.mp4` on phones, with `assets/img/hero-drone.webp` shown while it loads (and instead of the video for visitors with data saver or "reduce motion" on). To swap in a new video, export it without sound and convert it with [ffmpeg](https://ffmpeg.org):
 
@@ -82,7 +86,7 @@ Keep the files small (about 10 MB and 5 MB for two minutes): every visitor downl
 1. `git mv` each outgoing team page into `equipes/archive/<saison>/` and add it to `equipes/archive/index.html`.
 2. Copy the current `assets/data/sports/<sport>.json` to `assets/data/sports/archive/<saison>/<sport>-<saison>.json`, and point the archived page's `DATA_FILE` at that frozen copy.
 3. Move any `-replays.json` file for that page into the same archive folder.
-4. Build the new season's pages in `equipes/` (year-stamped filename, empty `PLAYERS` list until rosters are set) and update the links in `athletisme.html`.
+4. Build the new season's pages in `equipes/` (year-stamped filename, empty `PLAYERS` list until rosters are set) and update the links in `athletisme.html` and `en/athletisme.html` (English links end with `?lang=en`).
 
 ## Contact form
 
