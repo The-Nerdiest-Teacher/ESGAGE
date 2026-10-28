@@ -560,7 +560,8 @@ html.dark-mode .pilier-link p { color: var(--default-color); }
 .event-month { display: block; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 .event-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .event-title { font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.3; color: var(--heading-color); }
-.event-when { font-size: 13px; color: var(--default-color); opacity: 0.85; }
+/* Faded with color-mix, not opacity, so the home/away badge keeps its full colors */
+.event-when { font-size: 13px; color: color-mix(in srgb, var(--default-color), transparent 15%); }
 .event-when::first-letter { text-transform: uppercase; }
 .events-empty { text-align: center; margin: 0; color: var(--default-color); opacity: 0.85; }
 html.dark-mode .event-card { background: #1e1e1e; border-color: rgba(255, 255, 255, 0.1); }
@@ -622,3 +623,10 @@ html.dark-mode .visite-btn-outline:hover { color: #fff; }
 .event-icon { margin-right: 6px; color: var(--accent-color); }
 .event-icon.is-emoji { margin-right: 4px; }
 html.dark-mode .event-icon { color: #5cb87a; }
+.event-side {
+  display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; padding: 0 7px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: 1px;
+}
+.event-side.is-home { background: #1f6b3a; color: #fff; }
+.event-side.is-away { background: #d4a017; color: #1b1b1b; }
+html.dark-mode .event-side.is-home { background: #2a7d47; }

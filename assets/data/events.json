@@ -5,26 +5,142 @@
    "start": "2026-09-28T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "basketball-filles-senior",
    "end": "2026-09-28T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons junior vs T.A. Blakelock H.S.",
+   "start": "2026-09-28T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-09-28T15:30",
+   "location": "T.A. Blakelock H.S.",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs M.M. Robinson H.S.",
+   "start": "2026-09-28T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-09-28T15:30",
+   "location": "M.M. Robinson H.S.",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
   },
   {
    "title": "Volleyball garçons senior vs MacLachlan College",
    "start": "2026-10-05T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-senior",
    "end": "2026-10-05T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
+  },
+  {
+   "title": "Basketball filles senior vs M.M. Robinson H.S.",
+   "start": "2026-10-05T16:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "basketball-filles-senior",
+   "end": "2026-10-05T16:30",
+   "location": "M.M. Robinson H.S.",
+   "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
    "title": "Basketball filles senior vs Burlington Central H.S.",
    "start": "2026-10-07T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "basketball-filles-senior",
    "end": "2026-10-07T15:30",
    "location": "Gaétan-Gervais",
+   "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs King's Christian Collegiate",
+   "start": "2026-10-07T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-10-07T15:30",
+   "location": "King's Christian Collegiate",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons junior vs King's Christian Collegiate",
+   "start": "2026-10-07T16:45",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-10-07T16:45",
+   "location": "King's Christian Collegiate",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons 7e/8e vs Harvest Oak",
+   "start": "2026-10-13T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-78",
+   "end": "2026-10-13T15:30",
+   "location": "Harvest Oak",
+   "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs Acton D.H.S.",
+   "start": "2026-10-14T10:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-10-14T10:30",
+   "location": "E.S. Sainte-Trinite",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs E.S. Sainte-Trinite",
+   "start": "2026-10-14T12:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-10-14T12:30",
+   "location": "E.S. Sainte-Trinite",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs MacLachlan College",
+   "start": "2026-10-14T14:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-10-14T14:30",
+   "location": "E.S. Sainte-Trinite",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
+  },
+  {
+   "title": "Basketball filles senior vs Abbey Park H.S.",
+   "start": "2026-10-14T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "basketball-filles-senior",
+   "end": "2026-10-14T15:30",
+   "location": "Abbey Park H.S.",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
@@ -32,24 +148,63 @@
    "start": "2026-10-14T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-78",
    "end": "2026-10-14T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons junior vs Burlington Central H.S.",
+   "start": "2026-10-15T10:00",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-10-15T10:00",
+   "location": "Burlington Central H.S.",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons junior vs Elsie MacGill S.S.",
+   "start": "2026-10-15T13:00",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-10-15T13:00",
+   "location": "Burlington Central H.S.",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
   },
   {
    "title": "Volleyball garçons junior vs E.S. Sainte-Trinite",
    "start": "2026-10-19T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-junior",
    "end": "2026-10-19T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Basketball filles senior vs White Oaks High School",
+   "start": "2026-10-19T16:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "basketball-filles-senior",
+   "end": "2026-10-19T16:30",
+   "location": "White Oaks High School",
+   "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
    "title": "Volleyball garçons senior vs E.S. Sainte-Trinite",
    "start": "2026-10-19T16:45",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-senior",
    "end": "2026-10-19T16:45",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
@@ -59,6 +214,8 @@
    "start": "2026-10-20T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-78",
    "end": "2026-10-20T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
@@ -68,15 +225,74 @@
    "start": "2026-10-21T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "basketball-filles-senior",
    "end": "2026-10-21T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons 7e/8e vs Posts Corners",
+   "start": "2026-10-21T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-78",
+   "end": "2026-10-21T15:30",
+   "location": "Posts Corners",
+   "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons junior vs Burlington Central H.S.",
+   "start": "2026-10-21T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-10-21T15:30",
+   "location": "Burlington Central H.S.",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs Aldershot High School",
+   "start": "2026-10-21T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-10-21T15:30",
+   "location": "Aldershot High School",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons junior vs Elsie MacGill S.S.",
+   "start": "2026-10-26T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-10-26T15:30",
+   "location": "Elsie MacGill S.S.",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons senior vs Elsie MacGill S.S.",
+   "start": "2026-10-26T16:45",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-senior",
+   "end": "2026-10-26T16:45",
+   "location": "Elsie MacGill S.S.",
+   "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
   },
   {
    "title": "Basketball filles senior vs E.S. Sainte-Trinite",
    "start": "2026-10-27T14:00",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "basketball-filles-senior",
    "end": "2026-10-27T14:00",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
@@ -86,6 +302,8 @@
    "start": "2026-10-27T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-78",
    "end": "2026-10-27T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
@@ -95,6 +313,8 @@
    "start": "2026-10-28T14:00",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "basketball-filles-senior",
    "end": "2026-10-28T14:00",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
@@ -104,6 +324,8 @@
    "start": "2026-10-28T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-senior",
    "end": "2026-10-28T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
@@ -113,18 +335,62 @@
    "start": "2026-10-28T16:45",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-junior",
    "end": "2026-10-28T16:45",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons 7e/8e vs W.H. Morden",
+   "start": "2026-10-29T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-78",
+   "end": "2026-10-29T15:30",
+   "location": "W.H. Morden",
+   "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
+   "title": "Basketball filles senior vs Aldershot High School",
+   "start": "2026-11-02T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "basketball-filles-senior",
+   "end": "2026-11-02T15:30",
+   "location": "Aldershot High School",
+   "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
    "title": "Volleyball garçons 7e/8e vs Maple Grove",
    "start": "2026-11-03T15:30",
    "allDay": false,
    "game": true,
+   "home": true,
+   "team": "volleyball-garcons-78",
    "end": "2026-11-03T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  }
+ ],
+ "teams": [
+  {
+   "id": "basketball-filles-senior",
+   "name": "Basketball filles senior"
+  },
+  {
+   "id": "volleyball-garcons-78",
+   "name": "Volleyball garçons 7e/8e"
+  },
+  {
+   "id": "volleyball-garcons-junior",
+   "name": "Volleyball garçons junior"
+  },
+  {
+   "id": "volleyball-garcons-senior",
+   "name": "Volleyball garçons senior"
   }
  ]
 }

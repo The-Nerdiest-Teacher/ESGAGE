@@ -1,0 +1,103 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//esgage.ca//Calendrier//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GAGE – Volleyball garçons 7e/8e
+X-WR-TIMEZONE:America/Toronto
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+BEGIN:VTIMEZONE
+TZID:America/Toronto
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:2026-10-13-volleyball-garcons-7e-8e-vs-harvest-oak@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons 7e/8e vs Harvest Oak
+LOCATION:Harvest Oak
+DTSTART;TZID=America/Toronto:20261013T153000
+DTEND;TZID=America/Toronto:20261013T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-14-volleyball-garcons-7e-8e-vs-dr-david-williams@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons 7e/8e vs Dr. David Williams
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261014T153000
+DTEND;TZID=America/Toronto:20261014T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-20-volleyball-garcons-7e-8e-vs-joshua-creek@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons 7e/8e vs Joshua Creek
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261020T153000
+DTEND;TZID=America/Toronto:20261020T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-21-volleyball-garcons-7e-8e-vs-posts-corners@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons 7e/8e vs Posts Corners
+LOCATION:Posts Corners
+DTSTART;TZID=America/Toronto:20261021T153000
+DTEND;TZID=America/Toronto:20261021T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-volleyball-garcons-7e-8e-vs-oodenawi@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons 7e/8e vs Oodenawi
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261027T153000
+DTEND;TZID=America/Toronto:20261027T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-volleyball-garcons-7e-8e-vs-w-h-morden@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons 7e/8e vs W.H. Morden
+LOCATION:W.H. Morden
+DTSTART;TZID=America/Toronto:20261029T153000
+DTEND;TZID=America/Toronto:20261029T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-volleyball-garcons-7e-8e-vs-maple-grove@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons 7e/8e vs Maple Grove
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261103T153000
+DTEND;TZID=America/Toronto:20261103T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+END:VCALENDAR

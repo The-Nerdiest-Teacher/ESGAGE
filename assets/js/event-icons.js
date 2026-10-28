@@ -5,6 +5,7 @@
  * The first rule that matches wins; accents and capitals don't matter.
  * Icons: https://icons.getbootstrap.com (write the name without "bi-").
  * Starting an event name with an emoji (e.g. "🎃 Danse") shows that emoji instead.
+ * Games also get a home (house) or away (bus) badge: gageGameSideHtml.
  */
 (function () {
   "use strict";
@@ -72,6 +73,18 @@
       if (RULES[i][1].test(text)) return { icon: RULES[i][0], title: title };
     }
     return { icon: "calendar-event", title: title };
+  };
+
+  /**
+   * Home or away badge for a game: a house (home) or a bus (away), "" for other events.
+   * labels = ["Domicile", "Extérieur"] adds the word after the icon; without it, only the icon shows.
+   */
+  window.gageGameSideHtml = function (e, className, labels) {
+    if (!e.game) return "";
+    var away = e.home === false; // games from before away games were added are all home games
+    return '<span class="' + className + (away ? " is-away" : " is-home") + '"' + (labels ? "" : ' aria-hidden="true"') + ">" +
+      '<i class="bi bi-' + (away ? "bus-front-fill" : "house-door-fill") + '" aria-hidden="true"></i>' +
+      (labels ? " " + labels[away ? 1 : 0] : "") + "</span>";
   };
 
   /** Ready-made HTML for the icon (title not included). */

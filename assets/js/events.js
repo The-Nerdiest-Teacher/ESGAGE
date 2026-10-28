@@ -1,7 +1,7 @@
 /**
  * Home page "À venir": the next events from assets/data/events.json
  * (the school's shared Outlook calendar, also shown on calendrier.html),
- * so the list updates itself.
+ * so the list updates itself. Games show a house (home) or a bus (away).
  * If there are no upcoming events, only the "Voir le calendrier complet" link shows.
  */
 (function () {
@@ -51,7 +51,8 @@
           '<span class="event-date"><span class="event-day">' + p.day + '</span><span class="event-month">' + escapeHtml(p.month) + "</span></span>" +
           '<span class="event-body">' +
             '<strong class="event-title">' + window.gageEventIconHtml(icon, "event-icon") + escapeHtml(icon.title) + "</strong>" +
-            '<span class="event-when">' + escapeHtml(when) + "</span>" +
+            '<span class="event-when">' + escapeHtml(when) +
+              window.gageGameSideHtml(e, "event-side", EN ? ["Home", "Away"] : ["Domicile", "Extérieur"]) + "</span>" +
           "</span>" +
         "</a></div>";
     });
