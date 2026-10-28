@@ -403,6 +403,85 @@
    "end": "2026-11-03T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
+   "title": "9e - Journée Invitons nos jeunes au travail",
+   "start": "2026-11-04",
+   "end": "2026-11-05",
+   "allDay": true
+  },
+  {
+   "title": "11e-12e Sortie Théâtre Français",
+   "start": "2026-11-05",
+   "end": "2026-11-06",
+   "allDay": true
+  },
+  {
+   "title": "Rock Your Mocs – porter vos mocassins à l`école",
+   "start": "2026-11-09",
+   "end": "2026-11-10",
+   "allDay": true
+  },
+  {
+   "title": "Cercle sur le respect pour l’élémentaire",
+   "start": "2026-11-10",
+   "end": "2026-11-11",
+   "allDay": true
+  },
+  {
+   "title": "Cercle sur le respect pour le secondaire",
+   "start": "2026-11-11",
+   "end": "2026-11-12",
+   "allDay": true
+  },
+  {
+   "title": "Distribution des bulletins de mi-semestre du secondaire",
+   "start": "2026-11-12",
+   "end": "2026-11-13",
+   "allDay": true
+  },
+  {
+   "title": "Présentation sur la Traite sexuelle offert par la CP ÉSB",
+   "start": "2026-11-12",
+   "end": "2026-11-13",
+   "allDay": true,
+   "description": "P1 7e\nP2 8e"
+  },
+  {
+   "title": "Vente de pâtisseries",
+   "start": "2026-11-13T11:00",
+   "end": "2026-11-13T11:30",
+   "allDay": false
+  },
+  {
+   "title": "Soirée multiculturelle de DUCH à GAGE",
+   "start": "2026-11-17",
+   "end": "2026-11-18",
+   "allDay": true
+  },
+  {
+   "title": "Tournoi Filles Séniors à JSF BB",
+   "start": "2026-11-17",
+   "end": "2026-11-18",
+   "allDay": true
+  },
+  {
+   "title": "Journée bien-être",
+   "start": "2026-11-19",
+   "end": "2026-11-20",
+   "allDay": true
+  },
+  {
+   "title": "Natation - compétition à McMaster",
+   "start": "2026-11-19",
+   "end": "2026-11-20",
+   "allDay": true
+  },
+  {
+   "title": "Soirée parents-enseignants – Secondaire",
+   "start": "2026-11-19T18:30",
+   "end": "2026-11-19T20:00",
+   "allDay": false
   }
  ],
  "teams": [

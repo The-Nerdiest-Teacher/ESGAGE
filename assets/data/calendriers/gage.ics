@@ -436,4 +436,98 @@ URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-04-9e-journee-invitons-nos-jeunes-au-travail@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:9e - Journée Invitons nos jeunes au travail
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-11e-12e-sortie-theatre-francais@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:11e-12e Sortie Théâtre Français
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-rock-your-mocs-porter-vos-mocassins-a-l-ecole@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Rock Your Mocs – porter vos mocassins à l`école
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-10-cercle-sur-le-respect-pour-l-elementaire@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Cercle sur le respect pour l’élémentaire
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-11-cercle-sur-le-respect-pour-le-secondaire@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Cercle sur le respect pour le secondaire
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-distribution-des-bulletins-de-mi-semestre-du-secondaire@esga
+ ge.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Distribution des bulletins de mi-semestre du secondaire
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-presentation-sur-la-traite-sexuelle-offert-par-la-cp-esb@esg
+ age.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Présentation sur la Traite sexuelle offert par la CP ÉSB
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+DESCRIPTION:P1 7e\nP2 8e
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-13-vente-de-patisseries@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Vente de pâtisseries
+DTSTART;TZID=America/Toronto:20261113T110000
+DTEND;TZID=America/Toronto:20261113T113000
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-17-soiree-multiculturelle-de-duch-a-gage@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Soirée multiculturelle de DUCH à GAGE
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-17-tournoi-filles-seniors-a-jsf-bb@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Tournoi Filles Séniors à JSF BB
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-19-journee-bien-etre@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Journée bien-être
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-19-natation-competition-a-mcmaster@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Natation - compétition à McMaster
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-19-soiree-parents-enseignants-secondaire@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Soirée parents-enseignants – Secondaire
+DTSTART;TZID=America/Toronto:20261119T183000
+DTEND;TZID=America/Toronto:20261119T200000
+END:VEVENT
 END:VCALENDAR
