@@ -408,6 +408,23 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-30-fete-d-automne@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Fête d’automne
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+DESCRIPTION:Activités dans le Gym et maison hantée\nP1 (7e)\nP2 (8e)\nP3 
+ défilé de costumes pour toute l’école et activités pour les 9e\nP4 (
+ 10e à 12e)
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-30-tournoi-filles-senior-bb-launchpad@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Tournoi Filles Senior BB @ LaunchPad
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-30-tournoi-garcons-senior-bb-launchpad@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Tournoi Garçons Senior BB @ LaunchPad
