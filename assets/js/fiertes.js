@@ -3,6 +3,8 @@
  * (assets/js/matchs.js), after the cards typed in index.html / en/index.html.
  * Typed cards (tournaments, etc.) always stay first. Wins older than
  * RECENT_DAYS are left out, so the section doesn't show last season's games.
+ * The whole row fades in at once (data-aos on #fiertes-cartes), so typed and
+ * added cards appear together.
  */
 (function () {
   "use strict";
@@ -41,5 +43,7 @@
       a.querySelector(".fierte-date").textContent = M.dateText(g.date, EN, true);
       row.appendChild(col);
     });
+    // The section got taller: let the scroll animations below recompute where they start
+    if (window.AOS) window.AOS.refresh();
   });
 })();
