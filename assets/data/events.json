@@ -287,6 +287,24 @@
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
   },
   {
+   "title": "Hockey 7-8",
+   "start": "2026-10-27",
+   "end": "2026-10-28",
+   "allDay": true
+  },
+  {
+   "title": "Hockey 9-12",
+   "start": "2026-10-27",
+   "end": "2026-10-28",
+   "allDay": true
+  },
+  {
+   "title": "Élection représentant 7e",
+   "start": "2026-10-27",
+   "end": "2026-10-28",
+   "allDay": true
+  },
+  {
    "title": "Basketball filles senior vs E.S. Sainte-Trinite",
    "start": "2026-10-27T14:00",
    "allDay": false,
@@ -307,6 +325,12 @@
    "end": "2026-10-27T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
+   "title": "GHAC course de fond 9-12",
+   "start": "2026-10-28",
+   "end": "2026-10-29",
+   "allDay": true
   },
   {
    "title": "Basketball filles senior vs Oakville Trafalgar H.S.",

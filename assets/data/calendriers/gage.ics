@@ -314,6 +314,27 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-27-hockey-7-8@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Hockey 7-8
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-hockey-9-12@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Hockey 9-12
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-election-representant-7e@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Élection représentant 7e
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Basketball filles senior vs E.S. Sainte-Trinite
@@ -334,6 +355,13 @@ DTEND;TZID=America/Toronto:20261027T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-ghac-course-de-fond-9-12@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:GHAC course de fond 9-12
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-basketball-filles-senior-vs-oakville-trafalgar-h-s@esgage.ca
