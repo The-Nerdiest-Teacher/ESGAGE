@@ -113,23 +113,34 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-10-26-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
-DTSTAMP:20260801T000000Z
-SUMMARY:🚌 Volleyball garçons senior vs Elsie MacGill S.S.
-LOCATION:Elsie MacGill S.S.
-DTSTART;TZID=America/Toronto:20261026T164500
-DTEND;TZID=America/Toronto:20261026T181500
-URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
-DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
- uipes/volleyball-garcons-senior-2026-2027.html
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-10-28-volleyball-garcons-senior-vs-acton-d-h-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Volleyball garçons senior vs Acton D.H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261028T153000
 DTEND;TZID=America/Toronto:20261028T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons senior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20261029T164500
+DTEND;TZID=America/Toronto:20261029T181500
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons senior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261103T153000
+DTEND;TZID=America/Toronto:20261103T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-senior-2026-2027.html

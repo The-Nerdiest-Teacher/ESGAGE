@@ -17,6 +17,7 @@
  "volleyball-garcons-junior|2026-10-21|E.S. Gaetan Gervais|Burlington Central H.S.": "15:30",
  "volleyball-garcons-junior|2026-10-26|E.S. Gaetan Gervais|Elsie MacGill S.S.": "15:30",
  "volleyball-garcons-junior|2026-10-28|Acton D.H.S.|E.S. Gaetan Gervais": "16:45",
+ "volleyball-garcons-junior|2026-10-29|E.S. Gaetan Gervais|Elsie MacGill S.S.": "15:30",
  "volleyball-garcons-senior|2026-09-28|E.S. Gaetan Gervais|M.M. Robinson H.S.": "15:30",
  "volleyball-garcons-senior|2026-10-05|MacLachlan College|E.S. Gaetan Gervais": "15:30",
  "volleyball-garcons-senior|2026-10-07|E.S. Gaetan Gervais|King's Christian Collegiate": "15:30",
@@ -26,5 +27,7 @@
  "volleyball-garcons-senior|2026-10-19|E.S. Sainte-Trinite|E.S. Gaetan Gervais": "16:45",
  "volleyball-garcons-senior|2026-10-21|E.S. Gaetan Gervais|Aldershot High School": "15:30",
  "volleyball-garcons-senior|2026-10-26|E.S. Gaetan Gervais|Elsie MacGill S.S.": "16:45",
- "volleyball-garcons-senior|2026-10-28|Acton D.H.S.|E.S. Gaetan Gervais": "15:30"
+ "volleyball-garcons-senior|2026-10-28|Acton D.H.S.|E.S. Gaetan Gervais": "15:30",
+ "volleyball-garcons-senior|2026-10-29|E.S. Gaetan Gervais|Elsie MacGill S.S.": "16:45",
+ "volleyball-garcons-senior|2026-11-03|Elsie MacGill S.S.|E.S. Gaetan Gervais": "15:30"
 }

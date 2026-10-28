@@ -292,28 +292,6 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-10-26-volleyball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
-DTSTAMP:20260801T000000Z
-SUMMARY:🚌 Volleyball garçons junior vs Elsie MacGill S.S.
-LOCATION:Elsie MacGill S.S.
-DTSTART;TZID=America/Toronto:20261026T153000
-DTEND;TZID=America/Toronto:20261026T170000
-URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
-DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
- uipes/volleyball-garcons-junior-2026-2027.html
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-10-26-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
-DTSTAMP:20260801T000000Z
-SUMMARY:🚌 Volleyball garçons senior vs Elsie MacGill S.S.
-LOCATION:Elsie MacGill S.S.
-DTSTART;TZID=America/Toronto:20261026T164500
-DTEND;TZID=America/Toronto:20261026T181500
-URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
-DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
- uipes/volleyball-garcons-senior-2026-2027.html
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Basketball filles senior vs E.S. Sainte-Trinite
@@ -380,6 +358,28 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-29-volleyball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons junior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20261029T153000
+DTEND;TZID=America/Toronto:20261029T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-junior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons senior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20261029T164500
+DTEND;TZID=America/Toronto:20261029T181500
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-02-basketball-filles-senior-vs-aldershot-high-school@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🚌 Basketball filles senior vs Aldershot High School
@@ -400,5 +400,16 @@ DTEND;TZID=America/Toronto:20261103T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons senior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261103T153000
+DTEND;TZID=America/Toronto:20261103T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 END:VCALENDAR

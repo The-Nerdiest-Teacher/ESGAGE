@@ -93,17 +93,6 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-10-26-volleyball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
-DTSTAMP:20260801T000000Z
-SUMMARY:🚌 Volleyball garçons junior vs Elsie MacGill S.S.
-LOCATION:Elsie MacGill S.S.
-DTSTART;TZID=America/Toronto:20261026T153000
-DTEND;TZID=America/Toronto:20261026T170000
-URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
-DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
- uipes/volleyball-garcons-junior-2026-2027.html
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-10-28-volleyball-garcons-junior-vs-acton-d-h-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Volleyball garçons junior vs Acton D.H.S.
@@ -113,5 +102,16 @@ DTEND;TZID=America/Toronto:20261028T181500
 URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-junior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-volleyball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons junior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20261029T153000
+DTEND;TZID=America/Toronto:20261029T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-junior-2026-2027.html
 END:VEVENT
 END:VCALENDAR

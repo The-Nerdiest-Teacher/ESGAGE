@@ -177,4 +177,15 @@ URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-volleyball-garcons-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball garçons senior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261103T153000
+DTEND;TZID=America/Toronto:20261103T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
+END:VEVENT
 END:VCALENDAR
