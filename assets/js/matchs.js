@@ -77,7 +77,7 @@
   }
 
   // One played game, seen from Gaétan-Gervais' side
-  function makeGame(team, date, visitor, home, vScore, hScore, vSets, hSets, place) {
+  function makeGame(team, date, visitor, home, vScore, hScore, vSets, hSets, place, notes) {
     var weVisit = isMySchool(visitor);
     if (!weVisit && !isMySchool(home)) return null;
     var us = weVisit ? vScore : hScore, them = weVisit ? hScore : vScore;
@@ -87,7 +87,7 @@
     }
     return {
       team: team, date: date, opponent: weVisit ? home : visitor, home: !weVisit,
-      us: us, them: them, sets: sets, place: place || "",
+      us: us, them: them, sets: sets, place: place || "", notes: notes || "",
       result: us > them ? "win" : us < them ? "loss" : "tie"
     };
   }
@@ -102,11 +102,12 @@
       var v = String(row[1] || "").match(/^\s*(\d+)\s*(?:\(([^)]*)\))?\s*$/);
       var h = String(row[2] || "").match(/^\s*(\d+)\s*(?:\(([^)]*)\))?\s*$/);
       if (!v || !h) continue; // not played yet (time instead of a score)
-      var place = "";
+      var place = "", notes = "";
       var next = rows[i + 1] || [];
       if (/^Location:/.test(next[0] || "")) place = next[0].replace(/^Location:\s*/, "");
+      if (/^Notes:/.test(next[1] || "")) notes = next[1].replace(/^Notes:\s*/, "").replace(/\s+/g, " ").trim();
       var sets = function (s) { return s ? s.split(",").map(function (x) { return parseInt(x, 10); }).filter(function (x) { return !isNaN(x); }) : []; };
-      var g = makeGame(team, parseDate(date), row[0], row[3], +v[1], +h[1], sets(v[2]), sets(h[2]), place);
+      var g = makeGame(team, parseDate(date), row[0], row[3], +v[1], +h[1], sets(v[2]), sets(h[2]), place, notes);
       if (g) games.push(g);
     }
     return games;
@@ -129,7 +130,7 @@
         if (+m[1] > +m[2]) vWon++; else if (+m[2] > +m[1]) hWon++;
       });
       if (!vSets.length) return;
-      var g = makeGame(team, parseDate(f.date), f.visiteur, f.domicile, vWon, hWon, vSets, hSets, f.domicile);
+      var g = makeGame(team, parseDate(f.date), f.visiteur, f.domicile, vWon, hWon, vSets, hSets, f.domicile, f.notes);
       if (g) games.push(g);
     });
     return games;
@@ -151,5 +152,9 @@
     });
   }
 
-  window.GageMatchs = { EQUIPES: EQUIPES, SPORTS: SPORTS, load: load, dateText: dateText, isMySchool: isMySchool };
+  window.GageMatchs = {
+    EQUIPES: EQUIPES, SPORTS: SPORTS, load: load, dateText: dateText, isMySchool: isMySchool,
+    // Used by the Palmarès page (assets/js/palmares.js) to read past seasons too
+    parseDate: parseDate, gamesFromHssaa: gamesFromHssaa, gamesFromPage: gamesFromPage
+  };
 })();

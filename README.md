@@ -79,6 +79,8 @@ Each event gets an icon picked from words in its name. Sports get their emoji ("
 
 **Game images for Instagram** — `equipes/images-matchs.html` (English: add `?lang=en`) makes one image per game Gaétan-Gervais has played, newest first: "Victoire !" for a win, "Résultat final" otherwise, set scores for volleyball. Pick a team, pick Publication (4:5) or Story (9:16), then Télécharger (or Partager on a phone). Nothing to type: it reads the same data as the team pages (the extension's files and the `MATCHS` lists) and updates itself. The page isn't in the menu or in Google, so bookmark it. `?equipe=volleyball-garcons-senior` opens it on one team. The list of teams is `EQUIPES` at the top of `assets/js/matchs.js` (shared with the home page wins): each new season, change the year in the `page` links; a new team page with a `MATCHS` list needs one line there. The drawing code is in `assets/js/images-matchs.js`.
 
+**Palmarès (team records)** — `palmares.html` and `en/palmares.html` (in the Vie étudiante menu and under the Sports page) build themselves from the same data as the team pages, read only: each team's season record and standing, playoff games, a card for a first place in a finished season, a playoff final (Champions / Finalistes) or a lost semi-final, and the 1st to 3rd places on the cross-country pages. Only tournaments are typed by hand: add a line to `EXPLOITS` at the top of `assets/js/palmares.js` (French and English in the same line, for both pages), as well as the tournament card on the team page. Titles from before 2025-2026 go in the same list (the "Avant 2025-2026" box disappears once one is there). When a season is archived, add it to `SAISONS` in that file with its archive files.
+
 **Players on a team page** — edit the `PLAYERS` list near the bottom of the team's page in `equipes/`. Photos go in the folder named by `IMG_BASE` on that page.
 
 Player photos should be **WebP, about 600×750**. Full-size PNGs are ~1.3 MB each; WebP at that size is ~50 KB and looks the same on the card. To convert a folder (needs Python and `pip install pillow`):
@@ -165,7 +167,8 @@ Page views are counted by [GoatCounter](https://www.goatcounter.com) (no cookies
 1. `git mv` each outgoing team page into `equipes/archive/<saison>/` and add it to `equipes/archive/index.html`.
 2. Copy the current `assets/data/sports/<sport>.json` to `assets/data/sports/archive/<saison>/<sport>-<saison>.json`, and point the archived page's `DATA_FILE` at that frozen copy.
 3. Move any `-replays.json` file for that page into the same archive folder.
-4. Build the new season's pages in `equipes/` (year-stamped filename, empty `PLAYERS` list until rosters are set) and update the links in `athletisme.html` and `en/athletisme.html` (English links end with `?lang=en`).
+4. Add the season to `SAISONS` in `assets/js/palmares.js` (archived JSON and page) so the Palmarès keeps it.
+5. Build the new season's pages in `equipes/` (year-stamped filename, empty `PLAYERS` list until rosters are set) and update the links in `athletisme.html` and `en/athletisme.html` (English links end with `?lang=en`).
 
 ## Contact form
 
