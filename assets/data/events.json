@@ -531,6 +531,18 @@
    "start": "2026-11-26",
    "end": "2026-11-27",
    "allDay": true
+  },
+  {
+   "title": "Journée pédagogique",
+   "start": "2026-11-27",
+   "end": "2026-11-28",
+   "allDay": true
+  },
+  {
+   "title": "Natation - compétition à McMaster",
+   "start": "2026-12-10",
+   "end": "2026-12-11",
+   "allDay": true
   }
  ],
  "teams": [
