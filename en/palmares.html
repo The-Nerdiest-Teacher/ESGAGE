@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><script data-gage-theme-init="true">(function(){try{var t=localStorage.getItem("gage-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark"){document.documentElement.classList.add("dark-mode");}}catch(e){}})();</script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Griffons Team Records | École secondaire Gaétan-Gervais</title>
+<meta name="description" content="Team records of the École secondaire Gaétan-Gervais Griffons: titles, tournaments, playoffs, best seasons and individual medals."/>
+<meta name="keywords" content="Griffons team records, École secondaire Gaétan-Gervais sports, championships, tournaments, Oakville"/>
+<link rel="canonical" href="https://esgage.ca/en/palmares.html"/>
+<link rel="alternate" hreflang="fr-CA" href="https://esgage.ca/palmares.html"/>
+<link rel="alternate" hreflang="en-CA" href="https://esgage.ca/en/palmares.html"/>
+<link rel="alternate" hreflang="x-default" href="https://esgage.ca/palmares.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Griffons Team Records | École secondaire Gaétan-Gervais"/>
+<meta property="og:description" content="Team records of the École secondaire Gaétan-Gervais Griffons: titles, tournaments, playoffs, best seasons and individual medals."/>
+<meta property="og:url" content="https://esgage.ca/en/palmares.html"/>
+<meta property="og:image" content="https://esgage.ca/assets/img/gage-logo.png"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:site_name" content="École secondaire Gaétan-Gervais"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link href="/assets/img/favicon.png" rel="icon"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/manifest.webmanifest" rel="manifest"/>
+<meta name="theme-color" content="#1f6b3a"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+<link href="/assets/vendor/aos/aos.css" rel="stylesheet"/>
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<link href="/assets/css/palmares.css" rel="stylesheet"/>
+</head>
+<body class="starter-page-page">
+<div id="header-placeholder"></div>
+<script src="/assets/js/include-partials.js"></script>
+<main class="main">
+
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Griffons Team Records</h1>
+            <p class="mb-0">Titles, tournaments, playoffs and best seasons of our teams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/en/index.html">Home</a></li>
+          <li><a href="/en/athletisme.html">Sports</a></li>
+          <li class="current">Team records</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+
+  <!--
+    Cette page se remplit toute seule (assets/js/palmares.js) à partir des résultats des pages d'équipes.
+    Pour ajouter un tournoi ou un titre d'une saison passée : liste EXPLOITS dans assets/js/palmares.js
+    (une seule fois, pour les deux langues).
+  -->
+  <section class="section">
+    <div class="container">
+      <p class="palm-intro">Every Griffons achievement in one place. Records, standings and playoffs update on their own from the results on the team pages.</p>
+
+      <div class="row g-3 palm-stats" aria-live="polite">
+        <div class="col-6 col-lg-3"><div class="palm-stat"><span class="palm-stat-value" id="palm-stat-exploits">–</span><span class="palm-stat-label">Achievements</span></div></div>
+        <div class="col-6 col-lg-3"><div class="palm-stat"><span class="palm-stat-value" id="palm-stat-wins">–</span><span class="palm-stat-label">Wins</span><span class="palm-stat-sub">regular season and playoffs</span></div></div>
+        <div class="col-6 col-lg-3"><div class="palm-stat"><span class="palm-stat-value" id="palm-stat-best">–</span><span class="palm-stat-label">Best record</span><span class="palm-stat-sub" id="palm-stat-best-label"></span></div></div>
+        <div class="col-6 col-lg-3"><div class="palm-stat"><span class="palm-stat-value" id="palm-stat-medals">–</span><span class="palm-stat-label">Individual medals</span></div></div>
+      </div>
+
+      <div class="palm-section">
+        <h2 class="palm-title" id="titres"><i class="bi bi-trophy-fill me-2" aria-hidden="true"></i>Titles and tournaments</h2>
+        <div id="palm-exploits"><p class="data-loading">Loading...</p></div>
+      </div>
+
+      <div class="palm-section">
+        <h2 class="palm-title" id="meilleures-saisons"><i class="bi bi-star-fill me-2" aria-hidden="true"></i>Best seasons</h2>
+        <ol class="row g-3" id="palm-best"><li class="col-12 data-loading">Loading...</li></ol>
+      </div>
+
+      <div class="palm-section">
+        <h2 class="palm-title" id="saisons"><i class="bi bi-table me-2" aria-hidden="true"></i>All seasons</h2>
+        <div class="palm-table-wrap" tabindex="0" role="region" aria-labelledby="saisons">
+          <table class="palm-table">
+            <caption class="visually-hidden">Each team's record, season by season</caption>
+            <thead><tr><th scope="col">Season</th><th scope="col">Team</th><th scope="col" class="num"><abbr title="Games played">GP</abbr></th><th scope="col" class="num"><abbr title="Wins">W</abbr></th><th scope="col" class="num"><abbr title="Losses">L</abbr></th><th scope="col" class="num"><abbr title="Win percentage">Win %</abbr></th><th scope="col">Standing</th><th scope="col">Playoffs</th></tr></thead>
+            <tbody id="palm-table-body"><tr><td colspan="8">Loading...</td></tr></tbody>
+          </table>
+        </div>
+        <p class="small mt-2 palm-muted">GP, W and L are regular season only. A team that hasn't played yet isn't listed.</p>
+      </div>
+
+      <div class="palm-section">
+        <h2 class="palm-title" id="medailles"><i class="bi bi-award-fill me-2" aria-hidden="true"></i>Individual medals</h2>
+        <ul class="row g-3" id="palm-medals"><li class="col-12 data-loading">Loading...</li></ul>
+      </div>
+
+      <div class="text-center">
+        <a class="back-link" href="/en/athletisme.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--accent-color);font-weight:600;text-decoration:none;"><i class="bi bi-arrow-left" aria-hidden="true"></i> Back to sports</a>
+        <span class="mx-2" aria-hidden="true">·</span>
+        <a href="/equipes/archive/index.html?lang=en" style="color:var(--default-color);font-size:14px;text-decoration:underline;"><i class="bi bi-archive me-1" aria-hidden="true"></i>Past seasons</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="footer-placeholder"></div>
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/matchs.js"></script>
+<script src="/assets/js/palmares.js"></script>
+</body>
+</html>

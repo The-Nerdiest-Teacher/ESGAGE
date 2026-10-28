@@ -131,3 +131,6 @@ html.dark-mode .age-btn:hover { background: #ffffff; color: var(--heading-color)
 }
 html.dark-mode .age-btn.age-btn-soon,
 html.dark-mode .age-btn.age-btn-soon:hover { color: #ffffff; background: transparent; }
+
+/* Link to the Palmarès page, under the sports */
+.age-btn.palm-link { display: inline-flex; }
