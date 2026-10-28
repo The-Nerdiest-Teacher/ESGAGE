@@ -899,15 +899,7 @@ section,
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center 20%;
-}
-
-/* Tall school photos (3:4) have a lot of empty space above the head:
-   zoom in a bit so the face fills the circle (staff.js adds .is-portrait) */
-.trainers .member .member-img img.is-portrait {
-  object-position: center top;
-  transform: scale(1.25);
-  transform-origin: 50% 40%;
+  object-position: center 40%;
 }
 
 .trainers .member .member-img .social {
