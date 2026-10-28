@@ -587,7 +587,9 @@ html.dark-mode .event-card { background: #1e1e1e; border-color: rgba(255, 255, 2
   margin-bottom: 8px;
   color: #fff;
 }
-.visite-text p:last-child { margin: 0; color: rgba(255, 255, 255, 0.9); }
+.visite-text p:not(.visite-title) { color: rgba(255, 255, 255, 0.9); }
+.visite-text p:last-child { margin: 0; }
+.visite-text p.visite-namesake { font-size: 14px; margin-top: 10px; }
 .visite-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .visite-btn {
   display: inline-flex;
