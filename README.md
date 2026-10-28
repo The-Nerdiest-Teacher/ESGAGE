@@ -130,6 +130,15 @@ When you add or change a page:
 - Don't use colour alone to show something (the Victoire/Défaite badges also have words).
 - Embedded videos (`<iframe>`) need a `title="..."`.
 
+## Visitor stats (GoatCounter)
+
+Page views are counted by [GoatCounter](https://www.goatcounter.com) (no cookies, no personal data). The stats are private: log in at **esgage.goatcounter.com** to see them. Nothing is shown on the site.
+
+- The counter is added by `assets/js/include-partials.js`, so every page that loads the header and footer is counted automatically, including new pages.
+- English team pages show up as `…html?lang=en` so French and English visits stay apart.
+- To leave a page out (utility pages like `equipes/images-matchs.html`), add `data-no-stats` to its `<html>` tag.
+- The service worker never saves the counter script (it only saves files from esgage.ca).
+
 ## Archiving a season
 
 1. `git mv` each outgoing team page into `equipes/archive/<saison>/` and add it to `equipes/archive/index.html`.
