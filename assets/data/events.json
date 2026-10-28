@@ -448,7 +448,7 @@
    "allDay": true
   },
   {
-   "title": "Distribution des bulletins de mi-semestre du secondaire",
+   "title": "Bulletins de mi-semestre du secondaire",
    "start": "2026-11-12",
    "end": "2026-11-13",
    "allDay": true
@@ -495,6 +495,42 @@
    "start": "2026-11-19T18:30",
    "end": "2026-11-19T20:00",
    "allDay": false
+  },
+  {
+   "title": "Bulletins de progrès – élémentaire",
+   "start": "2026-11-20",
+   "end": "2026-11-21",
+   "allDay": true
+  },
+  {
+   "title": "Improvisation - Tournoi Régional I à G-PV,",
+   "start": "2026-11-23",
+   "end": "2026-11-24",
+   "allDay": true
+  },
+  {
+   "title": "Formation DJ",
+   "start": "2026-11-24",
+   "end": "2026-11-25",
+   "allDay": true
+  },
+  {
+   "title": "Hockey 7-8",
+   "start": "2026-11-24",
+   "end": "2026-11-25",
+   "allDay": true
+  },
+  {
+   "title": "Hockey 9-12",
+   "start": "2026-11-24",
+   "end": "2026-11-25",
+   "allDay": true
+  },
+  {
+   "title": "SOIRÉE PORTES OUVERTES",
+   "start": "2026-11-26",
+   "end": "2026-11-27",
+   "allDay": true
   }
  ],
  "teams": [
