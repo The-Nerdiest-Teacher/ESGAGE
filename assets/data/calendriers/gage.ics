@@ -408,6 +408,13 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-30-tournoi-garcons-senior-bb-launchpad@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Tournoi Garçons Senior BB @ LaunchPad
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-02-basketball-filles-senior-vs-aldershot-high-school@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🚌 Basketball filles senior vs Aldershot High School
