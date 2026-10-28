@@ -67,6 +67,18 @@ In those calendars, game names start with 🏠 (home) or 🚌 (away). In Outlook
 
 Each event gets an icon picked from words in its name. Sports get their emoji ("volleyball" or "VB" → 🏐, "basket" or "BB" → 🏀, "soccer" → ⚽, "course de fond" → 🏃, ...); other events get an icon ("photo" → camera, "tournoi" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
 
+**Open house banner** — open `assets/js/portes-ouvertes.js` and fill in the lines at the top (keep the quotes and the commas):
+
+```js
+date: "2026-12-03",   // year-month-day
+debut: "18:00",       // start time (24 h)
+fin: "20:00",         // end time
+lien: "",             // optional link for a "Détails" button
+JOURS_AVANT: 28       // how many days before the night the banner appears
+```
+
+That's the only place to change, for both the French and English home pages. While `date` is `""` the banner stays hidden. It appears on its own `JOURS_AVANT` days before (with a countdown, an "Ajouter à mon calendrier" button and a gold "Portes ouvertes" button at the top of the page) and disappears on its own once the end time has passed. Next year, just change the date. Also add the night to the Outlook calendar so it shows in "À venir" and the Calendrier page.
+
 **Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
 
 **News** — add an item to `assets/data/news.json`; the newest date shows first:

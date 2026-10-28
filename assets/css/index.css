@@ -632,3 +632,66 @@ html.dark-mode .event-icon { color: #5cb87a; }
 .event-side.is-home { background: #1f6b3a; color: #fff; }
 .event-side.is-away { background: #d4a017; color: #1b1b1b; }
 html.dark-mode .event-side.is-home { background: #2a7d47; }
+
+/* ══ SOIRÉE PORTES OUVERTES (assets/js/portes-ouvertes.js) ═══════════════ */
+.portes-ouvertes { padding: 32px 0; background: var(--background-color); scroll-margin-top: 70px; }
+.po-band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 32px 36px;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #1f6b3a 0%, #134527 100%);
+  border-left: 8px solid #ffd54f;
+  box-shadow: 0 10px 30px rgba(19, 69, 39, 0.25);
+}
+.po-icon {
+  flex: none;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #134527;
+  background: #ffd54f;
+}
+.po-text { flex: 1 1 360px; min-width: 0; }
+.po-text p { margin: 0 0 4px; color: rgba(255, 255, 255, 0.92); }
+.po-kicker { margin-bottom: 6px !important; }
+.po-countdown {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 50px;
+  background: #ffd54f;
+  color: #134527;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.po-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 1.5px;
+  line-height: 1.05;
+  margin: 0 0 8px;
+  color: #fff;
+}
+.po-when { font-weight: 700; color: #fff !important; }
+.po-when i, .po-where i { color: #ffd54f; margin-right: 6px; }
+.po-text .po-pitch { margin-top: 10px; }
+.po-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+html.dark-mode .po-band { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); }
+@media (max-width: 575px) {
+  .po-band { padding: 26px 22px; gap: 18px; border-left-width: 6px; }
+  .po-icon { width: 56px; height: 56px; font-size: 26px; }
+  .po-title { font-size: 34px; }
+}
+.hero-btn-secondary.po-hero-btn { background: #ffd54f; border-color: #ffd54f; color: #134527; }
+.hero-btn-secondary.po-hero-btn:hover { background: #ffe082; color: #134527; }
