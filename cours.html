@@ -116,7 +116,7 @@
   </div>
 
   <!-- ════ SCIENCES ════ -->
-  <div class="subject-panel active" id="panel-sciences">
+  <div class="subject-panel active" id="panel-sciences" data-search-title="Sciences">
     <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -186,7 +186,7 @@
 
   <!-- ════ FRANÇAIS ════ -->
   <!-- ════ LANGUES ════ -->
-  <div class="subject-panel" id="panel-langues">
+  <div class="subject-panel" id="panel-langues" data-search-title="Langues">
     <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -242,7 +242,7 @@
   </div>
 
   <!-- ════ MATHÉMATIQUES ════ -->
-  <div class="subject-panel" id="panel-maths">
+  <div class="subject-panel" id="panel-maths" data-search-title="Mathématiques">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -286,7 +286,7 @@
   </div>
 
   <!-- ════ ÉD. PHYSIQUE ════ -->
-  <div class="subject-panel" id="panel-eps">
+  <div class="subject-panel" id="panel-eps" data-search-title="Éd. Physique &amp; Santé">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -343,7 +343,7 @@
   </div>
 
   <!-- ════ INFORMATIQUE ════ -->
-  <div class="subject-panel" id="panel-info">
+  <div class="subject-panel" id="panel-info" data-search-title="Informatique">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -380,7 +380,7 @@
   </div>
 
   <!-- ════ AFFAIRES ════ -->
-  <div class="subject-panel" id="panel-affaires">
+  <div class="subject-panel" id="panel-affaires" data-search-title="Affaires">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -429,7 +429,7 @@
   </div>
 
   <!-- ════ SCIENCES HUMAINES ════ -->
-  <div class="subject-panel" id="panel-sociales">
+  <div class="subject-panel" id="panel-sociales" data-search-title="Sciences humaines">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -474,7 +474,7 @@
   </div>
 
   <!-- ════ ÉTUDES CANADIENNES ════ -->
-  <div class="subject-panel" id="panel-mondiales">
+  <div class="subject-panel" id="panel-mondiales" data-search-title="Études canadiennes">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -535,7 +535,7 @@
   </div>
 
   <!-- ════ ARTS ════ -->
-  <div class="subject-panel" id="panel-arts">
+  <div class="subject-panel" id="panel-arts" data-search-title="Arts">
         <div class="grade-header-row">
       <div class="grade-header"><span class="grade-label">9<sup>e</sup></span></div>
       <div class="grade-header"><span class="grade-label">10<sup>e</sup></span></div>
@@ -927,6 +927,15 @@ window.addEventListener('load', () => {
   setTimeout(() => drawAllArrows(), 300);
 });
 window.addEventListener('resize', () => drawAllArrows());
+
+// A link to cours.html#panel-maths (e.g. from the site search) opens that subject's tab
+function openSubjectFromHash() {
+  const m = location.hash.match(/^#panel-(\w+)$/);
+  const btn = m && document.querySelector('.subject-tab[onclick*="\'' + m[1] + '\'"]');
+  if (btn) showSubject(m[1], btn);
+}
+window.addEventListener('load', openSubjectFromHash);
+window.addEventListener('hashchange', openSubjectFromHash);
 </script>
 </body>
 </html>

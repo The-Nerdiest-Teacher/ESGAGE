@@ -3,6 +3,7 @@
  * - Fetches partials/header.html and partials/footer.html without blocking the page
  * - English pages (<html lang="en">) get partials/header-en.html and partials/footer-en.html
  * - main.js waits on window.gagePartialsReady before wiring up the menu
+ * - Then loads the site search (assets/js/recherche.js)
  * - Also loads the GoatCounter visitor stats (private: only Nick sees them,
  *   logged in at esgage.goatcounter.com). A page with data-no-stats on <html>
  *   is not counted.
@@ -36,6 +37,13 @@
   }
 
   window.gagePartialsReady = Promise.all([include("header"), include("footer")]);
+
+  // Site search (magnifier button in the menu): assets/js/recherche.js
+  window.gagePartialsReady.then(function () {
+    var s = document.createElement("script");
+    s.src = base + "assets/js/recherche.js";
+    document.body.appendChild(s);
+  });
 
   // Visitor stats. Team pages are one file for both languages, so keep ?lang=en
   // in the counted path to see French and English visits apart.

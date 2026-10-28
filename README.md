@@ -26,6 +26,9 @@ assets/data/staff.json           Personnel page
 assets/data/news.json            Nouvelles page
 assets/data/events.json          Calendrier page, home "À venir" and Coin des parents (copied from Outlook, don't edit)
 .github/workflows/calendrier.yml Copies the shared Outlook calendar to events.json every 30 minutes
+assets/js/recherche.js           Site search (magnifier in the menu)
+assets/data/recherche.json       What the search looks in (rebuilt automatically, don't edit)
+.github/workflows/recherche.yml  Rebuilds recherche.json whenever a page changes
 assets/data/sports/*.json        Standings and scores (updated by the browser extension)
 assets/img/                      Images
 assets/video/                    Home page drone video (720p for computers, 480p for phones)
@@ -135,6 +138,18 @@ When you add or change a page:
 - Link text should say where it goes ("Calendrier", not "cliquez ici").
 - Don't use colour alone to show something (the Victoire/Défaite badges also have words).
 - Embedded videos (`<iframe>`) need a `title="..."`.
+
+## Site search
+
+The magnifier button in the menu opens a search box over the page (shortcut: `/` or Ctrl+K). It finds pages, sections, courses, clubs, team pages and staff (name, title, email), in French on French pages and in English on English pages. Accents and capitals don't matter, and the start of a word is enough (`volley` finds Volleyball).
+
+**Nothing to do by hand.** Every time a page, `staff.json` or `news.json` changes on `main`, the "Recherche (index)" action reruns `.github/scripts/recherche.py`, which reads the pages and saves `assets/data/recherche.json`. New pages show up in the search a minute or two after they go live.
+
+- Each `<h2>` and `<h3>` starts a section, and a result links to the section's `id` when it (or the `<section>` around it) has one.
+- Text a page's script writes (game schedules, scores, rosters) isn't searched, only what is typed in the HTML. Team pages are found by their title and description.
+- A part of a page with no heading can get a name in the results with `data-search-title`, e.g. the subject tabs in `cours.html`: `<div class="subject-panel" id="panel-maths" data-search-title="Mathématiques">`. A link to `cours.html#panel-maths` opens that tab.
+- Pages with `<meta name="robots" content="noindex">` (404, offline, archives, game images) are left out.
+- The suggestion buttons under the empty box ("Essayez : Horaire, Personnel…") are the `ideas` lists at the top of `assets/js/recherche.js`.
 
 ## Visitor stats (GoatCounter)
 

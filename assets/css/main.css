@@ -1165,8 +1165,42 @@ html.dark-mode .lang-toggle:hover {
   color: #5cb87a;
 }
 
-.lang-toggle + .theme-toggle {
+.lang-toggle + .theme-toggle,
+.search-toggle + .lang-toggle {
   margin-left: 8px;
+}
+
+/* Search button (magnifier), same look as the FR/EN and dark mode buttons */
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 12px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 58, 43, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+  color: #1b3a2b;
+  font-size: 17px;
+  transition: all 0.2s ease;
+}
+
+.search-toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--accent-color);
+}
+
+html.dark-mode .search-toggle {
+  background: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #e6e6e6;
+}
+
+html.dark-mode .search-toggle:hover {
+  color: #5cb87a;
 }
 
 /* Keep icon crisp */
@@ -1353,4 +1387,349 @@ main p a:not([class]),
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/*--------------------------------------------------------------
+# Site search (assets/js/recherche.js)
+--------------------------------------------------------------*/
+html.site-search-open {
+  overflow: hidden;
+}
+
+.site-search {
+  width: min(680px, calc(100% - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  margin: 24px auto auto;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #333333;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.site-search::backdrop {
+  background: rgba(10, 30, 18, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.site-search-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 48px);
+}
+
+.site-search-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px 12px 18px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.site-search-form > .bi-search {
+  color: #1f6b3a;
+  font-size: 18px;
+}
+
+.site-search-form input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+}
+
+.site-search-form input::placeholder {
+  color: #6b6b6b;
+}
+
+/* The search box is the whole bar, so its outline goes around the bar */
+.site-search-form input:focus-visible,
+html.dark-mode .site-search-form input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.site-search-form:focus-within {
+  box-shadow: inset 0 0 0 3px #1f6b3a;
+  border-radius: 16px 16px 0 0;
+}
+
+.site-search-close {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+}
+
+.site-search-close:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.site-search-status {
+  margin: 0;
+  padding: 0 18px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.site-search-status:not(:empty) {
+  padding-top: 12px;
+}
+
+.site-search-ideas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px 18px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.site-search-ideas[hidden] {
+  display: none;
+}
+
+.site-search-ideas button {
+  min-height: 36px;
+  padding: 4px 14px;
+  border: 1px solid rgba(31, 107, 58, 0.35);
+  border-radius: 999px;
+  background: rgba(31, 107, 58, 0.06);
+  color: #1f6b3a;
+  font-weight: 600;
+}
+
+.site-search-ideas button:hover {
+  background: rgba(31, 107, 58, 0.14);
+}
+
+.site-search-results {
+  list-style: none;
+  margin: 0;
+  padding: 8px 8px 10px;
+  overflow-y: auto;
+}
+
+.site-search-results:empty {
+  display: none;
+}
+
+.site-search-result {
+  position: relative;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.site-search-result:hover,
+.site-search-result:focus-within {
+  background: rgba(31, 107, 58, 0.07);
+}
+
+.site-search-result > a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  color: #1b3a2b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-search-result > a:hover .site-search-title {
+  text-decoration: underline;
+}
+
+.site-search-kind {
+  flex: none;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #e5efe8;
+  color: #1f5a33;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.site-search-title {
+  font-family: var(--heading-font);
+  font-size: 17px;
+}
+
+.site-search-snippet {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+.site-search-snippet mark {
+  padding: 0 1px;
+  background: #fbe7a1;
+  color: inherit;
+  font-weight: 600;
+}
+
+.site-search-email {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #1f6b3a;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+html.dark-mode .site-search {
+  background: #1e1e1e;
+  color: #e6e6e6;
+}
+
+html.dark-mode .site-search::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+html.dark-mode .site-search-form {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark-mode .site-search-form > .bi-search,
+html.dark-mode .site-search-email,
+html.dark-mode .site-search-ideas button {
+  color: #5cb87a;
+}
+
+html.dark-mode .site-search-form:focus-within {
+  box-shadow: inset 0 0 0 3px #f2c94c;
+}
+
+html.dark-mode .site-search-form input::placeholder {
+  color: #a3a3a3;
+}
+
+html.dark-mode .site-search-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-mode .site-search-status,
+html.dark-mode .site-search-ideas,
+html.dark-mode .site-search-snippet {
+  color: #c4c4c4;
+}
+
+html.dark-mode .site-search-ideas button {
+  border-color: rgba(92, 184, 122, 0.4);
+  background: rgba(92, 184, 122, 0.08);
+}
+
+html.dark-mode .site-search-result:hover,
+html.dark-mode .site-search-result:focus-within {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+html.dark-mode .site-search-result > a {
+  color: #ffffff;
+}
+
+html.dark-mode .site-search-kind {
+  background: #2a3d31;
+  color: #b9e0c4;
+}
+
+html.dark-mode .site-search-snippet mark {
+  background: #6b5a1a;
+  color: #ffffff;
+}
+
+/* Phones: the box takes the whole screen, and the header buttons get a little closer together */
+@media (max-width: 575px) {
+  .site-search {
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .site-search-panel {
+    max-height: 100dvh;
+    height: 100%;
+  }
+
+  .site-search-form:focus-within {
+    border-radius: 0;
+  }
+
+  .search-toggle,
+  .lang-toggle,
+  .theme-toggle {
+    flex: none;
+    width: 38px;
+    height: 38px;
+  }
+
+  .search-toggle {
+    margin-left: 0;
+  }
+
+  .search-toggle + .lang-toggle,
+  .lang-toggle + .theme-toggle {
+    margin-left: 4px;
+  }
+
+  .header .logo {
+    margin-left: 6px;
+  }
+
+  .header .logo img {
+    margin-right: 6px !important;
+  }
+}
+
+/* Small phones: a bit smaller still, so the menu icon keeps its place */
+@media (max-width: 400px) {
+  .search-toggle,
+  .lang-toggle,
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .search-toggle {
+    font-size: 15px;
+  }
+
+  .lang-toggle {
+    font-size: 13px;
+  }
+
+  .header .logo img {
+    max-height: 30px !important;
+    width: auto;
+  }
+
+  .header .sitename {
+    font-size: 14px;
+  }
+}
+
+/* The browser's own clear (x) button would sit next to the close button */
+.site-search-form input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+html.dark-mode .site-search-form input {
+  background: transparent;
+  border: 0;
+  color: #ffffff;
 }

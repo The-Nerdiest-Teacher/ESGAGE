@@ -1,0 +1,48 @@
+# Rebuilds assets/data/recherche.json (the list the site search looks in) whenever a page changes,
+# so new pages, staff and text show up in the search on their own.
+# To rebuild it right away: Actions tab > "Recherche (index)" > Run workflow.
+name: Recherche (index)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - assets/data/staff.json
+      - assets/data/news.json
+      - assets/js/staff.js
+      - .github/scripts/recherche.py
+      - .github/workflows/recherche.yml
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: recherche
+  cancel-in-progress: false
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python .github/scripts/recherche.py
+      - name: Commit if the index changed
+        run: |
+          FILE="assets/data/recherche.json"
+          if git diff --quiet -- $FILE; then exit 0; fi
+          git config user.name "recherche-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $FILE
+          git commit -m "Recherche : mise à jour de l'index"
+          git pull --rebase
+          git push
+          # Pushes made by this job don't always start a site rebuild, so ask for one
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages rebuild request failed"
+        env:
+          GH_TOKEN: ${{ github.token }}
