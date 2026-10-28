@@ -11,7 +11,7 @@
  * Changed the list below or the rules? Bump VERSION so old copies are cleared.
  * Emergency off switch: see "Application (PWA)" in README.md.
  */
-var VERSION = "gage-v2";
+var VERSION = "gage-v3";
 
 // Saved at install so the offline page and the "Aujourd'hui" page open with no connection
 var PRECACHE = [
