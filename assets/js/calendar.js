@@ -3,6 +3,8 @@
  * which a GitHub Action copies from the school's shared Outlook calendar.
  * The same file is used by calendrier.html and en/calendrier.html.
  * calendrier.html#2026-11-05 opens on that day.
+ * Games show a house (home) or a bus (away). The "S'abonner" panel under the
+ * calendar gives the links to the .ics calendars the same Action writes.
  */
 (function () {
   "use strict";
@@ -16,12 +18,16 @@
     month: "Month", list: "List", today: "Today", prev: "Previous month", next: "Next month",
     allDay: "All day", more: "more", none: "No events this day.",
     noUpcoming: "No upcoming events for now.", error: "The calendar could not be loaded. Please try again later.",
-    loading: "Loading the calendar…", upcoming: "Upcoming events", view: "Calendar view", events: "events", event: "event"
+    loading: "Loading the calendar…", upcoming: "Upcoming events", view: "Calendar view", events: "events", event: "event",
+    side: ["Home", "Away"], legend: ["Home game", "Away game"],
+    copied: "Link copied!", copyFailed: "Select the link and copy it.", teams: "One team"
   } : {
     month: "Mois", list: "Liste", today: "Aujourd’hui", prev: "Mois précédent", next: "Mois suivant",
     allDay: "Toute la journée", more: "de plus", none: "Aucun événement cette journée.",
     noUpcoming: "Aucun événement à venir pour le moment.", error: "Le calendrier n’a pas pu être chargé. Réessayez plus tard.",
-    loading: "Chargement du calendrier…", upcoming: "Événements à venir", view: "Affichage du calendrier", events: "événements", event: "événement"
+    loading: "Chargement du calendrier…", upcoming: "Événements à venir", view: "Affichage du calendrier", events: "événements", event: "événement",
+    side: ["Domicile", "Extérieur"], legend: ["Match à domicile", "Match à l’extérieur"],
+    copied: "Lien copié !", copyFailed: "Sélectionnez le lien et copiez-le.", teams: "Une équipe"
   };
 
   // Screen readers hear what changed after a click (the calendar is redrawn each time)
@@ -73,6 +79,7 @@
   // Event names come from Outlook in French; the icon is picked from the name (event-icons.js)
   function title(e) { return e.icon.title; }
   function iconHtml(e, className) { return window.gageEventIconHtml(e.icon, className); }
+  function sideClass(e) { return e.game ? (e.home === false ? " is-away" : " is-home") : ""; }
 
   // First and last day an event covers (all-day "end" is the day after, as in Outlook)
   function firstDay(e) { return e.start.slice(0, 10); }
@@ -104,7 +111,7 @@
     return '<li class="cal-event' + (e.allDay ? " is-allday" : "") + '">' +
       iconHtml(e, "cal-event-icon") +
       '<span class="cal-event-text">' +
-      '<span class="cal-event-when">' + escapeHtml(whenText(e)) + "</span>" +
+      '<span class="cal-event-when">' + escapeHtml(whenText(e)) + window.gageGameSideHtml(e, "cal-side", T.side) + "</span>" +
       '<strong class="cal-event-title">' + (e.url
         ? '<a href="' + escapeHtml(e.url + (EN ? "?lang=en" : "")) + '">' + escapeHtml(title(e)) + ' <i class="bi bi-arrow-right-short"></i></a>'
         : escapeHtml(title(e))) + "</strong>" +
@@ -144,8 +151,8 @@
       if (list.length) classes += " has-events";
 
       var chips = list.slice(0, 3).map(function (e) {
-        return '<span class="cal-chip' + (e.allDay ? " is-allday" : "") + '">' +
-          iconHtml(e, "cal-chip-icon") +
+        return '<span class="cal-chip' + (e.allDay ? " is-allday" : "") + sideClass(e) + '">' +
+          iconHtml(e, "cal-chip-icon") + window.gageGameSideHtml(e, "cal-chip-side") +
           (e.allDay || firstDay(e) !== day ? "" : '<span class="cal-chip-time">' + escapeHtml(fmtTime(e.start)) + "</span> ") +
           escapeHtml(title(e)) + "</span>";
       }).join("");
@@ -156,11 +163,19 @@
         (day === selected ? ' aria-pressed="true"' : ' aria-pressed="false"') + ">" +
         '<span class="cal-num">' + toDate(day).getDate() + "</span>" +
         '<span class="cal-chips">' + chips + "</span>" +
-        '<span class="cal-dots" aria-hidden="true">' + list.slice(0, 3).map(function () { return "<i></i>"; }).join("") + "</span>" +
+        '<span class="cal-dots" aria-hidden="true">' + list.slice(0, 3).map(function (e) { return '<i class="' + sideClass(e).trim() + '"></i>'; }).join("") + "</span>" +
         "</button>";
       day = addDays(day, 1);
     }
-    return html + "</div>" + dayPanel();
+    return html + "</div>" + legend() + dayPanel();
+  }
+
+  // What the house and the bus mean (only when there are games)
+  function legend() {
+    if (!events.some(function (e) { return e.game; })) return "";
+    return '<p class="cal-legend">' +
+      '<span>' + window.gageGameSideHtml({ game: true, home: true }, "cal-chip-side") + " " + T.legend[0] + "</span>" +
+      '<span>' + window.gageGameSideHtml({ game: true, home: false }, "cal-chip-side") + " " + T.legend[1] + "</span></p>";
   }
 
   function listView() {
@@ -256,8 +271,67 @@
       events = ((data && data.events) || []).filter(function (e) { return e && e.title && e.start; });
       events.forEach(function (e) { e.icon = window.gageEventIcon(e.title); });
       render();
+      addTeamCalendars((data && data.teams) || []);
     })
     .catch(function () {
       root.innerHTML = '<p class="cal-empty cal-empty-big"><i class="bi bi-exclamation-circle me-2"></i>' + T.error + "</p>";
     });
+
+  /* ── "S'abonner" panel (calendrier.html#s-abonner): links to the chosen .ics calendar ── */
+  var feed = document.getElementById("cal-feed");
+  var feedUrl = document.getElementById("cal-feed-url");
+  var copyStatus = document.getElementById("cal-copy-status");
+
+  function updateLinks() {
+    var option = feed.options[feed.selectedIndex];
+    var https = "https://esgage.ca" + option.value;
+    var webcal = https.replace(/^https:/, "webcal:");
+    var name = option.getAttribute("data-name") || "GAGE";
+    var links = {
+      google: "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(webcal),
+      apple: webcal,
+      outlook: "https://outlook.office.com/calendar/0/addfromweb?url=" + encodeURIComponent(https) + "&name=" + encodeURIComponent(name),
+      outlookcom: "https://outlook.live.com/calendar/0/addfromweb?url=" + encodeURIComponent(https) + "&name=" + encodeURIComponent(name)
+    };
+    Array.prototype.forEach.call(document.querySelectorAll("[data-app]"), function (a) {
+      if (links[a.getAttribute("data-app")]) a.href = links[a.getAttribute("data-app")];
+    });
+    feedUrl.value = https;
+    copyStatus.textContent = "";
+  }
+
+  // One calendar per team that has games (the "teams" list in events.json)
+  function addTeamCalendars(teams) {
+    if (!feed || !teams.length) return;
+    var group = document.createElement("optgroup");
+    group.label = T.teams;
+    teams.forEach(function (team) {
+      var option = document.createElement("option");
+      option.value = "/assets/data/calendriers/" + team.id + ".ics";
+      option.setAttribute("data-name", "GAGE – " + team.name);
+      option.textContent = EN ? teamNameEn(team.id) : team.name;
+      group.appendChild(option);
+    });
+    feed.appendChild(group);
+  }
+
+  // "volleyball-garcons-senior" -> "Senior boys volleyball"
+  function teamNameEn(id) {
+    var p = id.split("-");
+    var level = { junior: "Junior", senior: "Senior", "78": "Grade 7/8" }[p[2]] || p[2];
+    var gender = { filles: "girls", garcons: "boys" }[p[1]] || p[1];
+    return level + " " + gender + " " + p[0];
+  }
+
+  if (feed && feedUrl && copyStatus) {
+    feed.addEventListener("change", updateLinks);
+    updateLinks();
+    document.getElementById("cal-copy").addEventListener("click", function () {
+      var done = function () { copyStatus.textContent = T.copied; };
+      var failed = function () { feedUrl.focus(); feedUrl.select(); copyStatus.textContent = T.copyFailed; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(feedUrl.value).then(done, failed);
+      else failed();
+    });
+    feedUrl.addEventListener("focus", function () { feedUrl.select(); });
+  }
 })();

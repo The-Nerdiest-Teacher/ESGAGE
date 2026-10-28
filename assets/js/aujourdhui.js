@@ -1,6 +1,6 @@
 /**
  * "Aujourd'hui à GAGE" page (aujourdhui.html and en/aujourdhui.html):
- * today's events and home games from assets/data/events.json (the same file
+ * today's events and games from assets/data/events.json (the same file
  * as the Calendrier page), then the next few events.
  * Also shows the "Installer l'app" card (hidden once the site is installed).
  * The page refreshes itself when the app is reopened on another day.
@@ -17,14 +17,14 @@
   var CALENDAR = EN ? "/en/calendrier.html" : "/calendrier.html";
   var MAX_NEXT = 5;
   var T = EN ? {
-    allDay: "All day", game: "Home game", next: "Coming up",
+    allDay: "All day", side: ["Home game", "Away game"], next: "Coming up",
     none: "Nothing on the calendar today. Have a great day, Griffons!",
     noNext: "No upcoming events for now.",
     tomorrow: "Tomorrow", loading: "Loading today's events…",
     error: "Today's events could not be loaded. Check your connection and try again.",
     offline: "You're offline: these events may not be up to date."
   } : {
-    allDay: "Toute la journée", game: "Match à domicile", next: "Prochainement",
+    allDay: "Toute la journée", side: ["Match à domicile", "Match à l’extérieur"], next: "Prochainement",
     none: "Rien au calendrier aujourd’hui. Bonne journée, Griffons !",
     noNext: "Aucun événement à venir pour le moment.",
     tomorrow: "Demain", loading: "Chargement des événements du jour…",
@@ -80,7 +80,7 @@
       window.gageEventIconHtml(icon, "cal-event-icon") +
       '<span class="cal-event-text">' +
       '<span class="cal-event-when">' + escapeHtml(whenText(e)) +
-      (e.game ? ' <span class="today-pill"><i class="bi bi-trophy"></i> ' + T.game + "</span>" : "") + "</span>" +
+      window.gageGameSideHtml(e, "cal-side", T.side) + "</span>" + // house = home, bus = away
       '<strong class="cal-event-title">' + (e.url
         ? '<a href="' + escapeHtml(e.url + (EN ? "?lang=en" : "")) + '">' + escapeHtml(icon.title) + ' <i class="bi bi-arrow-right-short"></i></a>'
         : escapeHtml(icon.title)) + "</strong>" +

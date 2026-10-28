@@ -74,6 +74,33 @@
 <div class="gage-calendar" id="gage-calendar" data-src="/assets/data/events.json"></div>
 </div>
 </section><!-- /Events Section -->
+<section class="section cal-subscribe-section" id="s-abonner">
+<div class="container">
+<div class="cal-subscribe">
+<h2 class="cal-subscribe-title"><i class="bi bi-calendar-plus" aria-hidden="true"></i> Subscribe to the calendar</h2>
+<p class="cal-subscribe-intro">Add our events and games to your phone or calendar app: they update on their own.</p>
+<label class="cal-subscribe-label" for="cal-feed">Which calendar?</label>
+<select class="form-select cal-feed" id="cal-feed">
+<option value="/assets/data/calendriers/gage.ics" data-name="GAGE – Calendrier">Whole calendar (events and games)</option>
+<option value="/assets/data/calendriers/matchs.ics" data-name="GAGE – Matchs">All games</option>
+<option value="/assets/data/matchs-domicile.ics" data-name="Matchs à domicile – GAGE">Home games only</option>
+</select>
+<div class="cal-subscribe-apps">
+<a class="cal-app" data-app="google" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fesgage.ca%2Fassets%2Fdata%2Fcalendriers%2Fgage.ics" target="_blank" rel="noopener"><i class="bi bi-google" aria-hidden="true"></i> Google Calendar<span class="sr-only"> (new tab)</span></a>
+<a class="cal-app" data-app="apple" href="webcal://esgage.ca/assets/data/calendriers/gage.ics"><i class="bi bi-apple" aria-hidden="true"></i> iPhone and Mac</a>
+<a class="cal-app" data-app="outlook" href="https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fesgage.ca%2Fassets%2Fdata%2Fcalendriers%2Fgage.ics&amp;name=GAGE%20%E2%80%93%20Calendrier" target="_blank" rel="noopener"><i class="bi bi-microsoft" aria-hidden="true"></i> Outlook (school or work)<span class="sr-only"> (new tab)</span></a>
+<a class="cal-app" data-app="outlookcom" href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fesgage.ca%2Fassets%2Fdata%2Fcalendriers%2Fgage.ics&amp;name=GAGE%20%E2%80%93%20Calendrier" target="_blank" rel="noopener"><i class="bi bi-envelope" aria-hidden="true"></i> Outlook.com<span class="sr-only"> (new tab)</span></a>
+</div>
+<label class="cal-subscribe-label" for="cal-feed-url">Or copy the link into another app</label>
+<div class="cal-copy-row">
+<input class="form-control cal-feed-url" id="cal-feed-url" type="text" readonly value="https://esgage.ca/assets/data/calendriers/gage.ics"/>
+<button class="cal-app" id="cal-copy" type="button"><i class="bi bi-link-45deg" aria-hidden="true"></i> Copy</button>
+</div>
+<p class="cal-copy-status" id="cal-copy-status" role="status"></p>
+<p class="cal-subscribe-note">In your calendar, 🏠 = home game and 🚌 = away game. Event names are in French. Google Calendar: add it once on a computer and it also shows on your Android phone. Depending on the app, a change can take a few hours to show up.</p>
+</div>
+</div>
+</section><!-- /Subscribe Section -->
 </main>
 <div id="footer-placeholder"></div>
 <!-- Scroll Top -->

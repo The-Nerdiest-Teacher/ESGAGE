@@ -52,9 +52,15 @@ The site is bilingual. Each main page has an English twin with the **same file n
 
 **Calendar** — staff add events to the shared Outlook calendar. Every 30 minutes, the "Calendrier (Outlook)" job (Actions tab) copies it to `assets/data/events.json`, which the Calendrier page and the home page "À venir" read. To update right away: Actions → Calendrier (Outlook) → Run workflow. The calendar's published ICS link is `CALENDAR_ICS_URL` in `.github/workflows/calendrier.yml`. Private events are left out.
 
-**Home games are added automatically** from the team pages: the HSSAA schedule in `assets/data/sports/*.json` and the `MATCHS` list of pages like the 7e/8e volleyball one (7e/8e games start at 15 h 30; add `heure: "16 h 45"` to a game there if it starts at another time). Only games at Gaétan-Gervais are added, away games are not. If a game is also typed in Outlook (same day, sport and opponent, e.g. "VB Garçons Senior vs Acton"), it shows once, as typed in Outlook. Each game links to its team page. Once a game is played, HSSAA replaces its time with the score, so the times are remembered in `assets/data/matchs-heures.json` (updated by the same job, don't edit).
+**Games are added automatically** from the team pages: the HSSAA schedule in `assets/data/sports/*.json` and the `MATCHS` list of pages like the 7e/8e volleyball one (7e/8e games start at 15 h 30; add `heure: "16 h 45"` to a game there if it starts at another time). Home and away games are both added: a green house means home (at Gaétan-Gervais), a gold bus means away (the place comes from the HSSAA "Location", or the home team's school). If a game is also typed in Outlook (same day, sport and opponent, e.g. "VB Garçons Senior vs Acton"), it shows once, as typed in Outlook. Each game links to its team page. Once a game is played, HSSAA replaces its time with the score, so the times are remembered in `assets/data/matchs-heures.json` (updated by the same job, don't edit).
 
-**Home games in Outlook**: the same games are published as a calendar at `https://esgage.ca/assets/data/matchs-domicile.ics` (only the games not already typed in the shared Outlook calendar). In Outlook: Calendar → Add calendar → Subscribe from web, paste that link. It shows next to your other calendars and updates itself (Outlook checks a few times a day).
+**Calendars to subscribe to**: the same job writes `.ics` calendars that phones, Google Calendar and Outlook can subscribe to. They update themselves (each app checks a few times a day). The "S'abonner" panel under the Calendrier page (`calendrier.html#s-abonner`) has the buttons for each app and the links:
+- `assets/data/calendriers/gage.ics`: the whole calendar (Outlook events and all games)
+- `assets/data/calendriers/matchs.ics`: all games
+- `assets/data/calendriers/<team>.ics`: one team, e.g. `volleyball-garcons-senior.ics` (a team gets one as soon as it has games)
+- `assets/data/matchs-domicile.ics`: home games only (the first one, kept at its old link)
+
+In those calendars, game names start with 🏠 (home) or 🚌 (away). In Outlook by hand: Calendar → Add calendar → Subscribe from web, paste `https://esgage.ca/` followed by one of the paths above.
 
 Each event gets an icon picked from words in its name. Sports get their emoji ("volleyball" or "VB" → 🏐, "basket" or "BB" → 🏀, "soccer" → ⚽, "course de fond" → 🏃, ...); other events get an icon ("photo" → camera, "tournoi" → trophy, "journée pédagogique" → crossed-out calendar, ...). The word list is at the top of `assets/js/event-icons.js`. To choose the icon yourself, start the event name with an emoji in Outlook (`🎃 Danse d'Halloween`).
 
@@ -101,7 +107,7 @@ Keep the files small (about 10 MB and 5 MB for two minutes): every visitor downl
 
 ## Application (PWA)
 
-The site can be installed on a phone like an app (free, no app store). It opens on **Aujourd'hui à GAGE** (`aujourdhui.html`, or `en/aujourdhui.html` when installed from an English page), which shows today's events and home games from `events.json` and the next few events.
+The site can be installed on a phone like an app (free, no app store). It opens on **Aujourd'hui à GAGE** (`aujourdhui.html`, or `en/aujourdhui.html` when installed from an English page), which shows today's events and games from `events.json` and the next few events.
 
 - **Install**: iPhone/iPad, in Safari: Share → *Sur l'écran d'accueil* / *Add to Home Screen*. Android, in Chrome: the *Installer l'app* button on the Aujourd'hui page, or menu ⋮ → *Installer l'application* / *Ajouter à l'écran d'accueil*.
 - **Name, colours, shortcuts**: `manifest.webmanifest` and `en/manifest.webmanifest`. Icons are in `assets/img/app/` (the `maskable` one keeps the griffon inside the middle 80% so Android can crop it to a circle).

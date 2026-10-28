@@ -73,6 +73,33 @@
 <div class="gage-calendar" id="gage-calendar" data-src="assets/data/events.json"></div>
 </div>
 </section><!-- /Events Section -->
+<section class="section cal-subscribe-section" id="s-abonner">
+<div class="container">
+<div class="cal-subscribe">
+<h2 class="cal-subscribe-title"><i class="bi bi-calendar-plus" aria-hidden="true"></i> S’abonner au calendrier</h2>
+<p class="cal-subscribe-intro">Ajoutez nos événements et nos matchs à votre téléphone ou à votre agenda : ils se mettent à jour tout seuls.</p>
+<label class="cal-subscribe-label" for="cal-feed">Quel calendrier?</label>
+<select class="form-select cal-feed" id="cal-feed">
+<option value="/assets/data/calendriers/gage.ics" data-name="GAGE – Calendrier">Tout le calendrier (événements et matchs)</option>
+<option value="/assets/data/calendriers/matchs.ics" data-name="GAGE – Matchs">Tous les matchs</option>
+<option value="/assets/data/matchs-domicile.ics" data-name="Matchs à domicile – GAGE">Matchs à domicile seulement</option>
+</select>
+<div class="cal-subscribe-apps">
+<a class="cal-app" data-app="google" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fesgage.ca%2Fassets%2Fdata%2Fcalendriers%2Fgage.ics" target="_blank" rel="noopener"><i class="bi bi-google" aria-hidden="true"></i> Google Agenda<span class="sr-only"> (nouvel onglet)</span></a>
+<a class="cal-app" data-app="apple" href="webcal://esgage.ca/assets/data/calendriers/gage.ics"><i class="bi bi-apple" aria-hidden="true"></i> iPhone et Mac</a>
+<a class="cal-app" data-app="outlook" href="https://outlook.office.com/calendar/0/addfromweb?url=https%3A%2F%2Fesgage.ca%2Fassets%2Fdata%2Fcalendriers%2Fgage.ics&amp;name=GAGE%20%E2%80%93%20Calendrier" target="_blank" rel="noopener"><i class="bi bi-microsoft" aria-hidden="true"></i> Outlook (école ou travail)<span class="sr-only"> (nouvel onglet)</span></a>
+<a class="cal-app" data-app="outlookcom" href="https://outlook.live.com/calendar/0/addfromweb?url=https%3A%2F%2Fesgage.ca%2Fassets%2Fdata%2Fcalendriers%2Fgage.ics&amp;name=GAGE%20%E2%80%93%20Calendrier" target="_blank" rel="noopener"><i class="bi bi-envelope" aria-hidden="true"></i> Outlook.com<span class="sr-only"> (nouvel onglet)</span></a>
+</div>
+<label class="cal-subscribe-label" for="cal-feed-url">Ou copiez le lien dans une autre application</label>
+<div class="cal-copy-row">
+<input class="form-control cal-feed-url" id="cal-feed-url" type="text" readonly value="https://esgage.ca/assets/data/calendriers/gage.ics"/>
+<button class="cal-app" id="cal-copy" type="button"><i class="bi bi-link-45deg" aria-hidden="true"></i> Copier</button>
+</div>
+<p class="cal-copy-status" id="cal-copy-status" role="status"></p>
+<p class="cal-subscribe-note">Dans votre agenda, 🏠 = match à domicile et 🚌 = match à l’extérieur. Google Agenda : ajoutez-le une fois sur un ordinateur, il apparaîtra aussi sur votre téléphone Android. Selon l’application, un changement peut prendre quelques heures à apparaître.</p>
+</div>
+</div>
+</section><!-- /Subscribe Section -->
 </main>
 <div id="footer-placeholder"></div>
 <!-- Scroll Top -->

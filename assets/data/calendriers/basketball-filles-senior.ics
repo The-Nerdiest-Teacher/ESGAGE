@@ -1,0 +1,125 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//esgage.ca//Calendrier//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GAGE – Basketball filles senior
+X-WR-TIMEZONE:America/Toronto
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+BEGIN:VTIMEZONE
+TZID:America/Toronto
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:2026-09-28-basketball-filles-senior-vs-georgetown-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball filles senior vs Georgetown D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20260928T153000
+DTEND;TZID=America/Toronto:20260928T170000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-05-basketball-filles-senior-vs-m-m-robinson-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball filles senior vs M.M. Robinson H.S.
+LOCATION:M.M. Robinson H.S.
+DTSTART;TZID=America/Toronto:20261005T163000
+DTEND;TZID=America/Toronto:20261005T180000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-07-basketball-filles-senior-vs-burlington-central-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball filles senior vs Burlington Central H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261007T153000
+DTEND;TZID=America/Toronto:20261007T170000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-14-basketball-filles-senior-vs-abbey-park-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball filles senior vs Abbey Park H.S.
+LOCATION:Abbey Park H.S.
+DTSTART;TZID=America/Toronto:20261014T153000
+DTEND;TZID=America/Toronto:20261014T170000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-19-basketball-filles-senior-vs-white-oaks-high-school@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball filles senior vs White Oaks High School
+LOCATION:White Oaks High School
+DTSTART;TZID=America/Toronto:20261019T163000
+DTEND;TZID=America/Toronto:20261019T180000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-21-basketball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball filles senior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261021T153000
+DTEND;TZID=America/Toronto:20261021T170000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball filles senior vs E.S. Sainte-Trinite
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261027T140000
+DTEND;TZID=America/Toronto:20261027T153000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-28-basketball-filles-senior-vs-oakville-trafalgar-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball filles senior vs Oakville Trafalgar H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261028T140000
+DTEND;TZID=America/Toronto:20261028T153000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-02-basketball-filles-senior-vs-aldershot-high-school@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball filles senior vs Aldershot High School
+LOCATION:Aldershot High School
+DTSTART;TZID=America/Toronto:20261102T153000
+DTEND;TZID=America/Toronto:20261102T170000
+URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-filles-senior-2026-2027.html
+END:VEVENT
+END:VCALENDAR

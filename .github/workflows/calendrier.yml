@@ -1,5 +1,5 @@
-# Copies the shared Outlook calendar, plus home games from the team pages,
-# to assets/data/events.json every 30 minutes.
+# Copies the shared Outlook calendar, plus the games from the team pages,
+# to assets/data/events.json every 30 minutes, and writes the .ics calendars to subscribe to.
 # To update right away: Actions tab > "Calendrier (Outlook)" > Run workflow.
 name: Calendrier (Outlook)
 
@@ -40,7 +40,7 @@ jobs:
       - run: python .github/scripts/calendrier.py
       - name: Commit if the calendar changed
         run: |
-          FILES="assets/data/events.json assets/data/matchs-domicile.ics assets/data/matchs-heures.json"
+          FILES="assets/data/events.json assets/data/matchs-domicile.ics assets/data/matchs-heures.json assets/data/calendriers"
           git add -N $FILES
           if git diff --quiet -- $FILES; then exit 0; fi
           git config user.name "calendrier-bot"

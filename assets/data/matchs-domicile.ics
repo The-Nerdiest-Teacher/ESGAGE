@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//esgage.ca//Matchs a domicile//FR
+PRODID:-//esgage.ca//Calendrier//FR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Matchs à domicile – GAGE
@@ -31,8 +31,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20260928T153000
 DTEND;TZID=America/Toronto:20260928T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
- -senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-05-volleyball-garcons-senior-vs-maclachlan-college@esgage.ca
@@ -42,8 +42,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261005T153000
 DTEND;TZID=America/Toronto:20261005T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-07-basketball-filles-senior-vs-burlington-central-h-s@esgage.ca
@@ -53,8 +53,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261007T153000
 DTEND;TZID=America/Toronto:20261007T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
- -senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-14-volleyball-garcons-7e-8e-vs-dr-david-williams@esgage.ca
@@ -64,8 +64,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261014T153000
 DTEND;TZID=America/Toronto:20261014T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-19-volleyball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
@@ -75,8 +75,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261019T153000
 DTEND;TZID=America/Toronto:20261019T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-19-volleyball-garcons-senior-vs-e-s-sainte-trinite@esgage.ca
@@ -86,8 +86,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261019T164500
 DTEND;TZID=America/Toronto:20261019T181500
 URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-20-volleyball-garcons-7e-8e-vs-joshua-creek@esgage.ca
@@ -97,8 +97,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261020T153000
 DTEND;TZID=America/Toronto:20261020T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-21-basketball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
@@ -108,8 +108,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261021T153000
 DTEND;TZID=America/Toronto:20261021T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
- -senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
@@ -119,8 +119,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261027T140000
 DTEND;TZID=America/Toronto:20261027T153000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
- -senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-27-volleyball-garcons-7e-8e-vs-oodenawi@esgage.ca
@@ -130,8 +130,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261027T153000
 DTEND;TZID=America/Toronto:20261027T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-basketball-filles-senior-vs-oakville-trafalgar-h-s@esgage.ca
@@ -141,8 +141,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261028T140000
 DTEND;TZID=America/Toronto:20261028T153000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/basketball-filles
- -senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-volleyball-garcons-senior-vs-acton-d-h-s@esgage.ca
@@ -152,8 +152,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261028T153000
 DTEND;TZID=America/Toronto:20261028T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-volleyball-garcons-junior-vs-acton-d-h-s@esgage.ca
@@ -163,8 +163,8 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261028T164500
 DTEND;TZID=America/Toronto:20261028T181500
 URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-03-volleyball-garcons-7e-8e-vs-maple-grove@esgage.ca
@@ -174,7 +174,7 @@ LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261103T153000
 DTEND;TZID=America/Toronto:20261103T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
-DESCRIPTION:Page de l'équipe : https://esgage.ca/equipes/volleyball-garcon
- s-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 END:VCALENDAR

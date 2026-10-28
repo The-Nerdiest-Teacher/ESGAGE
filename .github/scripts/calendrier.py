@@ -9,8 +9,14 @@ Events are typed in French only; the English pages show them as is.
 Games are added automatically from the team pages' data (read only):
   - assets/data/sports/*.json (HSSAA schedule from Nick's browser extension)
   - the MATCHS list in equipes/*-<season>.html pages (e.g. 7e/8e volleyball)
-Only home games (played at Gaétan-Gervais) are added.
+Home and away games are both added; "home" says which (home = played at Gaétan-Gervais).
 A game already typed in Outlook (same day, same sport and opponent) is not added twice.
+
+Calendars people can subscribe to (Calendrier page, "S'abonner") are written too:
+  - assets/data/calendriers/gage.ics: the whole calendar (Outlook events and games)
+  - assets/data/calendriers/matchs.ics: all games
+  - assets/data/calendriers/<team>.ics: one team's games, e.g. volleyball-garcons-senior.ics
+  - assets/data/matchs-domicile.ics: home games only (the first one, kept at its old link)
 """
 
 import datetime as dt
@@ -32,6 +38,8 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "assets", "data", "events.json")
 # Home games as a calendar Outlook can subscribe to (https://esgage.ca/assets/data/matchs-domicile.ics)
 GAMES_ICS = os.path.join(ROOT, "assets", "data", "matchs-domicile.ics")
+# The other calendars to subscribe to (whole calendar, all games, one per team)
+FEEDS = os.path.join(ROOT, "assets", "data", "calendriers")
 SITE = "https://esgage.ca"
 # Game times seen in the HSSAA data. Once a game is played, its time is replaced by
 # the score, so the time is remembered here to keep showing it on the calendar.
@@ -149,19 +157,26 @@ def team_page(team, today):
 
 
 def game_event(team, day, time, visitor, home, location, today):
-    """A home game as a calendar event; None for away games (Nick wants home games only)."""
-    if not MY_SCHOOL.search(location or home):
-        return None
-    opponent = visitor
+    """A game as a calendar event; "home" is True when it is played at Gaétan-Gervais."""
+    if MY_SCHOOL.search(home):
+        opponent = visitor
+    elif MY_SCHOOL.search(visitor):
+        opponent = home
+    else:
+        return None  # not one of our games
+    at_home = bool(MY_SCHOOL.search(location or home))
     event = {
         "title": "%s vs %s" % (team_label(team), opponent),
         "start": day.isoformat() + ("T" + time if time else ""),
         "allDay": not time,
         "game": True,
+        "home": at_home,
+        "team": "-".join(team),
         "opponent": opponent,
     }
     event["end"] = (day + dt.timedelta(days=1)).isoformat() if not time else event["start"]
-    event["location"] = "Gaétan-Gervais"
+    # Away: the place given in the HSSAA data, else the home team's school
+    event["location"] = "Gaétan-Gervais" if at_home else (location or home)
     page = team_page(team, today)
     if page:
         event["url"] = "/" + page
@@ -277,7 +292,20 @@ def load_json(path, default):
         return default
 
 
+def add_uids(events):
+    """A lasting id for each event in the .ics calendars (date + name)."""
+    seen = set()
+    for e in events:
+        uid = base = re.sub(r"[^a-z0-9]+", "-", plain("%s-%s" % (e["start"][:10], e["title"]))).strip("-")
+        n = 2
+        while uid in seen:
+            uid, n = "%s-%d" % (base, n), n + 1
+        seen.add(uid)
+        e["uid"] = uid
+
+
 def add_games(events, today):
+    """Adds the games to the Outlook events; returns (events, all games)."""
     known_times = load_json(GAME_TIMES, {})
     games = [g for g in hssaa_games(today, known_times) + page_games(today) if g]
     text = json.dumps(dict(sorted(known_times.items())), ensure_ascii=False, indent=1) + "\n"
@@ -289,22 +317,24 @@ def add_games(events, today):
             continue
         events.append(game)
         added += 1
-    print("Games from the team pages: %d found, %d added (others are already in Outlook)." % (len(games), added))
+    away = sum(1 for g in games if not g["home"])
+    print("Games from the team pages: %d found (%d home, %d away), %d added (others are already in Outlook)."
+          % (len(games), len(games) - away, away, added))
     for game in games:
-        game["uid"] = re.sub(r"[^a-z0-9]+", "-", plain("%s-%s" % (game["start"][:10], game["title"]))).strip("-")
         game.pop("opponent", None)
     events.sort(key=lambda e: (e["start"], e["title"]))
-    return events
+    games.sort(key=lambda e: (e["start"], e["title"]))
+    return events, games
 
 
 def ics_text(text):
     return str(text).replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
 
 
-def games_calendar(events):
-    """The added home games (not the ones already in Outlook) as an .ics calendar."""
-    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//esgage.ca//Matchs a domicile//FR",
-             "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:Matchs à domicile – GAGE",
+def ics_calendar(name, events, marks=True):
+    """Events as an .ics calendar to subscribe to. With marks, game names start with 🏠 (home) or 🚌 (away)."""
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//esgage.ca//Calendrier//FR",
+             "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:" + ics_text(name),
              "X-WR-TIMEZONE:America/Toronto", "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
              "BEGIN:VTIMEZONE", "TZID:America/Toronto",
              "BEGIN:DAYLIGHT", "TZOFFSETFROM:-0500", "TZOFFSETTO:-0400", "TZNAME:EDT",
@@ -312,21 +342,37 @@ def games_calendar(events):
              "BEGIN:STANDARD", "TZOFFSETFROM:-0400", "TZOFFSETTO:-0500", "TZNAME:EST",
              "DTSTART:19701101T020000", "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU", "END:STANDARD",
              "END:VTIMEZONE"]
+    add_uids(events)
     for e in events:
-        if not e.get("game"):
-            continue
+        title = e["title"]
+        notes = []
+        if e.get("game"):
+            if marks:
+                title = ("🏠 " if e["home"] else "🚌 ") + title
+            notes.append("Match à domicile" if e["home"] else "Match à l'extérieur")
         lines += ["BEGIN:VEVENT", "UID:%s@esgage.ca" % e["uid"], "DTSTAMP:20260801T000000Z",
-                  "SUMMARY:" + ics_text(e["title"]), "LOCATION:" + ics_text(e.get("location", ""))]
+                  "SUMMARY:" + ics_text(title)]
+        if e.get("location"):
+            lines.append("LOCATION:" + ics_text(e["location"]))
         if e["allDay"]:
             lines += ["DTSTART;VALUE=DATE:" + e["start"].replace("-", ""),
                       "DTEND;VALUE=DATE:" + e["end"].replace("-", "")]
         else:
             start = dt.datetime.strptime(e["start"], "%Y-%m-%dT%H:%M")
-            finish = start + dt.timedelta(hours=1, minutes=30)
-            lines += ["DTSTART;TZID=America/Toronto:" + start.strftime("%Y%m%dT%H%M00"),
-                      "DTEND;TZID=America/Toronto:" + finish.strftime("%Y%m%dT%H%M00")]
+            lines.append("DTSTART;TZID=America/Toronto:" + start.strftime("%Y%m%dT%H%M00"))
+            # Games last about 1 h 30; Outlook events keep their own end
+            finish = start + dt.timedelta(hours=1, minutes=30) if e.get("game") else None
+            if not finish and e.get("end", "") > e["start"]:
+                finish = dt.datetime.strptime(e["end"], "%Y-%m-%dT%H:%M")
+            if finish:
+                lines.append("DTEND;TZID=America/Toronto:" + finish.strftime("%Y%m%dT%H%M00"))
         if e.get("url"):
-            lines += ["URL:" + SITE + e["url"], "DESCRIPTION:" + ics_text("Page de l'équipe : " + SITE + e["url"])]
+            lines.append("URL:" + SITE + e["url"])
+            notes.append("Page de l'équipe : " + SITE + e["url"])
+        if e.get("description"):
+            notes.append(e["description"])
+        if notes:
+            lines.append("DESCRIPTION:" + ics_text("\n".join(notes)))
         lines.append("END:VEVENT")
     lines.append("END:VCALENDAR")
     # Lines longer than 75 bytes are folded, as the .ics format asks
@@ -341,6 +387,22 @@ def games_calendar(events):
             raw = b" " + raw[cut:]
         folded.append(raw.decode("utf-8"))
     return "\r\n".join(folded) + "\r\n"
+
+
+def write_calendars(events, games):
+    """Writes the .ics calendars; returns the teams that have one, for the Calendrier page."""
+    os.makedirs(FEEDS, exist_ok=True)
+    teams = sorted({g["team"] for g in games}, key=lambda t: team_label(team_from_name(t)))
+    calendars = [(GAMES_ICS, "Matchs à domicile – GAGE", [g for g in games if g["home"]], False),
+                 (os.path.join(FEEDS, "gage.ics"), "GAGE – Calendrier", events, True),
+                 (os.path.join(FEEDS, "matchs.ics"), "GAGE – Matchs", games, True)]
+    for team in teams:
+        calendars.append((os.path.join(FEEDS, team + ".ics"), "GAGE – " + team_label(team_from_name(team)),
+                          [g for g in games if g["team"] == team], True))
+    for path, name, items, marks in calendars:
+        if write_if_changed(path, ics_calendar(name, [dict(e) for e in items], marks)):
+            print("Wrote %s (%d events)" % (os.path.relpath(path, ROOT), len(items)))
+    return [{"id": t, "name": team_label(team_from_name(t))} for t in teams]
 
 
 def write_if_changed(path, text):
@@ -389,13 +451,10 @@ def main():
         # Outlook didn't answer: keep its events from last time, still update the games
         print("::warning::Outlook calendar could not be downloaded; keeping its events from last time.")
         outlook = [e for e in load_json(OUT, {}).get("events", []) if not e.get("game")]
-    events = add_games(outlook, today)
-    if write_if_changed(GAMES_ICS, games_calendar(events)):
-        print("Wrote the home games calendar to %s" % GAMES_ICS)
-    for e in events:
-        e.pop("uid", None)
+    events, games = add_games(outlook, today)
+    teams = write_calendars(events, games)
 
-    text = json.dumps({"events": events}, ensure_ascii=False, indent=1) + "\n"
+    text = json.dumps({"events": events, "teams": teams}, ensure_ascii=False, indent=1) + "\n"
     if write_if_changed(OUT, text):
         print("Wrote %d events to %s" % (len(events), OUT))
     else:
