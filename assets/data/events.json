@@ -453,6 +453,17 @@
    "allDay": true
   },
   {
+   "title": "Volleyball garçons junior vs King's Christian Collegiate",
+   "start": "2026-11-10T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-11-10T15:30",
+   "location": "King's Christian Collegiate",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
    "title": "Cercle sur le respect pour le secondaire",
    "start": "2026-11-11",
    "end": "2026-11-12",

@@ -493,6 +493,18 @@ DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-11-10-volleyball-garcons-junior-vs-king-s-christian-collegiate@esg
+ age.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons junior vs King's Christian Collegiate
+LOCATION:King's Christian Collegiate
+DTSTART;TZID=America/Toronto:20261110T153000
+DTEND;TZID=America/Toronto:20261110T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-junior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-11-cercle-sur-le-respect-pour-le-secondaire@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Cercle sur le respect pour le secondaire
