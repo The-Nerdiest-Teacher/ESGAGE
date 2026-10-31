@@ -25,7 +25,7 @@
     { cle: "volleyball-garcons-78",     sport: "volleyball", fr: "Garçons 7e/8e",  en: "Grade 7/8 boys", page: "/equipes/volleyball-garcons-78-2026-2027.html" },
     { cle: "basketball-filles-senior",  sport: "basketball", fr: "Filles senior",  en: "Senior girls",   donnees: "/assets/data/sports/basketball-filles-senior.json", page: "/equipes/basketball-filles-senior-2026-2027.html" },
     { cle: "basketball-filles-junior",  sport: "basketball", fr: "Filles junior",  en: "Junior girls",   donnees: "/assets/data/sports/basketball-filles-junior.json" },
-    { cle: "basketball-garcons-senior", sport: "basketball", fr: "Garçons senior", en: "Senior boys",    donnees: "/assets/data/sports/basketball-garcons-senior.json" },
+    { cle: "basketball-garcons-senior", sport: "basketball", fr: "Garçons senior", en: "Senior boys",    donnees: "/assets/data/sports/basketball-garcons-senior.json", page: "/equipes/basketball-garcons-senior-2026-2027.html" },
     { cle: "basketball-garcons-junior", sport: "basketball", fr: "Garçons junior", en: "Junior boys",    donnees: "/assets/data/sports/basketball-garcons-junior.json" },
     { cle: "soccer-filles-senior",      sport: "soccer",     fr: "Filles senior",  en: "Senior girls",   donnees: "/assets/data/sports/soccer-filles-senior.json" },
     { cle: "soccer-filles-junior",      sport: "soccer",     fr: "Filles junior",  en: "Junior girls",   donnees: "/assets/data/sports/soccer-filles-junior.json" },

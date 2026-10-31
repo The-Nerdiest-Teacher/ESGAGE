@@ -31,6 +31,9 @@
   //   { saison: "2018-2019", date: "2019-03-01", sport_fr: "Basketball garçons senior", sport_en: "Senior boys basketball",
   //     titre_fr: "Championnat HSSAA", titre_en: "HSSAA championship", resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
   var EXPLOITS = [
+    { saison: "2026-2027", date: "2026-10-31", cle: "basketball-garcons-senior",
+      titre_fr: "Tournoi de basketball ESCSFA", titre_en: "ESCSFA basketball tournament",
+      resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
     { saison: "2026-2027", date: "2026-10-23", cle: "volleyball-garcons-senior",
       titre_fr: "Canes Cup", titre_en: "Canes Cup",
       resultat_fr: "Finalistes (2e place)", resultat_en: "Finalists (2nd place)", niveau: "argent" },
