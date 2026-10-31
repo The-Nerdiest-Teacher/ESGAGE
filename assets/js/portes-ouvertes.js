@@ -9,9 +9,9 @@
  * Les champs vides ("") sont simplement omis du bandeau.
  */
 var PORTES_OUVERTES = {
-  date: "",               // ex. "2026-12-03"
-  debut: "",              // heure de début, ex. "18:00"
-  fin: "",                // heure de fin, ex. "20:00"
+  date: "2026-11-26",     // ex. "2026-12-03"
+  debut: "18:00",         // heure de début, ex. "18:00"
+  fin: "20:00",           // heure de fin, ex. "20:00"
   lieu: "1075 McCraney St E, Oakville",
   lien: "",               // optionnel : page d'inscription ou d'info, ex. "https://..."
   JOURS_AVANT: 28
