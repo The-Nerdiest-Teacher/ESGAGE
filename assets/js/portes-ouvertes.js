@@ -49,7 +49,7 @@ var PORTES_OUVERTES = {
   }
   function hour(d) { return d.toLocaleTimeString(LOCALE, { hour: "numeric", minute: "2-digit" }); }
 
-  var dateText = midnight.toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  var dateText = midnight.toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "long" });
   var timeText = "";
   if (HOUR.test(cfg.debut)) {
     timeText = HOUR.test(cfg.fin)
@@ -83,37 +83,22 @@ var PORTES_OUVERTES = {
   var icsHref = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
 
   var html =
-    '<div class="container"><div class="po-band">' +
-      '<div class="po-icon" aria-hidden="true"><i class="bi bi-door-open-fill"></i></div>' +
-      '<div class="po-text">' +
-        '<p class="po-kicker"><span class="po-countdown">' + escapeHtml(countdown) + "</span></p>" +
-        '<h2 class="po-title" id="po-title">' + (EN ? "Open house" : "Soirée portes ouvertes") + "</h2>" +
-        '<p class="po-when"><i class="bi bi-calendar-event" aria-hidden="true"></i> ' +
-          escapeHtml(dateText) + (timeText ? ", " + escapeHtml(timeText) : "") + "</p>" +
-        (cfg.lieu ? '<p class="po-where"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> ' + escapeHtml(cfg.lieu) + "</p>" : "") +
-        '<p class="po-pitch">' + (EN
-          ? "Future students and parents: tour the school, meet our teachers and discover our programs (IB, SHSM), sports and clubs."
-          : "Futurs élèves et parents : visitez l'école, rencontrez notre personnel et découvrez nos programmes (BI, MHS), nos équipes et nos clubs.") +
-        "</p>" +
-      "</div>" +
-      '<div class="po-actions">' +
-        (cfg.lien ? '<a class="visite-btn" href="' + escapeHtml(cfg.lien) + '"><i class="bi bi-info-circle-fill" aria-hidden="true"></i> ' + (EN ? "Details" : "Détails") + "</a>" : "") +
-        '<a class="visite-btn' + (cfg.lien ? " visite-btn-outline" : "") + '" href="' + icsHref + '" download="portes-ouvertes-gage.ics">' +
-          '<i class="bi bi-calendar-plus-fill" aria-hidden="true"></i> ' + (EN ? "Add to my calendar" : "Ajouter à mon calendrier") + "</a>" +
-      "</div>" +
-    "</div></div>";
+    '<div class="container po-bar">' +
+      '<i class="bi bi-door-open-fill po-icon" aria-hidden="true"></i>' +
+      '<p class="po-text">' +
+        '<strong class="po-title" id="po-title">' + (EN ? "Open house" : "Soirée portes ouvertes") + "</strong> " +
+        '<span class="po-when">' + escapeHtml(dateText) + (timeText ? ", " + escapeHtml(timeText) : "") + "</span>" +
+        (cfg.lieu ? ' <span class="po-where">· ' + escapeHtml(cfg.lieu) + "</span>" : "") +
+        ' <span class="po-countdown">' + escapeHtml(countdown) + "</span>" +
+      "</p>" +
+      '<span class="po-actions">' +
+        (cfg.lien ? '<a class="po-btn" href="' + escapeHtml(cfg.lien) + '"><i class="bi bi-info-circle-fill" aria-hidden="true"></i> ' + (EN ? "Details" : "Détails") + "</a>" : "") +
+        '<a class="po-btn' + (cfg.lien ? " po-btn-outline" : "") + '" href="' + icsHref + '" download="portes-ouvertes-gage.ics">' +
+          '<i class="bi bi-calendar-plus-fill" aria-hidden="true"></i> ' + (EN ? "Add to calendar" : "Ajouter au calendrier") + "</a>" +
+      "</span>" +
+    "</div>";
 
   box.innerHTML = html;
   box.setAttribute("aria-labelledby", "po-title");
   box.hidden = false;
-
-  // A gold button in the hero (top of the page) that jumps to the banner
-  var heroButtons = document.querySelector(".hero-buttons");
-  if (heroButtons) {
-    var jump = document.createElement("a");
-    jump.className = "hero-btn-secondary po-hero-btn";
-    jump.href = "#portes-ouvertes";
-    jump.innerHTML = '<i class="bi bi-door-open-fill" aria-hidden="true"></i> ' + (EN ? "Open house" : "Portes ouvertes");
-    heroButtons.insertBefore(jump, heroButtons.firstChild);
-  }
 })(PORTES_OUVERTES);

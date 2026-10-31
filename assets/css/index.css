@@ -633,65 +633,71 @@ html.dark-mode .event-icon { color: #5cb87a; }
 .event-side.is-away { background: #d4a017; color: #1b1b1b; }
 html.dark-mode .event-side.is-home { background: #2a7d47; }
 
-/* ══ SOIRÉE PORTES OUVERTES (assets/js/portes-ouvertes.js) ═══════════════ */
-.portes-ouvertes { padding: 32px 0; background: var(--background-color); scroll-margin-top: 70px; }
-.po-band {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
-  padding: 32px 36px;
-  border-radius: 20px;
-  color: #fff;
-  background: linear-gradient(135deg, #1f6b3a 0%, #134527 100%);
-  border-left: 8px solid #ffd54f;
-  box-shadow: 0 10px 30px rgba(19, 69, 39, 0.25);
+/* ══ SOIRÉE PORTES OUVERTES (assets/js/portes-ouvertes.js) ═══════════════
+   Full-width gold bar right under the menu, above the drone video. */
+.portes-ouvertes {
+  background: #ffd54f;
+  color: #134527;
+  border-bottom: 1px solid rgba(19, 69, 39, 0.25);
 }
-.po-icon {
-  flex: none;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
+.po-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 36px;
-  color: #134527;
-  background: #ffd54f;
+  gap: 10px 18px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
 }
-.po-text { flex: 1 1 360px; min-width: 0; }
-.po-text p { margin: 0 0 4px; color: rgba(255, 255, 255, 0.92); }
-.po-kicker { margin-bottom: 6px !important; }
-.po-countdown {
-  display: inline-block;
-  padding: 3px 12px;
-  border-radius: 50px;
-  background: #ffd54f;
-  color: #134527;
+.po-icon { font-size: 22px; line-height: 1; }
+.po-text { margin: 0; font-size: 15px; color: #134527; }
+.po-title {
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
-  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 6px;
+}
+.po-when { font-weight: 600; }
+.po-countdown {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 10px;
+  border-radius: 50px;
+  background: #134527;
+  color: #ffd54f;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  vertical-align: 1px;
 }
-.po-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px;
-  letter-spacing: 1.5px;
-  line-height: 1.05;
-  margin: 0 0 8px;
+.po-actions { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.po-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  background: #134527;
   color: #fff;
+  border: 2px solid #134527;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
 }
-.po-when { font-weight: 700; color: #fff !important; }
-.po-when i, .po-where i { color: #ffd54f; margin-right: 6px; }
-.po-text .po-pitch { margin-top: 10px; }
-.po-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-html.dark-mode .po-band { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); }
+.po-btn:hover, .po-btn:focus-visible { background: #1f6b3a; border-color: #1f6b3a; color: #fff; }
+.po-btn-outline { background: transparent; color: #134527; }
+.po-btn-outline:hover, .po-btn-outline:focus-visible { background: #134527; color: #fff; }
+.po-btn:focus-visible { outline: 3px solid #134527; outline-offset: 2px; }
+html.dark-mode .portes-ouvertes { border-bottom-color: rgba(0, 0, 0, 0.4); }
 @media (max-width: 575px) {
-  .po-band { padding: 26px 22px; gap: 18px; border-left-width: 6px; }
-  .po-icon { width: 56px; height: 56px; font-size: 26px; }
-  .po-title { font-size: 34px; }
+  .po-icon, .po-where { display: none; }
+  .po-text { font-size: 14px; }
+  .po-title { display: block; margin: 0 0 2px; }
 }
-.hero-btn-secondary.po-hero-btn { background: #ffd54f; border-color: #ffd54f; color: #134527; }
-.hero-btn-secondary.po-hero-btn:hover { background: #ffe082; color: #134527; }

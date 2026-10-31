@@ -77,7 +77,7 @@ lien: "",             // optional link for a "Détails" button
 JOURS_AVANT: 28       // how many days before the night the banner appears
 ```
 
-That's the only place to change, for both the French and English home pages. While `date` is `""` the banner stays hidden. It appears on its own `JOURS_AVANT` days before (with a countdown, an "Ajouter à mon calendrier" button and a gold "Portes ouvertes" button at the top of the page) and disappears on its own once the end time has passed. Next year, just change the date. Also add the night to the Outlook calendar so it shows in "À venir" and the Calendrier page.
+That's the only place to change, for both the French and English home pages. While `date` is `""` the banner stays hidden. It appears on its own `JOURS_AVANT` days before, as a full-width gold bar right under the menu (above the drone video), with a countdown and an "Ajouter au calendrier" button, and disappears on its own once the end time has passed. Next year, just change the date. Also add the night to the Outlook calendar so it shows in "À venir" and the Calendrier page.
 
 **Staff** — edit `assets/data/staff.json`. Each person has `name`, `category` (`admin`, `enseignant`, `aide`, `soutien` or `conciergerie`), `role`, `department`, `email` and `photo` (e.g. `assets/img/team/N. Chauvin.jpg`).
 
