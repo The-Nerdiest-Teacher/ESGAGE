@@ -701,3 +701,20 @@ html.dark-mode .portes-ouvertes { border-bottom-color: rgba(0, 0, 0, 0.4); }
   .po-text { font-size: 14px; }
   .po-title { display: block; margin: 0 0 2px; }
 }
+
+/* Lien vers les résultats OQRE sous le classement */
+.rankings-oqre {
+  display: inline-block; line-height: 1.6; margin-top: 8px; padding: 12px 22px; border-radius: 999px;
+  font-family: 'Raleway', sans-serif; font-size: 15px; font-weight: 600;
+  color: var(--default-color);
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+  text-decoration: none; transition: border-color .2s, box-shadow .2s;
+}
+.rankings-oqre:hover { border-color: var(--accent-color); box-shadow: 0 6px 20px rgba(0,0,0,.08); color: var(--default-color); }
+.rankings-oqre > i, .rankings-oqre strong, .rankings-oqre-cta { color: var(--accent-color); }
+.rankings-oqre > i { margin-right: 6px; }
+.rankings-oqre-cta { font-weight: 700; white-space: nowrap; margin-left: 8px; }
+html.dark-mode .rankings-oqre { border-color: rgba(92,184,122,.45); color: #e0e0e0; }
+html.dark-mode .rankings-oqre > i, html.dark-mode .rankings-oqre strong, html.dark-mode .rankings-oqre-cta { color: #5cb87a; }
+@media (max-width: 480px) { .rankings-oqre { border-radius: 16px; font-size: 14px; } }
