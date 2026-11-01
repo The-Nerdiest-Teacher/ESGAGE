@@ -3,7 +3,7 @@
  *
  * Most of the page builds itself, read only, from the same data as the team pages:
  *   - season records, standings and playoff games: assets/data/sports/*.json
- *     (Nick's browser extension) and the MATCHS lists of pages like the 7e/8e one
+ *     (Nick's browser extension) and the MATCHS / CLASSEMENT lists of pages like the 7e/8e one
  *   - playoff finals and semi-finals become "exploits" on their own
  *   - individual medals: the 1st, 2nd and 3rd places on the cross-country pages
  *
@@ -138,6 +138,30 @@
     return null;
   }
 
+  // Gaétan-Gervais' line in a CLASSEMENT list typed in a team page (7e/8e volleyball):
+  //   var CLASSEMENT = [ { ecole: "Maple Grove", pj: 6, v: 6, d: 0, ... }, ... ];  (league order)
+  // The group comes from the comment above it, e.g. "classement de la ligue (Est AA)".
+  function standingFromPage(html) {
+    var block = html.match(/var CLASSEMENT\s*=\s*\[([\s\S]*?)\n\s*\];/);
+    if (!block) return null;
+    var rows = (block[1].match(/\{[^{}]*\}/g) || []).map(function (item) {
+      var f = {};
+      item.replace(/(\w+)\s*:\s*(?:"([^"]*)"|(-?\d+))/g, function (_, k, str, num) { f[k] = num !== undefined ? +num : str; });
+      return f;
+    }).filter(function (f) { return f.ecole; });
+    for (var r = 0; r < rows.length; r++) {
+      if (!M.isMySchool(rows[r].ecole)) continue;
+      var before = html.slice(0, block.index);
+      var m = before.slice(before.lastIndexOf("// ──")).match(/classement de la ligue \(([^)]+)\)/i);
+      var g = m ? m[1] : "";
+      if (EN) g = g.replace(/^Est\b/, "East").replace(/^Ouest\b/, "West").replace(/^Nord\b/, "North").replace(/^Sud\b/, "South");
+      var x = rows[r];
+      return { rank: r + 1, of: rows.length, group: g,
+               gp: x.pj || 0, w: x.v || 0, l: x.d || 0, t: x.n || 0 };
+    }
+    return null;
+  }
+
   function fetchTeam(team) {
     var url = team.donnees || team.page;
     if (!url) return Promise.resolve(null);
@@ -145,7 +169,7 @@
       .then(function (r) { if (!r.ok) throw new Error(r.status); return team.donnees ? r.json() : r.text(); })
       .then(function (d) {
         var games = team.donnees ? M.gamesFromHssaa(team, d) : M.gamesFromPage(team, d);
-        return { games: games, standing: team.donnees ? standingFor(d) : null };
+        return { games: games, standing: team.donnees ? standingFor(d) : standingFromPage(d) };
       })
       .catch(function () { return null; });
   }
