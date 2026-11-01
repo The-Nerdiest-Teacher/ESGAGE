@@ -114,6 +114,17 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-13-volleyball-filles-7e-8e-vs-harvest-oak@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles 7e/8e vs Harvest Oak
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261013T153000
+DTEND;TZID=America/Toronto:20261013T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-13-volleyball-garcons-7e-8e-vs-harvest-oak@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🚌 Volleyball garçons 7e/8e vs Harvest Oak
@@ -167,6 +178,17 @@ DTEND;TZID=America/Toronto:20261014T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-14-volleyball-filles-7e-8e-vs-dr-david-williams@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles 7e/8e vs Dr. David Williams
+LOCATION:Dr. David Williams
+DTSTART;TZID=America/Toronto:20261014T153000
+DTEND;TZID=America/Toronto:20261014T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-14-volleyball-garcons-7e-8e-vs-dr-david-williams@esgage.ca
@@ -236,6 +258,17 @@ DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-20-volleyball-filles-7e-8e-vs-joshua-creek@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles 7e/8e vs Joshua Creek
+LOCATION:Joshua Creek
+DTSTART;TZID=America/Toronto:20261020T153000
+DTEND;TZID=America/Toronto:20261020T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-20-volleyball-garcons-7e-8e-vs-joshua-creek@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Volleyball garçons 7e/8e vs Joshua Creek
@@ -256,6 +289,17 @@ DTEND;TZID=America/Toronto:20261021T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-21-volleyball-filles-7e-8e-vs-posts-corners@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles 7e/8e vs Posts Corners
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261021T153000
+DTEND;TZID=America/Toronto:20261021T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-21-volleyball-garcons-7e-8e-vs-posts-corners@esgage.ca
@@ -303,6 +347,17 @@ DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-27-volleyball-filles-7e-8e-vs-oodenawi@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles 7e/8e vs Oodenawi
+LOCATION:Oodenawi
+DTSTART;TZID=America/Toronto:20261027T153000
+DTEND;TZID=America/Toronto:20261027T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-27-volleyball-garcons-7e-8e-vs-oodenawi@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Volleyball garçons 7e/8e vs Oodenawi
@@ -347,6 +402,17 @@ DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-29-volleyball-filles-7e-8e-vs-w-h-morden@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles 7e/8e vs W.H. Morden
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261029T153000
+DTEND;TZID=America/Toronto:20261029T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-29-volleyball-garcons-7e-8e-vs-w-h-morden@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🚌 Volleyball garçons 7e/8e vs W.H. Morden
@@ -389,6 +455,17 @@ DTEND;TZID=America/Toronto:20261102T170000
 URL:https://esgage.ca/equipes/basketball-filles-senior-2026-2027.html
 DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/basketball-filles-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-volleyball-filles-7e-8e-vs-maple-grove@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles 7e/8e vs Maple Grove
+LOCATION:Maple Grove
+DTSTART;TZID=America/Toronto:20261103T153000
+DTEND;TZID=America/Toronto:20261103T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-03-volleyball-garcons-7e-8e-vs-maple-grove@esgage.ca

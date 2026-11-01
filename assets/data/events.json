@@ -89,6 +89,17 @@
    "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
   },
   {
+   "title": "Volleyball filles 7e/8e vs Harvest Oak",
+   "start": "2026-10-13T15:30",
+   "allDay": false,
+   "game": true,
+   "home": true,
+   "team": "volleyball-filles-78",
+   "end": "2026-10-13T15:30",
+   "location": "Gaétan-Gervais",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
+  },
+  {
    "title": "Volleyball garçons 7e/8e vs Harvest Oak",
    "start": "2026-10-13T15:30",
    "allDay": false,
@@ -142,6 +153,17 @@
    "end": "2026-10-14T15:30",
    "location": "Abbey Park H.S.",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball filles 7e/8e vs Dr. David Williams",
+   "start": "2026-10-14T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-filles-78",
+   "end": "2026-10-14T15:30",
+   "location": "Dr. David Williams",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
   },
   {
    "title": "Volleyball garçons 7e/8e vs Dr. David Williams",
@@ -210,6 +232,17 @@
    "url": "/equipes/volleyball-garcons-senior-2026-2027.html"
   },
   {
+   "title": "Volleyball filles 7e/8e vs Joshua Creek",
+   "start": "2026-10-20T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-filles-78",
+   "end": "2026-10-20T15:30",
+   "location": "Joshua Creek",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
+  },
+  {
    "title": "Volleyball garçons 7e/8e vs Joshua Creek",
    "start": "2026-10-20T15:30",
    "allDay": false,
@@ -230,6 +263,17 @@
    "end": "2026-10-21T15:30",
    "location": "Gaétan-Gervais",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball filles 7e/8e vs Posts Corners",
+   "start": "2026-10-21T15:30",
+   "allDay": false,
+   "game": true,
+   "home": true,
+   "team": "volleyball-filles-78",
+   "end": "2026-10-21T15:30",
+   "location": "Gaétan-Gervais",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
   },
   {
    "title": "Volleyball garçons 7e/8e vs Posts Corners",
@@ -294,6 +338,17 @@
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
   },
   {
+   "title": "Volleyball filles 7e/8e vs Oodenawi",
+   "start": "2026-10-27T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-filles-78",
+   "end": "2026-10-27T15:30",
+   "location": "Oodenawi",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
+  },
+  {
    "title": "Volleyball garçons 7e/8e vs Oodenawi",
    "start": "2026-10-27T15:30",
    "allDay": false,
@@ -342,6 +397,17 @@
    "end": "2026-10-28T16:45",
    "location": "Gaétan-Gervais",
    "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball filles 7e/8e vs W.H. Morden",
+   "start": "2026-10-29T15:30",
+   "allDay": false,
+   "game": true,
+   "home": true,
+   "team": "volleyball-filles-78",
+   "end": "2026-10-29T15:30",
+   "location": "Gaétan-Gervais",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
   },
   {
    "title": "Volleyball garçons 7e/8e vs W.H. Morden",
@@ -405,6 +471,17 @@
    "end": "2026-11-02T15:30",
    "location": "Aldershot High School",
    "url": "/equipes/basketball-filles-senior-2026-2027.html"
+  },
+  {
+   "title": "Volleyball filles 7e/8e vs Maple Grove",
+   "start": "2026-11-03T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-filles-78",
+   "end": "2026-11-03T15:30",
+   "location": "Maple Grove",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
   },
   {
    "title": "Volleyball garçons 7e/8e vs Maple Grove",
@@ -571,6 +648,10 @@
   {
    "id": "basketball-filles-senior",
    "name": "Basketball filles senior"
+  },
+  {
+   "id": "volleyball-filles-78",
+   "name": "Volleyball filles 7e/8e"
   },
   {
    "id": "volleyball-garcons-78",
