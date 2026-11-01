@@ -126,21 +126,30 @@ if (PLAYERS.length === 0) {
 //
 var MATCHS = [
   { date: "Mardi 13 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "Harvest Oak",    manches: "26-24; 20-25; 15-8" },
-  { date: "Mercredi 14 octobre 2026", visiteur: "Dr. David Williams", domicile: "Gaétan-Gervais", manches: "11-25; 24-26" },
+  { date: "Mercredi 14 octobre 2026", visiteur: "Dr. David Williams", domicile: "Gaétan-Gervais", manches: "11-25; 24-26; 9-15" },
   { date: "Mardi 20 octobre 2026",    visiteur: "Joshua Creek",       domicile: "Gaétan-Gervais", manches: "25-19; 13-25; 13-15" },
-  { date: "Mercredi 21 octobre 2026", visiteur: "Gaétan-Gervais",     domicile: "Posts Corners",  manches: "25-10; 25-20" },
-  { date: "Mardi 27 octobre 2026",    visiteur: "Oodenawi",           domicile: "Gaétan-Gervais" },
-  { date: "Jeudi 29 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "W.H. Morden" },
+  { date: "Mercredi 21 octobre 2026", visiteur: "Gaétan-Gervais",     domicile: "Posts Corners",  manches: "25-18; 25-20; 15-11" },
+  { date: "Mardi 27 octobre 2026",    visiteur: "Oodenawi",           domicile: "Gaétan-Gervais", manches: "26-24; 9-25; 15-13" },
+  { date: "Jeudi 29 octobre 2026",    visiteur: "Gaétan-Gervais",     domicile: "W.H. Morden",    manches: "16-25; 25-21; 15-13" },
   { date: "Mardi 3 novembre 2026",    visiteur: "Maple Grove",        domicile: "Gaétan-Gervais" },
 ];
 
 // ── Classement ────────────────────────────────────────────────────────────
 // Laissez vide tant que la ligue ne publie pas de classement.
-// pj = parties jouées, v = victoires, d = défaites, mg = manches gagnées, mp = manches perdues
+// Dans l'ordre du classement de la ligue (Est AA).
+// pj = parties jouées, v = victoires, d = défaites, mg = manches gagnées, mp = manches perdues, pts = points
 //
-//   { ecole: "Gaétan-Gervais", pj: 4, v: 4, d: 0, mg: 8, mp: 2 },
+//   { ecole: "Gaétan-Gervais", pj: 4, v: 4, d: 0, mg: 8, mp: 2, pts: 8 },
 //
 var CLASSEMENT = [
+  { ecole: "Maple Grove",        pj: 6, v: 6, d: 0, mg: 14, mp: 4,  pts: 12 },
+  { ecole: "Gaétan-Gervais",     pj: 6, v: 5, d: 1, mg: 13, mp: 5,  pts: 10 },
+  { ecole: "Joshua Creek",       pj: 6, v: 4, d: 2, mg: 12, mp: 6,  pts: 8 },
+  { ecole: "Oodenawi",           pj: 6, v: 3, d: 3, mg: 8,  mp: 10, pts: 6 },
+  { ecole: "Dr. David Williams", pj: 6, v: 2, d: 4, mg: 4,  mp: 14, pts: 4 },
+  { ecole: "Harvest Oak",        pj: 6, v: 1, d: 5, mg: 8,  mp: 10, pts: 2 },
+  { ecole: "Posts Corners",      pj: 5, v: 1, d: 4, mg: 5,  mp: 10, pts: 2 },
+  { ecole: "W.H. Morden",        pj: 5, v: 1, d: 4, mg: 5,  mp: 10, pts: 2 },
 ];
 </script>
 <script>
@@ -228,13 +237,13 @@ function renderClassement() {
   var html = '<div class="table-responsive"><table class="table table-bordered standings-table"><thead><tr>' +
     (GAGE_EN
       ? '<th>School</th><th title="Games played">GP</th><th title="Wins">W</th><th title="Losses">L</th>' +
-        '<th title="Sets won">SW</th><th title="Sets lost">SL</th></tr></thead><tbody>'
+        '<th title="Sets won">SW</th><th title="Sets lost">SL</th><th title="Points">PTS</th></tr></thead><tbody>'
       : '<th>École</th><th title="Parties jouées">PJ</th><th title="Victoires">V</th><th title="Défaites">D</th>' +
-        '<th title="Manches gagnées">MG</th><th title="Manches perdues">MP</th></tr></thead><tbody>');
+        '<th title="Manches gagnées">MG</th><th title="Manches perdues">MP</th><th title="Points">PTS</th></tr></thead><tbody>');
   rows.forEach(function(r) {
     var mine = isMySchool(r.ecole || "");
     html += '<tr class="' + (mine ? "my-school" : "") + '"><td>' + nameCell(r.ecole || "") + '</td>' +
-      [r.pj, r.v, r.d, r.mg, r.mp].map(function(c) { return '<td>' + (c === undefined ? "" : c) + '</td>'; }).join("") + '</tr>';
+      [r.pj, r.v, r.d, r.mg, r.mp, r.pts].map(function(c) { return '<td>' + (c === undefined ? "" : c) + '</td>'; }).join("") + '</tr>';
   });
   el.innerHTML = html + '</tbody></table></div>';
 }
