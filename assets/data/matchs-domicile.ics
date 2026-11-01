@@ -57,6 +57,17 @@ DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-13-volleyball-filles-7e-8e-vs-harvest-oak@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball filles 7e/8e vs Harvest Oak
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261013T153000
+DTEND;TZID=America/Toronto:20261013T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-14-volleyball-garcons-7e-8e-vs-dr-david-williams@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Volleyball garçons 7e/8e vs Dr. David Williams
@@ -112,6 +123,17 @@ DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/basketball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-10-21-volleyball-filles-7e-8e-vs-posts-corners@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball filles 7e/8e vs Posts Corners
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261021T153000
+DTEND;TZID=America/Toronto:20261021T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-10-27-basketball-filles-senior-vs-e-s-sainte-trinite@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Basketball filles senior vs E.S. Sainte-Trinite
@@ -165,6 +187,17 @@ DTEND;TZID=America/Toronto:20261028T181500
 URL:https://esgage.ca/equipes/volleyball-garcons-junior-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-junior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-volleyball-filles-7e-8e-vs-w-h-morden@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Volleyball filles 7e/8e vs W.H. Morden
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261029T153000
+DTEND;TZID=America/Toronto:20261029T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-03-volleyball-garcons-7e-8e-vs-maple-grove@esgage.ca
