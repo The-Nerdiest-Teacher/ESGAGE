@@ -23,6 +23,7 @@
     { cle: "volleyball-filles-senior",  sport: "volleyball", fr: "Filles senior",  en: "Senior girls",   donnees: "/assets/data/sports/volleyball-filles-senior.json" },
     { cle: "volleyball-filles-junior",  sport: "volleyball", fr: "Filles junior",  en: "Junior girls",   donnees: "/assets/data/sports/volleyball-filles-junior.json" },
     { cle: "volleyball-garcons-78",     sport: "volleyball", fr: "Garçons 7e/8e",  en: "Grade 7/8 boys", page: "/equipes/volleyball-garcons-78-2026-2027.html" },
+    { cle: "volleyball-filles-78",      sport: "volleyball", fr: "Filles 7e/8e",   en: "Grade 7/8 girls", page: "/equipes/volleyball-filles-78-2026-2027.html" },
     { cle: "basketball-filles-senior",  sport: "basketball", fr: "Filles senior",  en: "Senior girls",   donnees: "/assets/data/sports/basketball-filles-senior.json", page: "/equipes/basketball-filles-senior-2026-2027.html" },
     { cle: "basketball-filles-junior",  sport: "basketball", fr: "Filles junior",  en: "Junior girls",   donnees: "/assets/data/sports/basketball-filles-junior.json" },
     { cle: "basketball-garcons-senior", sport: "basketball", fr: "Garçons senior", en: "Senior boys",    donnees: "/assets/data/sports/basketball-garcons-senior.json", page: "/equipes/basketball-garcons-senior-2026-2027.html" },
