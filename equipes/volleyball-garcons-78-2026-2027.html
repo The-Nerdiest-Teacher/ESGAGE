@@ -87,9 +87,21 @@
 <script>
 // ── Roster ────────────────────────────────────────────────────────────────
 // Ajoutez vos joueurs ici.
-// Exemple: { name: "Prénom Nom", img: "photo.webp", position: "Passeur", captain: false }
+// Exemple: { name: "Prénom", img: "photo.webp", position: "Passeur", positionEn: "Setter", captain: false }
 // captain: true pour le/la capitaine
 const PLAYERS = [
+  { name: "Cheick",  img: "Cheick-Passeur.webp",          position: "Passeur",    positionEn: "Setter",  captain: false },
+  { name: "Connor",  img: "Connor-Attaquant.webp",        position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "Filip",   img: "Filip-Passeur.webp",           position: "Passeur",    positionEn: "Setter",  captain: false },
+  { name: "Jace",    img: "Jace-Attaquant.webp",          position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "James",   img: "James-Attaquant.webp",         position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "John",    img: "John-Attaquant.webp",          position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "Liam",    img: "Liam-Attaquant.webp",          position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "Luke",    img: "Luke-Passeur.webp",            position: "Passeur",    positionEn: "Setter",  captain: false },
+  { name: "Max",     img: "Max-Attaquant.webp",           position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "Noah",    img: "Noah-Passeur.webp",            position: "Passeur",    positionEn: "Setter",  captain: false },
+  { name: "Quinn",   img: "Quinn-Attaquant.webp",         position: "Attaquant",  positionEn: "Hitter",  captain: false },
+  { name: "Thomas",  img: "Thomas-Centre.webp",           position: "Centre",     positionEn: "Middle",  captain: false },
 ];
 
 const IMG_BASE = "/assets/img/sportsplayers/2026-2027/VBGM/";
@@ -108,7 +120,7 @@ if (PLAYERS.length === 0) {
       '<div class="card-school">GAGE</div>' +
       (p.captain ? '<div class="captain-badge" title="' + tr("Capitaine", "Captain") + '">C</div>' : '') +
       '<div class="card-info">' +
-        '<div class="card-position">' + p.position + '</div>' +
+        '<div class="card-position">' + tr(p.position, p.positionEn || p.position) + '</div>' +
         '<div class="card-name">' + p.name + '</div>' +
       '</div>';
     roster.appendChild(card);
