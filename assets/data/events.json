@@ -518,6 +518,28 @@
    "allDay": true
   },
   {
+   "title": "Volleyball filles 7e/8e vs Harvest Oak",
+   "start": "2026-11-05T15:30",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-filles-78",
+   "end": "2026-11-05T15:30",
+   "location": "Harvest Oak",
+   "url": "/equipes/volleyball-filles-78-2026-2027.html"
+  },
+  {
+   "title": "Volleyball garçons 7e/8e vs 8e place (à confirmer)",
+   "start": "2026-11-05T15:30",
+   "allDay": false,
+   "game": true,
+   "home": true,
+   "team": "volleyball-garcons-78",
+   "end": "2026-11-05T15:30",
+   "location": "Gaétan-Gervais",
+   "url": "/equipes/volleyball-garcons-78-2026-2027.html"
+  },
+  {
    "title": "Rock Your Mocs – porter vos mocassins à l`école",
    "start": "2026-11-09",
    "end": "2026-11-10",

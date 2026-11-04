@@ -100,4 +100,15 @@ URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
 DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-filles-78-2026-2027.html
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-volleyball-filles-7e-8e-vs-harvest-oak@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles 7e/8e vs Harvest Oak
+LOCATION:Harvest Oak
+DTSTART;TZID=America/Toronto:20261105T153000
+DTEND;TZID=America/Toronto:20261105T170000
+URL:https://esgage.ca/equipes/volleyball-filles-78-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-78-2026-2027.html
+END:VEVENT
 END:VCALENDAR
