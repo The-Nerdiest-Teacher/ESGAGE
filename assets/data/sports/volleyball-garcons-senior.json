@@ -2,7 +2,7 @@
   "label": "Volleyball — Garçons Senior",
   "leagueid": 26,
   "schoolid": 12,
-  "updated": "Fri, 30 Oct 2026 13:22:29 GMT",
+  "updated": "Wed, 04 Nov 2026 13:08:57 GMT",
   "standings": [
     {
       "headers": [
@@ -207,6 +207,20 @@
         ],
         [
           "",
+          "Georgetown D.H.S. (AAA)",
+          "10",
+          "7",
+          "3",
+          "0",
+          "14",
+          "15",
+          "9",
+          "533",
+          "482",
+          "W 1"
+        ],
+        [
+          "",
           "White Oaks High School (AAA)",
           "10",
           "7",
@@ -217,20 +231,6 @@
           "8",
           "502",
           "390",
-          "L 1"
-        ],
-        [
-          "",
-          "Georgetown D.H.S. (AAA)",
-          "9",
-          "6",
-          "3",
-          "0",
-          "12",
-          "13",
-          "9",
-          "478",
-          "436",
           "L 1"
         ],
         [
@@ -320,16 +320,16 @@
         [
           "",
           "Nelson High School (AAA)",
-          "9",
+          "10",
           "0",
-          "9",
+          "10",
           "0",
           "0",
           "3",
-          "18",
-          "351",
-          "490",
-          "L 9"
+          "20",
+          "397",
+          "545",
+          "L 10"
         ]
       ]
     }
@@ -539,12 +539,32 @@
     ],
     [
       "Elsie MacGill S.S.",
-      "03:30 PM",
+      "2 (25, 16, 15)",
+      "1 (21, 25, 6)",
       "E.S. Gaetan Gervais"
     ],
     [
       "Location: E.S. Gaetan Gervais",
       "Notes: Quarter Final.  Tier 2"
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, November 17, 2026"
+    ],
+    [
+      "Académie Catholique Mère-Teresa",
+      "03:15 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: GHAC.  A Semi Final"
     ]
   ]
 }
