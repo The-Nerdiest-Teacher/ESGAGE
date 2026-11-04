@@ -134,6 +134,8 @@ var MATCHS = [
   { date: "Mardi 27 octobre 2026",    visiteur: "Gaétan-Gervais", domicile: "Oodenawi",           manches: "12-25; 13-25; 8-15" },
   { date: "Jeudi 29 octobre 2026",    visiteur: "W.H. Morden",    domicile: "Gaétan-Gervais",     manches: "11-25; 25-17; 15-13" },
   { date: "Mardi 3 novembre 2026",    visiteur: "Gaétan-Gervais", domicile: "Maple Grove",        manches: "11-25; 17-25; 8-15" },
+  // Séries : 5e (Gaétan-Gervais) contre 4e (Harvest Oak)
+  { date: "Jeudi 5 novembre 2026",    visiteur: "Gaétan-Gervais", domicile: "Harvest Oak" },
 ];
 
 // ── Classement ────────────────────────────────────────────────────────────
@@ -158,7 +160,11 @@ var CLASSEMENT = [
 var MY_SCHOOL = ["gaétan","gaetan","gervais","gage"];
 function isMySchool(t) { return MY_SCHOOL.some(function(k) { return t.toLowerCase().indexOf(k) >= 0; }); }
 var LOGO_HTML = '<img src="/assets/img/gage-logo-small.png" alt="GAGE" style="height:20px;width:auto;margin-right:6px;vertical-align:middle;">';
-function nameCell(n) { return isMySchool(n) ? LOGO_HTML + n : n; }
+function nameCell(n) {
+  // "8e place (à confirmer)" → "8th place (TBD)" on the English page
+  if (GAGE_EN) n = n.replace(/(\d+)e place/, "$1th place").replace("à confirmer", "TBD");
+  return isMySchool(n) ? LOGO_HTML + n : n;
+}
 function boldStyle(n) { return isMySchool(n) ? "font-weight:700;" : ""; }
 
 function groupByDate(games) {
