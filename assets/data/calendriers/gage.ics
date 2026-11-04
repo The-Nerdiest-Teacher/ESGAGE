@@ -626,6 +626,19 @@ DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-11-17-volleyball-garcons-senior-vs-academie-catholique-mere-teresa
+ @esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons senior vs Académie Catholique Mère-Teres
+ a
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261117T151500
+DTEND;TZID=America/Toronto:20261117T164500
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-19-journee-bien-etre@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Journée bien-être
