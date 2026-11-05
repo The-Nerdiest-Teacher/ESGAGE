@@ -82,9 +82,20 @@
 <script>
 // ── Roster ────────────────────────────────────────────────────────────────
 // Ajoutez vos joueurs ici.
-// Exemple: { name: "Prénom Nom", img: "photo.webp", position: "Passeur", captain: false }
+// Exemple: { name: "Prénom", img: "Prénom-Passeur.webp", position: "Passeur", positionEn: "Setter", captain: false }
 // captain: true pour le/la capitaine
 const PLAYERS = [
+  { name: "Baradji",   img: "Baradji-Centre.webp",     position: "Centre",    positionEn: "Middle",  captain: false },
+  { name: "Hassan",    img: "Hassan-Centre.webp",      position: "Centre",    positionEn: "Middle",  captain: false },
+  { name: "Joshua",    img: "Joshua-Passeur.webp",     position: "Passeur",   positionEn: "Setter",  captain: false },
+  { name: "Karim",     img: "Karim-Centre.webp",       position: "Centre",    positionEn: "Middle",  captain: false },
+  { name: "Myles",     img: "Myles-Passeur.webp",      position: "Passeur",   positionEn: "Setter",  captain: true  },
+  { name: "Nathan",    img: "Nathan-Attaquant.webp",   position: "Attaquant", positionEn: "Outside", captain: false },
+  { name: "Nathan R.", img: "NathanR-Attaquant.webp",  position: "Attaquant", positionEn: "Outside", captain: false },
+  { name: "Rylan",     img: "Rylan-Attaquant.webp",    position: "Attaquant", positionEn: "Outside", captain: false },
+  { name: "Souheil",   img: "Souheil-Passeur.webp",    position: "Passeur",   positionEn: "Setter",  captain: false },
+  { name: "Tristan",   img: "Tristan-Passeur.webp",    position: "Passeur",   positionEn: "Setter",  captain: false },
+  { name: "Zachary",   img: "Zachary-Centre.webp",     position: "Centre",    positionEn: "Middle",  captain: false },
 ];
 
 const IMG_BASE = "/assets/img/sportsplayers/2026-2027/VBGJ/";
@@ -103,7 +114,7 @@ if (PLAYERS.length === 0) {
       '<div class="card-school">GAGE</div>' +
       (p.captain ? '<div class="captain-badge" title="' + tr("Capitaine", "Captain") + '">C</div>' : '') +
       '<div class="card-info">' +
-        '<div class="card-position">' + p.position + '</div>' +
+        '<div class="card-position">' + tr(p.position, p.positionEn || p.position) + '</div>' +
         '<div class="card-name">' + p.name + '</div>' +
       '</div>';
     roster.appendChild(card);
