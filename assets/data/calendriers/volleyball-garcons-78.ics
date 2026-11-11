@@ -101,12 +101,23 @@ DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-78-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-05-volleyball-garcons-7e-8e-vs-8e-place-a-confirmer@esgage.ca
+UID:2026-11-05-volleyball-garcons-7e-8e-vs-harvest-oak@esgage.ca
 DTSTAMP:20260801T000000Z
-SUMMARY:🏠 Volleyball garçons 7e/8e vs 8e place (à confirmer)
+SUMMARY:🏠 Volleyball garçons 7e/8e vs Harvest Oak
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261105T153000
 DTEND;TZID=America/Toronto:20261105T170000
+URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-garcons-78-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-volleyball-garcons-7e-8e-vs-posts-corners@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball garçons 7e/8e vs Posts Corners
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261112T153000
+DTEND;TZID=America/Toronto:20261112T170000
 URL:https://esgage.ca/equipes/volleyball-garcons-78-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-78-2026-2027.html
