@@ -103,6 +103,17 @@
 .parents-btn-outline { background: transparent; color: #fff; }
 .parents-btn-outline:hover { background: rgba(255, 255, 255, 0.15); border-color: #fff; color: #fff; }
 
+/* Inscription button under the page title (links to the board's pre-registration form) */
+.page-title .parents-inscription {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 12px 28px; border-radius: 50px;
+  background: #fff; color: #134527; border: 2px solid #fff;
+  font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 15px; text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); transition: background 0.2s, border-color 0.2s;
+}
+.page-title .parents-inscription:hover,
+.page-title .parents-inscription:focus-visible { background: #ffe082; border-color: #ffe082; color: #134527; }
+.parents-inscription-note { margin: 8px 0 0; font-size: 13px; opacity: 0.8; }
+
 /* Dark mode */
 html.dark-mode .parents-card,
 html.dark-mode .parents-link,
@@ -116,6 +127,7 @@ html.dark-mode .parents-more a { color: #5cb87a; }
 html.dark-mode .parents-jump a { border-color: #5cb87a; }
 html.dark-mode .parents-jump a:hover { background: #5cb87a; color: #121212; }
 html.dark-mode .parents-btn { color: #134527; }
+html.dark-mode .page-title .parents-inscription { color: #134527; }
 html.dark-mode .parents-btn-outline,
 html.dark-mode .parents-btn-outline:hover { color: #fff; }
 
