@@ -588,6 +588,17 @@
    "allDay": false
   },
   {
+   "title": "Volleyball garçons junior vs Burlington Central H.S.",
+   "start": "2026-11-13T14:15",
+   "allDay": false,
+   "game": true,
+   "home": false,
+   "team": "volleyball-garcons-junior",
+   "end": "2026-11-13T14:15",
+   "location": "Alton Community Centre",
+   "url": "/equipes/volleyball-garcons-junior-2026-2027.html"
+  },
+  {
    "title": "Soirée multiculturelle de DUCH à GAGE",
    "start": "2026-11-17",
    "end": "2026-11-18",
