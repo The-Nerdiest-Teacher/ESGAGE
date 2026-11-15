@@ -31,6 +31,9 @@
   //   { saison: "2018-2019", date: "2019-03-01", sport_fr: "Basketball garçons senior", sport_en: "Senior boys basketball",
   //     titre_fr: "Championnat HSSAA", titre_en: "HSSAA championship", resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
   var EXPLOITS = [
+    { saison: "2026-2027", date: "2026-11-13", cle: "volleyball-garcons-junior",
+      titre_fr: "Championnat HSSAA junior (Tier 2)", titre_en: "HSSAA junior championship (Tier 2)",
+      resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
     { saison: "2026-2027", date: "2026-10-31", cle: "basketball-garcons-senior",
       titre_fr: "Tournoi de basketball ESCSFA", titre_en: "ESCSFA basketball tournament",
       resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
@@ -275,7 +278,14 @@
                titre: tr(x.titre_fr, x.titre_en), resultat: tr(x.resultat_fr, x.resultat_en) };
     });
     var all = typed;
-    seasons.forEach(function (s) { all = all.concat(autoExploits(s)); });
+    // A title typed above wins over the automatic card for the same team on the same day
+    // (e.g. a final typed before the score is in), so it never shows twice.
+    var typedKeys = typed.map(function (x) { return (x.team ? x.team.cle : "") + "|" + (x.when ? x.when.toDateString() : ""); });
+    seasons.forEach(function (s) {
+      all = all.concat(autoExploits(s).filter(function (e) {
+        return !e.when || typedKeys.indexOf(e.team.cle + "|" + e.when.toDateString()) < 0;
+      }));
+    });
 
     var bySeason = {};
     all.forEach(function (e) { (bySeason[e.saison] = bySeason[e.saison] || []).push(e); });
