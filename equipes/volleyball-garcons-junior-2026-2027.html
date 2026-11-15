@@ -29,6 +29,28 @@
 <link href="/assets/vendor/aos/aos.css" rel="stylesheet"/>
 <link href="/assets/css/main.css" rel="stylesheet"/>
 <link href="/assets/css/equipes.css" rel="stylesheet"/>
+<style>
+/* Résultats de tournois : carte vedette au-dessus des matchs de la saison */
+.tournament-list { display: grid; gap: 10px; margin-bottom: 24px; }
+.tournament-card { position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 8px; color: #fff; background: linear-gradient(135deg, #1f6b3a 0%, #134527 100%); border-left: 5px solid #f9a825; box-shadow: 0 4px 12px rgba(19, 69, 39, 0.18); }
+.tournament-trophy { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 30%, #ffe082, #f9a825 60%, #c77c02); color: #134527; font-size: 20px; }
+.tournament-body { flex: 1 1 auto; min-width: 0; }
+.tournament-name { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.2; color: #fff; margin: 0; }
+.tournament-dates { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+.tournament-result { display: inline-flex; align-items: center; gap: 6px; background: #f9a825; color: #1b1b1b; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+.results-subtitle { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--heading-color); opacity: 0.75; margin-bottom: 10px; }
+.tournament-actions { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tournament-card .replay-btn, html.dark-mode .tournament-card .replay-btn { background: #fff; color: #1f6b3a; }
+.tournament-card .replay-btn:hover, html.dark-mode .tournament-card .replay-btn:hover { background: #ffe082; color: #134527; }
+.tournament-card .replay-btn[href=""] { display: none; }
+html.dark-mode .tournament-card { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+@media (max-width: 575px) {
+  .tournament-card { flex-wrap: wrap; }
+  .tournament-body { flex-basis: calc(100% - 56px); }
+  .tournament-actions { margin-left: 56px; max-width: calc(100% - 56px); }
+  .tournament-result { font-size: 12px; }
+}
+</style>
 </head>
 <body class="starter-page-page">
 <div id="header-placeholder"></div>
@@ -65,6 +87,24 @@
       </div>
       <div class="mb-5">
         <h2 class="section-tab-title"><i class="bi bi-trophy me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Results">Résultats</span></h2>
+        <!-- Titres : ajoutez une nouvelle <article class="tournament-card"> par titre ou tournoi (le plus récent en premier).
+             Mettez le texte anglais dans data-en. -->
+        <p class="results-subtitle" data-en="Titles">Titres</p>
+        <div class="tournament-list">
+          <article class="tournament-card">
+            <div class="tournament-trophy"><i class="bi bi-trophy-fill"></i></div>
+            <div class="tournament-body">
+              <h3 class="tournament-name" data-en="HSSAA junior championship (Tier 2), final vs Burlington Central">Championnat HSSAA junior (Tier 2), finale contre Burlington Central</h3>
+              <div class="tournament-dates"><i class="bi bi-calendar-event me-1"></i><span data-en="November 13, 2026">13 novembre 2026</span></div>
+            </div>
+            <div class="tournament-actions">
+              <span class="tournament-result"><i class="bi bi-award-fill"></i><span data-en="Champions">Champions</span></span>
+              <!-- Lien vers la vidéo de la finale (le bouton reste caché tant que href est vide) -->
+              <a class="replay-btn" href="https://csviamonde-my.sharepoint.com/:v:/r/personal/chauvinn_csviamonde_ca/_layouts/15/stream.aspx?id=%2Fpersonal%2Fchauvinn_csviamonde_ca%2FDocuments%2FVolley%2F2026-2027%2FJunior%20Boys%2FFINALS%20-%20%20BC%2FVID_20261113_143457_01_01.mp4&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&amp;share=cQoFCfo5iETSQZdfhj14XCqeEgUDHN6Dx18fD-60H0YFTHpv-Q" target="_blank" rel="noopener"><i class="bi bi-play-circle-fill"></i> <span data-en="Video">Vidéo</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="results-subtitle" data-en="Season games">Matchs de la saison</p>
         <div id="scores-container"><p class="data-loading"><i class="bi bi-arrow-clockwise me-1"></i><span data-en="Loading...">Chargement...</span></p></div>
       </div>
       <div class="mb-5">
@@ -132,6 +172,7 @@ if (PLAYERS.length === 0) {
 var REPLAYS = [
 { adversaire: "Acton", date: "October 28", url: "https://csviamonde-my.sharepoint.com/:v:/r/personal/chauvinn_csviamonde_ca/_layouts/15/stream.aspx?id=%2Fpersonal%2Fchauvinn_csviamonde_ca%2FDocuments%2FVolley%2F2026-2027%2FJunior%20Boys%2FVID_20261028_165418_01_01.mp4&share=cQp7O1OAkPNVQYKZnR8rXKcMEgUC1y3N8x0tzERHwoGziNUKbw&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0" },
 { adversaire: "King's", date: "November 10", url: "https://csviamonde-my.sharepoint.com/:f:/r/personal/chauvinn_csviamonde_ca/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchauvinn%5Fcsviamonde%5Fca%2FDocuments%2FVolley%2F2026%2D2027%2FJunior%20Boys%2FSEMI%20KCC%20%2D%20Nov%2010th&share=cgoBSDjWhoZqRpC1V%5FZS5R%2D8EgUDFHobe3glEgk8jaXuOgIH7Q" },
+{ adversaire: "Burlington", date: "November 13", url: "https://csviamonde-my.sharepoint.com/:v:/r/personal/chauvinn_csviamonde_ca/_layouts/15/stream.aspx?id=%2Fpersonal%2Fchauvinn_csviamonde_ca%2FDocuments%2FVolley%2F2026-2027%2FJunior%20Boys%2FFINALS%20-%20%20BC%2FVID_20261113_143457_01_01.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&share=cQoFCfo5iETSQZdfhj14XCqeEgUDHN6Dx18fD-60H0YFTHpv-Q" },
 ];
 
 // ── HSSAA Data ────────────────────────────────────────────────────────────
