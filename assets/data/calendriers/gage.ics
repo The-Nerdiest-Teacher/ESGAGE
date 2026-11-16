@@ -719,6 +719,17 @@ DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-11-23-basketball-garcons-senior-vs-nelson-high-school@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons senior vs Nelson High School
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261123T150000
+DTEND;TZID=America/Toronto:20261123T163000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-24-formation-dj@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Formation DJ
@@ -740,6 +751,44 @@ DTSTART;VALUE=DATE:20261124
 DTEND;VALUE=DATE:20261125
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-11-24-volleyball-filles-junior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles junior vs E.S. Sainte-Trinite
+LOCATION:E.S. Sainte-Trinite
+DTSTART;TZID=America/Toronto:20261124T153000
+DTEND;TZID=America/Toronto:20261124T170000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-24-volleyball-filles-senior-vs-burlington-central-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles senior vs Burlington Central H.S.
+LOCATION:Burlington Central H.S.
+DTSTART;TZID=America/Toronto:20261124T153000
+DTEND;TZID=America/Toronto:20261124T170000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-25-basketball-garcons-junior-vs-t-a-blakelock-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons junior vs T.A. Blakelock H.S.
+LOCATION:T.A. Blakelock H.S.
+DTSTART;TZID=America/Toronto:20261125T143000
+DTEND;TZID=America/Toronto:20261125T160000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-25-basketball-garcons-senior-vs-iroquois-ridge-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons senior vs Iroquois Ridge H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261125T153000
+DTEND;TZID=America/Toronto:20261125T170000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-26-soiree-portes-ouvertes@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:SOIRÉE PORTES OUVERTES
@@ -754,10 +803,346 @@ DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261128
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-11-30-basketball-garcons-senior-vs-georgetown-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons senior vs Georgetown D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261130T153000
+DTEND;TZID=America/Toronto:20261130T170000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-01-volleyball-filles-senior-vs-maclachlan-college@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles senior vs MacLachlan College
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261201T153000
+DTEND;TZID=America/Toronto:20261201T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-02-basketball-garcons-junior-vs-burlington-central-h-s@esgage.c
+ a
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons junior vs Burlington Central H.S.
+LOCATION:Burlington Central H.S.
+DTSTART;TZID=America/Toronto:20261202T164500
+DTEND;TZID=America/Toronto:20261202T181500
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-03-basketball-garcons-junior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons junior vs Acton D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261203T153000
+DTEND;TZID=America/Toronto:20261203T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-03-volleyball-filles-junior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles junior vs Acton D.H.S.
+LOCATION:Acton D.H.S.
+DTSTART;TZID=America/Toronto:20261203T164500
+DTEND;TZID=America/Toronto:20261203T181500
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-08-volleyball-filles-junior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles junior vs Acton D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261208T153000
+DTEND;TZID=America/Toronto:20261208T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-08-volleyball-filles-senior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles senior vs Acton D.H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261208T164500
+DTEND;TZID=America/Toronto:20261208T181500
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-basketball-garcons-senior-vs-t-a-blakelock-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons senior vs T.A. Blakelock H.S.
+LOCATION:T.A. Blakelock H.S.
+DTSTART;TZID=America/Toronto:20261209T150000
+DTEND;TZID=America/Toronto:20261209T163000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-12-10-natation-competition-a-mcmaster@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:Natation - compétition à McMaster
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-basketball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons junior vs E.S. Sainte-Trinite
+LOCATION:E.S. Sainte-Trinite
+DTSTART;TZID=America/Toronto:20261210T153000
+DTEND;TZID=America/Toronto:20261210T170000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-volleyball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles senior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261210T153000
+DTEND;TZID=America/Toronto:20261210T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-volleyball-filles-junior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles junior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261210T164500
+DTEND;TZID=America/Toronto:20261210T181500
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-14-basketball-garcons-junior-vs-t-a-blakelock-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons junior vs T.A. Blakelock H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261214T143000
+DTEND;TZID=America/Toronto:20261214T160000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-14-basketball-garcons-senior-vs-frank-hayden-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons senior vs Frank Hayden S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261214T160000
+DTEND;TZID=America/Toronto:20261214T173000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-15-volleyball-filles-junior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles junior vs E.S. Sainte-Trinite
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20261215T153000
+DTEND;TZID=America/Toronto:20261215T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-15-volleyball-filles-senior-vs-aldershot-high-school@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles senior vs Aldershot High School
+LOCATION:Aldershot High School
+DTSTART;TZID=America/Toronto:20261215T164500
+DTEND;TZID=America/Toronto:20261215T181500
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-16-basketball-garcons-senior-vs-garth-webb-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons senior vs Garth Webb S.S.
+LOCATION:Garth Webb S.S.
+DTSTART;TZID=America/Toronto:20261216T153000
+DTEND;TZID=America/Toronto:20261216T170000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-basketball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons junior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20261217T140000
+DTEND;TZID=America/Toronto:20261217T153000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-volleyball-filles-senior-vs-m-m-robinson-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles senior vs M.M. Robinson H.S.
+LOCATION:M.M. Robinson H.S.
+DTSTART;TZID=America/Toronto:20261217T153000
+DTEND;TZID=America/Toronto:20261217T170000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-volleyball-filles-junior-vs-m-m-robinson-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles junior vs M.M. Robinson H.S.
+LOCATION:M.M. Robinson H.S.
+DTSTART;TZID=America/Toronto:20261217T164500
+DTEND;TZID=America/Toronto:20261217T181500
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-05-basketball-garcons-senior-vs-king-s-christian-collegiate@esg
+ age.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons senior vs King's Christian Collegiate
+LOCATION:King's Christian Collegiate
+DTSTART;TZID=America/Toronto:20270105T153000
+DTEND;TZID=America/Toronto:20270105T170000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-05-volleyball-filles-junior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles junior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20270105T153000
+DTEND;TZID=America/Toronto:20270105T170000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-05-volleyball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles senior vs Elsie MacGill S.S.
+LOCATION:Elsie MacGill S.S.
+DTSTART;TZID=America/Toronto:20270105T164500
+DTEND;TZID=America/Toronto:20270105T181500
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-06-basketball-garcons-senior-vs-oakville-trafalgar-h-s@esgage.c
+ a
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons senior vs Oakville Trafalgar H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270106T151500
+DTEND;TZID=America/Toronto:20270106T164500
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-06-basketball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons junior vs Elsie MacGill S.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270106T163000
+DTEND;TZID=America/Toronto:20270106T180000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-07-volleyball-filles-senior-vs-aldershot-high-school@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles senior vs Aldershot High School
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270107T143000
+DTEND;TZID=America/Toronto:20270107T160000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-07-basketball-garcons-junior-vs-burlington-central-h-s@esgage.c
+ a
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons junior vs Burlington Central H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270107T160000
+DTEND;TZID=America/Toronto:20270107T173000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-11-basketball-garcons-senior-vs-milton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons senior vs Milton D.H.S.
+LOCATION:Milton D.H.S.
+DTSTART;TZID=America/Toronto:20270111T153000
+DTEND;TZID=America/Toronto:20270111T170000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-12-basketball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Basketball garçons junior vs E.S. Sainte-Trinite
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270112T153000
+DTEND;TZID=America/Toronto:20270112T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-12-volleyball-filles-junior-vs-m-m-robinson-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles junior vs M.M. Robinson H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270112T153000
+DTEND;TZID=America/Toronto:20270112T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-12-volleyball-filles-senior-vs-m-m-robinson-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles senior vs M.M. Robinson H.S.
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270112T164500
+DTEND;TZID=America/Toronto:20270112T181500
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-13-basketball-garcons-senior-vs-m-m-robinson-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons senior vs M.M. Robinson H.S.
+LOCATION:M.M. Robinson H.S.
+DTSTART;TZID=America/Toronto:20270113T153000
+DTEND;TZID=America/Toronto:20270113T170000
+URL:https://esgage.ca/equipes/basketball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-senior-2026-2027.html
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-13-volleyball-filles-senior-vs-maclachlan-college@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles senior vs MacLachlan College
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270113T153000
+DTEND;TZID=America/Toronto:20270113T170000
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-13-volleyball-filles-junior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🏠 Volleyball filles junior vs E.S. Sainte-Trinite
+LOCATION:Gaétan-Gervais
+DTSTART;TZID=America/Toronto:20270113T164500
+DTEND;TZID=America/Toronto:20270113T181500
+DESCRIPTION:Match à domicile
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-14-basketball-garcons-junior-vs-craig-kielburger-high-school@es
+ gage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Basketball garçons junior vs Craig Kielburger High School
+LOCATION:Craig Kielburger High School
+DTSTART;TZID=America/Toronto:20270114T153000
+DTEND;TZID=America/Toronto:20270114T170000
+DESCRIPTION:Match à l'extérieur
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-19-volleyball-filles-junior-vs-acton-d-h-s@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball filles junior vs Acton D.H.S.
+LOCATION:Acton D.H.S.
+DTSTART;TZID=America/Toronto:20270119T153000
+DTEND;TZID=America/Toronto:20270119T170000
+DESCRIPTION:Match à l'extérieur
 END:VEVENT
 END:VCALENDAR
