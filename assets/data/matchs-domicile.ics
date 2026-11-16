@@ -295,7 +295,9 @@ SUMMARY:Volleyball filles senior vs MacLachlan College
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261201T153000
 DTEND;TZID=America/Toronto:20261201T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-03-basketball-garcons-junior-vs-acton-d-h-s@esgage.ca
@@ -304,7 +306,9 @@ SUMMARY:Basketball garçons junior vs Acton D.H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261203T153000
 DTEND;TZID=America/Toronto:20261203T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-08-volleyball-filles-junior-vs-acton-d-h-s@esgage.ca
@@ -313,7 +317,9 @@ SUMMARY:Volleyball filles junior vs Acton D.H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261208T153000
 DTEND;TZID=America/Toronto:20261208T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-08-volleyball-filles-senior-vs-acton-d-h-s@esgage.ca
@@ -322,7 +328,9 @@ SUMMARY:Volleyball filles senior vs Acton D.H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261208T164500
 DTEND;TZID=America/Toronto:20261208T181500
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-10-volleyball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
@@ -331,7 +339,9 @@ SUMMARY:Volleyball filles senior vs Elsie MacGill S.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261210T153000
 DTEND;TZID=America/Toronto:20261210T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-10-volleyball-filles-junior-vs-elsie-macgill-s-s@esgage.ca
@@ -340,7 +350,9 @@ SUMMARY:Volleyball filles junior vs Elsie MacGill S.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261210T164500
 DTEND;TZID=America/Toronto:20261210T181500
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-14-basketball-garcons-junior-vs-t-a-blakelock-h-s@esgage.ca
@@ -349,7 +361,9 @@ SUMMARY:Basketball garçons junior vs T.A. Blakelock H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261214T143000
 DTEND;TZID=America/Toronto:20261214T160000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-14-basketball-garcons-senior-vs-frank-hayden-s-s@esgage.ca
@@ -369,7 +383,9 @@ SUMMARY:Volleyball filles junior vs E.S. Sainte-Trinite
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261215T153000
 DTEND;TZID=America/Toronto:20261215T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-06-basketball-garcons-senior-vs-oakville-trafalgar-h-s@esgage.c
@@ -390,7 +406,9 @@ SUMMARY:Basketball garçons junior vs Elsie MacGill S.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270106T163000
 DTEND;TZID=America/Toronto:20270106T180000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-07-volleyball-filles-senior-vs-aldershot-high-school@esgage.ca
@@ -399,7 +417,9 @@ SUMMARY:Volleyball filles senior vs Aldershot High School
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270107T143000
 DTEND;TZID=America/Toronto:20270107T160000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-07-basketball-garcons-junior-vs-burlington-central-h-s@esgage.c
@@ -409,7 +429,9 @@ SUMMARY:Basketball garçons junior vs Burlington Central H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270107T160000
 DTEND;TZID=America/Toronto:20270107T173000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-12-basketball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
@@ -418,7 +440,9 @@ SUMMARY:Basketball garçons junior vs E.S. Sainte-Trinite
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270112T153000
 DTEND;TZID=America/Toronto:20270112T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-12-volleyball-filles-junior-vs-m-m-robinson-h-s@esgage.ca
@@ -427,7 +451,9 @@ SUMMARY:Volleyball filles junior vs M.M. Robinson H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270112T153000
 DTEND;TZID=America/Toronto:20270112T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-12-volleyball-filles-senior-vs-m-m-robinson-h-s@esgage.ca
@@ -436,7 +462,9 @@ SUMMARY:Volleyball filles senior vs M.M. Robinson H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270112T164500
 DTEND;TZID=America/Toronto:20270112T181500
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-13-volleyball-filles-senior-vs-maclachlan-college@esgage.ca
@@ -445,7 +473,9 @@ SUMMARY:Volleyball filles senior vs MacLachlan College
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270113T153000
 DTEND;TZID=America/Toronto:20270113T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-13-volleyball-filles-junior-vs-e-s-sainte-trinite@esgage.ca
@@ -454,6 +484,8 @@ SUMMARY:Volleyball filles junior vs E.S. Sainte-Trinite
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270113T164500
 DTEND;TZID=America/Toronto:20270113T181500
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-junior-2026-2027.html
 END:VEVENT
 END:VCALENDAR

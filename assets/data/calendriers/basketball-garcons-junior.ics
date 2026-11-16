@@ -30,7 +30,9 @@ SUMMARY:🚌 Basketball garçons junior vs T.A. Blakelock H.S.
 LOCATION:T.A. Blakelock H.S.
 DTSTART;TZID=America/Toronto:20261125T143000
 DTEND;TZID=America/Toronto:20261125T160000
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-02-basketball-garcons-junior-vs-burlington-central-h-s@esgage.c
@@ -40,7 +42,9 @@ SUMMARY:🚌 Basketball garçons junior vs Burlington Central H.S.
 LOCATION:Burlington Central H.S.
 DTSTART;TZID=America/Toronto:20261202T164500
 DTEND;TZID=America/Toronto:20261202T181500
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-03-basketball-garcons-junior-vs-acton-d-h-s@esgage.ca
@@ -49,7 +53,9 @@ SUMMARY:🏠 Basketball garçons junior vs Acton D.H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261203T153000
 DTEND;TZID=America/Toronto:20261203T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-10-basketball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
@@ -58,7 +64,9 @@ SUMMARY:🚌 Basketball garçons junior vs E.S. Sainte-Trinite
 LOCATION:E.S. Sainte-Trinite
 DTSTART;TZID=America/Toronto:20261210T153000
 DTEND;TZID=America/Toronto:20261210T170000
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-14-basketball-garcons-junior-vs-t-a-blakelock-h-s@esgage.ca
@@ -67,7 +75,9 @@ SUMMARY:🏠 Basketball garçons junior vs T.A. Blakelock H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261214T143000
 DTEND;TZID=America/Toronto:20261214T160000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-17-basketball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
@@ -76,7 +86,9 @@ SUMMARY:🚌 Basketball garçons junior vs Elsie MacGill S.S.
 LOCATION:Elsie MacGill S.S.
 DTSTART;TZID=America/Toronto:20261217T140000
 DTEND;TZID=America/Toronto:20261217T153000
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-06-basketball-garcons-junior-vs-elsie-macgill-s-s@esgage.ca
@@ -85,7 +97,9 @@ SUMMARY:🏠 Basketball garçons junior vs Elsie MacGill S.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270106T163000
 DTEND;TZID=America/Toronto:20270106T180000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-07-basketball-garcons-junior-vs-burlington-central-h-s@esgage.c
@@ -95,7 +109,9 @@ SUMMARY:🏠 Basketball garçons junior vs Burlington Central H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270107T160000
 DTEND;TZID=America/Toronto:20270107T173000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-12-basketball-garcons-junior-vs-e-s-sainte-trinite@esgage.ca
@@ -104,7 +120,9 @@ SUMMARY:🏠 Basketball garçons junior vs E.S. Sainte-Trinite
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270112T153000
 DTEND;TZID=America/Toronto:20270112T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-14-basketball-garcons-junior-vs-craig-kielburger-high-school@es
@@ -114,6 +132,8 @@ SUMMARY:🚌 Basketball garçons junior vs Craig Kielburger High School
 LOCATION:Craig Kielburger High School
 DTSTART;TZID=America/Toronto:20270114T153000
 DTEND;TZID=America/Toronto:20270114T170000
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/basketball-garcons-junior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/basketball-garcons-junior-2026-2027.html
 END:VEVENT
 END:VCALENDAR

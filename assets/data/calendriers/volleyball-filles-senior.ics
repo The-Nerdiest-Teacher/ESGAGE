@@ -30,7 +30,9 @@ SUMMARY:🚌 Volleyball filles senior vs Burlington Central H.S.
 LOCATION:Burlington Central H.S.
 DTSTART;TZID=America/Toronto:20261124T153000
 DTEND;TZID=America/Toronto:20261124T170000
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-01-volleyball-filles-senior-vs-maclachlan-college@esgage.ca
@@ -39,7 +41,9 @@ SUMMARY:🏠 Volleyball filles senior vs MacLachlan College
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261201T153000
 DTEND;TZID=America/Toronto:20261201T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-08-volleyball-filles-senior-vs-acton-d-h-s@esgage.ca
@@ -48,7 +52,9 @@ SUMMARY:🏠 Volleyball filles senior vs Acton D.H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261208T164500
 DTEND;TZID=America/Toronto:20261208T181500
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-10-volleyball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
@@ -57,7 +63,9 @@ SUMMARY:🏠 Volleyball filles senior vs Elsie MacGill S.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20261210T153000
 DTEND;TZID=America/Toronto:20261210T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-15-volleyball-filles-senior-vs-aldershot-high-school@esgage.ca
@@ -66,7 +74,9 @@ SUMMARY:🚌 Volleyball filles senior vs Aldershot High School
 LOCATION:Aldershot High School
 DTSTART;TZID=America/Toronto:20261215T164500
 DTEND;TZID=America/Toronto:20261215T181500
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-17-volleyball-filles-senior-vs-m-m-robinson-h-s@esgage.ca
@@ -75,7 +85,9 @@ SUMMARY:🚌 Volleyball filles senior vs M.M. Robinson H.S.
 LOCATION:M.M. Robinson H.S.
 DTSTART;TZID=America/Toronto:20261217T153000
 DTEND;TZID=America/Toronto:20261217T170000
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-05-volleyball-filles-senior-vs-elsie-macgill-s-s@esgage.ca
@@ -84,7 +96,9 @@ SUMMARY:🚌 Volleyball filles senior vs Elsie MacGill S.S.
 LOCATION:Elsie MacGill S.S.
 DTSTART;TZID=America/Toronto:20270105T164500
 DTEND;TZID=America/Toronto:20270105T181500
-DESCRIPTION:Match à l'extérieur
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-07-volleyball-filles-senior-vs-aldershot-high-school@esgage.ca
@@ -93,7 +107,9 @@ SUMMARY:🏠 Volleyball filles senior vs Aldershot High School
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270107T143000
 DTEND;TZID=America/Toronto:20270107T160000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-12-volleyball-filles-senior-vs-m-m-robinson-h-s@esgage.ca
@@ -102,7 +118,9 @@ SUMMARY:🏠 Volleyball filles senior vs M.M. Robinson H.S.
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270112T164500
 DTEND;TZID=America/Toronto:20270112T181500
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-13-volleyball-filles-senior-vs-maclachlan-college@esgage.ca
@@ -111,6 +129,8 @@ SUMMARY:🏠 Volleyball filles senior vs MacLachlan College
 LOCATION:Gaétan-Gervais
 DTSTART;TZID=America/Toronto:20270113T153000
 DTEND;TZID=America/Toronto:20270113T170000
-DESCRIPTION:Match à domicile
+URL:https://esgage.ca/equipes/volleyball-filles-senior-2026-2027.html
+DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
+ s/volleyball-filles-senior-2026-2027.html
 END:VEVENT
 END:VCALENDAR
