@@ -2,7 +2,479 @@
   "label": "Volleyball — Filles Junior",
   "leagueid": 3,
   "schoolid": 12,
-  "updated": "Sun, 15 Nov 2026 23:22:53 GMT",
-  "standings": [],
-  "scores": []
+  "updated": "Mon, 16 Nov 2026 18:49:48 GMT",
+  "standings": [
+    {
+      "headers": [
+        "Tier 1"
+      ],
+      "rows": [
+        [
+          "",
+          "School",
+          "MP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "SW",
+          "SL",
+          "PW",
+          "PL",
+          "STREAK"
+        ],
+        [
+          "",
+          "Abbey Park H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "White Oaks High School (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "T.A. Blakelock H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Oakville Trafalgar H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Nelson High School (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Milton D.H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "King's Christian Collegiate (AA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Iroquois Ridge H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Georgetown D.H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Frank Hayden S.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Craig Kielburger High School (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Aldershot High School (AA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      ]
+    },
+    {
+      "headers": [
+        "Tier 2"
+      ],
+      "rows": [
+        [
+          "",
+          "School",
+          "MP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "SW",
+          "SL",
+          "PW",
+          "PL",
+          "STREAK"
+        ],
+        [
+          "",
+          "E.S. Sainte-Trinite (A)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "M.M. Robinson H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "E.S. Gaetan Gervais (A)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Acton D.H.S. (A)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Elsie MacGill S.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      ]
+    }
+  ],
+  "scores": [
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, November 24, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "E.S. Sainte-Trinite"
+    ],
+    [
+      "Location: E.S. Sainte-Trinite",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Thursday, December 3, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "04:45 PM",
+      "Acton D.H.S."
+    ],
+    [
+      "Location: Acton D.H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, December 8, 2026"
+    ],
+    [
+      "Acton D.H.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Thursday, December 10, 2026"
+    ],
+    [
+      "Elsie MacGill S.S.",
+      "04:45 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, December 15, 2026"
+    ],
+    [
+      "E.S. Sainte-Trinite",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Thursday, December 17, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "04:45 PM",
+      "M.M. Robinson H.S."
+    ],
+    [
+      "Location: M.M. Robinson H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, January 5, 2027"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "Elsie MacGill S.S."
+    ],
+    [
+      "Location: Elsie MacGill S.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, January 12, 2027"
+    ],
+    [
+      "M.M. Robinson H.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, January 13, 2027"
+    ],
+    [
+      "E.S. Sainte-Trinite",
+      "04:45 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, January 19, 2027"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "Acton D.H.S."
+    ],
+    [
+      "Location: Acton D.H.S.",
+      "Notes: Regular Season."
+    ]
+  ]
 }
