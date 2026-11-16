@@ -2,7 +2,460 @@
   "label": "Basketball — Garçons Senior",
   "leagueid": 2,
   "schoolid": 12,
-  "updated": "Sun, 15 Nov 2026 23:22:44 GMT",
-  "standings": [],
-  "scores": []
+  "updated": "Mon, 16 Nov 2026 18:49:38 GMT",
+  "standings": [
+    {
+      "headers": [
+        "Tier 1"
+      ],
+      "rows": [
+        [
+          "",
+          "School",
+          "GP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "WIN %",
+          "PF",
+          "PA",
+          "STREAK"
+        ],
+        [
+          "",
+          "T.A. Blakelock H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "E.S. Gaetan Gervais (A)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Frank Hayden S.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Garth Webb S.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Georgetown D.H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Iroquois Ridge H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "King's Christian Collegiate (AA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Milton D.H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "M.M. Robinson H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Nelson High School (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Oakville Trafalgar H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ]
+      ]
+    },
+    {
+      "headers": [
+        "Tier 2"
+      ],
+      "rows": [
+        [
+          "",
+          "School",
+          "GP",
+          "W",
+          "L",
+          "T",
+          "PTS",
+          "WIN %",
+          "PF",
+          "PA",
+          "STREAK"
+        ],
+        [
+          "",
+          "Elsie MacGill S.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Abbey Park H.S. (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "White Oaks High School (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Craig Kielburger High School (AAA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Burlington Central H.S. (AA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ],
+        [
+          "",
+          "Aldershot High School (AA)",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0.000",
+          "0",
+          "0",
+          "-"
+        ]
+      ]
+    }
+  ],
+  "scores": [
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, November 23, 2026"
+    ],
+    [
+      "Nelson High School",
+      "03:00 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, November 25, 2026"
+    ],
+    [
+      "Iroquois Ridge H.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, November 30, 2026"
+    ],
+    [
+      "Georgetown D.H.S.",
+      "03:30 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, December 9, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:00 PM",
+      "T.A. Blakelock H.S."
+    ],
+    [
+      "Location: T.A. Blakelock H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, December 14, 2026"
+    ],
+    [
+      "Frank Hayden S.S.",
+      "04:00 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, December 16, 2026"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "Garth Webb S.S."
+    ],
+    [
+      "Location: Garth Webb S.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Tuesday, January 5, 2027"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "King's Christian Collegiate"
+    ],
+    [
+      "Location: King's Christian Collegiate",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, January 6, 2027"
+    ],
+    [
+      "Oakville Trafalgar H.S.",
+      "03:15 PM",
+      "E.S. Gaetan Gervais"
+    ],
+    [
+      "Location: E.S. Gaetan Gervais",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Monday, January 11, 2027"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "Milton D.H.S."
+    ],
+    [
+      "Location: Milton D.H.S.",
+      "Notes: Regular Season."
+    ],
+    [
+      "Visitor",
+      "Score",
+      "Score",
+      "Home"
+    ],
+    [
+      "__DATE__",
+      "Wednesday, January 13, 2027"
+    ],
+    [
+      "E.S. Gaetan Gervais",
+      "03:30 PM",
+      "M.M. Robinson H.S."
+    ],
+    [
+      "Location: M.M. Robinson H.S.",
+      "Notes: Regular Season."
+    ]
+  ]
 }
