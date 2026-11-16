@@ -29,6 +29,35 @@
 <link href="/assets/vendor/aos/aos.css" rel="stylesheet"/>
 <link href="/assets/css/main.css" rel="stylesheet"/>
 <link href="/assets/css/equipes.css" rel="stylesheet"/>
+<style>
+.nat-meets { display: grid; gap: 24px; }
+.nat-card { border-radius: 14px; overflow: hidden; background: var(--surface-color, #fff); box-shadow: 0 4px 18px rgba(0,0,0,0.08); border-top: 5px solid var(--accent-color); }
+.nat-card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 16px; padding: 18px 20px 12px; }
+.nat-card-head h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; margin: 0; color: var(--heading-color); }
+.nat-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 0 20px 16px; font-size: 14px; }
+.nat-meta i { color: var(--accent-color); margin-right: 6px; }
+.nat-status { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+.nat-status.upcoming { background: color-mix(in srgb, var(--accent-color), transparent 85%); color: var(--accent-color); }
+.nat-status.done { background: #495057; color: #fff; }
+.nat-card table { width: 100%; margin: 0; }
+.nat-card th { background: color-mix(in srgb, var(--accent-color), transparent 88%); color: var(--heading-color); font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; padding: 8px 20px; text-transform: uppercase; letter-spacing: 1px; }
+.nat-card td { padding: 10px 20px; font-size: 14px; border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%); vertical-align: middle; }
+.nat-card th:last-child, .nat-card td:last-child { text-align: right; white-space: nowrap; }
+.nat-card td:first-child { white-space: nowrap; }
+.nat-cat { display: block; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 12px; opacity: 0.75; }
+.nat-time { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 15px; white-space: nowrap; }
+.nat-place { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px; color: var(--accent-color); }
+.nat-empty { padding: 4px 20px 20px; margin: 0; font-style: italic; opacity: 0.8; }
+.nat-medal { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; margin-right: 8px; font-size: 15px; color: #fff; vertical-align: middle; box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+.nat-medal.gold { background: linear-gradient(135deg, #f9d423, #e0a800); }
+.nat-medal.silver { background: linear-gradient(135deg, #e0e0e0, #9e9e9e); }
+.nat-medal.bronze { background: linear-gradient(135deg, #e09a5b, #a0522d); }
+.nat-card tr.nat-podium td { background: color-mix(in srgb, #cd7f32, transparent 90%); font-weight: 600; }
+@media (max-width: 575px) { .nat-card th, .nat-card td { padding: 8px 12px; } .nat-card-head, .nat-meta { padding-left: 14px; padding-right: 14px; } }
+html.dark-mode .nat-card { box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
+html.dark-mode .nat-place, html.dark-mode .nat-status.upcoming, html.dark-mode .nat-meta i { color: #6fcf8f; }
+html.dark-mode .nat-status.done { background: #5c636a; }
+</style>
 </head>
 <body class="starter-page-page">
 <div id="header-placeholder"></div>
@@ -56,31 +85,13 @@
     <div class="container" data-aos="fade-up">
       <a class="back-link" href="/athletisme.html"><i class="bi bi-arrow-left"></i> <span data-en="Back to sports">Retour aux sports</span></a>
       <div class="mb-5 mt-2">
-        <h2 class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Our team">Notre équipe</span></h2>
-        <div class="roster-grid" id="roster-container"></div>
+        <h2 class="section-tab-title"><i class="bi bi-stopwatch me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Meets &amp; results">Compétitions &amp; résultats</span></h2>
+        <!-- Les cartes sont créées à partir de la liste COMPETITIONS dans le script en bas de la page. -->
+        <div class="nat-meets" id="meets-container"></div>
       </div>
       <div class="mb-5">
-        <h2 class="section-tab-title"><i class="bi bi-calendar3 me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Schedule &amp; results">Calendrier &amp; Résultats</span></h2>
-        <div class="table-responsive">
-          <table class="table table-bordered manual-table">
-            <thead><tr><th>Date</th><th data-en="Opponent">Adversaire</th><th data-en="Location">Lieu</th><th data-en="Result">Résultat</th><th>Score</th><th>Notes</th></tr></thead>
-            <tbody>
-              <!--
-              MODÈLE — copiez et remplissez (data-en = le texte en anglais):
-              <tr>
-                <td data-en="Jan. 15, 2027">15 jan. 2027</td><td>École XYZ</td><td data-en="Home">Domicile</td>
-                <td><span class="badge-win" data-en="Win">Victoire</span></td>
-                <td>3 – 1</td><td></td>
-              </tr>
-              -->
-              <tr>
-                <td colspan="6" class="text-center" style="color:var(--default-color);opacity:0.8;font-style:italic;padding:20px;">
-                  <i class="bi bi-clock me-1"></i><span data-en="No games recorded yet.">Aucun match enregistré pour l'instant.</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h2 class="section-tab-title"><i class="bi bi-people-fill me-2" style="font-size:22px;vertical-align:middle;"></i><span data-en="Our team">Notre équipe</span></h2>
+        <div class="roster-grid" id="roster-container"></div>
       </div>
     </div>
   </section>
@@ -91,9 +102,89 @@
 <script src="/assets/vendor/aos/aos.js"></script>
 <script src="/assets/js/main.js"></script>
 <script>
+// ── Compétitions ─────────────────────────────────────────────────────────
+// Une ligne { ... } par compétition, la plus récente en haut ou en bas, comme vous voulez.
+//   date : "AAAA-MM-JJ"   lieu / lieuEn : le lieu en français / en anglais
+//   resultats : une ligne par nage. Nom = prénom + initiale(s) du nom (« Emma M. »).
+//     { nom: "Emma M.", epreuve: "50 m libre", categorie: "Filles junior", temps: "31.45", place: 3 }
+//     categorie et place sont facultatifs. Les places 1, 2 et 3 reçoivent une médaille.
+//     Épreuves traduites en anglais toutes seules : libre, dos, brasse, papillon, 4 nages, relais.
+var COMPETITIONS = [
+  {
+    nom: "1re compétition", nomEn: "First meet",
+    date: "2026-11-19",
+    lieu: "Université McMaster, Hamilton", lieuEn: "McMaster University, Hamilton",
+    resultats: [
+    ]
+  },
+  {
+    nom: "2e compétition", nomEn: "Second meet",
+    date: "2026-12-10",
+    lieu: "Université McMaster, Hamilton", lieuEn: "McMaster University, Hamilton",
+    resultats: [
+    ]
+  }
+];
+
+var STROKES = [[/4 nages/i, "IM"], [/quatre nages/i, "IM"], [/nage libre|libre/i, "freestyle"], [/dos/i, "backstroke"],
+  [/brasse/i, "breaststroke"], [/papillon/i, "butterfly"], [/relais/i, "relay"]];
+var CATS = [[/filles/i, "Girls"], [/garçons|garcons/i, "Boys"], [/mixte/i, "Mixed"], [/minime/i, "Midget"]];
+function trEvent(text, list) {
+  if (!GAGE_EN || !text) return text || "";
+  list.forEach(function(pair) { text = text.replace(pair[0], pair[1]); });
+  // « Garçons senior » → « Senior Boys » ; « relais 4 x 50 m libre » → « 4 x 50 m freestyle relay »
+  if (list === CATS) text = text.replace(/^(Girls|Boys|Mixed) (.+)$/, function(m, g, lvl) { return lvl.charAt(0).toUpperCase() + lvl.slice(1) + " " + g; });
+  if (/^relay /.test(text)) text = text.replace(/^relay (.+)$/, "$1 relay");
+  return text;
+}
+function esc(t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function(c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+var MEDALS = { 1: ["gold", tr("Médaille d'or", "Gold medal")], 2: ["silver", tr("Médaille d'argent", "Silver medal")], 3: ["bronze", tr("Médaille de bronze", "Bronze medal")] };
+var meetsBox = document.getElementById("meets-container");
+var today = new Date(); today.setHours(0, 0, 0, 0);
+
+COMPETITIONS.forEach(function(c) {
+  var d = new Date(c.date + "T12:00:00");
+  var dateText = d.toLocaleDateString(tr("fr-CA", "en-CA"), { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  dateText = dateText.charAt(0).toUpperCase() + dateText.slice(1);
+  var hasResults = c.resultats && c.resultats.length > 0;
+  var past = d < today;
+  var status = hasResults || past
+    ? '<span class="nat-status done">' + tr("Terminée", "Completed") + '</span>'
+    : '<span class="nat-status upcoming">' + tr("À venir", "Upcoming") + '</span>';
+
+  var html = '<div class="nat-card-head"><h3>' + esc(tr(c.nom, c.nomEn || c.nom)) + '</h3>' + status + '</div>' +
+    '<div class="nat-meta"><span><i class="bi bi-calendar-event"></i>' + esc(dateText) + '</span>' +
+    '<span><i class="bi bi-geo-alt-fill"></i>' + esc(tr(c.lieu, c.lieuEn || c.lieu)) + '</span></div>';
+
+  if (hasResults) {
+    html += '<div class="table-responsive"><table><thead><tr><th>' + tr("Nageur·euse", "Swimmer") + '</th><th>' + tr("Épreuve", "Event") +
+      '</th><th>' + tr("Temps", "Time") + '</th><th>' + tr("Place", "Place") + '</th></tr></thead><tbody>';
+    c.resultats.forEach(function(r) {
+      var n = parseInt(r.place, 10);
+      var m = MEDALS[n];
+      var place = isNaN(n) ? esc(r.place || "") :
+        (m ? '<span class="nat-medal ' + m[0] + '" title="' + m[1] + '" role="img" aria-label="' + m[1] + '"><i class="bi bi-award-fill"></i></span>' : '') +
+        '<span class="nat-place">' + n + '<sup>' + (GAGE_EN ? enOrdinalSuffix(n) : (n === 1 ? "re" : "e")) + '</sup></span>';
+      html += '<tr' + (m ? ' class="nat-podium"' : '') + '><td>' + esc(r.nom) + '</td><td>' + esc(trEvent(r.epreuve, STROKES)) +
+        (r.categorie ? '<span class="nat-cat">' + esc(trEvent(r.categorie, CATS)) + '</span>' : '') +
+        '</td><td><span class="nat-time">' + esc(r.temps) + '</span></td><td>' + place + '</td></tr>';
+    });
+    html += '</tbody></table></div>';
+  } else {
+    html += '<p class="nat-empty"><i class="bi bi-clock me-1"></i>' +
+      (past ? tr("Les résultats seront publiés bientôt.", "Results will be posted soon.")
+            : tr("Les résultats seront publiés après la compétition.", "Results will be posted after the meet.")) + '</p>';
+  }
+  var card = document.createElement("article");
+  card.className = "nat-card";
+  card.innerHTML = html;
+  meetsBox.appendChild(card);
+});
+
 // ── Roster ────────────────────────────────────────────────────────────────
 // Ajoutez vos joueurs ici.
-// Exemple: { name: "Prénom Nom", img: "photo.webp", position: "Passeur", captain: false }
+// Exemple: { name: "Prénom", img: "photo.webp", position: "", captain: false }
 // captain: true pour le/la capitaine
 const PLAYERS = [
 ];
@@ -114,7 +205,7 @@ if (PLAYERS.length === 0) {
       '<div class="card-school">GAGE</div>' +
       (p.captain ? '<div class="captain-badge" title="' + tr("Capitaine", "Captain") + '">C</div>' : '') +
       '<div class="card-info">' +
-        '<div class="card-position">' + p.position + '</div>' +
+        (p.position ? '<div class="card-position">' + p.position + '</div>' : '') +
         '<div class="card-name">' + p.name + '</div>' +
       '</div>';
     roster.appendChild(card);
