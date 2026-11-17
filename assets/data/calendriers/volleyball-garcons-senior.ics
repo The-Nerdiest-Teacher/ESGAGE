@@ -158,4 +158,15 @@ URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
 DESCRIPTION:Match à domicile\nPage de l'équipe : https://esgage.ca/equipe
  s/volleyball-garcons-senior-2026-2027.html
 END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-19-volleyball-garcons-senior-vs-e-s-sainte-trinite@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:🚌 Volleyball garçons senior vs E.S. Sainte-Trinite
+LOCATION:E.S. Sainte-Trinite
+DTSTART;TZID=America/Toronto:20261119T151500
+DTEND;TZID=America/Toronto:20261119T164500
+URL:https://esgage.ca/equipes/volleyball-garcons-senior-2026-2027.html
+DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
+ uipes/volleyball-garcons-senior-2026-2027.html
+END:VEVENT
 END:VCALENDAR
