@@ -31,6 +31,12 @@
   //   { saison: "2018-2019", date: "2019-03-01", sport_fr: "Basketball garçons senior", sport_en: "Senior boys basketball",
   //     titre_fr: "Championnat HSSAA", titre_en: "HSSAA championship", resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
   var EXPLOITS = [
+    { saison: "2026-2027", date: "2026-11-18", cle: "basketball-garcons-senior",
+      titre_fr: "Tournoi JSF Classique", titre_en: "JSF Classique tournament",
+      resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
+    { saison: "2026-2027", date: "2026-11-17", cle: "basketball-filles-senior",
+      titre_fr: "Tournoi JSF Classique", titre_en: "JSF Classique tournament",
+      resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
     { saison: "2026-2027", date: "2026-11-13", cle: "volleyball-garcons-junior",
       titre_fr: "Championnat HSSAA junior (Tier 2)", titre_en: "HSSAA junior championship (Tier 2)",
       resultat_fr: "Champions", resultat_en: "Champions", niveau: "or" },
