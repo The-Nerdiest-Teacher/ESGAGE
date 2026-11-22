@@ -876,6 +876,13 @@ DESCRIPTION:Match à l'extérieur\nPage de l'équipe : https://esgage.ca/eq
  uipes/volleyball-filles-junior-2026-2027.html
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-12-07-basketball-garcons-junior-vs-white-oaks-ss@esgage.ca
+DTSTAMP:20260801T000000Z
+SUMMARY:Basketball garçons junior vs White Oaks SS
+DTSTART;TZID=America/Toronto:20261207T150000
+DTEND;TZID=America/Toronto:20261207T163000
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-12-08-volleyball-filles-junior-vs-acton-d-h-s@esgage.ca
 DTSTAMP:20260801T000000Z
 SUMMARY:🏠 Volleyball filles junior vs Acton D.H.S.
