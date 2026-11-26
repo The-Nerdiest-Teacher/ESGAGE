@@ -73,5 +73,9 @@
       if (events.length) render(events);
       else showFallback();
     })
-    .catch(showFallback);
+    .catch(showFallback)
+    .then(function () {
+      // The cards change the section's height: let the scroll animations recompute where they start
+      if (window.AOS) window.AOS.refresh();
+    });
 })();
